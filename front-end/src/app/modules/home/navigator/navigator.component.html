@@ -1,0 +1,48 @@
+<!--====================  header area ====================-->
+<div class="header-area header-sticky header-area--absolute" id="myDIV">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="header position-relative">
+          <!-- brand logo -->
+          <div class="header__logo">
+            <a href="../../../index.html">
+              <img src="../../../assets/images/avatars/ecoit_logo.jpg" class="img-fluid" alt="Saas">
+            </a>
+          </div>
+          <!-- navigation menu -->
+          <div class="header__navigation d-none d-xl-block">
+            <div class="header__navigation--four">
+              <nav class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
+                <ul>
+                  <li><a href="../../../index.html"><span>TRANG CHỦ</span></a></li>
+                  <li><a href="#products-section"><span>SẢN PHẨM</span></a></li>
+                  <li><a routerLink="/s/news" routerLinkActive="active"><span>TIN TỨC</span></a></li>
+                  <li *ngIf="showAdminBoard || showModeratorBoard">
+                    <a routerLink="/dashboard" routerLinkActive="active"><span>QUẢN TRỊ</span></a>
+                  </li>
+                  <li *ngIf="!isLoggedIn"><a routerLink="/register" routerLinkActive="active"><span>ĐĂNG NHẬP</span></a></li>
+                  <li *ngIf="isLoggedIn"><a href="#" (click)="logout()"><span>ĐĂNG XUẤT</span></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- header actions -->
+          <div class="header__actions--four">
+
+            <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">
+              <i></i>
+            </div>
+
+            <div class="hidden-icons-menu d-block d-md-none" id="hidden-icon-trigger">
+              <a href="javascript:void(0)">
+                <i class="far fa-ellipsis-h-alt"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--====================  End of header area  ====================-->

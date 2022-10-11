@@ -1,0 +1,76 @@
+<!--begin::Aside-->
+<div class="aside pb-5">
+  <!--begin::Brand-->
+  <div class="aside-logo" id="kt_aside_logo">
+    <!--begin::Logo-->
+    <a href="#" class="d-flex align-items-center">
+      <img alt="Logo" src="../../../assets/diacau.png" class="logo">
+    </a>
+    <!--end::Logo-->
+  </div>
+  <!--end::Brand-->
+
+  <!--begin::Aside menu-->
+  <div class="aside-menu flex-column-fluid">
+    <!--begin::Aside Menu-->
+    <div class="hover-scroll-overlay-y my-3" style="height: 200px;">
+      <!--begin::Menu-->
+      <div class="d-flex flex-column">
+        <!--begin:Menu item-->
+        <div class="menu-item py-2" id="active-d">
+          <!--begin:Menu link-->
+          <a routerLink="/d/bang-dieu-khien" routerLinkActive="active" class="menu-link menu-center">
+            <span class="menu-icon"><i class="far fa-home"></i></span>
+            <span class="menu-title">Trang chủ</span>
+          </a>
+          <!--end:Menu link-->
+        </div>
+        <!--end:Menu item-->
+        <!--begin:Menu item-->
+        <div class="menu-item py-2" id="active-n">
+          <!--begin:Menu link-->
+          <a routerLink="/d/news" routerLinkActive="active" class="menu-link menu-center">
+            <span class="menu-icon"><i class="far fa-newspaper"></i></span>
+            <span class="menu-title">Tin tức</span>
+          </a>
+          <!--end:Menu link-->
+        </div>
+        <!--end:Menu item-->
+        <!--begin:Menu item-->
+        <div class="menu-item py-2" id="active-c">
+          <!--begin:Menu link-->
+          <a routerLink="/d/customer" routerLinkActive="active" class="menu-link menu-center">
+            <span class="menu-icon"><i class="fal fa-handshake"></i></span>
+            <span class="menu-title">Khách hàng</span>
+          </a>
+          <!--end:Menu link-->
+        </div>
+        <!--end:Menu item-->
+        <!--begin:Menu item-->
+        <div class="menu-item py-2" id="active-p">
+          <!--begin:Menu link-->
+          <a routerLink="/d/product" routerLinkActive="active" class="menu-link menu-center">
+            <span class="menu-icon"><i class="fal fa-box"></i></span>
+            <span class="menu-title">Sản phẩm</span>
+          </a>
+          <!--end:Menu link-->
+        </div>
+        <!--end:Menu item-->
+        <!--begin:Menu item-->
+        <div class="menu-item py-2" (click)="logout()">
+          <!--begin:Menu link-->
+          <div class="menu-link menu-center">
+            <span class="menu-icon"><i class="far fa-sign-out-alt"></i></span>
+            <span class="menu-title">Đăng xuất</span>
+          </div>
+          <!--end:Menu link-->
+        </div>
+        <!--end:Menu item-->
+      </div>
+      <!--end::Menu-->
+    </div>
+    <!--end::Aside Menu-->
+  </div>
+  <!--end::Aside menu-->
+</div>
+<!--end::Aside-->
