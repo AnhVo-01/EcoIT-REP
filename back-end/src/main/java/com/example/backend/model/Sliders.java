@@ -14,6 +14,8 @@ public class Sliders {
 
     private String url;
 
+    private String name;
+
     private String pathFile;
 
     @Column(name = "path_url")
@@ -21,5 +23,6 @@ public class Sliders {
 
     private String type;
 
-    private boolean active;
+    @Column(length = 1)
+    private int active;
 }

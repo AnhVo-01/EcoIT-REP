@@ -9,7 +9,7 @@ export class HideMissingDirective {
 
   @HostListener('error')
   private onError() {
-    this.el.nativeElement.src = "./assets/images/other/placeholder.png";
+    this.el.nativeElement.src = "./assets/images/placeholder.png";
   }
 
 }

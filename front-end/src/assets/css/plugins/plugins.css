@@ -1,4 +1,4 @@
-/* --------------------------------
+/* -------------------------------- 
 
 Primary style
 
@@ -87,9 +87,9 @@ Primary style
   opacity: 1;
 }
 
-/* --------------------------------
+/* -------------------------------- 
 
-xrotate-1
+xrotate-1 
 
 -------------------------------- */
 .cd-headline.rotate-1 .cd-words-wrapper {
@@ -192,9 +192,9 @@ xrotate-1
     opacity: 0;
   }
 }
-/* --------------------------------
+/* -------------------------------- 
 
-xtype
+xtype 
 
 -------------------------------- */
 .cd-headline.type .cd-words-wrapper {
@@ -274,9 +274,9 @@ xtype
     opacity: 0;
   }
 }
-/* --------------------------------
+/* -------------------------------- 
 
-xrotate-2
+xrotate-2 
 
 -------------------------------- */
 .cd-headline.rotate-2 .cd-words-wrapper {
@@ -391,9 +391,9 @@ xrotate-2
     transform: translateZ(-20px) rotateX(-90deg);
   }
 }
-/* --------------------------------
+/* -------------------------------- 
 
-xloading-bar
+xloading-bar 
 
 -------------------------------- */
 .cd-headline.loading-bar span {
@@ -436,9 +436,9 @@ xloading-bar
   top: 0;
 }
 
-/* --------------------------------
+/* -------------------------------- 
 
-xslide
+xslide 
 
 -------------------------------- */
 .cd-headline.slide span {
@@ -526,9 +526,9 @@ xslide
     transform: translateY(100%);
   }
 }
-/* --------------------------------
+/* -------------------------------- 
 
-xclip
+xclip 
 
 -------------------------------- */
 .cd-headline.clip span {
@@ -556,9 +556,9 @@ xclip
   opacity: 1;
 }
 
-/* --------------------------------
+/* -------------------------------- 
 
-xzoom
+xzoom 
 
 -------------------------------- */
 .cd-headline.zoom .cd-words-wrapper {
@@ -622,9 +622,9 @@ xzoom
     transform: translateZ(-100px);
   }
 }
-/* --------------------------------
+/* -------------------------------- 
 
-xrotate-3
+xrotate-3 
 
 -------------------------------- */
 .cd-headline.rotate-3 .cd-words-wrapper {
@@ -700,9 +700,9 @@ xrotate-3
     transform: rotateY(-180deg);
   }
 }
-/* --------------------------------
+/* -------------------------------- 
 
-xscale
+xscale 
 
 -------------------------------- */
 .cd-headline.scale b {
@@ -791,9 +791,9 @@ xscale
     opacity: 0;
   }
 }
-/* --------------------------------
+/* -------------------------------- 
 
-xpush
+xpush 
 
 -------------------------------- */
 .cd-headline.push b {
@@ -954,7 +954,7 @@ xpush
 
 
 /* ------------------------
-    Custom Animation 01
+    Custom Animation 01 
 ----------------------------*/
 
 @-webkit-keyframes headerSlideDown {
@@ -1108,7 +1108,7 @@ xpush
 
 
 /* ------------------------
-    Brook Hover Effect
+    Brook Hover Effect 
 ---------------------------*/
 
 .brook-transition{
@@ -1148,7 +1148,7 @@ xpush
     &.hover-text-dark{
         a{
             &:hover{
-
+                
             }
         }
     }
@@ -1158,7 +1158,7 @@ xpush
 
 
 /* ------------------------
-    Separator Bounce
+    Separator Bounce 
 ---------------------------*/
 
 @-webkit-keyframes separator-bounce {
@@ -1356,9 +1356,9 @@ xpush
 /*--
     - Slick Slider css
 -----------------------------------*/
-
+ 
 /* Slick SliderVersion: 1.8.1Author: Ken WheelerWebsite: http://kenwheeler.github.ioDocs: http://kenwheeler.github.io/slickRepo: http://github.com/kenwheeler/slickIssues: http://github.com/kenwheeler/slick/issues*/
-
+ 
 .slick-slider{position:relative;display:block;-webkit-box-sizing:border-box;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;-khtml-user-select:none;-ms-touch-action:pan-y;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0}.slick-list:focus{outline:none}.slick-list.dragging{cursor:pointer;cursor:hand}.slick-slider .slick-track,.slick-slider .slick-list{-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}.slick-track{position:relative;top:0;left:0;display:block;margin-left:auto;margin-right:auto}.slick-track:before,.slick-track:after{display:table;content:''}.slick-track:after{clear:both}.slick-loading .slick-track{visibility:hidden}.slick-slide{display:none;float:left;height:100%;min-height:1px}[dir='rtl'] .slick-slide{float:right}.slick-slide img{display:block}.slick-slide.slick-loading img{display:none}.slick-slide.dragging img{pointer-events:none}.slick-initialized .slick-slide{display:block}.slick-loading .slick-slide{visibility:hidden}.slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent}.slick-arrow.slick-hidden{display:none}
 
 
@@ -1366,7 +1366,7 @@ xpush
 
 /**
  * Swiper 4.5.0
- * Most modern mobile touch sliders and framework with hardware accelerated transitions
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
  * http://www.idangero.us/swiper/
  *
  * Copyright 2014-2019 Vladimir Kharlampidi

@@ -1,0 +1,55 @@
+.col-2dot4{
+  flex: calc(100% / 5);
+  max-width: calc(100% / 5);
+}
+
+.ht-service-box--two{
+  height: 270px;
+}
+.ht-service-box--two .box-icon{
+  background: #009cff;
+  padding: 35px;
+  height: 100%;
+}
+.box-icon .wdc-iconbox{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  color: #fff;
+}
+.close{
+  position: relative;
+  z-index: 100;
+}
+.close .btn{
+  width: 30px;
+  height: 30px;
+  background: #f00;
+  padding: 0;
+  line-height: 10px;
+}
+.hrtag{
+  background: #50B848;
+  border: 0;
+  outline: 0;
+  height: 2px;
+  width: 200px;
+}
+
+.ht-service-box--two .image{
+  height: 104px;
+}
+.ht-service-box--two .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.service_text{
+  font-size: 13px;
+  max-height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

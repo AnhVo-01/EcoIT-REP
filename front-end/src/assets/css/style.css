@@ -1,17 +1,17 @@
 /*============================
-    CSS Index
+    CSS Index         
 ==============================
 
     01. Default Css
-        - Breadvrumb
-        - preloader
+        - Breadvrumb 
+        - preloader   
         - Newsletter popup
-        - Scroll top
+        - Scroll top 
         - Revulion Area
     02. Section Spacing Css
     03. Custom Animation Css
-    04. container Css
-    05. Header Css
+    04. container Css 
+    05. Header Css 
         - Navigation Menu Css
         - Multilevel Submenu Css
         - Mega Menu Css
@@ -21,37 +21,37 @@
         - search overlay
     06. Footer Css
     07. Sidebar Css
-    08. Button Css
-    09. Accordions Css
-    10. Box Icon Css
-    11. Call To Action Css
-    12. Attribute Css
-    13. Contact Form And Newsletter Css
-    14. Countdown Css
+    08. Button Css 
+    09. Accordions Css 
+    10. Box Icon Css 
+    11. Call To Action Css 
+    12. Attribute Css 
+    13. Contact Form And Newsletter Css 
+    14. Countdown Css 
     15. Counters Css
-    16. Listing Css
-    17. Gradation Process Css
-    18. Instagram Css
-    19. Message Box Css
-    20. Video Popup Css
+    16. Listing Css 
+    17. Gradation Process Css 
+    18. Instagram Css 
+    19. Message Box Css   
+    20. Video Popup Css 
     21. Pricing table Css
-    22. Pricing Plans Css
-    23. progress Bar Css
-    24. Circle Progress Css
+    22. Pricing Plans Css  
+    23. progress Bar Css 
+    24. Circle Progress Css 
     25. Restaurant Menu Css
-    26. Row Separators Css
+    26. Row Separators Css    
     27. Social Networks Css
     28. Tabs Css
-    29. Team Member Css
-    30. Testimonial sliders Css
+    29. Team Member Css 
+    30. Testimonial slider Css
     31. Timeline Css
-    32. Gallery Css
-    33. Box image Css
+    32. Gallery Css 
+    33. Box image Css 
     34. Feature list Css
-    35. Feature sliders Css
-    36. Brand logo sliders Css
+    35. Feature slider Css 
+    36. Brand logo slider Css 
     37. Branding Page Css
-    38. App Showcase Css
+    38. App Showcase Css 
     39. Software Pages Css
     40. App Landing Pages Css
     41. Digital Agency Pages Css
@@ -65,10 +65,10 @@
     49. Portfolio Details Pages Css
     50. Shop Pages Css
     51. Shop Cart Css
-    52. Shop Checkout Css
-    53. Preview Page Css
-
-
+    52. Shop Checkout Css 
+    53. Preview Page Css 
+    
+    
 
 
 
@@ -932,7 +932,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /*===================================
-    - Breadvrumb
+    - Breadvrumb  
 =================================*/
 .gradient--secondary {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), to(#eceefa));
@@ -1401,7 +1401,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /*=============================================
-   - Scroll top
+   - Scroll top         
 =============================================*/
 .scroll-top {
   position: fixed;
@@ -1488,7 +1488,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /* =====================
-    - Revulion Area
+    - Revulion Area 
 ========================*/
 .rvbody {
   background: #3498DB;
@@ -2316,7 +2316,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /* ------------------------
-    Custom Animation 01
+    Custom Animation 01 
 ----------------------------*/
 @-webkit-keyframes headerSlideDown {
   0% {
@@ -2445,7 +2445,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /* ------------------------
-    Brook Hover Effect
+    Brook Hover Effect 
 ---------------------------*/
 .brook-transition {
   -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -2483,7 +2483,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /* ------------------------
-    Separator Bounce
+    Separator Bounce 
 ---------------------------*/
 @-webkit-keyframes separator-bounce {
   0%,
@@ -2512,7 +2512,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /* ====================
-    Toolbar Area
+    Toolbar Area 
 ========================*/
 .aeroland__toolbar .inner {
   position: absolute;
@@ -3717,7 +3717,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
   color: #ffffff;
 }
 
-/*==============================
+/*============================== 
     - Navigation Menu Css
 ===============================*/
 .navigation-menu > ul {
@@ -4427,7 +4427,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
   color: #5945e6;
 }
 
-/*================================
+/*================================ 
     - Mobile Menu Overlay Css
 ==================================*/
 .mobile-menu-overlay, .page-oppen-off-sidebar {
@@ -6565,7 +6565,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /*======================================
-    13. Contact Form And Newsletter Css
+    13. Contact Form And Newsletter Css 
 =======================================*/
 .contact-input {
   margin: 0 -10px;
@@ -6739,7 +6739,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /*======================================
-    14. Countdown Css
+    14. Countdown Css 
 =======================================*/
 .countdown_bg {
   background-image: url(../images/bg/aeroland-countdown-bg-image-01.jpg);
@@ -6917,7 +6917,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /*======================================
-    15. Counters Css
+    15. Counters Css 
 =======================================*/
 .fun-fact--one .fun-fact__title {
   color: #6d70a6;
@@ -7007,7 +7007,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
 }
 
 /*======================================
-    16. Listing Css
+    16. Listing Css 
 =======================================*/
 .separator-list .list-item {
   position: relative;
@@ -10030,7 +10030,7 @@ ol {
 }
 
 /*=============================================
-=           30. Testimonial sliders Css           =
+=           30. Testimonial slider Css           =
 =============================================*/
 .testimonial-slider {
   margin: -15px;
@@ -10137,7 +10137,7 @@ ol {
   font-size: 14px;
 }
 
-/*=====  End of testimonial sliders  ======*/
+/*=====  End of testimonial slider  ======*/
 /*=============================================
 =           31. Timeline Css           =
 =============================================*/
@@ -10425,7 +10425,7 @@ ol {
 }
 
 /* =================
-    Typed Text
+    Typed Text 
 ======================*/
 .cd-headline.clip span {
   padding: 0;
@@ -10939,7 +10939,7 @@ ol {
 
 /*=====  End of feature list  ======*/
 /*=============================================
-=            35. Feature sliders Css           =
+=            35. Feature slider Css           =
 =============================================*/
 .feature-slider__single-slide .feature-slider__single-slide-wrapper {
   padding: 0 15px;
@@ -11025,9 +11025,9 @@ ol {
           transform: translateX(0);
 }
 
-/*=====  End of feature sliders  ======*/
+/*=====  End of feature slider  ======*/
 /*=============================================
-=        36. Brand logo sliders Css            =
+=        36. Brand logo slider Css            =
 =============================================*/
 .brand-logo-wrapper {
   margin-bottom: -100px;
@@ -11142,7 +11142,7 @@ ol {
   opacity: .2;
 }
 
-/*=====  End of brand logo sliders  ======*/
+/*=====  End of brand logo slider  ======*/
 /*=============================================
 =        37. Branding Page Css            =
 =============================================*/

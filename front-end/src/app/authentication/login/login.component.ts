@@ -42,6 +42,6 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage(): void {
-    this.router.navigate(['/d/bang-dieu-khien']);
+    this.router.navigate(['/dashboard']);
   }
 }

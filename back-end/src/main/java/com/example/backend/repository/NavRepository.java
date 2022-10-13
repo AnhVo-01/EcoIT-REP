@@ -1,0 +1,21 @@
+package com.example.backend.repository;
+
+import com.example.backend.model.Navigation;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+
+public interface NavRepository extends JpaRepository<Navigation, Long> {
+    @Query("SELECT n FROM Navigation n WHERE n.name LIKE %:kw% AND n.active = true")
+    Page<Navigation> listAll(Pageable pageable, @Param("kw") String keyword);
+
+    @Query("SELECT n FROM Navigation n WHERE n.active = true")
+    List<Navigation> getAll();
+
+    @Query("SELECT nav FROM Navigation nav WHERE nav.active = true AND nav.parentId=:id")
+    List<Navigation> listAllChild(@Param("id") Long id);
+}

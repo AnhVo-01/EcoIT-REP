@@ -27,11 +27,11 @@ export class DashBoardComponent implements OnInit {
       this.username = user.username;
       this.roles = user.roles;
 
-      this.calendarHome();
-
       if(this.roles.includes("ROLE_USER")){
         this.router.navigate(['/login']);
       }
+
+      this.calendarHome();
 
       // @ts-ignore
       document.getElementById("active-d").classList.add("here");
