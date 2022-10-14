@@ -10,12 +10,14 @@ import {SliderService} from "../../../services/slider/slider.service";
 export class SliderListComponent implements OnInit {
 
   sliders: Sliders [] = [];
+  url: any;
 
   constructor(private sliderService: SliderService) { }
 
   ngOnInit(): void {
     this.sliderService.getListAll().subscribe(data =>{
       this.sliders = data;
+      this.url = this.sliders[0].pathUrl;
     })
   }
 

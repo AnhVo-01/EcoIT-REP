@@ -1,0 +1,29 @@
+.hrtag{
+  background: #50B848;
+  border: 0;
+  outline: 0;
+  height: 2px;
+  width: 200px;
+}
+
+/*================== Blogs ====================================*/
+.blog-thumbnail{
+  height: 220px;
+}
+.blog-thumbnail a{
+  height: 100%;
+  width: 100%;
+}
+.blog-thumbnail img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.text-desc{
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-align: justify;
+}

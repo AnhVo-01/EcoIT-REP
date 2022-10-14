@@ -1,0 +1,296 @@
+<app-nav-list></app-nav-list>
+
+
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-area gradient--secondary">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcrumb_box text-center">
+          <h2 class="breadcrumb-title">TIN TỨC</h2>
+          <!-- breadcrumb-list start -->
+          <ul class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
+            <li class="breadcrumb-item"><a routerLink="/s/news" routerLinkActive="active">TIN TỨC</a></li>
+            <li class="breadcrumb-item active">TIN TỨC MỚI NHẤT</li>
+          </ul>
+          <!-- breadcrumb-list end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- breadcrumb-area end -->
+
+<!--====================  Blog Area Start ====================-->
+<div class="blog-pages-wrapper section-space--ptb_100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="main-blog-wrap">
+          <!--======= Single Blog Item Start ========-->
+          <div class="single-blog-item">
+            <!-- Post Feature Start -->
+            <div class="post-feature blog-thumbnail wow move-up">
+              <img class="img-fluid" *ngFor="let img of news.postImage" src="{{img.url}}" alt="Blog Images" appHideMissing>
+            </div>
+            <!-- Post Feature End -->
+
+            <!-- Post info Start -->
+            <div class="post-info lg-blog-post-info  wow move-up">
+
+              <h4 class="post-title font-weight--light">{{news.title}}</h4>
+
+              <div class="post-meta mt-20">
+                <div class="post-date">
+                  <span class="far fa-calendar meta-icon"></span>
+                  {{news.date}}
+                </div>
+              </div>
+
+              <div class="post-excerpt mt-15">
+                <div class="content">
+                  <p *ngFor="let p of paragraph">{{p}}</p>
+                </div>
+                <div class="entry-post-share-wrap border-bottom pt-5">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                      <div class="entry-post-tags">
+                        <div class="tagcloud-icon">
+                          <i class="fa fa-tags"></i>
+                        </div>
+                        <div class="tagcloud">
+                          <a href="#">designer</a>, <a href="#">font</a>, <a href="#">mookup</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                      <div id="entry-post-share" class="entry-post-share">
+                        <div class="share-media">
+                          <a class="hint--bounce hint--top hint--primary twitter ml-2" target="_blank" aria-label="Twitter" href="#">
+                            <i class="fab fa-twitter"></i>
+                          </a>
+                          <a class="hint--bounce hint--top hint--primary facebook ml-2" target="_blank" aria-label="Facebook" href="#">
+                            <i class="fab fa-facebook-f"></i>
+                          </a>
+                          <a class="hint--bounce hint--top hint--primary linkedin ml-2" target="_blank" aria-label="Linkedin" href="#">
+                            <i class="fab fa-linkedin"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="related-posts-wrapper">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <h5 class="widget-title font-weight--light">Related Posts </h5>
+                    </div>
+                    <div class="col-lg-6">
+                      <!-- Single Valid Post Start -->
+                      <a class="single-valid-post-wrapper" href="#">
+                        <div class="single-blog__item">
+                          <div class="single-valid__thum bg-img" data-bg="assets/images/blog/blog-09-770x420.jpg">
+                          </div>
+
+                          <div class="post-content">
+                            <div class="post-info">
+                              <div class="post-meta">
+                                <div class="post-categories">
+                                  <span>App Release</span>
+                                </div>
+                              </div>
+                              <h6 class="post-title font-weight--bold">Designers’ Identities & Social Unconscious Bias</h6>
+                            </div>
+                          </div>
+
+                        </div>
+                      </a>
+                      <!-- Single Valid Post End -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Post info End -->
+          </div>
+          <!--===== Single Blog Item End =========-->
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="page-sidebar-content-wrapper page-sidebar-right  small-mt__40 tablet-mt__40">
+
+          <!--=== Sidebar Widget Start ===-->
+          <div class="sidebar-widget search-post  wow move-up">
+            <form action="#" method="post">
+              <div class="widget-search">
+                <input type="text" placeholder="Enter search keyword…">
+                <button type="submit" class="search-submit">
+                  <span class="search-btn-icon far fa-search"></span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <!--=== Sidebar Widget End ===-->
+
+          <!-- === Sidebar Widget Start ===-->
+          <div class="sidebar-widget widget-categories  wow move-up">
+            <ul>
+              <li class="cat-item"><a href="#">Về Chúng Tôi</a>
+              </li>
+              <li class="cat-item"><a href="#">Hồ Sơ Năng Lực</a>
+              </li>
+              <li class="cat-item"><a href="#">Khách Hàng Tiêu Biểu</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- === Sidebar Widget End === -->
+
+          <!-- === Sidebar Widget Start === -->
+          <div class="sidebar-widget widget-blog-post  wow move-up">
+
+            <h5 class="widget-title font-weight--light">Popular posts</h5>
+            <div class="post-item">
+              <div class="post-info">
+                <div class="post-categories">
+                  <a href="#">App Release</a>
+                </div>
+                <h6 class="post-title">
+                  <a href="#">Specialized Design Tools for 2019</a>
+                </h6>
+              </div>
+            </div>
+            <div class="post-item">
+              <div class="post-info">
+                <div class="post-categories">
+                  <a href="#">App Release</a>
+                </div>
+                <h6 class="post-title">
+                  <a href="#">D&amp;AD Festival 2019’s Brand Identity</a>
+                </h6>
+              </div>
+            </div>
+
+          </div>
+          <!-- === Sidebar Widget End === -->
+
+          <!-- === Sidebar Widget Start === -->
+          <div class="sidebar-widget widget-images  wow move-up">
+
+            <img class="img-fluid" src="../../../../assets/images/blog/blog-advertising.jpg" alt="">
+
+          </div>
+          <!-- === Sidebar Widget End === -->
+
+          <!-- === Sidebar Widget Start === -->
+          <div class="sidebar-widget widget-tag  wow move-up">
+
+            <h5 class="widget-title font-weight--light">Tags</h5>
+            <a href="#" class="ht-btn ht-btn-xs">designer</a>
+            <a href="#" class="ht-btn ht-btn-xs">font</a>
+            <a href="#" class="ht-btn ht-btn-xs">mookup</a>
+
+          </div>
+          <!-- === Sidebar Widget End === -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--====================  Blog Area End  ====================-->
+
+<!--====================  footer area ====================-->
+<div class="footer-area-wrapper">
+  <div class="footer-area section-space--ptb_90 border-top">
+    <div class="container">
+      <div class="row footer-widget-wrapper">
+        <div class="col-lg-4 col-md-6 footer-widget">
+          <div class="footer-widget__logo mb-30">
+            <img src="../../../../assets/images/avatars/ecoit_logo.jpg" class="img-fluid" alt="">
+          </div>
+          <ul class="footer-widget__list">
+            <li>
+              <i class="far fa-location-arrow mr-2"></i>
+              <span>Trụ sở chính: Tầng 3, Khu A-B Khu văn phòng, Imperia Garden, 203 Nguyễn Huy Tưởng, Thanh Xuân, TP Hà Nội</span>
+            </li>
+            <li>
+              <i class="far fa-location-arrow mr-2"></i>
+              <span>VP2: A10 – Ngõ 217 Đê La Thành – Đống Đa - Hà Nội</span>
+            </li>
+            <li>
+              <i class="far fa-envelope mr-2"></i>
+              <a href="mailto:contact@ecoit.asia" class="hover-style-link">contact@ecoit.asia</a>
+            </li>
+            <li>
+              <i class="far fa-phone-office mr-2"></i>
+              <a href="tel:024 62750064" class="hover-style-link">(+84) 935 772 929</a>
+            </li>
+            <li>
+              <i class="far fa-globe-asia mr-2"></i>
+              <a href="https://ecoit.asia/"target="_blank" class="hover-style-link hover-style-link--green">ecoit.asia</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-5 col-md-6 footer-widget">
+          <h6 class="footer-widget__title mb-20">Các lĩnh vực hoạt động chính</h6>
+          <ul class="footer-widget__list">
+            <li><a href="#" class="hover-style-link">Số hóa và chuyển đổi số</a></li>
+            <li><a href="#" class="hover-style-link">Tích hợp hệ thống công nghệ thông tin</a></li>
+            <li><a href="#" class="hover-style-link">Cung ứng dịch vụ công nghệ thông tin</a></li>
+            <li><a href="#" class="hover-style-link">Tư vấn dự án công nghệ thông tin</a></li>
+            <li><a href="#" class="hover-style-link">Sản xuất và gia công phần mềm</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-widget">
+          <div class="twitter-feed-slider">
+            <div class="swiper-container twitter-feed-slider__container">
+              <div class="swiper-wrapper twitter-feed-slider__wrapper">
+                <div class="swiper-slide twitter-feed-slider__single">
+                  <div class="tweet">
+                    <div class="tweet__text">
+                      EcoIT đang từng bước thiết lập mối quan hệ đối tác, kết nối sản phẩm với các hãng công nghệ hàng đầu trên thế giới nhằm cung cấp một hệ sinh thái sản phẩm hoàn thiện đến cho khách hàng và cộng đồng người sử dụng.
+                    </div>
+                    <div class="tweet__info">
+                      <h6 class="tweet__heading">Unsplash</h6>
+                      <span class="tweet__date">May 07, 2019</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright-area border-top section-space--ptb_30">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-left">
+          <span class="copyright-text">© 2019 AeroLand. All Rights Reserved.</span>
+        </div>
+        <div class="col-md-6 text-center text-md-right">
+          <ul class="list ht-social-networks solid-rounded-icon">
+            <li class="item">
+              <a href="#" target="_blank" class="social-link"> <i class="fab fa-facebook social-link-icon"></i> </a>
+            </li>
+            <li class="item">
+              <a href="#" target="_blank" class="social-link"> <i class="fab fa-twitter social-link-icon"></i> </a>
+            </li>
+            <li class="item">
+              <a href="#" target="_blank" class="social-link"> <i class="fab fa-instagram social-link-icon"></i> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--====================  End of footer area  ====================-->

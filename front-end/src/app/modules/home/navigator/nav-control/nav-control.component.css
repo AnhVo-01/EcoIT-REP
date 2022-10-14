@@ -149,3 +149,36 @@
   text-overflow: ellipsis;
   padding-left: 8px;
 }
+
+/* ---------------------------------- main --------------------------------*/
+.link-child ul li{
+  border-top: 1px dotted #0d0d0d;
+  padding-left: 20px;
+}
+
+.modal-button{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #fff;
+}
+.modal-button button{
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.modal-content-box{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+}
+.modal-content-box input{
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+.modal-content-box select{
+  height: 40px;
+}

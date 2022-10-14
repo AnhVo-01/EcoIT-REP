@@ -84,7 +84,7 @@
               <!--begin::Actions-->
               <div class="menu-item">
                 <div class="menu-link">
-                  <a class="ht-btn-custom" routerLink="create-product" routerLinkActive="active" class="p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Thêm mới">
+                  <a data-toggle="modal" data-target="#myModal" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Thêm mới">
                     <i class="fas fa-file-plus fa-lg"></i>
                   </a>
                 </div>
@@ -108,47 +108,45 @@
           <div class="blog-pages-wrapper section-space--ptb_30">
             <div class="container">
               <div class="faq-wrapper">
-                <div id="accordion">
-
-                  <div class="card">
-                    <div class="card-header">
-                      <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                        Collapsible Group Item #1
+                <ul>
+                  <li *ngFor="let nav1 of navParent">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <a class="collapsed" (click)="getAllNavChild(nav1.id)" data-toggle="collapse" href="#collapse{{nav1.id}}">
+                        <i class="far fa-chevron-circle-right"></i>
+                        {{nav1.name}}
                       </a>
-                    </div>
-                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                      <div class="card-body">
-                        Lorem ipsum..
+                      <a href="">{{nav1.url}}</a>
+                      <div>
+                        <a data-toggle="modal" data-target="#myModal" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--left mr-3" aria-label="Chỉnh sửa">
+                          <i class="far fa-pen-square fa-lg"></i>
+                        </a>
+                        <button type="button" (click)="deleteNav(nav1.id)" style="color: #f00" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--right" aria-label="Xóa bỏ">
+                          <i class="far fa-times-circle fa-lg"></i>
+                        </button>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-header">
-                      <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                        Collapsible Group Item #2
-                      </a>
+                    <div id="collapse{{nav1.id}}" class="link-child collapse" data-parent="">
+                      <ul>
+                        <li *ngFor="let nav2 of navChild" class="d-flex justify-content-between align-items-center">
+                          <div>
+                            <input type="checkbox">
+                            <span class="ml-2">{{nav2.name}}</span>
+                          </div>
+                          <a href="">{{nav2.url}}</a>
+                          <button type="button" (click)="deleteNav(nav2.id)" style="color: #f00" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--right" aria-label="Xóa bỏ">
+                            <i class="far fa-times-circle fa-lg"></i>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button" class="ht-btn-custom">
+                            <i class="far fa-plus-circle mr-1"></i>
+                            <span>Thêm...</span>
+                          </button>
+                        </li>
+                      </ul>
                     </div>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                      <div class="card-body">
-                        Lorem ipsum..
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-header">
-                      <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                        Collapsible Group Item #3
-                      </a>
-                    </div>
-                    <div id="collapseThree" class="collapse" data-parent="#accordion">
-                      <div class="card-body">
-                        Lorem ipsum..
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -157,6 +155,42 @@
       <!--end::Container-->
     </div>
     <!--end::Wrapper-->
+
+    <!-- begin::Create-->
+    <form (submit)="onSubmit()">
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="d-flex justify-content-between">
+                <div class="modal-content-box">
+                  <label>Tên
+                    <input type="text" name="name" [(ngModel)]="nav.name" placeholder="KHÁCH HÀNG CHÍNH PHỦ">
+                  </label>
+                  <label>Đường dẫn
+                    <input type="text" name="url" [(ngModel)]="nav.url" placeholder="/khach-hang-chinh-phu">
+                  </label>
+                  <label>Nhóm
+                    <select name="parentId" [(ngModel)]="nav.parentId">
+                      <option>Chọn</option>
+                      <option *ngFor="let opt of navGroup" [ngValue]="opt.id">{{opt.name}}</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="modal-button">
+                  <button type="submit" class="ht-btn-custom bg-primary">Lưu</button>
+                  <button type="button" class="ht-btn-custom bg-secondary" data-dismiss="modal">Hủy</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- end::Create-->
   </div>
   <!--end::Page-->
 </div>

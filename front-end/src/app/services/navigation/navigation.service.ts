@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Constant} from "../../core/config/constant";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Product} from "../../modules/product/product";
+import {Navigator} from "../../modules/home/navigator/navigator";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,10 @@ export class NavigationService {
     return this.httpClient.get<Navigator[]>(`${this.baseURL}/home`);
   }
 
+  getNavGroup(): Observable<Navigator[]>{
+    return this.httpClient.get<Navigator[]>(`${this.baseURL}/group`);
+  }
+
   getNavChild(id: number): Observable<Navigator[]>{
     return this.httpClient.get<Navigator[]>(`${this.baseURL}/all/${id}`);
   }
@@ -25,19 +29,19 @@ export class NavigationService {
     return this.httpClient.get(`${this.baseURL}/all`, {params: param});
   }
 
-  getById(id:number): Observable<Product>{
-    return this.httpClient.get<Product>(`${this.baseURL}/${id}`);
+  getById(id:number): Observable<Navigator>{
+    return this.httpClient.get<Navigator>(`${this.baseURL}/${id}`);
   }
 
-  addNewProduct(newProduct: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, newProduct);
+  addNewNav(navigator: Navigator): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`, navigator);
   }
 
-  updateProduct(id: number, product: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}/${id}`, product);
+  updateNav(id: number, navigator: Navigator): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/${id}`, navigator);
   }
 
-  deleteProduct(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/remove/${id}`);
+  deleteNav(id: number): Observable<Object>{
+    return this.httpClient.get(`${this.baseURL}/delete/${id}`);
   }
 }

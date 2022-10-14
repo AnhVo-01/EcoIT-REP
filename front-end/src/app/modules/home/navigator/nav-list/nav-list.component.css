@@ -3,6 +3,7 @@
   align-items: center;
   gap: 30px;
   color: #fff;
+  padding-top: 10px;
 }
 .header-top .header-left-info{
   display: flex;

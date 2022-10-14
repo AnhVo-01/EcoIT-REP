@@ -29,6 +29,12 @@ import { ProductListComponent } from './modules/product/product-list/product-lis
 import { ProductControlComponent } from './modules/product/product-control/product-control.component';
 import { NavControlComponent } from './modules/home/navigator/nav-control/nav-control.component';
 import { RecruitPostComponent } from './modules/home/group/recruit-post/recruit-post.component';
+import { AboutHomeComponent } from './modules/about/about-home/about-home.component';
+import { AboutControlComponent } from './modules/about/about-control/about-control.component';
+import { AboutAddComponent } from './modules/about/about-add/about-add.component';
+import { AboutDetailsComponent } from './modules/about/about-details/about-details.component';
+import { PostListComponent } from './modules/post/post-list/post-list.component';
+import { PostDetailsComponent } from './modules/post/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +66,13 @@ import { RecruitPostComponent } from './modules/home/group/recruit-post/recruit-
     ProductListComponent,
     ProductControlComponent,
     NavControlComponent,
-    RecruitPostComponent
+    RecruitPostComponent,
+    AboutHomeComponent,
+    AboutControlComponent,
+    AboutAddComponent,
+    AboutDetailsComponent,
+    PostListComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

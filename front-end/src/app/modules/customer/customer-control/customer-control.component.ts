@@ -72,7 +72,7 @@ export class CustomerControlComponent implements OnInit {
   deleteCustomer(id: number){
     let option = confirm("Are you sure to delete");
 
-    if(option == true){
+    if(option){
       this.cusService.deleteCustomer(id).subscribe(data =>{
         this.deleteControl();
       })

@@ -1,8 +1,6 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Navigation;
-import com.example.backend.model.Product;
-import com.example.backend.model.Sliders;
 import com.example.backend.repository.NavRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,6 +22,11 @@ public class NavController {
     @GetMapping("/nav/home")
     public ResponseEntity<List<Navigation>> all(){
         return ResponseEntity.ok(navRepository.getAll());
+    }
+
+    @GetMapping("/nav/group")
+    public ResponseEntity<List<Navigation>> allGroup(){
+        return ResponseEntity.ok(navRepository.getAllGroup());
     }
 
     @GetMapping("/nav/all")

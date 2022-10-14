@@ -13,7 +13,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Query("SELECT c FROM Customer c WHERE (c.name LIKE %:kw% OR c.description LIKE %:kw% ) AND c.active = true")
     Page<Customer> search(Pageable pageable, @Param("kw") String keyword);
 
-    @Query("SELECT c FROM Customer c WHERE  c.active = true")
+    @Query("SELECT c FROM Customer c WHERE  c.active = true ORDER BY c.id DESC")
     List<Customer> listAllActive();
 
     @Query("SELECT c FROM Customer c WHERE  c.active = false")

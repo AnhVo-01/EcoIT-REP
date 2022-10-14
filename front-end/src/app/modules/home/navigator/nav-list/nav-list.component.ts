@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
+import {Navigator} from "../navigator";
+import {HttpParams} from "@angular/common/http";
+import {NavigationService} from "../../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'app-nav-list',
@@ -14,7 +17,10 @@ export class NavListComponent implements OnInit {
   showModeratorBoard = false;
   username: any;
 
-  constructor(private tokenStorageService: TokenStorageService) { }
+  navParent: Navigator[] = [];
+  navChild: Navigator[] = [];
+
+  constructor(private navService: NavigationService ,private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -29,6 +35,20 @@ export class NavListComponent implements OnInit {
       this.username = user.username;
     }
 
+    this.getAllNav();
+
+  }
+
+  getAllNav(){
+    this.navService.getNavList().subscribe(data => {
+      this.navParent = data;
+    });
+  }
+
+  getAllNavChild(id: number){
+    this.navService.getNavChild(id).subscribe(data => {
+      this.navChild = data;
+    })
   }
 
   logout(): void {

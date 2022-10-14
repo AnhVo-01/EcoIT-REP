@@ -5,7 +5,7 @@
       <div class="col-lg-12">
         <div class="header position-relative">
           <!-- brand logo -->
-          <div class="header__logo">
+          <div class="header__logo p-0">
             <a href="/trang-chu">
               <img src="/assets/images/avatars/logoEcoit.jpg" class="img-fluid" alt="Saas">
             </a>
@@ -21,7 +21,7 @@
                        <i class="fas fa-phone"></i>
                      </span>
                     <span class="d-flex flex-column">
-                      <span>HOTLINE</span>
+                      <small>HOTLINE</small>
                       <strong>
                         <span class="color-gre"><a href="tel:(+84) 935 772 929">(+84) 935 772 929</a></span>
                       </strong>
@@ -32,7 +32,7 @@
                       <i class="far fa-envelope"></i>
                     </span>
                     <span class="d-flex flex-column">
-                      <span>EMAIL</span>
+                      <small>EMAIL</small>
                       <strong>
                         <span class="color-gre"><a href="mailto:contact@ecoit.asia">contact@ecoit.asia</a></span>
                       </strong>
@@ -49,6 +49,14 @@
                   <nav class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
                     <ul>
                       <li><a href="index.html"><span>TRANG CHỦ</span></a></li>
+                      <li class="has-children has-children--multilevel-submenu" *ngFor="let nav of navParent">
+                        <a href="#" (mouseover)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>
+                        <ul class="submenu p-2">
+                          <li *ngFor="let nav1 of navChild">
+                            <a href="{{nav1.url}}" class="px-3 py-1"><span>{{nav1.name}}</span></a>
+                          </li>
+                        </ul>
+                      </li>
                       <li class="has-children has-children--multilevel-submenu">
                         <a href="#"><span>PAGES</span></a>
                         <ul class="submenu">
