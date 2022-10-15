@@ -18,11 +18,11 @@
             <!--begin::Title-->
             <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Tin tức
               <!--begin::Separator-->
-              <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+              <span class="h-20px border-gray-200 border-start ms-3 mx-2">/</span>
               <!--end::Separator-->
-              <!--begin::Description-->
-              <small class="text-muted fs-7 fw-semibold my-1 ms-1">#XRS-45670</small>
-              <!--end::Description-->
+              <a routerLink="/d/recruit" routerLinkActive="active">
+                <small class="text-muted fs-7 fw-semibold my-1 ms-1">Tuyển dụng</small>
+              </a>
             </h6>
             <!--end::Title-->
           </div>
@@ -84,7 +84,7 @@
               <!--begin::Actions-->
               <div class="menu-item">
                 <div class="menu-link">
-                  <a class="ht-btn-custom" routerLink="create-news" routerLinkActive="active" data-toggle="tooltip" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+                  <a class="ht-btn-custom" routerLink="new" routerLinkActive="active" data-toggle="tooltip" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
                 </div>
               </div>
               <!--end::Actions-->
@@ -114,12 +114,12 @@
                         <div class="card-header" id="heading{{news.id}}">
                           <div class="d-flex align-items-center justify-content-between">
                             <div class="single-product-wrap">
-                              <div class="product-thumbnail" *ngFor="let img of news.postImage">
+                              <div class="product-thumbnail">
                                 <div class="product-thumb-image">
-                                  <img class="img-fluid" src="{{img.url}}" alt="Blog Images" appHideMissing>
+                                  <img class="img-fluid" src="{{news.postImage.url}}" alt="Blog Images" appHideMissing>
                                 </div>
                                 <div class="product-actions">
-                                  <span class="product-name">{{img.name}}</span>
+                                  <span class="product-name">{{news.postImage.name}}</span>
                                   <a (click)="deleteImg(news.postImage)" class="p-action-btn hint--black hint--rounded hint--bounce hint--top-left" aria-label="Xóa">
                                     <i class="fal fa-trash-alt"></i>
                                   </a>

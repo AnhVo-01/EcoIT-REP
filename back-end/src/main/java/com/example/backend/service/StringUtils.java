@@ -66,13 +66,6 @@ public class StringUtils {
         for (int i = 0; i < SPECIAL_CHARS.length; i++) {
             searchText = searchText.replace(SPECIAL_CHARS[i], '-');
         }
-
-//        searchText = searchText.replace("%", "\\%")
-//                .replace("_", "\\_")
-//                .replace("/", "-")
-//                .replace(",", "-")
-//                .replace(" ", "-");
-//        searchText = "%" + searchText + "%";
         return searchText;
     }
 

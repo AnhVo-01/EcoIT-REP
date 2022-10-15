@@ -1,0 +1,19 @@
+.post-excerpt .card .card-header .btn-cancel{
+  float: right;
+  color: #f00;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.post-excerpt .card .card-body{
+  clear: right;
+  height: 350px;
+}
+.link-child select{
+  height: 40px;
+}
+.link-child ul li{
+  border-bottom: 1px dotted #0d0d0d;
+  padding-left: 20px;
+}

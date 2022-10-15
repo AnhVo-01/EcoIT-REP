@@ -22,9 +22,7 @@ export class PostAddComponent implements OnInit {
     if(this.id){
       this.newsService.getNewsById(this.id).subscribe(data =>{
         this.news = data;
-        for (let i=0; i<this.news.postImage.length; i++){
-          this.url = this.news.postImage[i].url;
-        }
+        this.url = this.news.postImage.url;
       });
     }
   }
@@ -46,7 +44,7 @@ export class PostAddComponent implements OnInit {
   }
 
   prepareFormData(news: Post): FormData {
-    const  formData = new FormData();
+    const formData = new FormData();
     formData.append(
       'news',
       new Blob([JSON.stringify(news)], {type: 'application/json'})
@@ -64,14 +62,15 @@ export class PostAddComponent implements OnInit {
   }
 
   goToNewsList(){
-    this.router.navigate(['/d/news']);
+    this.router.navigate(['/d/post']);
   }
 
   onSubmit(){
     if(this.id){
       this.addDataToForm(this.id);
+    }else{
+      this.saveNews();
     }
-    this.saveNews();
   }
 
   thumbnailChange(e: any){

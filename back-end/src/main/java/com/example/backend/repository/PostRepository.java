@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    @Query("SELECT n FROM Post n WHERE (n.title LIKE %:kw% OR n.description LIKE %:kw% OR n.content LIKE %:kw%) AND n.active = true")
+    @Query("SELECT n FROM Post n WHERE (n.title LIKE %:kw% OR n.description LIKE %:kw%) AND n.active = true")
     Page<Post> search(Pageable pageable, @Param("kw") String keyword);
 
     @Query("SELECT n FROM Post n WHERE n.url=:title")

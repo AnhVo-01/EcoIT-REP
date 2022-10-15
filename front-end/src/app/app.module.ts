@@ -35,6 +35,12 @@ import { AboutAddComponent } from './modules/about/about-add/about-add.component
 import { AboutDetailsComponent } from './modules/about/about-details/about-details.component';
 import { PostListComponent } from './modules/post/post-list/post-list.component';
 import { PostDetailsComponent } from './modules/post/post-details/post-details.component';
+import { RecruitControlComponent } from './modules/recruit/recruit-control/recruit-control.component';
+import { RecruitAddComponent } from './modules/recruit/recruit-add/recruit-add.component';
+import { RecruitListComponent } from './modules/recruit/recruit-list/recruit-list.component';
+import { RecruitDetailsComponent } from './modules/recruit/recruit-details/recruit-details.component';
+import { NavAddComponent } from './modules/home/navigator/nav-add/nav-add.component';
+import { FooterComponent } from './modules/home/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +54,7 @@ import { PostDetailsComponent } from './modules/post/post-details/post-details.c
     HomeComponent,
     PageNotFoundComponent,
     DashBoardComponent,
-    // FileComponent,
     HeaderComponent,
-    // TrashCustomerComponent,
-    // GroupRecruitPostComponent,
-    // RecruitListComponent,
-    // RecruitAddComponent,
-    // RecruitControlComponent,
     AsideComponent,
     SliderControlComponent,
     SliderListComponent,
@@ -72,7 +72,13 @@ import { PostDetailsComponent } from './modules/post/post-details/post-details.c
     AboutAddComponent,
     AboutDetailsComponent,
     PostListComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    RecruitControlComponent,
+    RecruitAddComponent,
+    RecruitListComponent,
+    RecruitDetailsComponent,
+    NavAddComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

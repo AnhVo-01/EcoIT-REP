@@ -25,7 +25,8 @@
 .update_box .content{
   padding: 10px;
   border: 2px solid #50B848;
-  min-height: 290px;
+  min-height: 330px;
+  width: 100%;
 }
 .update_box .image{
   position: relative;

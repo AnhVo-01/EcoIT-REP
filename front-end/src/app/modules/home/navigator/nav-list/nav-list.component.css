@@ -29,3 +29,6 @@
 .navigation-menu > ul > li > a{
   padding: 0 25px;
 }
+.navigation-menu > ul > li.has-children > a:after{
+  content: " ";
+}

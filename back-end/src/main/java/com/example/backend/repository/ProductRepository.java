@@ -16,6 +16,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Page<Product> listAll(Pageable pageable, @Param("kw") String keyword);
 
     @Query("SELECT p FROM Product p INNER JOIN Image i ON i.id = p.thumb.id " +
-            "WHERE p.active = true")
+            "WHERE p.active = true ORDER BY p.id ASC")
     List<Product> getAll();
 }

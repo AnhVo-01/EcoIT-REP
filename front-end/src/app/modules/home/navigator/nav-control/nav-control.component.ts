@@ -87,12 +87,6 @@ export class NavControlComponent implements OnInit {
     })
   }
 
-  updateNav(id: any){
-    this.navService.updateNav(id, this.nav).subscribe(data =>{
-      this.getAllNav();
-    })
-  }
-
   onSubmit(){
     this.addNavigation();
   }

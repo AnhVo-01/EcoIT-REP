@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
 import {Navigator} from "../navigator";
-import {HttpParams} from "@angular/common/http";
 import {NavigationService} from "../../../../services/navigation/navigation.service";
 
 @Component({
@@ -36,6 +35,15 @@ export class NavListComponent implements OnInit {
     }
 
     this.getAllNav();
+    let element = document.getElementById("myDIV");
+
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      // @ts-ignore
+      element.classList.add("is-sticky");
+    }else{
+      // @ts-ignore
+      element.classList.remove("is-sticky");
+    }
 
   }
 
@@ -49,11 +57,6 @@ export class NavListComponent implements OnInit {
     this.navService.getNavChild(id).subscribe(data => {
       this.navChild = data;
     })
-  }
-
-  logout(): void {
-    this.tokenStorageService.signOut();
-    window.location.reload();
   }
 
 }

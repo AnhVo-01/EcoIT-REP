@@ -1,5 +1,5 @@
 <!--====================  header area ====================-->
-<div class="header-area header-sticky header-area--absolute border-bottom-drak">
+<div class="header-area header-sticky header-area--absolute border-bottom-drak" id="myDIV">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -47,55 +47,13 @@
 
                 <div class="header-bottom">
                   <nav class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
-                    <ul>
+                    <ul class="text-uppercase">
                       <li><a href="index.html"><span>TRANG CHỦ</span></a></li>
-                      <li class="has-children has-children--multilevel-submenu" *ngFor="let nav of navParent">
-                        <a href="#" (mouseover)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>
-                        <ul class="submenu p-2">
+                      <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
+                        <a routerLink="{{nav.url}}" (mouseenter)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>
+                        <ul *ngIf="!nav.url.includes('/')" class="submenu p-2">
                           <li *ngFor="let nav1 of navChild">
                             <a href="{{nav1.url}}" class="px-3 py-1"><span>{{nav1.name}}</span></a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="has-children has-children--multilevel-submenu">
-                        <a href="#"><span>PAGES</span></a>
-                        <ul class="submenu">
-                          <li><a href="page-scroll.html"><span>One Page Scroll</span></a></li>
-                          <li><a href="page-maintenance.html"><span>Maintenance</span></a></li>
-                          <li><a href="page-404.html"><span>404 Page</span></a></li>
-                          <li class="has-children">
-                            <a href="#"><span>Submenu Level One</span></a>
-                            <ul class="submenu">
-                              <li class="has-children">
-                                <a href="#"><span>Submenu Level Two</span></a>
-                                <ul class="submenu">
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                </ul>
-                              </li>
-                              <li><a href="#"><span>Submenu Level Two</span></a></li>
-                              <li><a href="#"><span>Submenu Level Two</span></a></li>
-                              <li><a href="#"><span>Submenu Level Two</span></a></li>
-                            </ul>
-                          </li>
-                          <li class="has-children">
-                            <a href="#"><span>Submenu Level One</span></a>
-                            <ul class="submenu">
-                              <li class="has-children">
-                                <a href="#"><span>Submenu Level Two</span></a>
-                                <ul class="submenu">
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                  <li><a href="#"><span>Submenu Level Three</span></a></li>
-                                </ul>
-                              </li>
-                              <li><a href="#"><span>Submenu Level Two</span></a></li>
-                              <li><a href="#"><span>Submenu Level Two</span></a></li>
-                              <li><a href="#"><span>Submenu Level Two</span></a></li>
-                            </ul>
                           </li>
                         </ul>
                       </li>

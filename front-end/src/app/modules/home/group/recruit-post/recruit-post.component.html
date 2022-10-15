@@ -1,71 +1,67 @@
-<!--========== News List ==========-->
-<div class="site-wrapper-reveal">
-  <!--====================  Blog Area Start ====================-->
-  <div class="blog-pages-wrapper section-space--ptb_100">
-    <div class="container">
-      <div class="py-4 mb-4">
-        <div class="align-items-center">
-          <div class="text-center">
-            <h3 class="chuyenmuc" style="color: #50B848;">TUYỂN DỤNG - TIN TỨC</h3>
-            <hr class="hrtag">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 col-md-12 mb-3 wow move-up" *ngFor="let rec of recruit">
-          <div class="single-blog-item blog-grid">
-            <div class="post-feature blog-thumbnail">
-              <a href="">
-                <img src="{{rec.thumb.url}}" class="mr-3 blog-thumbnail img-thumbnail wp-post-image"></a>
-            </div>
-            <div class="post-info lg-blog-post-info">
-              <h6 class="post-title font-weight--bold mb-2">
-                <a href="" tabindex="-1">{{rec.name}}</a>
-              </h6>
-              <div class="post-excerpt">
-                <p>{{rec.description}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!--======= Single Blog Item Start ========-->
-        <div class="col-lg-6 col-md-12 wow move-up">
-          <ng-container *ngFor="let new of news; let i = index">
-            <div class="faq-wrapper mb-3" *ngIf="i < 3">
-              <div class="card">
-                <div class="content-box">
-                  <div class="single-product-wrap">
-                    <div class="image-list product-thumbnail">
-                      <a routerLink="/view-news/{{new.url}}" class="product-thumb-image" *ngFor="let img of new.postImage">
-                        <img class="img-fluid" src="{{img.url}}" alt="" appHideMissing>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="content">
-                    <a routerLink="/view-news/{{new.url}}">{{new.title}}</a>
-                    <div class="text-content">{{new.description}}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-        </div>
-        <!--===== Single Blog Item End =========-->
-
-        <div class="col-lg-6 col-md-12 mb-30 wow move-up">
-          <div class="service-link">
-            <a class="wpb_color-gree" href="https://ecoit.asia/tin-tuc/">TÌM HIỂU THÊM</a>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 mb-30 wow move-up">
-          <div class="service-link">
-            <a routerLink="/s/news">TÌM HIỂU THÊM</a>
-          </div>
+<!--====================  Blog Area Start ====================-->
+<div class="blog-pages-wrapper section-space--ptb_100">
+  <div class="container">
+    <div class="py-4 mb-4">
+      <div class="align-items-center">
+        <div class="text-center">
+          <h3 class="chuyenmuc" style="color: #50B848;">TUYỂN DỤNG - TIN TỨC</h3>
+          <hr class="hrtag">
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-3 wow move-up" *ngFor="let rec of recruit">
+        <div class="single-blog-item blog-grid">
+          <div class="post-feature blog-thumbnail">
+            <a href="">
+              <img src="{{rec.thumb.url}}" class="mr-3 blog-thumbnail img-thumbnail wp-post-image"></a>
+          </div>
+          <div class="post-info lg-blog-post-info">
+            <h6 class="post-title font-weight--bold mb-2">
+              <a href="" tabindex="-1">{{rec.name}}</a>
+            </h6>
+            <div class="post-excerpt">
+              <p>{{rec.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 wow move-up">
+          <div class="service-link">
+            <a class="wpb_color-gree" routerLink="/tuyen-dung" routerLinkActive="active">TÌM HIỂU THÊM</a>
+          </div>
+        </div>
+      </div>
+
+      <!--======= Single Blog Item Start ========-->
+      <div class="col-lg-6 col-md-12 wow move-up">
+        <ng-container *ngFor="let new of news; let i = index">
+          <div class="faq-wrapper mb-3" *ngIf="i < 3">
+            <div class="card">
+              <div class="content-box">
+                <div class="single-product-wrap">
+                  <div class="image-list product-thumbnail">
+                    <a routerLink="/tin-tuc/{{new.url}}" class="product-thumb-image" *ngFor="let img of new.postImage">
+                      <img class="img-fluid" src="{{img.url}}" alt="" appHideMissing>
+                    </a>
+                  </div>
+                </div>
+                <div class="content">
+                  <a routerLink="/tin-tuc/{{new.url}}">{{new.title}}</a>
+                  <div class="text-content">{{new.description}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 wow move-up">
+            <div class="service-link">
+              <a routerLink="/s/news">TÌM HIỂU THÊM</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <!--===== Single Blog Item End =========-->
+
+    </div>
   </div>
-  <!--====================  Blog Area End  ====================-->
 </div>
-<!--======== End News List ========-->
+<!--====================  Blog Area End  ====================-->

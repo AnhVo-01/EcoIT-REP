@@ -4,7 +4,7 @@
   bottom: 0;
   left: 0;
   z-index: 101;
-  width: 140px;
+  width: 120px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 28px 0 rgba(82, 63, 105, 0.05);
@@ -25,7 +25,7 @@
 }
 .aside-menu{
   height: 100%;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 /* width */
 .aside-menu::-webkit-scrollbar {
@@ -42,8 +42,8 @@
 }
 
 .aside-menu .menu-item .menu-link {
-  width: 120px;
-  height: 74px;
+  width: 60px;
+  height: 50px;
   margin: 0 auto;
   display: flex;
   gap: 10px;

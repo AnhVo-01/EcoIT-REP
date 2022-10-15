@@ -14,9 +14,19 @@ import {PostControlComponent} from "./modules/post/post-control/post-control.com
 import {ProductControlComponent} from "./modules/product/product-control/product-control.component";
 import {ProductAddComponent} from "./modules/product/product-add/product-add.component";
 import {NavControlComponent} from "./modules/home/navigator/nav-control/nav-control.component";
+import {RecruitControlComponent} from "./modules/recruit/recruit-control/recruit-control.component";
+import {RecruitAddComponent} from "./modules/recruit/recruit-add/recruit-add.component";
+import {RecruitListComponent} from "./modules/recruit/recruit-list/recruit-list.component";
+import {NavAddComponent} from "./modules/home/navigator/nav-add/nav-add.component";
+import {PostListComponent} from "./modules/post/post-list/post-list.component";
+import {PostDetailsComponent} from "./modules/post/post-details/post-details.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
+  {path: 'tuyen-dung', component: RecruitListComponent},
+  {path: 'tin-tuc', component: PostListComponent},
+  {path: 'tin-tuc/:url', component: PostDetailsComponent},
+
 
   {path: 'd/customer', component: CustomerControlComponent},
   {path: 'd/customer/add-new-customer', component: CustomerAddComponent},
@@ -25,6 +35,10 @@ const routes: Routes = [
   {path: 'd/post', component: PostControlComponent},
   {path: 'd/post/new', component: PostAddComponent},
   {path: 'd/post/update/:id', component: PostAddComponent},
+
+  {path: 'd/recruit', component: RecruitControlComponent},
+  {path: 'd/recruit/new', component: RecruitAddComponent},
+  {path: 'd/recruit/update/:id', component: RecruitAddComponent},
 
   {path: 'd/product', component: ProductControlComponent},
   {path: 'd/product/new', component: ProductAddComponent},
@@ -35,8 +49,8 @@ const routes: Routes = [
   {path: 'd/sliders/update/:id', component: SliderAddComponent},
 
   {path: 'd/navigation', component: NavControlComponent},
-  {path: 'd/navigation/add-new', component: SliderAddComponent},
-  {path: 'd/navigation/update/:id', component: SliderAddComponent},
+  {path: 'd/navigation/add-new', component: NavAddComponent},
+  {path: 'd/navigation/update/:id', component: NavAddComponent},
 
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

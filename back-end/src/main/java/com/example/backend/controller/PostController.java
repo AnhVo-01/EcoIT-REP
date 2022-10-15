@@ -62,43 +62,41 @@ public class PostController {
     SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 
     @PostMapping(value = "/news", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public Post newPost(@RequestPart("news") Post news,
-                            @RequestPart(value = "imageFile", required = false) MultipartFile[] file) throws IOException {
-        news.setDate(fm.format(date));
-        news.setActive(true);
-        news.setUrl(getSearchableString(news.getTitle()));
+    public ResponseEntity<Post> newPost(@RequestPart("news") Post post,
+                            @RequestPart(value = "imageFile", required = false) MultipartFile file) throws IOException {
+        post.setDate(fm.format(date));
+        post.setActive(true);
+        post.setUrl(getSearchableString(post.getTitle()));
+        Image images;
         if(file != null){
-            Set<Image> images = fileService.uploadImage(file);
-            news.setPostImage(images);
+            images = imageRepository.save(fileService.uploadOneImage(file));
+        }else{
+            images = new Image(null, null, null, null);
+            imageRepository.save(images);
         }
-
-        return postRepository.save(news);
+        post.setPostImage(images);
+        return ResponseEntity.ok(postRepository.save(post));
     }
 
     @PostMapping(value = "/news/{id}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<Post> updateNews(@PathVariable Long id, @RequestPart("news") Post news,
-                           @RequestPart(value = "imageFile", required = false) MultipartFile[] file) throws IOException {
+                                           @RequestPart(value = "imageFile", required = false) MultipartFile file) throws IOException {
         Post post = postRepository.findById(id).get();
         post.setTitle(news.getTitle());
         post.setDescription(news.getDescription());
         post.setContent(news.getContent());
         if(file != null){
-//            if(news.getPostImage() != null){
-//                Long imgId = news.getPostImage().iterator().next().getId();
-//                postRepository.deleteReferImage(imgId);
-//                fileService.deleteFile(news.getPostImage().iterator().next());
-//                imageRepository.deleteById(imgId);
-//            }
-
-            Set<Image> images = fileService.uploadImage(file);
-//            while (images.iterator().hasNext()){
-//                imageRepository.saveById(
-//                        images
-//                );
-//            }
-
-//            images.add();
-            news.setPostImage(images);
+            if(news.getPostImage().getName() != null){
+                fileService.deleteFile(news.getPostImage());
+            }
+            Image image = fileService.uploadOneImage(file);
+            imageRepository.saveById(
+                    image.getName(),
+                    image.getUrl(),
+                    image.getPathFile(),
+                    image.getType(),
+                    news.getPostImage().getId()
+            );
         }
         return ResponseEntity.ok(postRepository.save(post));
     }

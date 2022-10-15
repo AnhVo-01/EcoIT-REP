@@ -24,24 +24,13 @@ public class Post {
     @Column(name = "created_date")
     private String date;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "post_image",
-            joinColumns = {
-                    @JoinColumn(name = "post_id")
-            }, inverseJoinColumns = {
-            @JoinColumn(name = "image_id")
-    }
-    )
-    private Set<Image> postImage;
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "image_id")
+    private Image postImage;
 
     @Column(columnDefinition = "text")
     private String url;
 
     private boolean active;
 
-    public void deletePostImage(Image image){
-        if(getPostImage().contains(image)){
-            getPostImage().remove(image);
-        }
-    }
 }

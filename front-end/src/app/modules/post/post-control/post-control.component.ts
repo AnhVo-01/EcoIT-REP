@@ -35,10 +35,6 @@ export class PostControlComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      if(this.roles.includes("ROLE_USER")){
-        this.router.navigate(['/home']);
-      }
-
       // @ts-ignore
       document.getElementById("active-n").classList.add("here");
       // @ts-ignore
@@ -80,7 +76,7 @@ export class PostControlComponent implements OnInit {
   }
 
   updateNews(id: number){
-    return this.router.navigate(['d/news/update-news', id]);
+    return this.router.navigate(['d/post/update', id]);
   }
 
   deleteNews(id: number){

@@ -16,7 +16,7 @@
         <div class="container-fluid d-flex align-items-center">
           <div class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
             <!--begin::Title-->
-            <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Sản phẩm
+            <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Điều hướng
               <!--begin::Separator-->
               <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
               <!--end::Separator-->
@@ -84,7 +84,7 @@
               <!--begin::Actions-->
               <div class="menu-item">
                 <div class="menu-link">
-                  <a data-toggle="modal" data-target="#myModal" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Thêm mới">
+                  <a routerLink="add-new" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Thêm mới">
                     <i class="fas fa-file-plus fa-lg"></i>
                   </a>
                 </div>
@@ -108,45 +108,47 @@
           <div class="blog-pages-wrapper section-space--ptb_30">
             <div class="container">
               <div class="faq-wrapper">
-                <ul>
-                  <li *ngFor="let nav1 of navParent">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <a class="collapsed" (click)="getAllNavChild(nav1.id)" data-toggle="collapse" href="#collapse{{nav1.id}}">
-                        <i class="far fa-chevron-circle-right"></i>
-                        {{nav1.name}}
-                      </a>
-                      <a href="">{{nav1.url}}</a>
-                      <div>
-                        <a data-toggle="modal" data-target="#myModal" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--left mr-3" aria-label="Chỉnh sửa">
-                          <i class="far fa-pen-square fa-lg"></i>
+                <div id="accordion">
+                  <ul>
+                    <li *ngFor="let nav1 of navParent">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <a class="collapsed" (click)="getAllNavChild(nav1.id)" data-toggle="collapse" href="#collapse{{nav1.id}}">
+                          <i class="far fa-chevron-circle-right"></i>
+                          {{nav1.name}}
                         </a>
-                        <button type="button" (click)="deleteNav(nav1.id)" style="color: #f00" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--right" aria-label="Xóa bỏ">
-                          <i class="far fa-times-circle fa-lg"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <div id="collapse{{nav1.id}}" class="link-child collapse" data-parent="">
-                      <ul>
-                        <li *ngFor="let nav2 of navChild" class="d-flex justify-content-between align-items-center">
-                          <div>
-                            <input type="checkbox">
-                            <span class="ml-2">{{nav2.name}}</span>
-                          </div>
-                          <a href="">{{nav2.url}}</a>
-                          <button type="button" (click)="deleteNav(nav2.id)" style="color: #f00" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--right" aria-label="Xóa bỏ">
+                        <a href="">{{nav1.url}}</a>
+                        <div>
+                          <a routerLink="update/{{nav1.id}}" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--left mr-3" aria-label="Chỉnh sửa">
+                            <i class="far fa-pen-square fa-lg"></i>
+                          </a>
+                          <button type="button" (click)="deleteNav(nav1.id)" style="color: #f00" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--right" aria-label="Xóa bỏ">
                             <i class="far fa-times-circle fa-lg"></i>
                           </button>
-                        </li>
-                        <li>
-                          <button type="button" class="ht-btn-custom">
-                            <i class="far fa-plus-circle mr-1"></i>
-                            <span>Thêm...</span>
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+                        </div>
+                      </div>
+                      <div id="collapse{{nav1.id}}" class="link-child collapse" data-parent="#accordion">
+                        <ul>
+                          <li *ngFor="let nav2 of navChild" class="d-flex justify-content-between align-items-center">
+                            <div style="width: 500px">
+                              <input type="checkbox">
+                              <span class="ml-2">{{nav2.name}}</span>
+                            </div>
+                            <span style="width: 400px">{{nav2.url}}</span>
+                            <button type="button" (click)="deleteNav(nav2.id)" style="color: #f00" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--right" aria-label="Xóa bỏ">
+                              <i class="far fa-times-circle fa-lg"></i>
+                            </button>
+                          </li>
+                          <li>
+                            <button type="button" class="ht-btn-custom">
+                              <i class="far fa-plus-circle mr-1"></i>
+                              <span data-toggle="modal" data-target="#myModal">Thêm...</span>
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -173,10 +175,12 @@
                     <input type="text" name="url" [(ngModel)]="nav.url" placeholder="/khach-hang-chinh-phu">
                   </label>
                   <label>Nhóm
-                    <select name="parentId" [(ngModel)]="nav.parentId">
-                      <option>Chọn</option>
-                      <option *ngFor="let opt of navGroup" [ngValue]="opt.id">{{opt.name}}</option>
-                    </select>
+                    <div>
+                      <select name="parentId" [(ngModel)]="nav.parentId">
+                        <option>Chọn</option>
+                        <option *ngFor="let opt of navGroup" [value]="opt.id">{{opt.name}}</option>
+                      </select>
+                    </div>
                   </label>
                 </div>
                 <div class="modal-button">
