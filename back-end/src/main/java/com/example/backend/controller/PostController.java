@@ -3,6 +3,7 @@ package com.example.backend.controller;
 import com.example.backend.exceptionhandler.PostNotFoundException;
 import com.example.backend.model.Image;
 import com.example.backend.model.Post;
+import com.example.backend.payload.MessageResponse;
 import com.example.backend.repository.ImageRepository;
 import com.example.backend.repository.PostRepository;
 import com.example.backend.service.FileService;
@@ -62,20 +63,24 @@ public class PostController {
     SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 
     @PostMapping(value = "/news", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<Post> newPost(@RequestPart("news") Post post,
+    public ResponseEntity<?> newPost(@RequestPart("news") Post post,
                             @RequestPart(value = "imageFile", required = false) MultipartFile file) throws IOException {
-        post.setDate(fm.format(date));
-        post.setActive(true);
-        post.setUrl(getSearchableString(post.getTitle()));
-        Image images;
-        if(file != null){
-            images = imageRepository.save(fileService.uploadOneImage(file));
+        if(!post.getTitle().isEmpty()){
+            post.setDate(fm.format(date));
+            post.setActive(true);
+            post.setUrl(getSearchableString(post.getTitle()));
+            Image images;
+            if(file != null){
+                images = imageRepository.save(fileService.uploadOneImage(file));
+            }else{
+                images = new Image(null, null, null, null);
+                imageRepository.save(images);
+            }
+            post.setPostImage(images);
+            return ResponseEntity.ok(postRepository.save(post));
         }else{
-            images = new Image(null, null, null, null);
-            imageRepository.save(images);
+            return  ResponseEntity.badRequest().body(new MessageResponse("Tin tức không có tiêu đề"));
         }
-        post.setPostImage(images);
-        return ResponseEntity.ok(postRepository.save(post));
     }
 
     @PostMapping(value = "/news/{id}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})

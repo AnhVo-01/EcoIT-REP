@@ -18,7 +18,7 @@ public class AboutUs {
     @Column(columnDefinition = "text")
     private String content;
 
-    @Column(name = "video_link")
+    @Column(name = "video_link", columnDefinition = "text")
     private String videoLINK;
 
     private String phone;

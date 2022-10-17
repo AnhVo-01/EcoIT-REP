@@ -3,6 +3,8 @@ import {TokenStorageService} from "../../../../services/token-storage/token-stor
 import {HttpParams} from "@angular/common/http";
 import {NavigationService} from "../../../../services/navigation/navigation.service";
 import {Navigator} from "../navigator";
+import {ModalManager} from "ngb-modal";
+import {ModalComponent} from "./modal/modal.component";
 
 @Component({
   selector: 'app-nav-control',
@@ -28,7 +30,8 @@ export class NavControlComponent implements OnInit {
   }
 
   constructor(private navService: NavigationService,
-              private tokenStorageService: TokenStorageService) { }
+              private tokenStorageService: TokenStorageService,
+              private modalService: ModalManager) { }
 
   ngOnInit(): void {
     this.getAllNav()
@@ -82,8 +85,8 @@ export class NavControlComponent implements OnInit {
 
   addNavigation(){
     this.navService.addNewNav(this.nav).subscribe(data =>{
-      // this.getAllNav();
-      window.location.reload();
+      this.getAllNav();
+      // window.location.reload();
     })
   }
 
@@ -108,6 +111,19 @@ export class NavControlComponent implements OnInit {
         this.deleteControl();
       })
     }
+  }
+  openModal(){
+    this.modalService.open(ModalComponent, {
+      size: "md",
+      modalClass: 'mymodal',
+      hideCloseButton: false,
+      centered: false,
+      backdrop: true,
+      animation: true,
+      keyboard: false,
+      closeOnOutsideClick: true,
+      backdropClass: "modal-backdrop"
+    })
   }
 
 }

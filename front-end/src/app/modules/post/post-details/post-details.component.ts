@@ -3,6 +3,7 @@ import {Post} from "../post";
 import {ActivatedRoute} from "@angular/router";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {PostService} from "../../../services/post/post.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-post-details',
@@ -12,11 +13,11 @@ import {PostService} from "../../../services/post/post.service";
 export class PostDetailsComponent implements OnInit {
 
   url: any;
-  paragraph: String[] = [];
   news: Post = new Post();
 
   roles: any;
-  constructor(private route: ActivatedRoute, private newsService: PostService, private tokenStorageService: TokenStorageService) { }
+  constructor(private route: ActivatedRoute, private newsService: PostService,
+              private sanitizer: DomSanitizer, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.getList();
@@ -33,12 +34,7 @@ export class PostDetailsComponent implements OnInit {
     this.url = this.route.snapshot.params['url'];
     this.newsService.getNewsByUrl(this.url).subscribe(data => {
       this.news = data;
-      if(this.news.content != null){
-        const str = this.news.content;
-        this.paragraph = str.split("\n");
-      }
       document.title = this.news.title;
-
     })
   }
 

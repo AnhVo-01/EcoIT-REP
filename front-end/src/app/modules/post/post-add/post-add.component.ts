@@ -14,6 +14,8 @@ export class PostAddComponent implements OnInit {
   fileToUpload:string [] = [];
   url: any;
   id: any;
+  ckeConfig: any;
+
 
   constructor(private newsService: PostService, private router: Router, private route: ActivatedRoute) { }
 
@@ -25,6 +27,19 @@ export class PostAddComponent implements OnInit {
         this.url = this.news.postImage.url;
       });
     }
+
+    this.ckeConfig = {
+      extraPlugins: 'uploadimage, justify, colorbutton, iframe',
+      uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+      height: 330,
+      // Configure your file manager integration. This example uses CKFinder 3 for PHP.
+      // filebrowserBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html',
+      // filebrowserImageBrowseUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.html?type=Images',
+      filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
+      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
+
+    };
+
   }
 
   saveNews(){
@@ -101,6 +116,10 @@ export class PostAddComponent implements OnInit {
     reader.onload = (_event) => {
       this.url = reader.result;
     }
+  }
+
+  log(){
+    console.log(this.news.content);
   }
 
 }

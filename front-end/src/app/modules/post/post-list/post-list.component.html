@@ -1,12 +1,9 @@
 <app-nav-list></app-nav-list>
 
-
-
 <!-- breadcrumb-area start -->
 <div class="breadcrumb-box section-space--pt_100">
   <img src="assets/images/banners/banner-tin-tức.png" class="img-fluid">
 </div>
-
 <!-- breadcrumb-area end -->
 
 <!--========== News List ==========-->
@@ -28,8 +25,8 @@
           <div class="single-blog-item blog-grid">
             <!-- Post Feature Start -->
             <div class="post-feature blog-thumbnail">
-              <a routerLink="/view-news/{{new.url}}" routerLinkActive="active">
-                <img class="img-fluid" *ngFor="let img of new.postImage" src="{{img.url}}" alt="Blog Images" appHideMissing>
+              <a routerLink="/tin-tuc/{{new.url}}" routerLinkActive="active">
+                <img class="img-fluid" src="{{new.postImage.url}}" alt="Blog Images" appHideMissing>
               </a>
             </div>
             <!-- Post Feature End -->
@@ -37,7 +34,7 @@
             <!-- Post info Start -->
             <div class="post-info lg-blog-post-info">
               <h6 class="post-title font-weight--bold mb-2">
-                <a routerLink="/view-news/{{new.url}}" routerLinkActive="active">{{new.title}}</a>
+                <a routerLink="/tin-tuc/{{new.url}}" routerLinkActive="active">{{new.title}}</a>
               </h6>
               <div class="text-desc">
                 {{new.description}}

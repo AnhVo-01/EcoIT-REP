@@ -47,14 +47,14 @@ export class SliderAddComponent implements OnInit {
       this.fileToUpload[0]
     )
     this.sliderService.addNew(formData).subscribe(data =>{
-      this.goToProductList();
+      this.goToSliderList();
     });
   }
 
   updateSlider(id: any){
     const productFormData = this.prepareFormData(this.sliders);
     this.sliderService.update(id, productFormData).subscribe(data =>{
-      this.goToProductList();
+      this.goToSliderList();
     });
   }
 
@@ -76,7 +76,7 @@ export class SliderAddComponent implements OnInit {
     return formData;
   }
 
-  goToProductList(){
+  goToSliderList(){
     this.router.navigate(['/d/sliders']);
   }
 

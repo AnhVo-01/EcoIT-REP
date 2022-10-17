@@ -1,0 +1,51 @@
+<modal #myModal>
+  <modal-header>
+    <h1>Modal header</h1>
+  </modal-header>
+  <modal-content>
+    Hello Modal!
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-primary" (click)="closeModal()">close</button>
+  </modal-footer>
+</modal>
+
+
+
+<!--&lt;!&ndash; begin::Create&ndash;&gt;-->
+<!--<div class="modal" id="myModal" #myModal>-->
+<!--  <form (submit)="onSubmit()">-->
+<!--    <div class="modal-dialog">-->
+<!--      <div class="modal-content">-->
+
+<!--        &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--        <div class="modal-body">-->
+<!--          <div class="d-flex justify-content-between">-->
+<!--            <div class="modal-content-box">-->
+<!--              <label>Tên-->
+<!--                <input type="text" name="name" [(ngModel)]="nav.name" placeholder="KHÁCH HÀNG CHÍNH PHỦ">-->
+<!--              </label>-->
+<!--              <label>Đường dẫn-->
+<!--                <input type="text" name="url" [(ngModel)]="nav.url" placeholder="/khach-hang-chinh-phu">-->
+<!--              </label>-->
+<!--              <label>Nhóm-->
+<!--                <div>-->
+<!--                  <select name="parentId" [(ngModel)]="nav.parentId">-->
+<!--                    <option>Chọn</option>-->
+<!--                    <option *ngFor="let opt of navGroup" [value]="opt.id">{{opt.name}}</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+<!--              </label>-->
+<!--            </div>-->
+<!--            <div class="modal-button">-->
+<!--              <button type="submit" class="ht-btn-custom bg-primary">Lưu</button>-->
+<!--              <button type="button" class="ht-btn-custom bg-secondary" data-dismiss="modal">Hủy</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+<!--&lt;!&ndash; end::Create&ndash;&gt;-->

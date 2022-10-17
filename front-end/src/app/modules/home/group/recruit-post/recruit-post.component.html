@@ -10,18 +10,20 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6 col-md-12 mb-3 wow move-up" *ngFor="let rec of recruit">
-        <div class="single-blog-item blog-grid">
-          <div class="post-feature blog-thumbnail">
-            <a href="">
-              <img src="{{rec.thumb.url}}" class="mr-3 blog-thumbnail img-thumbnail wp-post-image"></a>
-          </div>
-          <div class="post-info lg-blog-post-info">
-            <h6 class="post-title font-weight--bold mb-2">
-              <a href="" tabindex="-1">{{rec.name}}</a>
-            </h6>
-            <div class="post-excerpt">
-              <p>{{rec.description}}</p>
+      <div class="col-lg-6 col-md-12 mb-3 wow move-up">
+        <div class="faq-wrapper">
+          <div class="card" *ngFor="let rec of recruit">
+            <div class="post-feature blog-thumbnail">
+              <a href="">
+                <img src="{{rec.thumb.url}}" class="mr-3 blog-thumbnail img-thumbnail wp-post-image"></a>
+            </div>
+            <div style="padding: 16px; height: 185px">
+              <h6 class="post-title font-weight--bold mb-2">
+                <a href="" tabindex="-1" style="color: #50b848">{{rec.name}}</a>
+              </h6>
+              <div class="post-excerpt" style="max-height: 100px">
+                <p>{{rec.description}}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -33,31 +35,33 @@
       </div>
 
       <!--======= Single Blog Item Start ========-->
-      <div class="col-lg-6 col-md-12 wow move-up">
-        <ng-container *ngFor="let new of news; let i = index">
-          <div class="faq-wrapper mb-3" *ngIf="i < 3">
-            <div class="card">
-              <div class="content-box">
-                <div class="single-product-wrap">
-                  <div class="image-list product-thumbnail">
-                    <a routerLink="/tin-tuc/{{new.url}}" class="product-thumb-image" *ngFor="let img of new.postImage">
-                      <img class="img-fluid" src="{{img.url}}" alt="" appHideMissing>
-                    </a>
+      <div class="col-lg-6 col-md-12 mb-3 wow move-up">
+        <div class="d-flex flex-column">
+          <ng-container *ngFor="let new of news; let i = index">
+            <div class="faq-wrapper mb-3" *ngIf="i < 3">
+              <div class="card">
+                <div class="content-box">
+                  <div class="single-product-wrap">
+                    <div class="image-list product-thumbnail">
+                      <a routerLink="/tin-tuc/{{new.url}}" class="product-thumb-image">
+                        <img class="img-fluid" src="{{new.postImage.url}}" alt="" appHideMissing>
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div class="content">
-                  <a routerLink="/tin-tuc/{{new.url}}">{{new.title}}</a>
-                  <div class="text-content">{{new.description}}</div>
+                  <div class="content">
+                    <a routerLink="/tin-tuc/{{new.url}}">{{new.title}}</a>
+                    <div class="text-content">{{new.description}}</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </ng-container>
           <div class="col-md-12 wow move-up">
             <div class="service-link">
-              <a routerLink="/s/news">TÌM HIỂU THÊM</a>
+              <a routerLink="/tin-tuc/">TÌM HIỂU THÊM</a>
             </div>
           </div>
-        </ng-container>
+        </div>
       </div>
       <!--===== Single Blog Item End =========-->
 

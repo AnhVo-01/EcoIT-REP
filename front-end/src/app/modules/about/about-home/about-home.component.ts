@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AboutService} from "../../../services/about/about.service";
+import {About} from "../about";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-about-home',
@@ -9,10 +11,10 @@ import {AboutService} from "../../../services/about/about.service";
 export class AboutHomeComponent implements OnInit {
 
   paragraph: String[] = [];
-  abouts: any;
-  url: any;
+  abouts: About = new About();
+  link: any;
 
-  constructor(private aboutService: AboutService) { }
+  constructor(private aboutService: AboutService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getList();
@@ -25,9 +27,6 @@ export class AboutHomeComponent implements OnInit {
         const str = this.abouts.description;
         this.paragraph = str.split("&nbsp");
       }
-      document.title = "VỀ CHÚNG TÔI";
-      this.url = this.abouts.videoLINK;
     })
   }
-
 }

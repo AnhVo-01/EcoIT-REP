@@ -41,6 +41,9 @@ import { RecruitListComponent } from './modules/recruit/recruit-list/recruit-lis
 import { RecruitDetailsComponent } from './modules/recruit/recruit-details/recruit-details.component';
 import { NavAddComponent } from './modules/home/navigator/nav-add/nav-add.component';
 import { FooterComponent } from './modules/home/footer/footer.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+import { ModalComponent } from './modules/home/navigator/nav-control/modal/modal.component';
+import {ModalModule} from "ngb-modal";
 
 @NgModule({
   declarations: [
@@ -78,7 +81,8 @@ import { FooterComponent } from './modules/home/footer/footer.component';
     RecruitListComponent,
     RecruitDetailsComponent,
     NavAddComponent,
-    FooterComponent
+    FooterComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +90,9 @@ import { FooterComponent } from './modules/home/footer/footer.component';
     HttpClientModule,
     RouterOutlet,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    CKEditorModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

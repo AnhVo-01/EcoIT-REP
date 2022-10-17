@@ -28,7 +28,7 @@
 /*---------------------------------------------------------*/
 .wrapper {
   padding-top: 120px;
-  padding-left: 140px;
+  padding-left: 120px;
   width: 100%;
 }
 
@@ -37,7 +37,7 @@
   flex-direction: column;
   top: 0;
   right: 0;
-  left: 140px;
+  left: 120px;
   z-index: 100;
   background-color: #fff;
   height: 65px;
