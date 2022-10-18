@@ -25,5 +25,5 @@ public class Address {
 
     @ManyToOne
     @JoinColumn(name = "about_id")
-    private AboutUs aboutUs;
+    private AboutUs about;
 }

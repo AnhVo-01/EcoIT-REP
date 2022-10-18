@@ -1,1 +1,87 @@
-<p>recruit-list works!</p>
+<app-nav-list></app-nav-list>
+
+<!-- breadcrumb-area start -->
+<div class="breadcrumb-box section-space--pt_100">
+  <img src="assets/images/banners/banner-tuyen-dung-2.jpg" class="img-fluid">
+</div>
+<!-- breadcrumb-area end -->
+
+<!--====================  Blog Area Start ====================-->
+<div class="blog-pages-wrapper section-space--ptb_30">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="main-blog-wrap">
+          <!--======= Single Blog Item Start ========-->
+          <div class="pb-4 mb-4">
+            <div class="align-items-center">
+              <div class="text-center">
+                <h4 class="chuyenmuc" style="color: #50B848;">TUYỂN DỤNG</h4>
+                <hr class="hrtag">
+              </div>
+            </div>
+          </div>
+          <div class="single-blog-item">
+            <!-- Post info Start -->
+            <div class="post-info lg-blog-post-info wow move-up" *ngFor="let r of recruit">
+              <span class="post-title font-weight--bold" style="padding: 15px; color: #50b848">
+                <a routerLink="/tin-tuc/" routerLinkActive="active">{{r.name}}</a>
+              </span>
+              <div class="d-flex">
+                <img class="img-fluid" src="{{r.thumb.url}}" alt="Blog Images" appHideMissing>
+                <div class="d-flex flex-column">
+                  <div class="text-desc">
+                    {{r.description}}
+                  </div>
+                  <a href="">Xem chi tiết</a>
+                </div>
+              </div>
+            </div>
+            <!-- Post info End -->
+          </div>
+          <!--===== Single Blog Item End =========-->
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="page-sidebar-content-wrapper page-sidebar-right  small-mt__40 tablet-mt__40">
+          <div class="box-search-tuyen-dung">
+            <form action="https://ecoit.asia/tuyen-dung">
+              <input type="hidden" name="post_type" value="category">
+              <input type="hidden" name="slug_cate" value="tuyen-dung">
+              <div class="form-group">
+                <input type="text" class="form-control" id="usr" name="vitri" value="" spellcheck="false" data-ms-editor="true">
+              </div>
+              <div class="form-group">
+                <select name="cat_id" id="input" class="form-control">
+                  <option value="">Chọn vị trí tuyển dụng</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-secondary btn-tuyendung" type="submit"><i class="fa fa-search"></i> Tìm việc</button>
+              </div>
+            </form>
+          </div>
+          <!-- === Sidebar Widget Start ===-->
+          <div class="sidebar-widget widget-categories  wow move-up">
+            <ul>
+              <li class="cat-item"><a routerLink="/ve-chung-toi" routerLinkActive="ative">Về Chúng Tôi</a>
+              </li>
+              <li class="cat-item"><a href="#">Hồ Sơ Năng Lực</a>
+              </li>
+              <li class="cat-item"><a href="#">Khách Hàng Tiêu Biểu</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- === Sidebar Widget End === -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--====================  Blog Area End  ====================-->
+
+<!--====================  footer area ====================-->
+<app-footer></app-footer>
+<!--====================  End of footer area  ====================-->

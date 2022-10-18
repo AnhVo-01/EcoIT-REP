@@ -20,13 +20,17 @@ import {RecruitListComponent} from "./modules/recruit/recruit-list/recruit-list.
 import {NavAddComponent} from "./modules/home/navigator/nav-add/nav-add.component";
 import {PostListComponent} from "./modules/post/post-list/post-list.component";
 import {PostDetailsComponent} from "./modules/post/post-details/post-details.component";
+import {AboutControlComponent} from "./modules/about/about-control/about-control.component";
+import {AboutDetailsComponent} from "./modules/about/about-details/about-details.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
   {path: 'tuyen-dung', component: RecruitListComponent},
   {path: 'tin-tuc', component: PostListComponent},
   {path: 'tin-tuc/:url', component: PostDetailsComponent},
+  {path: 've-chung-toi', component: AboutDetailsComponent},
 
+  {path: 'd/about', component: AboutControlComponent},
 
   {path: 'd/customer', component: CustomerControlComponent},
   {path: 'd/customer/add-new-customer', component: CustomerAddComponent},

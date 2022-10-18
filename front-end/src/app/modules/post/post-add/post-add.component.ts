@@ -29,7 +29,7 @@ export class PostAddComponent implements OnInit {
     }
 
     this.ckeConfig = {
-      extraPlugins: 'uploadimage, justify, colorbutton, iframe',
+      extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 330,
       // Configure your file manager integration. This example uses CKFinder 3 for PHP.
@@ -46,7 +46,6 @@ export class PostAddComponent implements OnInit {
     const newsFormData = this.prepareFormData(this.news);
     this.newsService.createNews(newsFormData).subscribe(data =>{
         this.goToNewsList();
-        console.log(data)
       },
       error => console.log(error));
   }

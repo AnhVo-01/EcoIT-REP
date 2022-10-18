@@ -31,7 +31,6 @@ import { NavControlComponent } from './modules/home/navigator/nav-control/nav-co
 import { RecruitPostComponent } from './modules/home/group/recruit-post/recruit-post.component';
 import { AboutHomeComponent } from './modules/about/about-home/about-home.component';
 import { AboutControlComponent } from './modules/about/about-control/about-control.component';
-import { AboutAddComponent } from './modules/about/about-add/about-add.component';
 import { AboutDetailsComponent } from './modules/about/about-details/about-details.component';
 import { PostListComponent } from './modules/post/post-list/post-list.component';
 import { PostDetailsComponent } from './modules/post/post-details/post-details.component';
@@ -72,7 +71,6 @@ import {ModalModule} from "ngb-modal";
     RecruitPostComponent,
     AboutHomeComponent,
     AboutControlComponent,
-    AboutAddComponent,
     AboutDetailsComponent,
     PostListComponent,
     PostDetailsComponent,

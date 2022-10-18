@@ -23,7 +23,7 @@
                     <span class="d-flex flex-column">
                       <small>HOTLINE</small>
                       <strong>
-                        <span class="color-gre"><a href="tel:(+84) 935 772 929">(+84) 935 772 929</a></span>
+                        <span class="color-gre"><a href="tel:{{about.phone}}">{{about.phone}}</a></span>
                       </strong>
                     </span>
                   </div>
@@ -34,7 +34,7 @@
                     <span class="d-flex flex-column">
                       <small>EMAIL</small>
                       <strong>
-                        <span class="color-gre"><a href="mailto:contact@ecoit.asia">contact@ecoit.asia</a></span>
+                        <span class="color-gre"><a href="mailto:{{about.email}}">{{about.email}}</a></span>
                       </strong>
                     </span>
                   </div>
@@ -48,7 +48,7 @@
                 <div class="header-bottom">
                   <nav class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
                     <ul class="text-uppercase">
-                      <li><a href="index.html"><span>TRANG CHỦ</span></a></li>
+                      <li><a href="/trang-chu"><span>TRANG CHỦ</span></a></li>
                       <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
                         <a routerLink="{{nav.url}}" (mouseenter)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>
                         <ul *ngIf="!nav.url.includes('/')" class="submenu p-2">

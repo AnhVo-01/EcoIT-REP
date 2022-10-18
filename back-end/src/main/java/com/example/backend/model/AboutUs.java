@@ -3,6 +3,7 @@ package com.example.backend.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -28,4 +29,7 @@ public class AboutUs {
     private String email;
 
     private boolean active;
+
+    @OneToMany(mappedBy = "about", cascade = CascadeType.ALL)
+    private Collection<Address> address;
 }

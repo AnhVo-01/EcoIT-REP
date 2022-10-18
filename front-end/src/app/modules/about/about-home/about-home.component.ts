@@ -13,6 +13,7 @@ export class AboutHomeComponent implements OnInit {
   paragraph: String[] = [];
   abouts: About = new About();
   link: any;
+  desc: any;
 
   constructor(private aboutService: AboutService, private sanitizer: DomSanitizer) { }
 
@@ -23,10 +24,8 @@ export class AboutHomeComponent implements OnInit {
   getList(){
     this.aboutService.getInfo().subscribe(data => {
       this.abouts = data;
-      if(this.abouts.description != null){
-        const str = this.abouts.description;
-        this.paragraph = str.split("&nbsp");
-      }
-    })
+      this.desc = this.sanitizer.bypassSecurityTrustHtml(this.abouts.description);
+      this.link = this.sanitizer.bypassSecurityTrustResourceUrl(this.abouts.videoLINK);
+    });
   }
 }

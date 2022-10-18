@@ -16,4 +16,8 @@ export class AboutService {
   getInfo(): Observable<About>{
     return this.httpClient.get<About>(`${this.baseURL}`);
   }
+
+  saveInfo(about: About): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`, about);
+  }
 }

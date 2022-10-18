@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
 import {Navigator} from "../navigator";
 import {NavigationService} from "../../../../services/navigation/navigation.service";
+import {About} from "../../../about/about";
+import {AboutService} from "../../../../services/about/about.service";
 
 @Component({
   selector: 'app-nav-list',
@@ -19,7 +21,11 @@ export class NavListComponent implements OnInit {
   navParent: Navigator[] = [];
   navChild: Navigator[] = [];
 
-  constructor(private navService: NavigationService ,private tokenStorageService: TokenStorageService) { }
+  about: About = new About();
+
+  constructor(private navService: NavigationService,
+              private aboutService: AboutService,
+              private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -35,6 +41,8 @@ export class NavListComponent implements OnInit {
     }
 
     this.getAllNav();
+    this.getAbout();
+
     let element = document.getElementById("myDIV");
 
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -59,4 +67,9 @@ export class NavListComponent implements OnInit {
     })
   }
 
+  getAbout(){
+    this.aboutService.getInfo().subscribe(data =>{
+      this.about = data;
+    })
+  }
 }

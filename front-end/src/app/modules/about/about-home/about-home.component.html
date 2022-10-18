@@ -18,16 +18,11 @@
             <div class="col-lg-6 col-md-6">
               <!-- Post info Start -->
               <div class="post-info list-item-space">
-                <div class="text-justify">
-                  <p>
-                    <span style="color:#50b848;">{{paragraph[0]}}</span>
-                    &nbsp;{{paragraph[1]}}
-                  </p>
-                </div>
+                <div class="text-justify" [innerHTML]="desc"></div>
 
                 <div class="post-read-more mt-30">
                   <div class="service-link">
-                    <a routerlink="/ve-chung-toi" routerLinkActive="active">TÌM HIỂU THÊM</a>
+                    <a href="/ve-chung-toi">TÌM HIỂU THÊM</a>
                   </div>
                 </div>
               </div>
@@ -37,9 +32,11 @@
             <div class="col-lg-6 col-md-6">
               <!-- Post Feature Start -->
               <div class="post-feature blog-thumbnail">
-                <div class="wp-block-embed__wrapper">
-                  {{abouts.videoLINK}}
-                </div>
+                <figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-has-aspect-ratio">
+                  <div class="wp-block-embed__wrapper">
+                    <iframe loading="lazy" title="GIỚI THIỆU CÔNG TY CỔ PHẦN ECOIT" width="500" height="281" [src]="link" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                  </div>
+                </figure>
               </div>
               <!-- Post Feature End -->
             </div>

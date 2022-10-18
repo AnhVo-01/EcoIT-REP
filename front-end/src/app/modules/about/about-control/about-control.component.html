@@ -1,1 +1,136 @@
-<p>about-control works!</p>
+<div class="site-wrapper-reveal">
+
+  <!--====================  Blog Area Start ====================-->
+  <div class="blog-pages-wrapper section-space--ptb_60">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 ml-auto mr-auto">
+          <div class="main-blog-wrap">
+            <!--======= Single Blog Item Start ========-->
+            <div class="single-blog-item  wow move-up">
+              <div class="post-excerpt">
+                <div class="py-4 mb-4">
+                  <div class="align-items-center">
+                    <div class="text-center">
+                      <h3 class="chuyenmuc" style="color: #50B848;">VỀ CHÚNG TÔI</h3>
+                      <hr class="hrtag">
+                    </div>
+                  </div>
+                </div>
+                <div class="contact-from-wrapper">
+
+                  <form>
+                    <div class="contact-page-form">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="contact-inner">
+                            <span><strong>HOTLINE</strong></span>
+                            <input name="phone" type="text" [(ngModel)]="about.phone">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="contact-inner">
+                            <span><strong>EMAIL</strong></span>
+                            <input name="email" type="email" [(ngModel)]="about.email">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="contact-inner">
+                            <span><strong>FAX</strong></span>
+                            <input name="fax" type="text" [(ngModel)]="about.fax">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="contact-inner">
+                            <span><strong>Link</strong></span>
+                            <input name="videoLINK" type="text" [(ngModel)]="about.videoLINK">
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div id="address">
+                            <button (click)="addMoreAddr()" class="btn">
+                              <i class="fa fa-plus"></i>
+                              <span class="ml-2">Thêm địa chỉ mới</span>
+                            </button>
+                            <div class="mt-3">
+                              <div class="row">
+                                <div class="col-lg-4">
+                                  <div class="contact-inner">
+                                    <select (change)="getDistricts($event)" [(ngModel)]="provinceSelected" [ngModelOptions]="{standalone: true}">
+                                      <option [value]="0" [selected]="true">Tỉnh thành</option>
+                                      <option *ngFor="let p of provinces" [value]="p.code">{{p.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="contact-inner">
+                                    <select (change)="getWards($event)" [(ngModel)]="distSelected" [ngModelOptions]="{standalone: true}">
+                                      <option [value]="0" [selected]="true">Huyện</option>
+                                      <option *ngFor="let d of districts" [value]="d.code">{{d.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="contact-inner">
+                                    <select [(ngModel)]="wSelected" [ngModelOptions]="{standalone: true}">
+                                      <option [value]="0" [selected]="true">Xã</option>
+                                      <option *ngFor="let w of wards">{{w.name}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4">
+                                  <div class="contact-inner">
+                                    <span><strong>Khu vực</strong></span>
+                                    <input name="address" type="text">
+                                  </div>
+                                </div>
+                                <div class="col-lg-8">
+                                  <div class="contact-inner">
+                                    <span><strong>Địa chỉ</strong></span>
+                                    <input name="address" type="text">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="btn-box ml-3">
+                              <button (click)="addMoreAddr()" class="ht-btn ht-btn-md mr-2">
+                                <i class="fa fa-save"></i>
+                                <span class="ml-2">Lưu</span>
+                              </button>
+                              <button (click)="removeChild($event)" class="ht-btn ht-btn-md ml-2" style="background: #ccc" type="button">Hủy</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 section-space--ptb_30">
+                          <div class="contact-inner">
+                            <span><strong>MÔ TẢ</strong></span>
+                            <ckeditor [(ngModel)]="about.description" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" [data]="about.description"></ckeditor>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="contact-inner contact-message">
+                            <span><strong>VÀI NÉT VỀ CHÚNG TÔI</strong></span>
+                            <ckeditor [(ngModel)]="about.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" [data]="about.content"></ckeditor>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="comment-submit-btn text-center">
+                        <button class="ht-btn ht-btn-md mr-2" (click)="onSubmit()" type="button">Submit</button>
+                        <button class="ht-btn ht-btn-md ml-2" routerLink="/dashboard" routerLinkActive="active" style="background: #ccc" type="button" >Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+            <!--===== Single Blog Item End =========-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--====================  Blog Area End  ====================-->
+
+</div>

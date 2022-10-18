@@ -14,6 +14,7 @@ export class PostDetailsComponent implements OnInit {
 
   url: any;
   news: Post = new Post();
+  content: any;
 
   roles: any;
   constructor(private route: ActivatedRoute, private newsService: PostService,
@@ -35,6 +36,7 @@ export class PostDetailsComponent implements OnInit {
     this.newsService.getNewsByUrl(this.url).subscribe(data => {
       this.news = data;
       document.title = this.news.title;
+      this.content = this.sanitizer.bypassSecurityTrustHtml(this.news.content);
     })
   }
 

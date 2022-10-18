@@ -12,13 +12,16 @@ public class Recruit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String title;
 
     @Column(columnDefinition = "text")
     private String description;
 
     @Column(columnDefinition = "text")
     private String content;
+
+    @Column(columnDefinition = "text")
+    private String url;
 
     private boolean active;
 

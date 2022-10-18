@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+import static com.example.backend.service.StringUtils.getSearchableString;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/s")
 @RestController
@@ -35,6 +37,7 @@ public class RecruitController {
     public Recruit newRecruit(@RequestPart("recruit") Recruit recruit,
                               @RequestPart(value = "thumb", required = false) MultipartFile file){
         recruit.setActive(true);
+        recruit.setUrl(getSearchableString(recruit.getTitle()));
         try{
             Image images = imageRepository.save(fileService.uploadOneImage(file));
             recruit.setThumb(images);
