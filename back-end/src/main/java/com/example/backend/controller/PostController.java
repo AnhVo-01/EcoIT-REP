@@ -42,8 +42,6 @@ public class PostController {
     @Autowired
     private ImageRepository imageRepository;
 
-    private static final Path CURRENT_FOLDER = Paths.get(System.getProperty("user.dir"));
-
     @GetMapping("/news")
     public Page<Post> search(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
                              @RequestParam(name = "pageSize", defaultValue = "3") int pageSize,

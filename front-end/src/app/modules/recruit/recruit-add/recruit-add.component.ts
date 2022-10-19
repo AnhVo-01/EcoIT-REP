@@ -23,6 +23,12 @@ export class RecruitAddComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    if(this.id){
+      this.isUpdate = true;
+      this.getRecruitById(this.id);
+    }
+
     this.ckeConfig = {
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
@@ -34,19 +40,14 @@ export class RecruitAddComponent implements OnInit {
       filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
 
     };
-    // this.id = this.route.snapshot.params['id'];
-    // if(this.id){
-    //   this.isUpdate = true;
-    //   this.getRecruitById(this.id);
-    // }
   }
 
-  // getRecruitById(id: any) {
-  //   this.productService.getProductById(id).subscribe(data => {
-  //     this.product = data;
-  //     this.url = this.product.thumb.url;
-  //   });
-  // }
+  getRecruitById(id: any) {
+    this.recruitService.getById(id).subscribe(data => {
+      this.recruit = data;
+      this.url = this.recruit.thumb.url;
+    });
+  }
 
   createRecruit(){
     const productFormData = this.prepareFormData(this.recruit);
@@ -54,12 +55,13 @@ export class RecruitAddComponent implements OnInit {
       this.goToRecruitList();
     });
   }
-  // updateProduct(id: any){
-  //   const productFormData = this.prepareFormData(this.product);
-  //   this.recruitService.updateProduct(id, productFormData).subscribe(data =>{
-  //     this.goToProductList();
-  //   });
-  // }
+
+  updateRecruit(id: any){
+    const productFormData = this.prepareFormData(this.recruit);
+    this.recruitService.updateRecruit(id, productFormData).subscribe(data =>{
+      this.goToRecruitList();
+    });
+  }
 
   prepareFormData(recruit: Recruit): FormData {
     const  formData = new FormData();
@@ -83,7 +85,11 @@ export class RecruitAddComponent implements OnInit {
   }
 
   onSubmit(){
-    this.createRecruit();
+    if(this.id){
+      this.updateRecruit(this.id);
+    }else{
+      this.createRecruit();
+    }
   }
 
 

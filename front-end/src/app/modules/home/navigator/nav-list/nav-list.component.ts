@@ -69,7 +69,9 @@ export class NavListComponent implements OnInit {
 
   getAbout(){
     this.aboutService.getInfo().subscribe(data =>{
-      this.about = data;
+      if (data != null){
+        this.about = data;
+      }
     })
   }
 }

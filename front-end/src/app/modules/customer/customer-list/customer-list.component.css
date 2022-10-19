@@ -18,8 +18,8 @@
   padding: 10px 0;
 }
 .product-thumbnail-box .box-content{
-  padding: 15px 0;
-  margin: 20px 0;
+  padding: 15px 0 10px;
+  margin-top: 20px;
 }
 .product-thumbnail-box .box-link{
   text-transform: uppercase;
@@ -72,10 +72,11 @@
   height: 360px;
 }
 .desc{
-  max-height: 130px;
-  /*white-space: nowrap;*/
+  max-height: 127px;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: inline-axis;
   overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
 }
 
 .hrtag{

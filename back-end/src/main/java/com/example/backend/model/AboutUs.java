@@ -30,6 +30,10 @@ public class AboutUs {
 
     private boolean active;
 
-    @OneToMany(mappedBy = "about", cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "about_address",
+            joinColumns = @JoinColumn(name = "about_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
     private Collection<Address> address;
 }

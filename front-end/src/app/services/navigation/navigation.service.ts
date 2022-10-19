@@ -29,7 +29,7 @@ export class NavigationService {
     return this.httpClient.get(`${this.baseURL}/all`, {params: param});
   }
 
-  getById(id:number): Observable<Navigator>{
+  getById(id:any): Observable<Navigator>{
     return this.httpClient.get<Navigator>(`${this.baseURL}/${id}`);
   }
 

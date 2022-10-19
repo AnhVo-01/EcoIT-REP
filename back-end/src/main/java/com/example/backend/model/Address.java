@@ -23,7 +23,5 @@ public class Address {
 
     private String wards;
 
-    @ManyToOne
-    @JoinColumn(name = "about_id")
-    private AboutUs about;
+    private boolean active;
 }

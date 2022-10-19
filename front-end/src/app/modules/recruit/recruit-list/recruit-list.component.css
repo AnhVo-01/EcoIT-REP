@@ -13,6 +13,12 @@
   object-fit: cover;
 }
 
+/*-- left ------------------------------------------*/
+.single-blog-content{
+  display: flex;
+  gap: 15px;
+}
+
 /*-- right------------------------------------------*/
 .box-search-tuyen-dung {
   border: 1px solid #50b848;

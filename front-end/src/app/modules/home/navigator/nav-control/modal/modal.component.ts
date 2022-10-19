@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NavigationService} from "../../../../../services/navigation/navigation.service";
 import {Navigator} from "../../navigator";
 import {ModalManager} from "ngb-modal";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-modal',
@@ -12,11 +13,36 @@ export class ModalComponent implements OnInit {
 
   nav: Navigator = new Navigator();
   navGroup: Navigator[] = [];
+  id: any;
+  group: any;
 
-  constructor(private navService: NavigationService, private modalService: ModalManager) { }
+  constructor(private navService: NavigationService, private route: ActivatedRoute) {
+    this.group = window.sessionStorage.getItem("navGroup");
+
+  }
 
   ngOnInit(): void {
-    this.getAllNavGroup();
+    this.id = this.route.snapshot.params['id'];
+    if(this.id){
+      this.getNavById(this.id);
+    }else{
+      this.addToGroup();
+    }
+  }
+
+  addToGroup(){
+    if (this.group != null){
+      this.navService.getById(this.group).subscribe(data => {
+        this.nav.parentId = data.id;
+        console.log(data)
+      });
+    }
+  }
+
+  getNavById(id: any) {
+    this.navService.getById(id).subscribe(data => {
+      this.nav = data;
+    });
   }
 
   getAllNavGroup(){
@@ -34,27 +60,7 @@ export class ModalComponent implements OnInit {
 
   onSubmit(){
     this.addNavigation();
-  }
-
-  @ViewChild('myModal') myModal: any;
-  private modalRef: any;
-
-  // openModal(){
-  //   this.modalRef = this.modalService.open(this.myModal, {
-  //     size: "md",
-  //     modalClass: 'mymodal',
-  //     hideCloseButton: false,
-  //     centered: false,
-  //     backdrop: true,
-  //     animation: true,
-  //     keyboard: false,
-  //     closeOnOutsideClick: true,
-  //     backdropClass: "modal-backdrop"
-  //   })
-  // }
-  closeModal(){
-    this.modalService.close(this.modalRef);
-    //or this.modalRef.close();
+    window.sessionStorage.removeItem("navGroup");
   }
 
 }

@@ -97,11 +97,6 @@ export class PostControlComponent implements OnInit {
     this.getBySearch();
   }
 
-  logout(): void {
-    this.tokenStorageService.signOut();
-    this.router.navigate(['']);
-  }
-
   downloadImg(e: any){
     this.fileService.downloadFile(e).subscribe( data =>{
       this.getBySearch();
@@ -115,7 +110,6 @@ export class PostControlComponent implements OnInit {
         this.getBySearch();
       });
     }
-    console.log(e)
   }
 
 }

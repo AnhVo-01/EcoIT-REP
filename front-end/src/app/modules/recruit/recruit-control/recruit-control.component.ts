@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RecruitService} from "../../../services/recruit/recruit.service";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Router} from "@angular/router";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-recruit-control',
@@ -48,18 +49,15 @@ export class RecruitControlComponent implements OnInit {
   }
 
   getBySearch(){
-    // const params = new HttpParams()
-    //   .set('pageNo', this.searchField.pageIndex)
-    //   .set('pageSize', this.searchField.pageSize)
-    //   .set('keyword', this.searchField.keyword);
-    // this.recruits.newsSearchList(params).subscribe(data => {
-    //   this.recruits = data.content;
-    //   this.searchField.totalElements = data.totalElements;
-    //   this.totalPages = data.totalPages;
-    // });
-    this.recruitService.getRecruitList().subscribe(data => {
-      this.recruits = data;
-    })
+    const params = new HttpParams()
+      .set('pageNo', this.searchField.pageIndex)
+      .set('pageSize', this.searchField.pageSize)
+      .set('keyword', this.searchField.keyword);
+    this.recruitService.getBySearch(params).subscribe(data => {
+      this.recruits = data.content;
+      this.searchField.totalElements = data.totalElements;
+      this.totalPages = data.totalPages;
+    });
   }
 
   search(){
@@ -79,15 +77,22 @@ export class RecruitControlComponent implements OnInit {
   }
 
   updateNews(id: number){
-    return this.router.navigate(['d/news/update-news', id]);
+    return this.router.navigate(['d/recruit/update', id]);
+  }
+
+  deleteControl(){
+    if(this.recruits.length-1 < 1 && this.searchField.pageIndex !== 1){
+      this.searchField.pageIndex = this.searchField.pageIndex - 1;
+    }
+    this.getBySearch();
   }
 
   deleteNews(id: number){
-    let option = confirm("Do you want to continue?");
+    let option = confirm("Bạn có chắc chắn xóa tin này?");
 
     if(option == true){
       this.recruitService.deleteRecruit(id).subscribe(data =>{
-        this.getBySearch();
+        this.deleteControl();
       })
     }
 

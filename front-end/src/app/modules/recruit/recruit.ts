@@ -1,7 +1,9 @@
 export class Recruit {
   id: any;
   thumb: any;
-  name: any;
+  title: any;
   description: any
-  content: any
+  content: any;
+  createDate: any;
+  url: any;
 }

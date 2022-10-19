@@ -13,3 +13,29 @@
   margin: 0;
   background: inherit;
 }
+
+.modal.show .modal-dialog{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  max-width: 880px;
+  transform: translate(-50%, -20%);
+}
+
+.error-mess{
+  position: relative;
+  top: 3px;
+  color: #f00;
+  background-color: #f8d7da;
+  padding: 5px 15px;
+  border-radius: 4px;
+  width: fit-content;
+  margin: 0 auto;
+  animation-name: topDown;
+  animation-duration: 0.4s;
+  box-shadow: 0 4px 32px rgb(51 51 51 / 7%);
+}
+@keyframes topDown {
+  from {top: -40px;}
+  to {top: 3px;}
+}

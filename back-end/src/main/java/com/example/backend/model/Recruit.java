@@ -25,6 +25,9 @@ public class Recruit {
 
     private boolean active;
 
+    @Column(name = "create_date")
+    private String createDate;
+
     @OneToOne
     @JoinColumn(name = "image_id")
     private Image thumb;

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
 import {HttpParams} from "@angular/common/http";
 import {NavigationService} from "../../../../services/navigation/navigation.service";
 import {Navigator} from "../navigator";
 import {ModalManager} from "ngb-modal";
 import {ModalComponent} from "./modal/modal.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-control',
@@ -17,7 +18,6 @@ export class NavControlComponent implements OnInit {
   nav: Navigator = new Navigator();
   navParent: Navigator[] = [];
   navChild: Navigator[] = [];
-  navGroup: Navigator[] = [];
 
   totalPages: any;
   pageSizes = [4, 8, 12];
@@ -30,12 +30,11 @@ export class NavControlComponent implements OnInit {
   }
 
   constructor(private navService: NavigationService,
-              private tokenStorageService: TokenStorageService,
-              private modalService: ModalManager) { }
+              private router: Router,
+              private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.getAllNav()
-    this.getAllNavGroup();
 
     // @ts-ignore
     document.getElementById("active-nav").classList.add("here");
@@ -61,12 +60,6 @@ export class NavControlComponent implements OnInit {
     })
   }
 
-  getAllNavGroup(){
-    this.navService.getNavGroup().subscribe(data => {
-      this.navGroup = data;
-    })
-  }
-
   search(){
     this.searchField.pageIndex = 1;
     this.getAllNav();
@@ -81,17 +74,6 @@ export class NavControlComponent implements OnInit {
     this.searchField.pageSize = event.target.value;
     this.searchField.pageIndex = 1;
     this.getAllNav();
-  }
-
-  addNavigation(){
-    this.navService.addNewNav(this.nav).subscribe(data =>{
-      this.getAllNav();
-      // window.location.reload();
-    })
-  }
-
-  onSubmit(){
-    this.addNavigation();
   }
 
   deleteControl(){
@@ -112,18 +94,12 @@ export class NavControlComponent implements OnInit {
       })
     }
   }
-  openModal(){
-    this.modalService.open(ModalComponent, {
-      size: "md",
-      modalClass: 'mymodal',
-      hideCloseButton: false,
-      centered: false,
-      backdrop: true,
-      animation: true,
-      keyboard: false,
-      closeOnOutsideClick: true,
-      backdropClass: "modal-backdrop"
-    })
+
+  openModal(e: any){
+    // this.router.navigate(['update/:id'])
+    e.target.setAttribute("data-toggle", "modal")
+    e.target.setAttribute("data-target", "#myModal")
+    window.sessionStorage.setItem("navGroup", e.target.id)
   }
 
 }

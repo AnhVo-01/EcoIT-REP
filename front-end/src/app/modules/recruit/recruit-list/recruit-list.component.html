@@ -25,15 +25,17 @@
             <!-- Post info Start -->
             <div class="post-info lg-blog-post-info wow move-up" *ngFor="let r of recruit">
               <span class="post-title font-weight--bold" style="padding: 15px; color: #50b848">
-                <a routerLink="/tin-tuc/" routerLinkActive="active">{{r.name}}</a>
+                <a routerLink="/tuyen-dung/{{r.url}}" routerLinkActive="active">{{r.title}}</a>
               </span>
-              <div class="d-flex">
-                <img class="img-fluid" src="{{r.thumb.url}}" alt="Blog Images" appHideMissing>
-                <div class="d-flex flex-column">
+              <div class="single-blog-content">
+                <div class="ava-box" style="width: 220px; height: 125px">
+                  <img src="{{r.thumb.url}}" class="img-fluid" alt="Blog Images" appHideMissing style="height: 100%; width: 100%; object-fit: fill;">
+                </div>
+                <div class="d-flex flex-column justify-content-between">
                   <div class="text-desc">
                     {{r.description}}
                   </div>
-                  <a href="">Xem chi tiết</a>
+                  <a routerLink="/tuyen-dung/{{r.url}}" routerLinkActive="active" class="text-right" style="color: #50b848; text-decoration: underline;">Xem chi tiết</a>
                 </div>
               </div>
             </div>

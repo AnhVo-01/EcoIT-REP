@@ -18,6 +18,11 @@ export class RecruitListComponent implements OnInit {
     // @ts-ignore
     element.classList.add("bg-dark");
 
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
     this.getRecruitList();
   }
 

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {CustomerControlComponent} from "./modules/customer/customer-control/customer-control.component";
 import {CustomerAddComponent} from "./modules/customer/customer-add/customer-add.component";
 import {HomeComponent} from "./modules/home/home-page/home.component";
@@ -22,10 +22,12 @@ import {PostListComponent} from "./modules/post/post-list/post-list.component";
 import {PostDetailsComponent} from "./modules/post/post-details/post-details.component";
 import {AboutControlComponent} from "./modules/about/about-control/about-control.component";
 import {AboutDetailsComponent} from "./modules/about/about-details/about-details.component";
+import {RecruitDetailsComponent} from "./modules/recruit/recruit-details/recruit-details.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
   {path: 'tuyen-dung', component: RecruitListComponent},
+  {path: 'tuyen-dung/:url', component: RecruitDetailsComponent},
   {path: 'tin-tuc', component: PostListComponent},
   {path: 'tin-tuc/:url', component: PostDetailsComponent},
   {path: 've-chung-toi', component: AboutDetailsComponent},
@@ -60,7 +62,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
 
   {path: 'dashboard', component: DashBoardComponent},
-  {path: '', redirectTo: '/trang-chu', pathMatch: 'full'},
+  // {path: '', redirectTo: '/trang-chu', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -68,4 +70,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

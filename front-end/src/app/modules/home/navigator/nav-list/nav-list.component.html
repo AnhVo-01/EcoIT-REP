@@ -53,7 +53,7 @@
                         <a routerLink="{{nav.url}}" (mouseenter)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>
                         <ul *ngIf="!nav.url.includes('/')" class="submenu p-2">
                           <li *ngFor="let nav1 of navChild">
-                            <a href="{{nav1.url}}" class="px-3 py-1"><span>{{nav1.name}}</span></a>
+                            <a routerLink="{{nav1.url}}" routerLinkActive="active" class="px-3 py-1"><span>{{nav1.name}}</span></a>
                           </li>
                         </ul>
                       </li>

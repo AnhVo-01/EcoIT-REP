@@ -13,16 +13,17 @@ import {Address} from "../../address/address";
 export class AboutControlComponent implements OnInit {
 
   about: About = new About();
-  addrress: Address = new Address();
-  ckeConfig: any;
+  address: Address = new Address();
+  // addList: Address[] = [];
 
   provinces: any;
   districts: any;
   wards: any;
+  fullAddress: String[] =[];
 
-  provinceSelected = 0;
-  distSelected = 0;
-  wSelected = 0;
+  ckeConfig: any;
+  submitFail = false;
+  errorMessage = "";
 
   constructor(private aboutService: AboutService, private addressService: AddressService, private sanitizer: DomSanitizer) { }
 
@@ -34,6 +35,8 @@ export class AboutControlComponent implements OnInit {
       this.provinces = data;
     })
 
+    this.defaultAddrCode();
+
     this.ckeConfig = {
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
@@ -44,10 +47,36 @@ export class AboutControlComponent implements OnInit {
     };
   }
 
+  defaultAddrCode(){
+    this.address.province = 0;
+    this.address.district = 0;
+    this.address.wards = 0;
+  }
+
   goToInfo(){
     this.aboutService.getInfo().subscribe(data =>{
       if(data != null){
         this.about = data;
+      }
+    })
+    this.getListAddress();
+  }
+
+  getListAddress(){
+    this.addressService.getListAddr().subscribe(data =>{
+      for (let i=0; i<data.length; i++){
+        if(data[i].address != null){
+          this.fullAddress[i] = data[i].address;
+        }
+        if (data[i].wards != null){
+          this.fullAddress[i] = this.fullAddress[i] + ", " + data[i].wards;
+        }
+        if (data[i].district != null){
+          this.fullAddress[i] = this.fullAddress[i] + ", " + data[i].district;
+        }
+        if (data[i].province != null){
+          this.fullAddress[i] = this.fullAddress[i] + ", " + data[i].province;
+        }
       }
     })
   }
@@ -59,70 +88,38 @@ export class AboutControlComponent implements OnInit {
   }
 
   getWards(codeDist: any){
-    console.log(codeDist.target.value)
     this.addressService.getWards().subscribe(data =>{
       this.wards = data.filter((item: any) => item.district_code == codeDist.target.value);
     })
   }
 
   onSubmit(){
+    // for (let i=0; i<this.addList.length; i++){
+    //   this.about.address[i] = this.addList[i];
+    // }
     this.aboutService.saveInfo(this.about).subscribe(data =>{
       this.goToInfo();
     })
   }
 
-  addMoreAddr(){
-    let adBox = `<div class="row">
-                                <div class="col-lg-4">
-                                  <div class="contact-inner">
-                                    <select (change)="getDistricts($event)" [(ngModel)]="provinceSelected" [ngModelOptions]="{standalone: true}">
-                                      <option [value]="0" [selected]="true">Tỉnh thành</option>
-                                      <option *ngFor="let p of provinces" [value]="p.code">{{p.name}}</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-lg-4">
-                                  <div class="contact-inner">
-                                    <select (change)="getWards($event)" [(ngModel)]="distSelected" [ngModelOptions]="{standalone: true}">
-                                      <option [value]="0" [selected]="true">Huyện</option>
-                                      <option *ngFor="let d of districts" [value]="d.code">{{d.name}}</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-lg-4">
-                                  <div class="contact-inner">
-                                    <select [(ngModel)]="wSelected" [ngModelOptions]="{standalone: true}">
-                                      <option [value]="0" [selected]="true">Xã</option>
-                                      <option *ngFor="let w of wards">{{w.name}}</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-lg-4">
-                                  <div class="contact-inner">
-                                    <span><strong>Khu vực</strong></span>
-                                    <input name="address" type="text">
-                                  </div>
-                                </div>
-                                <div class="col-lg-8">
-                                  <div class="contact-inner">
-                                    <span><strong>ĐỊA CHỈ</strong></span>
-                                    <input name="address" type="text">
-                                  </div>
-                                </div>
-                              </div>
-                              <div id="btn-box">
-                                <button (click)="addMoreAddr()" class="ht-btn ht-btn-md mr-2">
-                                  <i class="fa fa-save"></i>
-                                  <span class="ml-2">Lưu</span>
-                                </button>
-                                <button (click)="removeChild($event)" class="ht-btn ht-btn-md ml-2" style="background: #ccc" type="button">Xóa</button>
-                              </div>`
-    // @ts-ignore
-    document.getElementById("address").insertAdjacentHTML('beforeend', adBox);
-  }
+  save(e: any){
+    this.addressService.getProvincesByCode(this.address.province).subscribe(data =>{
+      this.address.province = data.name;
+    })
+    this.addressService.getDistrictsByCode(this.address.district).subscribe(data =>{
+      this.address.district = data.name;
+    })
 
-  removeChild(e: any){
-    console.log(e.target);
-    // document.getElementById("address").removeChild();
+    this.addressService.createAddr(this.address).subscribe( data =>{
+      this.submitFail = false;
+      this.goToInfo();
+    },err => {
+      this.errorMessage = err.error.message;
+      this.submitFail = true;
+    })
+
+    if (this.submitFail){
+      e.target.setAttribute("data-dismiss", "modal");
+    }
   }
 }

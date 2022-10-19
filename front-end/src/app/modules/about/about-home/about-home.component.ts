@@ -24,8 +24,12 @@ export class AboutHomeComponent implements OnInit {
   getList(){
     this.aboutService.getInfo().subscribe(data => {
       this.abouts = data;
-      this.desc = this.sanitizer.bypassSecurityTrustHtml(this.abouts.description);
-      this.link = this.sanitizer.bypassSecurityTrustResourceUrl(this.abouts.videoLINK);
+      if (this.abouts != null){
+        this.desc = this.sanitizer.bypassSecurityTrustHtml(this.abouts.description);
+        this.link = this.sanitizer.bypassSecurityTrustHtml(this.abouts.videoLINK);
+      }else{
+        this.desc = `<p>[empty]</p>`;
+      }
     });
   }
 }

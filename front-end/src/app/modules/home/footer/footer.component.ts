@@ -21,7 +21,9 @@ export class FooterComponent implements OnInit {
       this.post = data;
     })
     this.aboutService.getInfo().subscribe(data =>{
-      this.about = data;
+      if (data != null){
+        this.about = data;
+      }
     })
   }
 
