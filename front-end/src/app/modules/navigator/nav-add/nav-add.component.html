@@ -1,0 +1,36 @@
+<div class="custom-modal" id="myModal">
+  <form (submit)="onSubmit()">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="d-flex justify-content-between">
+            <div class="modal-content-box">
+              <label>Tên
+                <input type="text" name="name" [(ngModel)]="nav.name" placeholder="KHÁCH HÀNG CHÍNH PHỦ">
+              </label>
+              <label>Đường dẫn
+                <input type="text" name="url" [(ngModel)]="nav.url" placeholder="/khach-hang-chinh-phu">
+              </label>
+              <label>Nhóm
+                <input *ngIf="isChild" name="parentId" [(ngModel)]="nav.parentId" [value]="nav.parentId" disabled>
+                <div *ngIf="isChild == false">
+                  <select name="parentId" [(ngModel)]="nav.parentId">
+                    <option>Chọn</option>
+                    <option *ngFor="let opt of navGroup" [value]="opt.id">{{opt.name}}</option>
+                  </select>
+                </div>
+              </label>
+            </div>
+            <div class="modal-button">
+              <button type="submit" class="ht-btn-custom bg-primary">Lưu</button>
+              <button type="button" class="ht-btn-custom bg-secondary" (click)="closeModal()">Hủy</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

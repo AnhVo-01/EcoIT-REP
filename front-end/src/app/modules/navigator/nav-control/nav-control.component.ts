@@ -1,11 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
+import {Component, OnInit} from '@angular/core';
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {HttpParams} from "@angular/common/http";
-import {NavigationService} from "../../../../services/navigation/navigation.service";
 import {Navigator} from "../navigator";
-import {ModalManager} from "ngb-modal";
-import {ModalComponent} from "./modal/modal.component";
 import {Router} from "@angular/router";
+import {NavigationService} from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'app-nav-control',
@@ -35,11 +33,6 @@ export class NavControlComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllNav()
-
-    // @ts-ignore
-    document.getElementById("active-nav").classList.add("here");
-    // @ts-ignore
-    document.getElementById("h-act-p").classList.add("here");
   }
 
   getAllNav(){
@@ -96,10 +89,8 @@ export class NavControlComponent implements OnInit {
   }
 
   openModal(e: any){
-    // this.router.navigate(['update/:id'])
-    e.target.setAttribute("data-toggle", "modal")
-    e.target.setAttribute("data-target", "#myModal")
     window.sessionStorage.setItem("navGroup", e.target.id)
+    return this.router.navigate(['d/navigation/modal'])
   }
 
 }

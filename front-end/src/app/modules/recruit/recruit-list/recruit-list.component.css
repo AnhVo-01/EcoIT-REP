@@ -18,7 +18,11 @@
   display: flex;
   gap: 15px;
 }
-
+.ava-box img{
+  width: 210px;
+  height: 130px;
+  object-fit: fill;
+}
 /*-- right------------------------------------------*/
 .box-search-tuyen-dung {
   border: 1px solid #50b848;

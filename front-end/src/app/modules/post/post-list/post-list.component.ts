@@ -9,6 +9,7 @@ import {PostService} from "../../../services/post/post.service";
 export class PostListComponent implements OnInit {
 
   news: any;
+  url: any;
 
   constructor(private newsService: PostService) { }
 
@@ -23,6 +24,7 @@ export class PostListComponent implements OnInit {
   private getNews(){
     this.newsService.getNewsList().subscribe(data => {
       this.news = data;
+      this.url = this.news[0].postImage.url;
       document.title = "TIN MỚI NHẤT - Công ty cổ phần EcoIT";
 
       var element = document.getElementById("myDIV");

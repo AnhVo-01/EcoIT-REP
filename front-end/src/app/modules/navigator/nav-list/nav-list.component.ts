@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {Navigator} from "../navigator";
-import {NavigationService} from "../../../../services/navigation/navigation.service";
-import {About} from "../../../about/about";
-import {AboutService} from "../../../../services/about/about.service";
+import {About} from "../../about/about";
+import {AboutService} from "../../../services/about/about.service";
+import {NavigationService} from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'app-nav-list',
@@ -45,13 +45,13 @@ export class NavListComponent implements OnInit {
 
     let element = document.getElementById("myDIV");
 
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      // @ts-ignore
-      element.classList.add("is-sticky");
-    }else{
-      // @ts-ignore
-      element.classList.remove("is-sticky");
-    }
+    // if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    //   // @ts-ignore
+    //   element.classList.add("is-sticky");
+    // }else{
+    //   // @ts-ignore
+    //   element.classList.remove("is-sticky");
+    // }
 
   }
 

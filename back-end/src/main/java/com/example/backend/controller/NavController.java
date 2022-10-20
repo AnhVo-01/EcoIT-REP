@@ -20,7 +20,7 @@ public class NavController {
     private NavRepository navRepository;
 
     @GetMapping("/nav/home")
-    public ResponseEntity<List<Navigation>> all(){
+    public ResponseEntity<List<?>> all(){
         return ResponseEntity.ok(navRepository.getAll());
     }
 
@@ -36,7 +36,7 @@ public class NavController {
         String sortDirection = "desc";
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by("id").ascending() : Sort.by("id").descending();
         Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
-        return navRepository.listAll(pageable, keyword);
+        return navRepository.search(pageable, keyword);
     }
 
     @GetMapping("/nav/all/{pid}")

@@ -13,16 +13,17 @@ import {PostAddComponent} from "./modules/post/post-add/post-add.component";
 import {PostControlComponent} from "./modules/post/post-control/post-control.component";
 import {ProductControlComponent} from "./modules/product/product-control/product-control.component";
 import {ProductAddComponent} from "./modules/product/product-add/product-add.component";
-import {NavControlComponent} from "./modules/home/navigator/nav-control/nav-control.component";
+import {NavControlComponent} from "./modules/navigator/nav-control/nav-control.component";
 import {RecruitControlComponent} from "./modules/recruit/recruit-control/recruit-control.component";
 import {RecruitAddComponent} from "./modules/recruit/recruit-add/recruit-add.component";
 import {RecruitListComponent} from "./modules/recruit/recruit-list/recruit-list.component";
-import {NavAddComponent} from "./modules/home/navigator/nav-add/nav-add.component";
+import {NavAddComponent} from "./modules/navigator/nav-add/nav-add.component";
 import {PostListComponent} from "./modules/post/post-list/post-list.component";
 import {PostDetailsComponent} from "./modules/post/post-details/post-details.component";
 import {AboutControlComponent} from "./modules/about/about-control/about-control.component";
 import {AboutDetailsComponent} from "./modules/about/about-details/about-details.component";
 import {RecruitDetailsComponent} from "./modules/recruit/recruit-details/recruit-details.component";
+import {AdminComponent} from "./modules/admin/admin/admin.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
@@ -32,37 +33,48 @@ const routes: Routes = [
   {path: 'tin-tuc/:url', component: PostDetailsComponent},
   {path: 've-chung-toi', component: AboutDetailsComponent},
 
-  {path: 'd/about', component: AboutControlComponent},
+  {path: 'd', redirectTo: 'd/dashboard', pathMatch: 'full'},
+  {path: 'd', title: 'Admin - EcoIT', component: AdminComponent,
+    children:[
+      {path: 'dashboard', component: DashBoardComponent},
 
-  {path: 'd/customer', component: CustomerControlComponent},
-  {path: 'd/customer/add-new-customer', component: CustomerAddComponent},
-  {path: 'd/customer/update-cus/:id', component: CustomerAddComponent},
+      {path: 'about', component: AboutControlComponent},
 
-  {path: 'd/post', component: PostControlComponent},
-  {path: 'd/post/new', component: PostAddComponent},
-  {path: 'd/post/update/:id', component: PostAddComponent},
+      {path: 'post', title: 'Admin - Tin tức', component: PostControlComponent},
+      {path: 'recruit', title: 'Admin - Tuyển dụng', component: RecruitControlComponent},
 
-  {path: 'd/recruit', component: RecruitControlComponent},
-  {path: 'd/recruit/new', component: RecruitAddComponent},
-  {path: 'd/recruit/update/:id', component: RecruitAddComponent},
+      {path: 'customer', title: 'Admin - Khách hàng', component: CustomerControlComponent},
 
-  {path: 'd/product', component: ProductControlComponent},
+      {path: 'product', title: 'Admin - Sản phẩm', component: ProductControlComponent},
+
+      {path: 'sliders', title: 'Admin - Trình chiếu', component: SliderControlComponent},
+      {path: 'sliders/add-new', component: SliderAddComponent},
+      {path: 'sliders/update/:id', component: SliderAddComponent},
+
+      {path: 'navigation', title: 'Admin - Điều hướng', component: NavControlComponent,
+        children: [
+          {path: 'modal', component: NavAddComponent},
+          {path: 'add-new', component: NavAddComponent},
+          {path: 'update/:id', component: NavAddComponent},
+        ]},
+    ]},
+
+
+  {path: 'd/post/new', title: 'Admin - Tin tức', component: PostAddComponent},
+  {path: 'd/post/update/:id', title: 'Admin - Tin tức', component: PostAddComponent},
+  {path: 'd/recruit/new', title: 'Admin - Tuyển dụng', component: RecruitAddComponent},
+  {path: 'd/recruit/update/:id', title: 'Admin - Tuyển dụng', component: RecruitAddComponent},
+
+  {path: 'd/customer/add-new-customer', title: 'Admin - Khách hàng', component: CustomerAddComponent},
+  {path: 'd/customer/update-cus/:id', title: 'Admin - Khách hàng', component: CustomerAddComponent},
+
   {path: 'd/product/new', component: ProductAddComponent},
   {path: 'd/product/update/:id', component: ProductAddComponent},
-
-  {path: 'd/sliders', component: SliderControlComponent},
-  {path: 'd/sliders/add-new', component: SliderAddComponent},
-  {path: 'd/sliders/update/:id', component: SliderAddComponent},
-
-  {path: 'd/navigation', component: NavControlComponent},
-  {path: 'd/navigation/add-new', component: NavAddComponent},
-  {path: 'd/navigation/update/:id', component: NavAddComponent},
 
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
 
-  {path: 'dashboard', component: DashBoardComponent},
-  // {path: '', redirectTo: '/trang-chu', pathMatch: 'full'},
+  {path: '', redirectTo: '/trang-chu', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];
 

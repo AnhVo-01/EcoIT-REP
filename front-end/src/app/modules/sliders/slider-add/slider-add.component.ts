@@ -16,10 +16,6 @@ export class SliderAddComponent implements OnInit {
   isUpdate= false;
   fileToUpload:string [] = [];
 
-  day: any;
-  today: any;
-  month: any;
-
   constructor(private sliderService: SliderService,
               private router: Router,
               private route: ActivatedRoute) { }
@@ -30,7 +26,6 @@ export class SliderAddComponent implements OnInit {
       this.isUpdate = true;
       this.getById(this.id);
     }
-    this.calendarHome();
   }
 
   getById(id: any) {
@@ -105,15 +100,6 @@ export class SliderAddComponent implements OnInit {
       this.url = reader.result;
     }
     console.log(this.fileToUpload);
-  }
-
-  calendarHome(){
-    const weekday = ["CN","TH 2","TH 3","TH 4","TH 5","TH 6","TH 7"];
-
-    const d = new Date();
-    this.day = weekday[d.getDay()];
-    this.today = d.getDate();
-    this.month = d.getMonth()+1;
   }
 
 }

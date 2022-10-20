@@ -35,11 +35,6 @@ export class PostControlComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      // @ts-ignore
-      document.getElementById("active-n").classList.add("here");
-      // @ts-ignore
-      document.getElementById("h-act-n").classList.add("here");
-
       this.getBySearch();
 
     }else{

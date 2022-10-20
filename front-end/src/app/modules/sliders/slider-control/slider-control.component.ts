@@ -14,10 +14,6 @@ import {Sliders} from "../sliders";
 export class SliderControlComponent implements OnInit {
 
   sliders: Sliders[] = [];
-
-  day: any;
-  today: any;
-  month: any;
   target = {
     url: '',
     id: 1,
@@ -26,12 +22,7 @@ export class SliderControlComponent implements OnInit {
   constructor(private sliderService: SliderService, private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    // @ts-ignore
-    document.getElementById("active-sl").classList.add("here");
-    // @ts-ignore
-    document.getElementById("h-act-c").classList.add("here");
     this.getCustomer();
-    this.calendarHome();
   }
 
   getCustomer(){
@@ -39,15 +30,6 @@ export class SliderControlComponent implements OnInit {
       this.sliders = data
       this.target.url = this.sliders[0].pathUrl;
     });
-  }
-
-  calendarHome(){
-    const weekday = ["CN","TH 2","TH 3","TH 4","TH 5","TH 6","TH 7"];
-
-    const d = new Date();
-    this.day = weekday[d.getDay()];
-    this.today = d.getDate();
-    this.month = d.getMonth()+1;
   }
 
   choose(e: any){

@@ -41,11 +41,6 @@ export class RecruitControlComponent implements OnInit {
     }else{
       this.router.navigate(['/login']);
     }
-
-    // @ts-ignore
-    document.getElementById("active-n").classList.add("here");
-    // @ts-ignore
-    document.getElementById("h-act-n").classList.add("here");
   }
 
   getBySearch(){

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Navigator} from "../navigator";
-import {NavigationService} from "../../../../services/navigation/navigation.service";
+import {NavigationService} from "../../../services/navigation/navigation.service";
 
 @Component({
   selector: 'app-nav-add',
@@ -11,6 +11,8 @@ import {NavigationService} from "../../../../services/navigation/navigation.serv
 export class NavAddComponent implements OnInit {
 
   id: any;
+  group: any;
+  isChild = false;
   nav: Navigator = new Navigator();
   navGroup: Navigator[] = [];
   navChild: Navigator[] = [];
@@ -24,9 +26,20 @@ export class NavAddComponent implements OnInit {
     if(this.id){
       this.getNavById(this.id);
       this.getAllNavChild(this.id);
+    }else{
+      this.group = window.sessionStorage.getItem("navGroup");
+
+      if (this.group != null){
+        this.isChild = true;
+        this.navService.getById(this.group).subscribe(data => {
+          this.nav.parentId = data.id;
+        });
+      }else{
+        this.isChild = false;
+        this.getAllNavGroup();
+      }
     }
 
-    this.getAllNavGroup();
   }
 
   getNavById(id: any) {
@@ -69,6 +82,11 @@ export class NavAddComponent implements OnInit {
 
   goToNavList(){
     this.router.navigate(['/d/navigation']);
+  }
+
+  closeModal(){
+    window.sessionStorage.removeItem("navGroup");
+    this.goToNavList();
   }
 
 }

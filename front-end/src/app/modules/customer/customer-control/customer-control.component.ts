@@ -25,10 +25,6 @@ export class CustomerControlComponent implements OnInit {
   constructor(private cusService: CustomerService, private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    // @ts-ignore
-    document.getElementById("active-c").classList.add("here");
-    // @ts-ignore
-    document.getElementById("h-act-c").classList.add("here");
     this.getCustomer();
   }
 

@@ -12,6 +12,10 @@ export class AsideComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    const navAct = window.sessionStorage.getItem("ad-nav-active");
+
+    // @ts-ignore
+    // document.getElementById(navAct).classList.add("here");
   }
 
   logout(): void {

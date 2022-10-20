@@ -25,4 +25,8 @@ public class Customer {
     private String url;
 
     private boolean active;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "image_id")
+    private Image thumb;
 }

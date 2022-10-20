@@ -33,10 +33,6 @@ export class ProductControlComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProduct()
-    // @ts-ignore
-    document.getElementById("active-p").classList.add("here");
-    // @ts-ignore
-    document.getElementById("h-act-p").classList.add("here");
   }
 
   getProduct(){

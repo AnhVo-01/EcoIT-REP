@@ -1,140 +1,117 @@
-<div class="d-flex flex-column flex-root">
-  <!--begin::Page-->
-  <div class="page d-flex flex-row flex-column-fluid">
-    <!--begin::Aside-->
-    <app-aside></app-aside>
-    <!--end::Aside-->
-
-    <!--begin::Header-->
-    <div class="header align-items-stretch">
-      <!--begin::Container-->
-      <app-header></app-header>
-      <!--end::Container-->
-
-      <div class="toolbar py-1">
-        <!--begin::Container-->
-        <div class="container-fluid d-flex align-items-center">
-          <div class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-            <!--begin::Title-->
-            <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Trình chiếu
-              <!--begin::Separator-->
-              <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
-              <!--end::Separator-->
-              <!--begin::Description-->
-              <small class="text-muted fs-7 fw-semibold my-1 ms-1">#XRS-45670</small>
-              <!--end::Description-->
-            </h6>
-            <!--end::Title-->
-          </div>
-          <!--begin::Page title-->
-          <div class="flex-grow-1 flex-shrink-0 me-5">
-
-          </div>
-          <!--end::Page title-->
-          <!--begin::Action group-->
-          <div class="d-flex align-items-center flex-wrap">
-            <!--begin::Wrapper-->
-            <div class="d-flex align-items-stretch">
-              <div class="menu-item">
-                <div class="menu-link">
-                  <span>Ngày</span>
-                </div>
-              </div>
-              <div class="menu-item">
-                <div class="menu-link">
-                  <span>Tuần</span>
-                </div>
-              </div>
-              <div class="menu-item">
-                <div class="menu-link">
-                  <span>Năm</span>
-                </div>
-              </div>
-            </div>
-            <!--end::Wrapper-->
-            <!--begin::Wrapper-->
-            <div class="d-flex align-items-center">
-              <!--begin::Daterangepicker-->
-              <div class="menu-item here">
-                <div class="menu-link">
-                  <a href="#">
-                    <span class="fw-bold">{{day}}, {{today}}/{{month}}</span>
-                  </a>
-                </div>
-              </div>
-              <!--end::Daterangepicker-->
-              <!--begin::Actions-->
-              <div class="menu-item">
-                <div class="menu-link">
-                  <a class="ht-btn-custom" routerLink="add-new" routerLinkActive="active" class="p-action-btn hint--rounded hint--bounce hint--top-left" aria-label="Thêm mới">
-                    <i class="fas fa-file-plus fa-lg"></i>
-                  </a>
-                </div>
-              </div>
-              <!--end::Actions-->
-            </div>
-            <!--end::Wrapper-->
-          </div>
-          <!--end::Action group-->
-        </div>
-        <!--end::Container-->
-      </div>
+<div class="toolbar py-1">
+  <!--begin::Container-->
+  <div class="container-fluid d-flex align-items-center">
+    <div class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Trình chiếu
+        <!--begin::Separator-->
+        <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+        <!--end::Separator-->
+        <!--begin::Description-->
+        <small class="text-muted fs-7 fw-semibold my-1 ms-1">#XRS-45670</small>
+        <!--end::Description-->
+      </h6>
+      <!--end::Title-->
     </div>
-    <!--end::Header-->
+    <!--begin::Page title-->
+    <div class="flex-grow-1 flex-shrink-0 me-5">
 
-    <!--begin::Wrapper-->
-    <div class="wrapper d-flex flex-column">
+    </div>
+    <!--end::Page title-->
+    <!--begin::Action group-->
+    <div class="d-flex align-items-center flex-wrap">
+      <!--begin::Wrapper-->
+      <div class="d-flex align-items-stretch">
+        <div class="menu-item">
+          <div class="menu-link">
+            <span>Ngày</span>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-link">
+            <span>Tuần</span>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-link">
+            <span>Năm</span>
+          </div>
+        </div>
+      </div>
+      <!--end::Wrapper-->
+      <!--begin::Wrapper-->
+      <div class="d-flex align-items-center">
+        <!--begin::Daterangepicker-->
+        <div class="menu-item here">
+          <div class="menu-link">
+            <a href="#">
+              <span class="fw-bold">//</span>
+            </a>
+          </div>
+        </div>
+        <!--end::Daterangepicker-->
+        <!--begin::Actions-->
+        <div class="menu-item">
+          <div class="menu-link">
+            <a class="ht-btn-custom" routerLink="add-new" routerLinkActive="active" class="p-action-btn hint--rounded hint--bounce hint--top-left" aria-label="Thêm mới">
+              <i class="fas fa-file-plus fa-lg"></i>
+            </a>
+          </div>
+        </div>
+        <!--end::Actions-->
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Action group-->
+  </div>
+  <!--end::Container-->
+</div>
 
-      <!--begin::Container-->
-      <div class="d-flex flex-column flex-column-fluid">
-        <div class="site-wrapper-reveal">
-          <div class="blog-pages-wrapper section-space--ptb_30">
-            <form (submit)="onSubmit()">
-              <div class="container">
-                <div class="tab-pane active" id="grid">
+<!--begin::Container-->
+<div class="d-flex flex-column flex-column-fluid">
+  <div class="site-wrapper-reveal">
+    <div class="blog-pages-wrapper section-space--pt_100 section-space--pb_40">
+      <form (submit)="onSubmit()">
+        <div class="container">
+          <div class="tab-pane active" id="grid">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="container">
                   <div class="row">
-                    <div class="col-lg-8">
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-lg-12">
-                            <div class="section-title text-center section-space--mb_15">
-                              <div class="img-target-box">
-                                <img src="{{url}}" alt="" appHideMissing>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="">
-                          <input type="file" (change)="onChange($event)">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                      <div class="d-flex flex-column">
-                        <h6>Thông tin</h6>
-                        <div class="d-flex w-100">
-                          <button class="btn ht-btn-custom mr-2" style="width: 70%">
-                            <i class="far fa-save mr-2"></i>
-                            <span>Lưu</span>
-                          </button>
-                          <button (click)="goToSliderList()" class="btn ht-btn-custom ml-2" style="width: 30%; background: #ccc">
-                            <i class="fa fa-trash-alt mr-2"></i>
-                            <span>Hủy</span>
-                          </button>
+                    <div class="col-lg-12">
+                      <div class="section-title text-center section-space--mb_15">
+                        <div class="img-target-box">
+                          <img src="{{url}}" alt="" appHideMissing>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div class="">
+                    <input type="file" (change)="onChange($event)">
+                  </div>
                 </div>
               </div>
-            </form>
+
+              <div class="col-lg-4">
+                <div class="d-flex flex-column">
+                  <h6>Thông tin</h6>
+                  <div class="d-flex w-100">
+                    <button class="btn ht-btn-custom mr-2" style="width: 70%">
+                      <i class="far fa-save mr-2"></i>
+                      <span>Lưu</span>
+                    </button>
+                    <button (click)="goToSliderList()" class="btn ht-btn-custom ml-2" style="width: 30%; background: #ccc">
+                      <i class="fa fa-trash-alt mr-2"></i>
+                      <span>Hủy</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <!--end::Container-->
+      </form>
     </div>
-    <!--end::Wrapper-->
   </div>
-  <!--end::Page-->
 </div>
+<!--end::Container-->

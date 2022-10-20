@@ -13,10 +13,6 @@ export class DashBoardComponent implements OnInit {
   isLogIn = false;
   username: any;
 
-  day: any;
-  today: any;
-  month: any;
-
   constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,10 +27,6 @@ export class DashBoardComponent implements OnInit {
         this.router.navigate(['/login']);
       }
 
-      this.calendarHome();
-
-      // @ts-ignore
-      document.getElementById("active-d").classList.add("here");
     }else {
       this.router.navigate(['/login']);
     }
@@ -47,15 +39,6 @@ export class DashBoardComponent implements OnInit {
   // listCustomer(){
   //   this.router.navigate(['/d/customer']);
   // }
-
-  calendarHome(){
-    const weekday = ["CN","TH 2","TH 3","TH 4","TH 5","TH 6","TH 7"];
-
-    const d = new Date();
-    this.day = weekday[d.getDay()];
-    this.today = d.getDate();
-    this.month = d.getMonth()+1;
-  }
 
 
 }

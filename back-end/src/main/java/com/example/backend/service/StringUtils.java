@@ -86,7 +86,7 @@ public class StringUtils {
             return "";
         }
 
-        input = input.trim();
+        input = input.toLowerCase().trim();
         for (int i = 0; i < VIET_CHARS.length; i++) {
             input = input.replace(VIET_CHARS[i], NORMAL_CHARS[i]);
         }

@@ -23,11 +23,10 @@ import { SliderListComponent } from './modules/sliders/slider-list/slider-list.c
 import { SliderAddComponent } from './modules/sliders/slider-add/slider-add.component';
 import { PostAddComponent } from './modules/post/post-add/post-add.component';
 import { PostControlComponent } from './modules/post/post-control/post-control.component';
-import { NavListComponent } from './modules/home/navigator/nav-list/nav-list.component';
+import { NavListComponent } from './modules/navigator/nav-list/nav-list.component';
 import { ProductAddComponent } from './modules/product/product-add/product-add.component';
 import { ProductListComponent } from './modules/product/product-list/product-list.component';
 import { ProductControlComponent } from './modules/product/product-control/product-control.component';
-import { NavControlComponent } from './modules/home/navigator/nav-control/nav-control.component';
 import { RecruitPostComponent } from './modules/home/group/recruit-post/recruit-post.component';
 import { AboutHomeComponent } from './modules/about/about-home/about-home.component';
 import { AboutControlComponent } from './modules/about/about-control/about-control.component';
@@ -38,11 +37,12 @@ import { RecruitControlComponent } from './modules/recruit/recruit-control/recru
 import { RecruitAddComponent } from './modules/recruit/recruit-add/recruit-add.component';
 import { RecruitListComponent } from './modules/recruit/recruit-list/recruit-list.component';
 import { RecruitDetailsComponent } from './modules/recruit/recruit-details/recruit-details.component';
-import { NavAddComponent } from './modules/home/navigator/nav-add/nav-add.component';
+import { NavAddComponent } from './modules/navigator/nav-add/nav-add.component';
 import { FooterComponent } from './modules/home/footer/footer.component';
 import { CKEditorModule } from 'ckeditor4-angular';
-import { ModalComponent } from './modules/home/navigator/nav-control/modal/modal.component';
 import {ModalModule} from "ngb-modal";
+import { AdminComponent } from './modules/admin/admin/admin.component';
+import {NavControlComponent} from "./modules/navigator/nav-control/nav-control.component";
 
 @NgModule({
   declarations: [
@@ -80,7 +80,7 @@ import {ModalModule} from "ngb-modal";
     RecruitDetailsComponent,
     NavAddComponent,
     FooterComponent,
-    ModalComponent
+    AdminComponent
   ],
   imports: [
     BrowserModule,
