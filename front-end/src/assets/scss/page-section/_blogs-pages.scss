@@ -7,7 +7,7 @@
         margin-bottom: 50px;
         padding-bottom: 50px;
         &:last-child {
-            padding-bottom: 60px; 
+            padding-bottom: 60px;
             margin-bottom: 0px;
         }
     }
@@ -108,8 +108,8 @@
                 }
             }
         }
-    } 
-    
+    }
+
     &.blog-grid {
         height: 100%;
         display: flex;
@@ -127,7 +127,7 @@
             }
         }
     }
-    
+
     &.blog-masonry {
         margin-bottom: 70px;
         @media #{$tablet-device}{
@@ -142,7 +142,7 @@
             }
         }
     }
-    
+
     & .post-read-more {
         & .btn-read-more {
             color: #6d70a6;
@@ -161,7 +161,7 @@
             }
         }
     }
-    
+
 }
 
 .post-list-wrapper {
@@ -206,7 +206,7 @@
     }
     & .post-info {
         padding: 74px 64px 51px;
-        
+
     }
     & .post-quote-text {
         font-size: 24px;
@@ -254,7 +254,7 @@
         padding: 30px 30px 48px;
         width: 100%;
         color: #fff;
-        
+
         & .post-meta {
             display: flex;
             flex-wrap: wrap;
@@ -274,7 +274,7 @@
                 padding-left: 5px;
                 padding-right: 5px;
                 margin-bottom: 10px;
-                
+
             }
         }
     }
@@ -316,7 +316,7 @@
 }
 
 blockquote {
-    margin: 54px 65px 44px 70px !important;
+    //margin: 54px 65px 44px 70px !important;
     padding: 0 0 0 20px;
     font-size: 18px;
     font-style: italic;
@@ -325,9 +325,9 @@ blockquote {
     border-left-color: #38cb89;
     position: relative;
     color: #6d70a6;
-    @media #{$large-mobile}{
-        margin: 54px 65px 44px 30px !important;
-    }
+    //@media #{$large-mobile}{
+    //    margin: 54px 65px 44px 30px !important;
+    //}
 }
 
 .entry-post-tags{
@@ -418,7 +418,7 @@ blockquote {
             padding: 12px;
             color: #555;
         }
-        
+
     }
     &.opened .share-list {
         transform: translate(-50%, -22px);
@@ -508,12 +508,12 @@ blockquote {
         padding: 85px 30px 10px;
         margin-top: 0px;
         .post-meta {
-            
+
         }
         & .post-categories{
             color: #b6b7d2;
         }
-    }     
+    }
 }
 
 
@@ -607,7 +607,7 @@ blockquote {
 
 .post-feature-details {
     &.post-quote {
-        
+
         position: relative;
         padding: 48px 40px;
         background: #5945e6;

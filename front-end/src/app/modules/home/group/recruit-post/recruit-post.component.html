@@ -11,22 +11,45 @@
     </div>
     <div class="row">
       <div class="col-lg-6 col-md-12 mb-3 wow move-up">
-        <div class="faq-wrapper">
-          <div class="card" *ngFor="let rec of recruit">
-            <div class="post-feature blog-thumbnail">
-              <a href="">
-                <img src="{{rec.thumb.url}}" class="mr-3 blog-thumbnail img-thumbnail wp-post-image"></a>
-            </div>
-            <div style="padding: 16px; height: 185px">
-              <h6 class="post-title font-weight--bold mb-2">
-                <a routerLink="/tuyen-dung/{{rec.url}}" routerLinkActive="active" tabindex="-1" style="color: #50b848">{{rec.title}}</a>
-              </h6>
-              <div class="post-excerpt" style="max-height: 100px">
-                <p>{{rec.description}}</p>
+        <div class="wdc-blog">
+          <div class="faq-wrapper">
+            <div class="card">
+              <div id="sliderTinTuyenDung">
+                <div class="blog-container">
+                  <div class="post-feature blog-thumbnail">
+                    <a href="">
+                      <img src="https://ecoit.asia/wp-content/uploads/2021/07/TKPM.png" class="mr-3 blog-thumbnail img-thumbnail wp-post-image" alt="" loading="lazy" />                                </a>
+                  </div>
+                  <div class="blog-inner">
+                    <h4 class="post-title">
+                      <a href="https://ecoit.asia/tuyen-dung-nhan-vien-trien-khai-phan-mem/">TUYỂN DỤNG NHÂN VIÊN TRIỂN KHAI PHẦN MỀM</a>
+                    </h4>
+                    <div class="post-excerpt">
+                      <p>ECOIT tìm kiếm 01 ứng viên vị trí nhân viên triển khai phần mềm với mức đãi ngộ hấp dẫn.</p>
+                    </div>
+                  </div>
+                </div>
+<!--                <ng-container *ngFor="let rec of recruit; let i = index">-->
+<!--                  <div class="blog-container" *ngIf="i<3">-->
+<!--                    <div class="post-feature blog-thumbnail">-->
+<!--                      <a routerLink="/tuyen-dung/{{rec.url}}">-->
+<!--                        <img src="{{rec.thumb.url}}" class="mr-3 blog-thumbnail img-thumbnail wp-post-image" alt="" loading="lazy" />                                </a>-->
+<!--                    </div>-->
+<!--                    <div class="blog-inner">-->
+<!--                      <h4 class="post-title">-->
+<!--                        <a routerLink="/tuyen-dung/{{rec.url}}">{{rec.title}}</a>-->
+<!--                      </h4>-->
+<!--                      <div class="post-excerpt">-->
+<!--                        <p>{{rec.description}}</p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </ng-container>-->
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-md-12 wow move-up">
           <div class="service-link">
             <a class="wpb_color-gree" routerLink="/tuyen-dung" routerLinkActive="active">TÌM HIỂU THÊM</a>

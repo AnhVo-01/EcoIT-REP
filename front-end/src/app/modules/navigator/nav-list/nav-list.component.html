@@ -1,74 +1,99 @@
 <!--====================  header area ====================-->
-<div class="header-area header-sticky header-area--absolute border-bottom-drak" id="myDIV">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="header position-relative">
-          <!-- brand logo -->
-          <div class="header__logo p-0">
-            <a href="/trang-chu">
-              <img src="assets/images/avatars/logoEcoit.jpg" class="img-fluid" alt="Saas">
-            </a>
-          </div>
-          <!-- navigation menu -->
-          <div class="header__navigation d-none d-xl-block">
-            <div class="header__navigation--four">
-              <div class="header-right">
+<div class="header-area header-area--absolute header-skin-transparent " id="header">
+  <div id="header-wrapper" class="header-stick">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="header position-relative">
+            <!-- brand logo -->
+            <div class="header__logo p-0">
+              <a href="/trang-chu">
+                <img src="assets/images/avatars/logoEcoit.jpg" class="img-fluid" alt="Saas">
+              </a>
+            </div>
+            <!-- navigation menu -->
+            <div class="header__navigation d-none d-xl-block">
+              <div class="header__navigation--four">
+                <div class="header-right">
 
-                <div class="header-top">
-                  <div class="header-left-info">
+                  <div class="header-top">
+                    <div class="header-left-info">
                      <span class="header-label">
                        <i class="fas fa-phone"></i>
                      </span>
-                    <span class="d-flex flex-column">
+                      <span class="d-flex flex-column">
                       <small>HOTLINE</small>
                       <strong>
                         <span class="color-gre"><a href="tel:{{about.phone}}">{{about.phone}}</a></span>
                       </strong>
                     </span>
-                  </div>
-                  <div class="header-left-info">
+                    </div>
+                    <div class="header-left-info">
                     <span class="header-label">
                       <i class="far fa-envelope"></i>
                     </span>
-                    <span class="d-flex flex-column">
+                      <span class="d-flex flex-column">
                       <small>EMAIL</small>
                       <strong>
                         <span class="color-gre"><a href="mailto:{{about.email}}">{{about.email}}</a></span>
                       </strong>
                     </span>
-                  </div>
-                  <div class="header-right-info ">
-                    <a class="btn header-button" href="https://ecoit.asia/lien-he/">
+                    </div>
+                    <div class="header-right-info ">
+                      <a class="btn header-button" href="https://ecoit.asia/lien-he/">
                         <span >LIÊN HỆ TƯ VẤN</span>
-                    </a>
+                      </a>
+                    </div>
                   </div>
-                </div>
 
-                <div class="header-bottom">
-                  <nav class="navigation-menu navigation-menu--onepage navigation-menu--text_white">
-                    <ul class="text-uppercase">
-                      <li><a href="/trang-chu"><span>TRANG CHỦ</span></a></li>
-                      <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
-                        <a routerLink="{{nav.url}}" (mouseenter)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>
-                        <ul *ngIf="!nav.url.includes('/')" class="submenu p-2">
-                          <li *ngFor="let nav1 of navChild">
-                            <a routerLink="{{nav1.url}}" routerLinkActive="active" class="px-3 py-1"><span>{{nav1.name}}</span></a>
+                  <div class="header-bottom">
+                    <nav id="primary-nav">
+                      <div class="menu-menu-primary-container">
+                        <ul id="primary-menu" class="primary-menu list-inline">
+                          <li class="nav-item menu-item active">
+                            <a title="Trang chủ" href="/trang-chu" class="nav-link">Trang chủ</a>
+                          </li>
+                          <li *ngFor="let nav of navParent" class="nav-item menu-item menu-item-has-children dropdown">
+                            <a routerLink="{{nav.url}}" title="{{nav.name}}" data-toggle="dropdown" class="dropdown-toggle nav-link">{{nav.name}}</a>
+                            <ul class="dropdown-menu">
+                              <li class="menu-item nav-item">
+                                <a title="KHỐI KHÁCH HÀNG CHÍNH PHỦ" href="https://ecoit.asia/khach-hang-chinh-phu/" class="dropdown-item">KHỐI KHÁCH HÀNG CHÍNH PHỦ</a>
+                              </li>
+                              <li class="menu-item nav-item">
+                                <a title="KHỐI KHÁCH HÀNG TÀI CHÍNH – NGÂN HÀNG" href="https://ecoit.asia/khach-hang-tai-chinh-ngan-hang/" class="dropdown-item">KHỐI KHÁCH HÀNG TÀI CHÍNH – NGÂN HÀNG</a>
+                              </li>
+                              <li class="menu-item nav-item">
+                                <a title="KHỐI KHÁCH HÀNG DOANH NGHIỆP" href="https://ecoit.asia/khach-hang-doanh-nghiep/" class="dropdown-item">KHỐI KHÁCH HÀNG DOANH NGHIỆP</a>
+                              </li>
+                              <li class="menu-item nav-item">
+                                <a title="KHỐI KHÁCH HÀNG AN NINH – QUỐC PHÒNG" href="https://ecoit.asia/khach-hang-an-ninh-quoc-phong/" class="dropdown-item">KHỐI KHÁCH HÀNG AN NINH – QUỐC PHÒNG</a>
+                              </li>
+                            </ul>
                           </li>
                         </ul>
-                      </li>
-                    </ul>
-                  </nav>
+                      </div>
+                    </nav>
+                  </div>
+
+<!--                  <div class="header-bottom">-->
+<!--                    <nav class="navigation-menu navigation-menu&#45;&#45;onepage navigation-menu&#45;&#45;text_white">-->
+<!--                      <ul class="text-uppercase">-->
+<!--                        <li><a href="/trang-chu"><span>TRANG CHỦ</span></a></li>-->
+<!--                        <li *ngFor="let nav of navParent" class="has-children has-children&#45;&#45;multilevel-submenu" id="child-li">-->
+<!--                          <a routerLink="{{nav.url}}" (mouseenter)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>-->
+<!--                          <ul *ngIf="!nav.url.includes('/')" class="submenu p-2">-->
+<!--                            <li *ngFor="let nav1 of navChild">-->
+<!--                              <a routerLink="{{nav1.url}}" routerLinkActive="active" class="px-3 py-1"><span>{{nav1.name}}</span></a>-->
+<!--                            </li>-->
+<!--                          </ul>-->
+<!--                        </li>-->
+<!--                      </ul>-->
+<!--                    </nav>-->
+<!--                  </div>-->
                 </div>
               </div>
             </div>
           </div>
-          <!-- header actions -->
-<!--          <div class="header__actions&#45;&#45;four">-->
-<!--            <div class="mobile-navigation-icon d-block d-xl-none" id="mobile-menu-trigger">-->
-<!--              <i></i>-->
-<!--            </div>-->
-<!--          </div>-->
         </div>
       </div>
     </div>

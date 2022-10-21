@@ -38,7 +38,7 @@ const routes: Routes = [
     children:[
       {path: 'dashboard', component: DashBoardComponent},
 
-      {path: 'about', component: AboutControlComponent},
+      {path: 'about', title: 'Admin - Về chúng tôi', component: AboutControlComponent},
 
       {path: 'post', title: 'Admin - Tin tức', component: PostControlComponent},
       {path: 'recruit', title: 'Admin - Tuyển dụng', component: RecruitControlComponent},

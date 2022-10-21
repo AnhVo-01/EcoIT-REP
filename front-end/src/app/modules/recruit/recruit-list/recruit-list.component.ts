@@ -14,9 +14,8 @@ export class RecruitListComponent implements OnInit {
   constructor(private recruitService: RecruitService) { }
 
   ngOnInit(): void {
-    let element = document.getElementById("myDIV");
     // @ts-ignore
-    element.classList.add("bg-dark");
+    document.getElementById("header").classList.add("bg-dark");
 
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       document.body.scrollTop = 0; // For Safari

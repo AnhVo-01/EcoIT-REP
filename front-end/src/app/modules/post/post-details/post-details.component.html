@@ -14,20 +14,15 @@
         <div class="main-blog-wrap">
           <!--======= Single Blog Item Start ========-->
           <div class="single-blog-item">
-            <!-- Post Feature Start -->
-<!--            <div class="post-feature blog-thumbnail wow move-up">-->
-<!--              <img class="img-fluid" src="{{news.postImage.url}}" alt="Blog Images" appHideMissing>-->
-<!--            </div>-->
-            <!-- Post Feature End -->
 
             <!-- Post info Start -->
             <div class="post-info lg-blog-post-info  wow move-up">
 
-              <h4 class="post-title font-weight--bold">{{news.title}}</h4>
+              <h4 class="post-title font-weight--bold m-0">{{news.title}}</h4>
 
               <div class="post-meta mt-20">
                 <div class="post-date">
-                  <span class="far fa-calendar meta-icon"></span>
+                  <i class="far fa-calendar meta-icon"></i>
                   {{news.date}}
                 </div>
               </div>
@@ -104,80 +99,28 @@
 
       <div class="col-lg-4">
         <div class="page-sidebar-content-wrapper page-sidebar-right  small-mt__40 tablet-mt__40">
+          <div class="page-sidebar-content-wrapper page-sidebar-right  small-mt__40 tablet-mt__40">
 
-          <!--=== Sidebar Widget Start ===-->
-          <div class="sidebar-widget search-post  wow move-up">
-            <form action="#" method="post">
-              <div class="widget-search">
-                <input type="text" placeholder="Enter search keyword…">
-                <button type="submit" class="search-submit">
-                  <span class="search-btn-icon far fa-search"></span>
-                </button>
-              </div>
-            </form>
-          </div>
-          <!--=== Sidebar Widget End ===-->
+            <!-- === Sidebar Widget Start ===-->
+            <div class="sidebar-widget widget-categories  wow move-up">
+              <ul>
+                <li class="cat-item"><a routerLink="/ve-chung-toi" routerLinkActive="ative">Về Chúng Tôi</a>
+                </li>
+                <li class="cat-item"><a href="#">Hồ Sơ Năng Lực</a>
+                </li>
+                <li class="cat-item"><a href="#">Khách Hàng Tiêu Biểu</a>
+                </li>
+              </ul>
 
-          <!-- === Sidebar Widget Start ===-->
-          <div class="sidebar-widget widget-categories  wow move-up">
-            <ul>
-              <li class="cat-item"><a href="#">Về Chúng Tôi</a>
-              </li>
-              <li class="cat-item"><a href="#">Hồ Sơ Năng Lực</a>
-              </li>
-              <li class="cat-item"><a href="#">Khách Hàng Tiêu Biểu</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- === Sidebar Widget End === -->
-
-          <!-- === Sidebar Widget Start === -->
-          <div class="sidebar-widget widget-blog-post  wow move-up">
-
-            <h5 class="widget-title font-weight--light">Popular posts</h5>
-            <div class="post-item">
-              <div class="post-info">
-                <div class="post-categories">
-                  <a href="#">App Release</a>
-                </div>
-                <h6 class="post-title">
-                  <a href="#">Specialized Design Tools for 2019</a>
-                </h6>
-              </div>
             </div>
-            <div class="post-item">
-              <div class="post-info">
-                <div class="post-categories">
-                  <a href="#">App Release</a>
-                </div>
-                <h6 class="post-title">
-                  <a href="#">D&amp;AD Festival 2019’s Brand Identity</a>
-                </h6>
-              </div>
+            <!-- === Sidebar Widget End === -->
+
+            <div id="media_image-3" class=" my-4 widget_media_image">
+              <a href="/tuyen-dung">
+                <img width="540" height="360" src="https://ecoit.asia/wp-content/uploads/2019/08/tuyendung.jpg" class="image wp-image-1380  attachment-full size-full" alt="" loading="lazy" style="max-width: 100%; height: auto;" srcset="https://ecoit.asia/wp-content/uploads/2019/08/tuyendung.jpg 540w, https://ecoit.asia/wp-content/uploads/2019/08/tuyendung-525x350.jpg 525w" sizes="(max-width: 540px) 100vw, 540px">
+              </a>
             </div>
-
           </div>
-          <!-- === Sidebar Widget End === -->
-
-          <!-- === Sidebar Widget Start === -->
-          <div class="sidebar-widget widget-images  wow move-up">
-
-            <img class="img-fluid" src="../../../../assets/images/blog/blog-advertising.jpg" alt="">
-
-          </div>
-          <!-- === Sidebar Widget End === -->
-
-          <!-- === Sidebar Widget Start === -->
-          <div class="sidebar-widget widget-tag  wow move-up">
-
-            <h5 class="widget-title font-weight--light">Tags</h5>
-            <a href="#" class="ht-btn ht-btn-xs">designer</a>
-            <a href="#" class="ht-btn ht-btn-xs">font</a>
-            <a href="#" class="ht-btn ht-btn-xs">mookup</a>
-
-          </div>
-          <!-- === Sidebar Widget End === -->
         </div>
       </div>
     </div>

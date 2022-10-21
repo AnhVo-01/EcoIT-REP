@@ -5,6 +5,7 @@ import {PostService} from "../../../services/post/post.service";
 import {Router} from "@angular/router";
 import {HttpParams} from "@angular/common/http";
 import {FileService} from "../../../services/file/file.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-post-control',

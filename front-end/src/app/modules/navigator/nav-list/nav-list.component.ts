@@ -43,7 +43,7 @@ export class NavListComponent implements OnInit {
     this.getAllNav();
     this.getAbout();
 
-    let element = document.getElementById("myDIV");
+    let element = document.getElementById("header");
 
     // if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
     //   // @ts-ignore

@@ -26,9 +26,8 @@ export class PostDetailsComponent implements OnInit {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
-    let element = document.getElementById("myDIV");
     // @ts-ignore
-    element.classList.add("bg-dark");
+    document.getElementById("header").classList.add("bg-dark");
   }
 
   getList(){

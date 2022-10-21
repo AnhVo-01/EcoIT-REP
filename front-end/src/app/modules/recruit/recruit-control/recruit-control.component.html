@@ -37,25 +37,6 @@
     <!--begin::Action group-->
     <div class="d-flex align-items-center flex-wrap">
       <!--begin::Wrapper-->
-      <!--              <div class="d-flex align-items-stretch">-->
-      <!--                <div class="menu-item">-->
-      <!--                  <div class="menu-link">-->
-      <!--                    <span>Day</span>-->
-      <!--                  </div>-->
-      <!--                </div>-->
-      <!--                <div class="menu-item">-->
-      <!--                  <div class="menu-link">-->
-      <!--                    <span>Week</span>-->
-      <!--                  </div>-->
-      <!--                </div>-->
-      <!--                <div class="menu-item">-->
-      <!--                  <div class="menu-link">-->
-      <!--                    <span>Year</span>-->
-      <!--                  </div>-->
-      <!--                </div>-->
-      <!--              </div>-->
-      <!--end::Wrapper-->
-      <!--begin::Wrapper-->
       <div class="d-flex align-items-center">
         <!--begin::Daterangepicker-->
         <div class="menu-item here">
@@ -125,17 +106,17 @@
                       </div>
                     </div>
                     <h5 class="mb-0">
-                      <button class="btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <a class="btn-link collapsed" data-toggle="collapse" href="#collapse{{rec.id}}" aria-expanded="false">
                         {{rec.title}}
                         <span>
-                              <i class="fas fa-plus-circle"></i>
-                              <i class="fas fa-minus-circle"></i>
-                            </span>
-                      </button>
+                          <i class="fas fa-plus-circle"></i>
+                          <i class="fas fa-minus-circle"></i>
+                        </span>
+                      </a>
                     </h5>
                   </div>
 
-                  <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
+                  <div id="collapse{{rec.id}}" class="collapse" data-parent="#accordion">
                     <div class="card-body">
                       <p>{{rec.content}}</p>
                     </div>

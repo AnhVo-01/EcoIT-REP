@@ -23,6 +23,7 @@ export class AboutControlComponent implements OnInit {
 
   ckeConfig: any;
   submitFail = false;
+  updateSuccess = false;
   errorMessage = "";
 
   constructor(private aboutService: AboutService, private addressService: AddressService, private sanitizer: DomSanitizer) { }
@@ -98,7 +99,12 @@ export class AboutControlComponent implements OnInit {
     //   this.about.address[i] = this.addList[i];
     // }
     this.aboutService.saveInfo(this.about).subscribe(data =>{
+      this.updateSuccess = true;
+      this.errorMessage = "Cập nhật thành công !";
       this.goToInfo();
+    }, err => {
+      this.errorMessage = err.error.message;
+      this.updateSuccess = false;
     })
   }
 

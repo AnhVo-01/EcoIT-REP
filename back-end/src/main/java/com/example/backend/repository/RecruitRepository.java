@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface RecruitRepository extends JpaRepository<Recruit, Long> {
-    @Query("SELECT r FROM Recruit r WHERE r.active = true")
+    @Query("SELECT r FROM Recruit r WHERE r.active = true ORDER BY r.id DESC")
     List<Recruit> listAllRecruit();
 
     Recruit getRecruitByUrl(String url);

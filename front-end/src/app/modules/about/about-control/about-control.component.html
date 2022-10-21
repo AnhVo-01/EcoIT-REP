@@ -1,5 +1,4 @@
 <div class="site-wrapper-reveal">
-
   <!--====================  Blog Area Start ====================-->
   <div class="blog-pages-wrapper section-space--ptb_60">
     <div class="container">
@@ -9,14 +8,6 @@
             <!--======= Single Blog Item Start ========-->
             <div class="single-blog-item  wow move-up">
               <div class="post-excerpt">
-                <div class="py-4 mb-4">
-                  <div class="align-items-center">
-                    <div class="text-center">
-                      <h3 class="chuyenmuc" style="color: #50B848;">VỀ CHÚNG TÔI</h3>
-                      <hr class="hrtag">
-                    </div>
-                  </div>
-                </div>
                 <div class="contact-from-wrapper">
 
                   <form>
@@ -71,9 +62,9 @@
                           </div>
                         </div>
                       </div>
-                      <div class="comment-submit-btn text-center">
+                      <div class="d-flex align-items-center">
                         <button class="ht-btn ht-btn-md mr-2" (click)="onSubmit()" type="button">Submit</button>
-                        <button class="ht-btn ht-btn-md ml-2" routerLink="/dashboard" routerLinkActive="active" style="background: #ccc" type="button" >Cancel</button>
+                        <div class="text-success ml-3" *ngIf="updateSuccess">{{errorMessage}}</div>
                       </div>
                     </div>
                   </form>

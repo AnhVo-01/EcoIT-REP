@@ -32,7 +32,8 @@ export class NavControlComponent implements OnInit {
               private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.getAllNav()
+    this.getAllNav();
+    console.log("test")
   }
 
   getAllNav(){

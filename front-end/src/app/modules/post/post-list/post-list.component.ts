@@ -9,6 +9,12 @@ import {PostService} from "../../../services/post/post.service";
 export class PostListComponent implements OnInit {
 
   news: any;
+  firstItem = {
+    url: '',
+    title: '',
+    image: '',
+    description: ''
+  }
   url: any;
 
   constructor(private newsService: PostService) { }
@@ -24,13 +30,15 @@ export class PostListComponent implements OnInit {
   private getNews(){
     this.newsService.getNewsList().subscribe(data => {
       this.news = data;
-      this.url = this.news[0].postImage.url;
-      document.title = "TIN MỚI NHẤT - Công ty cổ phần EcoIT";
-
-      var element = document.getElementById("myDIV");
-      // @ts-ignore
-      element.classList.add("bg-dark");
+      this.firstItem.url = this.news[0].url;
+      this.firstItem.title = this.news[0].title;
+      this.firstItem.image = this.news[0].postImage.url;
+      this.firstItem.description = this.news[0].description;
     })
+
+    // @ts-ignore
+    document.getElementById("header").classList.add("bg-dark");
+    document.title = "TIN MỚI NHẤT - Công ty cổ phần EcoIT";
   }
 
 }

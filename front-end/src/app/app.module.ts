@@ -43,6 +43,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import {ModalModule} from "ngb-modal";
 import { AdminComponent } from './modules/admin/admin/admin.component';
 import {NavControlComponent} from "./modules/navigator/nav-control/nav-control.component";
+import { CustomerDetailsComponent } from './modules/customer/customer-details/customer-details.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import {NavControlComponent} from "./modules/navigator/nav-control/nav-control.c
     RecruitDetailsComponent,
     NavAddComponent,
     FooterComponent,
-    AdminComponent
+    AdminComponent,
+    CustomerDetailsComponent
   ],
   imports: [
     BrowserModule,
