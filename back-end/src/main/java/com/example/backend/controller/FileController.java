@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.model.Image;
 import com.example.backend.payload.MessageResponse;
+import com.example.backend.repository.ImageRepository;
 import com.example.backend.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -21,6 +23,9 @@ public class FileController {
 
     @Autowired
     private FileService fileService;
+
+    @Autowired
+    private ImageRepository imageRepository;
 
     @PostMapping("/downloadFile")
     public ResponseEntity<?> downloadFile(@RequestBody Image image) throws IOException {
@@ -39,5 +44,20 @@ public class FileController {
         }catch (IOException e){
             return  ResponseEntity.internalServerError().build();
         }
+    }
+
+//    @GetMapping("/image")
+//    public ResponseEntity<List<Image>> getAllHomeImage() {
+//        return ResponseEntity.ok(imageRepository.getImageByActiveIsTrue());
+//    }
+
+    @GetMapping("/image/all")
+    public ResponseEntity<List<Image>> getAllImage() {
+        return ResponseEntity.ok(imageRepository.getImageByNameIsNotNull());
+    }
+
+    @PostMapping("image/update")
+    public ResponseEntity<Image> showHome(@RequestBody Image image){
+        return ResponseEntity.ok(imageRepository.save(image));
     }
 }

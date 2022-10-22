@@ -4,6 +4,8 @@ import {AboutService} from "../../../services/about/about.service";
 import {AddressService} from "../../../services/address/address.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Address} from "../../address/address";
+import {Post} from "../../post/post";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-about-control',
@@ -14,7 +16,7 @@ export class AboutControlComponent implements OnInit {
 
   about: About = new About();
   address: Address = new Address();
-  // addList: Address[] = [];
+  addList: Address[] = [];
 
   provinces: any;
   districts: any;
@@ -95,9 +97,6 @@ export class AboutControlComponent implements OnInit {
   }
 
   onSubmit(){
-    // for (let i=0; i<this.addList.length; i++){
-    //   this.about.address[i] = this.addList[i];
-    // }
     this.aboutService.saveInfo(this.about).subscribe(data =>{
       this.updateSuccess = true;
       this.errorMessage = "Cập nhật thành công !";
@@ -106,6 +105,24 @@ export class AboutControlComponent implements OnInit {
       this.errorMessage = err.error.message;
       this.updateSuccess = false;
     })
+  }
+
+  prepareFormData() {
+    const params = new HttpParams();
+    params.append(
+      'about',
+      // @ts-ignore
+      this.about
+    )
+    for (let i=0; i<this.addList.length; i++){
+      params.append(
+        'address',
+        // @ts-ignore
+        this.about.address[i] = this.addList[i]
+      )
+    };
+
+    return params;
   }
 
   save(e: any){

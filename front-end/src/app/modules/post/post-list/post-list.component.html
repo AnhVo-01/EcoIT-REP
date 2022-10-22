@@ -29,7 +29,7 @@
                 </div>
               </ng-container>
 
-              <div class="carousel-item active" id="first">
+              <div *ngIf="firstItem.image" class="carousel-item active" id="first">
                 <img src="{{firstItem.image}}" alt="">
               </div>
             </div>

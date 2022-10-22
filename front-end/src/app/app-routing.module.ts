@@ -24,6 +24,8 @@ import {AboutControlComponent} from "./modules/about/about-control/about-control
 import {AboutDetailsComponent} from "./modules/about/about-details/about-details.component";
 import {RecruitDetailsComponent} from "./modules/recruit/recruit-details/recruit-details.component";
 import {AdminComponent} from "./modules/admin/admin/admin.component";
+import {GalleryControlComponent} from "./modules/typical/gallery/gallery-control/gallery-control.component";
+import {ProductDetailsComponent} from "./modules/product/product-details/product-details.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
@@ -31,6 +33,7 @@ const routes: Routes = [
   {path: 'tuyen-dung/:url', component: RecruitDetailsComponent},
   {path: 'tin-tuc', component: PostListComponent},
   {path: 'tin-tuc/:url', component: PostDetailsComponent},
+  {path: 'san-pham/:url', component: ProductDetailsComponent},
   {path: 've-chung-toi', component: AboutDetailsComponent},
 
   {path: 'd', redirectTo: 'd/dashboard', pathMatch: 'full'},
@@ -50,6 +53,8 @@ const routes: Routes = [
       {path: 'sliders', title: 'Admin - Trình chiếu', component: SliderControlComponent},
       {path: 'sliders/add-new', component: SliderAddComponent},
       {path: 'sliders/update/:id', component: SliderAddComponent},
+
+      {path: 'gallery', title: 'Admin - Kho ảnh', component: GalleryControlComponent},
 
       {path: 'navigation', title: 'Admin - Điều hướng', component: NavControlComponent,
         children: [

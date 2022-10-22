@@ -21,7 +21,11 @@ export class ProductService {
   }
 
   getProductById(id:number): Observable<Product>{
-    return this.httpClient.get<Product>(`${this.baseURL}/${id}`);
+    return this.httpClient.get<Product>(`${this.baseURL}/d/${id}`);
+  }
+
+  getProductByUrl(url: string): Observable<Product>{
+    return this.httpClient.get<Product>(`${this.baseURL}/${url}`);
   }
 
   addNewProduct(newProduct: FormData): Observable<Object>{

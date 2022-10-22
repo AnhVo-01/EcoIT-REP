@@ -3,4 +3,6 @@ export class Product {
   thumb: any;
   name: any;
   description: any
+  content: any;
+  url: any;
 }

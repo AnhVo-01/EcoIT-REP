@@ -66,6 +66,7 @@ public class CustomerController {
                     newCustomer.setBgIColor(customer.getBgIColor());
                     newCustomer.setName(customer.getName());
                     newCustomer.setDescription(customer.getDescription());
+                    newCustomer.setProducts(customer.getProducts());
                     return customerRepository.save(newCustomer);
                 })
                 .orElseGet(() -> {

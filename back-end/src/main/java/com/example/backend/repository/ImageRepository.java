@@ -21,4 +21,6 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
 
     @Query("SELECT n FROM Post n JOIN Image im WHERE n.id =:id")
     List<Image> getImg(@Param("id") Long id);
+
+    List<Image> getImageByNameIsNotNull();
 }

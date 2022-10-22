@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Constant} from "../../core/config/constant";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {File} from "./file";
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,13 @@ export class FileService {
 
   deleteFile(file: File): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/deleteFile`, file);
+  }
+
+  getAllImage(): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/image/all`);
+  }
+
+  showImage(file: File): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/image/update`, file);
   }
 }

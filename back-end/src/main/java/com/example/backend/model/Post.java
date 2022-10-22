@@ -24,7 +24,7 @@ public class Post {
     @Column(name = "created_date")
     private String date;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
     private Image postImage;
 

@@ -4,4 +4,6 @@ export class Customer {
   description: any;
   bgIColor: any
   icon: any;
+  url: any;
+  products: any;
 }

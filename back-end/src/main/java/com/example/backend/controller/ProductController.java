@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -51,10 +52,15 @@ public class ProductController {
         return repository.getAll();
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/product/d/{id}")
     public Product one(@PathVariable Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
+    }
+
+    @GetMapping("/product/{url}")
+    public ResponseEntity<Product> oneByUrl(@PathVariable("url") String url){
+        return ResponseEntity.ok(repository.getProductByUrl(url));
     }
 
     @PostMapping(value = "/product", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})

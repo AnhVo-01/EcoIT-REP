@@ -14,6 +14,7 @@ export class ProductAddComponent implements OnInit {
   product: Product = new Product();
   url: any;
   isUpdate= false;
+  ckeConfig: any;
   fileToUpload:string [] = [];
 
   constructor(private productService: ProductService,
@@ -26,6 +27,16 @@ export class ProductAddComponent implements OnInit {
       this.isUpdate = true;
       this.getProductById(this.id);
     }
+
+    this.ckeConfig = {
+      // config.extraPlugins = 'embed';
+      extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font, dialogadvtab, embed',
+      uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+      height: 470,
+      filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',
+      filebrowserImageUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Images',
+
+    };
   }
 
   getProductById(id: any) {
@@ -67,7 +78,12 @@ export class ProductAddComponent implements OnInit {
   }
 
   goToProductList(){
-    this.router.navigate(['/d/product']);
+    const redirect = window.sessionStorage.getItem("redirect");
+    if (redirect){
+      this.router.navigate([redirect]);
+    } else {
+      this.router.navigate(['/d/product']);
+    }
   }
 
   onSubmit(){

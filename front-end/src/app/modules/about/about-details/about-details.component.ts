@@ -21,9 +21,8 @@ export class AboutDetailsComponent implements OnInit {
       this.content = this.sanitizer.bypassSecurityTrustHtml(this.about.content);
     })
 
-    let element = document.getElementById("myDIV");
     // @ts-ignore
-    element.classList.add("bg-dark");
+    document.getElementById("header").classList.add("bg-dark");
   }
 
 }

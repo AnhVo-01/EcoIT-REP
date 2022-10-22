@@ -1,10 +1,14 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.AboutUs;
+import com.example.backend.model.Address;
 import com.example.backend.repository.AboutUsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/s")
@@ -21,6 +25,8 @@ public class AboutController {
     @PostMapping("/about-us")
     public ResponseEntity<AboutUs> create(@RequestBody AboutUs aboutUs){
         aboutUs.setActive(true);
+//        Collection<Address> addressList = aboutUs.getAddress();
+//        aboutUs.setAddress(addressList);
         return ResponseEntity.ok(repository.save(aboutUs));
     }
 

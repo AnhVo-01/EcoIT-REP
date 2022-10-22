@@ -1,6 +1,7 @@
 package com.example.backend.model;
 
 import lombok.Data;
+import org.springframework.cache.interceptor.CacheableOperation;
 
 import javax.persistence.*;
 
@@ -15,6 +16,9 @@ public class Product {
     private String name;
 
     private String description;
+
+    @Column(columnDefinition = "text")
+    private String content;
 
     private String url;
 
