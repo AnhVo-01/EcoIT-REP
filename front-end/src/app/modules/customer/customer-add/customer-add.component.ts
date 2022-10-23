@@ -52,14 +52,13 @@ export class CustomerAddComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.id)
-    if(this.id != null){
+    if(this.id){
       this.cusService.updateCustomer(this.id, this.customer).subscribe(data=>{
         this.goToCustomerList();
       })
+    }else{
+      this.addCustomer();
     }
-
-    this.addCustomer();
   }
 
   onChange(event: any) {
@@ -73,6 +72,11 @@ export class CustomerAddComponent implements OnInit {
     reader.onload = (_event) => {
       this.image = reader.result;
     }
+  }
+
+  onCheckChange(event: any){
+    this.customer.products.push(event.target.value);
+    console.log(event.target.value);
   }
 
   notNeedFile(){

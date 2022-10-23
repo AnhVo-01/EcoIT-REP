@@ -20,7 +20,7 @@
               <ul class="list-group">
                 <li class="list-group-item" *ngFor="let p of product">
                   <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" id="customCheck{{p.id}}" name="products" [(ngModel)]="customer.products" [value]="p.id">
+                    <input class="custom-control-input" type="checkbox" id="customCheck{{p.id}}" [value]="p" (change)="onCheckChange($event)">
                     <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{p.id}}">{{p.name}}</label>
                   </div>
                 </li>

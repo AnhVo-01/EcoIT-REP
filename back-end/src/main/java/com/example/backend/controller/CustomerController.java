@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.exceptionhandler.CusNotFoundException;
 import com.example.backend.model.Customer;
+import com.example.backend.model.Product;
 import com.example.backend.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -43,14 +44,6 @@ public class CustomerController {
         return customerRepository.listAllDisable();
     }
 
-
-    @PostMapping("/customer")
-    public EntityModel<Customer> newCustomer(@RequestBody Customer customer){
-        customer.setActive(true);
-        customer.setUrl(getSearchableString(customer.getName()));
-        return EntityModel.of(customerRepository.save(customer));
-    }
-
     @GetMapping("/customer/{id}")
     public EntityModel<Customer> one(@PathVariable Long id) {
         Customer customer = customerRepository.findById(id) //
@@ -58,15 +51,28 @@ public class CustomerController {
         return EntityModel.of(customer);
     }
 
+    @PostMapping("/customer")
+    public EntityModel<Customer> newCustomer(@RequestBody Customer customer){
+        List<Product> productList = customer.getProducts();
+
+        customer.setProducts(productList);
+        customer.setActive(true);
+        customer.setUrl(getSearchableString(customer.getName()));
+        return EntityModel.of(customerRepository.save(customer));
+    }
+
     @PostMapping("/customer/{id}")
     public Customer updateCus(@PathVariable Long id, @RequestBody Customer customer){
+        List<Product> productList = customer.getProducts();
+        Product product = new Product();
+
         return customerRepository.findById(id)
                 .map(newCustomer-> {
                     newCustomer.setIcon(customer.getIcon());
                     newCustomer.setBgIColor(customer.getBgIColor());
                     newCustomer.setName(customer.getName());
                     newCustomer.setDescription(customer.getDescription());
-                    newCustomer.setProducts(customer.getProducts());
+                    newCustomer.setProducts(productList);
                     return customerRepository.save(newCustomer);
                 })
                 .orElseGet(() -> {

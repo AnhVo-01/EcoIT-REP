@@ -7,7 +7,7 @@ import { CustomerListComponent } from './modules/customer/customer-list/customer
 import { HideMissingDirective } from './hide-missing.directive';
 import { CustomerControlComponent } from './modules/customer/customer-control/customer-control.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouterOutlet} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from "./modules/home/home-page/home.component";
@@ -40,10 +40,13 @@ import { RecruitDetailsComponent } from './modules/recruit/recruit-details/recru
 import { NavAddComponent } from './modules/navigator/nav-add/nav-add.component';
 import { FooterComponent } from './modules/home/footer/footer.component';
 import { CKEditorModule } from 'ckeditor4-angular';
-import {ModalModule} from "ngb-modal";
 import { AdminComponent } from './modules/admin/admin/admin.component';
 import {NavControlComponent} from "./modules/navigator/nav-control/nav-control.component";
 import { CustomerDetailsComponent } from './modules/customer/customer-details/customer-details.component';
+import {ProductDetailsComponent} from "./modules/product/product-details/product-details.component";
+import {NumberHomeComponent} from "./modules/typical/number/number-home/number-home.component";
+import {GalleryControlComponent} from "./modules/typical/gallery/gallery-control/gallery-control.component";
+import {GalleryHomeComponent} from "./modules/typical/gallery/gallery-home/gallery-home.component";
 
 @NgModule({
   declarations: [
@@ -68,6 +71,7 @@ import { CustomerDetailsComponent } from './modules/customer/customer-details/cu
     ProductAddComponent,
     ProductListComponent,
     ProductControlComponent,
+    ProductDetailsComponent,
     NavControlComponent,
     RecruitPostComponent,
     AboutHomeComponent,
@@ -82,7 +86,10 @@ import { CustomerDetailsComponent } from './modules/customer/customer-details/cu
     NavAddComponent,
     FooterComponent,
     AdminComponent,
-    CustomerDetailsComponent
+    CustomerDetailsComponent,
+    NumberHomeComponent,
+    GalleryControlComponent,
+    GalleryHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +99,7 @@ import { CustomerDetailsComponent } from './modules/customer/customer-details/cu
     FormsModule,
     NgxPaginationModule,
     CKEditorModule,
-    ModalModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
