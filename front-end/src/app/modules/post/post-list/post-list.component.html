@@ -19,49 +19,50 @@
           </div>
         </div>
       </div>
-      <div class="row wdc-blog section-space--mb_60">
-        <div class="col-md-6">
-          <div id="sliderNoiBat" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <ng-container *ngFor="let new of news; let i = index">
-                <div *ngIf="i < 4" class="carousel-item" id="{{new.id}}">
-                  <img src="{{new.postImage.url}}" alt="">
+
+      <div class="single-blog-item blog-grid section-space--mb_60">
+        <div class="row wdc-blog">
+          <div class="col-md-6">
+            <div id="sliderNoiBat" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div *ngIf="firstItem.image" class="carousel-item active" id="first">
+                  <img src="{{firstItem.image}}" alt="">
                 </div>
-              </ng-container>
 
-              <div *ngIf="firstItem.image" class="carousel-item active" id="first">
-                <img src="{{firstItem.image}}" alt="">
+                <ng-container *ngFor="let new of news; let i = index">
+                  <div *ngIf="i > 0 && i < 3" class="carousel-item" id="{{new.id}}">
+                    <img src="{{new.postImage.url}}" alt="">
+                  </div>
+                </ng-container>
               </div>
-            </div>
 
-            <a class="carousel-control-prev" href="#sliderNoiBat" data-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#sliderNoiBat" data-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </a>
+              <a class="carousel-control-prev" href="#sliderNoiBat" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#sliderNoiBat" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-6">
-          <ng-container *ngFor="let new1 of news; let i = index">
-            <div *ngIf="i < 4" id="cap{{new1.id}}" style="display:none;">
-              <div class="cation-carousel">
-                <h5><a routerLink="/tin-tuc/{{new1.url}}">{{new1.title}}</a></h5>
-                <div class="mt-3">{{new1.description}}</div>
+          <div class="col-md-6">
+            <div id="capfirst" style="display:block;">
+              <div class="carousel-cation">
+                <h5><a routerLink="/tin-tuc/{{firstItem.url}}">{{firstItem.title}}</a></h5>
+                <div class="mt-3">{{firstItem.description}}</div>
               </div>
             </div>
-          </ng-container>
-
-          <div id="capfirst" style="display:none;">
-            <div class="cation-carousel">
-              <h5><a routerLink="/tin-tuc/{{firstItem.url}}">{{firstItem.title}}</a></h5>
-              <div class="mt-3">{{firstItem.description}}</div>
-            </div>
+            <ng-container *ngFor="let new1 of news; let i = index">
+              <div *ngIf="i > 0 && i < 3" id="cap{{new1.id}}" style="display:none;">
+                <div class="carousel-cation">
+                  <h5><a routerLink="/tin-tuc/{{new1.url}}">{{new1.title}}</a></h5>
+                  <div class="mt-3">{{new1.description}}</div>
+                </div>
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
-
 
       <div class="row">
 

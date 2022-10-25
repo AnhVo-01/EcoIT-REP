@@ -64,8 +64,9 @@ Back to Top
       $('#header-wrapper').removeClass('affix');
     }
   });
-  $('#sliderNoiBat .item').each(function() {
-    var boxCation = $('#cap'+this.id);
+
+  $('#sliderNoiBat .carousel-item').each(function() {
+    let boxCation = $('#cap'+this.id);
     if($(this).hasClass('active')){
       if(boxCation.css('display') == 'none'){
         boxCation.css('display','block');
@@ -74,8 +75,9 @@ Back to Top
       boxCation.css('display','none');
     }
   });
+
   $("#sliderNoiBat").on('slid.bs.carousel', function () {
-    $('#sliderNoiBat .item').each(function() {
+    $('#sliderNoiBat .carousel-item').each(function() {
       var boxCation = $('#cap'+this.id);
       if($(this).hasClass('active')){
         if(boxCation.css('display') == 'none'){

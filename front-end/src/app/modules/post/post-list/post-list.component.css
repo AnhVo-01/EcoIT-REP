@@ -12,14 +12,19 @@
   width: 100%;
   object-fit: cover;
 }
+.carousel-inner{
+  border-radius: 5px;
+}
 
 .carousel-item img{
   width: 100%;
   height: 380px;
   object-fit: fill;
-  border-radius: 5px;
 }
 /*================== Blogs ====================================*/
+.wdc-blog{
+  padding: 15px;
+}
 .blog-thumbnail{
   height: 220px;
 }
