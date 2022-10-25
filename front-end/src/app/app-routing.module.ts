@@ -26,6 +26,7 @@ import {RecruitDetailsComponent} from "./modules/recruit/recruit-details/recruit
 import {AdminComponent} from "./modules/admin/admin/admin.component";
 import {GalleryControlComponent} from "./modules/typical/gallery/gallery-control/gallery-control.component";
 import {ProductDetailsComponent} from "./modules/product/product-details/product-details.component";
+import {NumberAddComponent} from "./modules/typical/number/number-add/number-add.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
@@ -75,6 +76,9 @@ const routes: Routes = [
 
   {path: 'd/product/new', component: ProductAddComponent},
   {path: 'd/product/update/:id', component: ProductAddComponent},
+
+  {path: 'd/typical-number/new', component: NumberAddComponent},
+  {path: 'd/typical-number/update/:id', component: NumberAddComponent},
 
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},

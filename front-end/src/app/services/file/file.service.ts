@@ -21,6 +21,10 @@ export class FileService {
     return this.httpClient.post(`${this.baseURL}/deleteFile`, file);
   }
 
+  getFileById(id: number): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/${id}`);
+  }
+
   getAllImage(): Observable<any>{
     return this.httpClient.get(`${this.baseURL}/image/all`);
   }

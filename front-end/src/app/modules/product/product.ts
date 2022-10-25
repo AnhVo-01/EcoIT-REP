@@ -5,4 +5,5 @@ export class Product {
   description: any
   content: any;
   url: any;
+  selected = false;
 }

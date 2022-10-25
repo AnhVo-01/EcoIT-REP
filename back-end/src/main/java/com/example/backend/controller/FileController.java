@@ -1,11 +1,14 @@
 package com.example.backend.controller;
 
+import com.example.backend.exceptionhandler.CusNotFoundException;
+import com.example.backend.model.Customer;
 import com.example.backend.model.Image;
 import com.example.backend.payload.MessageResponse;
 import com.example.backend.repository.ImageRepository;
 import com.example.backend.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -46,10 +49,12 @@ public class FileController {
         }
     }
 
-//    @GetMapping("/image")
-//    public ResponseEntity<List<Image>> getAllHomeImage() {
-//        return ResponseEntity.ok(imageRepository.getImageByActiveIsTrue());
-//    }
+    @GetMapping("/{id}")
+    public EntityModel<Image> one(@PathVariable Long id) {
+        Image image = imageRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Could not found the "+id));
+        return EntityModel.of(image);
+    }
 
     @GetMapping("/image/all")
     public ResponseEntity<List<Image>> getAllImage() {

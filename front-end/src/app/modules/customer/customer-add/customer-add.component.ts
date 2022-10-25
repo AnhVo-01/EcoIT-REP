@@ -14,7 +14,10 @@ export class CustomerAddComponent implements OnInit {
 
   id: any;
   customer: Customer = new Customer();
-  product: Product[] = [];
+  products: Product[] = [];
+
+  submitFail = false;
+  errorMessage = "";
 
   image: any;
   fileToUpload: string [] = [];
@@ -28,22 +31,65 @@ export class CustomerAddComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     if (this.id) {
       this.getCustomById(this.id);
+    }else{
+      this.getProducts();
     }
-
-    this.productService.getProductList().subscribe(data =>{
-      this.product = data;
-    })
   }
 
   getCustomById(id: number) {
     this.cusService.getCusById(id).subscribe(data => {
       this.customer = data;
+      this.getProductUpdate(this.customer);
     });
   }
 
+  getProductUpdate(customer: Customer){
+    this.productService.getProductList().subscribe(data => {
+      this.products = data;
+      if(customer.products != null){
+        for (let i=0; i<data.length; i++){
+          if(i < customer.products.length && this.products[i].id == customer.products[i].id){
+            this.products[i].selected = true;
+          }
+        }
+      }
+    })
+  }
+
+  getProducts(){
+    this.productService.getProductList().subscribe(data =>{
+      this.products = data;
+    })
+  }
+
+  prepareFormData(customer: Customer, products: Product[]): FormData {
+    const  formData = new FormData();
+    formData.append(
+      'customer',
+      new Blob([JSON.stringify(customer)], {type: 'application/json'})
+    );
+    formData.append(
+      'products',
+      new Blob([JSON.stringify(products)], {type: 'application/json'})
+    )
+    for (let j = 0; j < this.fileToUpload.length; j++){
+      formData.append(
+        'thumb',
+        this.fileToUpload[j]
+      )
+    }
+
+    return formData;
+  }
+
   addCustomer(){
-    this.cusService.newCustomer(this.customer).subscribe(data =>{
+    const customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
+    this.cusService.newCustomer(customerFormData).subscribe(data =>{
+      this.submitFail = false;
       this.goToCustomerList();
+    },err =>{
+      this.submitFail = true;
+      this.errorMessage = err.error.message;
     })
   }
 
@@ -74,9 +120,8 @@ export class CustomerAddComponent implements OnInit {
     }
   }
 
-  onCheckChange(event: any){
-    this.customer.products.push(event.target.value);
-    console.log(event.target.value);
+  onCheckChange(event: any, product: Product){
+    product.selected = event.currentTarget.checked;
   }
 
   notNeedFile(){

@@ -79,7 +79,7 @@
                 <div class="faq-wrapper" *ngFor="let img of images">
                   <div class="card">
                     <div class="product-thumb-image" (click)="choose($event)">
-                      <img class="img-fluid" src="{{img.url}}" alt="{{img.name}}" appHideMissing>
+                      <img class="img-fluid" src="{{img.url}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing>
                     </div>
                   </div>
                 </div>
@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="mt-3">
-                      <button class="btn mr-2" (click)="downloadImg(target)">Tải xuống</button>
+                      <button class="btn mr-2" (click)="downloadImg(target.id)">Tải xuống</button>
                       <button class="btn ml-2">Sửa</button>
                     </div>
                   </div>

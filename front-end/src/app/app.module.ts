@@ -47,6 +47,8 @@ import {ProductDetailsComponent} from "./modules/product/product-details/product
 import {NumberHomeComponent} from "./modules/typical/number/number-home/number-home.component";
 import {GalleryControlComponent} from "./modules/typical/gallery/gallery-control/gallery-control.component";
 import {GalleryHomeComponent} from "./modules/typical/gallery/gallery-home/gallery-home.component";
+import { NumberControlComponent } from './modules/typical/number/number-control/number-control.component';
+import { NumberAddComponent } from './modules/typical/number/number-add/number-add.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +91,9 @@ import {GalleryHomeComponent} from "./modules/typical/gallery/gallery-home/galle
     CustomerDetailsComponent,
     NumberHomeComponent,
     GalleryControlComponent,
-    GalleryHomeComponent
+    GalleryHomeComponent,
+    NumberControlComponent,
+    NumberAddComponent
   ],
   imports: [
     BrowserModule,

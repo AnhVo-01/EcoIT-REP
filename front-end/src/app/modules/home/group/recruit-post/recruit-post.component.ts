@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from "../../../../services/post/post.service";
 import {RecruitService} from "../../../../services/recruit/recruit.service";
+import {Recruit} from "../../../recruit/recruit";
 
 @Component({
   selector: 'app-recruit-post',
@@ -10,7 +11,7 @@ import {RecruitService} from "../../../../services/recruit/recruit.service";
 export class RecruitPostComponent implements OnInit {
 
   news: any;
-  recruit: any
+  recruit: Recruit[] = [];
 
   constructor(private newsService: PostService, private recruitService: RecruitService) { }
 

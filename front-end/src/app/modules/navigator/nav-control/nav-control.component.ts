@@ -33,7 +33,6 @@ export class NavControlComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllNav();
-    console.log("test")
   }
 
   getAllNav(){

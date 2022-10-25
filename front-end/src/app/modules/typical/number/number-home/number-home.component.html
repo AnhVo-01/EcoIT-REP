@@ -11,58 +11,20 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6 wpb_column vc_column_container">
+        <div class="col-lg-3 col-md-6 col-sm-6 wpb_column vc_column_container" *ngFor="let tNum of numbers">
           <div class="vc_column-inner">
             <div class="wpb_wrapper">
               <div class="wdc-counter style-icon icon-top">
-                <h5 class="box-icon"><i class="fas fa-users"></i></h5>
+                <h5 class="box-icon"><i class="{{tNum.icon}}"></i></h5>
                 <div class="box-inner">
-                  <div class="counter-number" data-to="100000">+100000</div>
-                  <h6 style="font-size: 20px; font-weight: 600">Người dùng</h6>
+                  <div class="counter-number" [id]="tNum.num"></div>
+                  <h6 style="font-size: 20px; font-weight: 600">{{tNum.description}}</h6>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 wpb_column vc_column_container">
-          <div class="vc_column-inner">
-            <div class="wpb_wrapper">
-              <div class="wdc-counter style-icon icon-top">
-                <h5 class="box-icon"><i class="fas fa-laptop"></i></h5>
-                <div class="box-inner">
-                  <div class="counter-number" data-to="10">+10</div>
-                  <h6 style="font-size: 20px; font-weight: 600">Năm kinh nghiệm</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 wpb_column vc_column_container">
-          <div class="vc_column-inner">
-            <div class="wpb_wrapper">
-              <div class="wdc-counter style-icon icon-top">
-                <h5 class="box-icon"><i class="fas fa-book"></i></h5>
-                <div class="box-inner">
-                  <div class="counter-number" data-to="150">+150</div>
-                  <h6 style="font-size: 20px; font-weight: 600">Dự án đã hoàn thành</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-6 wow move-up">
-          <div class="vc_column-inner">
-            <div class="wpb_wrapper">
-              <div class="wdc-counter style-icon icon-top">
-                <h5 class="box-icon"><i class="fas fa-user"></i></h5>
-                <div class="box-inner">
-                  <div class="counter-number" data-to="50">+50</div>
-                  <h5 style="font-size: 20px; font-weight: 600">Cán bộ nhân viên</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>

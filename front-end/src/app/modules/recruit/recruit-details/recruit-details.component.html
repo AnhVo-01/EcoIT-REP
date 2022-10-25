@@ -14,26 +14,21 @@
         <div class="main-blog-wrap">
           <!--======= Single Blog Item Start ========-->
           <div class="single-blog-item">
-            <!-- Post Feature Start -->
-            <!--            <div class="post-feature blog-thumbnail wow move-up">-->
-            <!--              <img class="img-fluid" src="{{news.postImage.url}}" alt="Blog Images" appHideMissing>-->
-            <!--            </div>-->
-            <!-- Post Feature End -->
 
             <!-- Post info Start -->
             <div class="post-info lg-blog-post-info  wow move-up">
 
-              <h4 class="post-title font-weight--bold">{{recruit.title}}</h4>
+              <h4 class="font-weight--bold">{{recruit.title}}</h4>
 
               <div class="post-meta mt-20">
                 <div class="post-date">
-                  <span class="far fa-calendar meta-icon"></span>
+                  <i class="far fa-calendar meta-icon"></i>
                   {{recruit.createDate}}
                 </div>
               </div>
 
               <div class="post-excerpt mt-15">
-                <div class="content" style="color: #333333;" [innerHTML]="content"></div>
+                <div class="content" [innerHTML]="content"></div>
 
                 <div class="related-posts-wrapper">
                   <div class="row">

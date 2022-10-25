@@ -20,12 +20,16 @@ export class CustomerService {
     return this.httpClient.get<Customer[]>(`${this.baseURL}/home`);
   }
 
-  newCustomer(customer: Customer): Observable<Object>{
+  newCustomer(customer: FormData): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`, customer);
   }
 
   getCusById(id: number): Observable<Customer>{
     return this.httpClient.get<Customer>(`${this.baseURL}/${id}`);
+  }
+
+  getCusUpdateById(id: number): Observable<Customer>{
+    return this.httpClient.get<Customer>(`${this.baseURL}/update/${id}`);
   }
 
   updateCustomer(id: number, customer: Customer):Observable<Object>{

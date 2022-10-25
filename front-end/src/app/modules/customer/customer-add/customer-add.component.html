@@ -18,9 +18,9 @@
             <div class="contact-inner">
               <span><strong>Sản phẩm</strong></span>
               <ul class="list-group">
-                <li class="list-group-item" *ngFor="let p of product">
+                <li class="list-group-item" *ngFor="let p of products">
                   <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" id="customCheck{{p.id}}" [value]="p" (change)="onCheckChange($event)">
+                    <input type="checkbox" [value]="p.selected" [checked]="p.selected" (change)="onCheckChange($event, p)" class="custom-control-input" id="customCheck{{p.id}}">
                     <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck{{p.id}}">{{p.name}}</label>
                   </div>
                 </li>
@@ -68,6 +68,7 @@
             </div>
 
             <div class="comment-submit-btn">
+              <div class="mb-3" style="color: #f00" *ngIf="submitFail">{{errorMessage}}</div>
               <button class="ht-btn ht-btn-md mr-2" type="submit">Lưu</button>
               <button class="ht-btn ht-btn-md ml-2" style="background: #ccc" type="button" (click)="goToCustomerList()">Hủy</button>
             </div>

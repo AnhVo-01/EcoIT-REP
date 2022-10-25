@@ -76,17 +76,17 @@
     =            One page nav active          =
     ===========================================*/
 
-    var top_offset = $('.navigation-menu--onepage').height() - 60;
-    $('.navigation-menu--onepage ul').onePageNav({
-        currentClass: 'active',
-        scrollOffset: top_offset,
-    });
-
-    var top_offset_mobile = $('.header-area').height();
-    $('.offcanvas-navigation--onepage ul').onePageNav({
-        currentClass: 'active',
-        scrollOffset: top_offset_mobile,
-    });
+    // var top_offset = $('.navigation-menu--onepage').height() - 60;
+    // $('.navigation-menu--onepage ul').onePageNav({
+    //     currentClass: 'active',
+    //     scrollOffset: top_offset,
+    // });
+    //
+    // var top_offset_mobile = $('.header-area').height();
+    // $('.offcanvas-navigation--onepage ul').onePageNav({
+    //     currentClass: 'active',
+    //     scrollOffset: top_offset_mobile,
+    // });
 
 
     /*===========================================
@@ -357,44 +357,44 @@
         Image Justify Activation
     =========================================*/
 
-    $('#npgallery2').justifiedGallery({
-        rowHeight: 320,
-        maxRowHeight: null,
-        margins: 4,
-        border: 0,
-        rel: 'npgallery2',
-        lastRow: 'nojustify',
-        captions: true,
-        randomize: false,
-        sizeRangeSuffixes: {
-            lt100: '_t',
-            lt240: '_m',
-            lt320: '_n',
-            lt500: '',
-            lt640: '_z',
-            lt1024: '_b'
-        }
-    });
+    // $('#npgallery2').justifiedGallery({
+    //     rowHeight: 320,
+    //     maxRowHeight: null,
+    //     margins: 4,
+    //     border: 0,
+    //     rel: 'npgallery2',
+    //     lastRow: 'nojustify',
+    //     captions: true,
+    //     randomize: false,
+    //     sizeRangeSuffixes: {
+    //         lt100: '_t',
+    //         lt240: '_m',
+    //         lt320: '_n',
+    //         lt500: '',
+    //         lt640: '_z',
+    //         lt1024: '_b'
+    //     }
+    // });
 
 
     /*==================================
     	23. Mesonry Activation
     ===================================*/
 
-    $('.masonry-activation').imagesLoaded(function () {
-        // init Isotope
-        var $grid = $('.masonry-wrap').isotope({
-            itemSelector: '.masonary-item',
-            percentPosition: true,
-            transitionDuration: '0.7s',
-            masonry: {
-                // use outer width of grid-sizer for columnWidth
-                columnWidth: 2,
-                percentPosition: true
-            }
-        });
-
-    });
+    // $('.masonry-activation').imagesLoaded(function () {
+    //     // init Isotope
+    //     var $grid = $('.masonry-wrap').isotope({
+    //         itemSelector: '.masonary-item',
+    //         percentPosition: true,
+    //         transitionDuration: '0.7s',
+    //         masonry: {
+    //             // use outer width of grid-sizer for columnWidth
+    //             columnWidth: 2,
+    //             percentPosition: true
+    //         }
+    //     });
+    //
+    // });
 
 
     /*=============================================
@@ -512,441 +512,439 @@
     =            swiper slider activation            =
     =============================================*/
 
-
-    var twitterFeedSlider = new Swiper('.twitter-feed-slider__container', {
-        slidesPerView : 1,
-        spaceBetween : 30,
-        loop: true,
-        speed: 1000
-    });
-
-    var featureSlider = new Swiper('.feature-slider__container', {
-        slidesPerView : 1,
-        spaceBetween : 30,
-        loop: true,
-        speed: 1000,
-        effect: "fade",
-        pagination: {
-            el: '.swiper-pagination-1',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            767:{
-                autoHeight: true, //enable auto height
-
-            },
-            575:{
-                autoHeight: true, //enable auto height
-            }
-        }
-    });
-
-    var brandLogoSlider = new Swiper('.brand-logo-slider__container', {
-        slidesPerView : 6,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        autoplay: {
-            delay: 3000,
-        },
-
-        breakpoints: {
-            1499:{
-                slidesPerView : 6
-            },
-
-            991:{
-                slidesPerView : 4
-            },
-
-            767:{
-                slidesPerView : 3
-
-            },
-
-            575:{
-                slidesPerView : 2
-            }
-        }
-    });
-    var testimonialSlider = new Swiper('.team-slider__container', {
-        slidesPerView : 4,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-2',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 3
-            },
-
-            991:{
-                slidesPerView : 2
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-    var testimonialSlider = new Swiper('.testimonial-slider__container', {
-        slidesPerView : 3,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        pagination: {
-            el: '.swiper-pagination-1',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 3
-            },
-
-            991:{
-                slidesPerView : 2
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-    var testimonialSlider = new Swiper('.testimonial-slider__three', {
-        slidesPerView : 1,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-    var carouselSlider = new Swiper('.carousel-slider__container', {
-        slidesPerView : 3,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-2',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 3
-            },
-
-            991:{
-                slidesPerView : 2
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-    var carouselSlider = new Swiper('.single-flexible__container', {
-        slidesPerView : 1,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-1',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 1
-            },
-
-            991:{
-                slidesPerView : 1
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-    var carouselSlider = new Swiper('.branding-preview-slider', {
-        slidesPerView : 1,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-1',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 1
-            },
-
-            991:{
-                slidesPerView : 1
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-    var carouselSlider = new Swiper('.three-flexible__container', {
-        slidesPerView : 3,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 0,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-1',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 3
-            },
-
-            991:{
-                slidesPerView : 2
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-
-    var carouselSlider = new Swiper('.auto--center-flexible__container', {
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        freeMode: false,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-1',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 3
-            },
-
-            991:{
-                slidesPerView : 2
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-
-    var carouselSlider = new Swiper('.auto--per-flexible__container', {
-        slidesPerView: 'auto',
-        centeredSlides: false,
-        freeMode: true,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-1',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 3
-            },
-
-            991:{
-                slidesPerView : 2
-            },
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-
-
-    var carouselSlider = new Swiper('.app-landing--center_slider', {
-        slidesPerView : 5,
-        slidesPerGroup: 1,
-        centeredSlides: true,
-        freeMode: false,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination-2',
-            type: 'bullets',
-            clickable: true
-        },
-        breakpoints: {
-            1499:{
-                slidesPerView : 3
-            },
-
-            991:{
-                slidesPerView : 2
-            },
-
-            767:{
-                slidesPerView : 2
-
-            },
-
-            575:{
-                slidesPerView : 2
-            }
-        }
-    });
-
-
-    var carouselSlider = new Swiper('.app-landing-testimonial-slider', {
-        slidesPerView : 1,
-        slidesPerGroup: 1,
-        loop: true,
-        speed: 1000,
-        spaceBetween : 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-
-            767:{
-                slidesPerView : 1
-
-            },
-
-            575:{
-                slidesPerView : 1
-            }
-        }
-    });
-
-    var mySwiper = new Swiper('.auto--per-flexible__container__aegency', {
-        spaceBetween : 30,
-        loop: true,
-        freeMode: true,
-        slidesPerView: 'auto',
-        autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-        },
-        speed: 7000
-    });
+    // var twitterFeedSlider = new Swiper('.twitter-feed-slider__container', {
+    //     slidesPerView : 1,
+    //     spaceBetween : 30,
+    //     loop: true,
+    //     speed: 1000
+    // });
+    //
+    // var featureSlider = new Swiper('.feature-slider__container', {
+    //     slidesPerView : 1,
+    //     spaceBetween : 30,
+    //     loop: true,
+    //     speed: 1000,
+    //     effect: "fade",
+    //     pagination: {
+    //         el: '.swiper-pagination-1',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         767:{
+    //             autoHeight: true, //enable auto height
+    //
+    //         },
+    //         575:{
+    //             autoHeight: true, //enable auto height
+    //         }
+    //     }
+    // });
+    //
+    // var brandLogoSlider = new Swiper('.brand-logo-slider__container', {
+    //     slidesPerView : 6,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     autoplay: {
+    //         delay: 3000,
+    //     },
+    //
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 6
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 4
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 3
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 2
+    //         }
+    //     }
+    // });
+    // var testimonialSlider = new Swiper('.team-slider__container', {
+    //     slidesPerView : 4,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-2',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 3
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 2
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    // var testimonialSlider = new Swiper('.testimonial-slider__container', {
+    //     slidesPerView : 3,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     pagination: {
+    //         el: '.swiper-pagination-1',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 3
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 2
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    // var testimonialSlider = new Swiper('.testimonial-slider__three', {
+    //     slidesPerView : 1,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     breakpoints: {
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    // var carouselSlider = new Swiper('.carousel-slider__container', {
+    //     slidesPerView : 3,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-2',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 3
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 2
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    // var carouselSlider = new Swiper('.single-flexible__container', {
+    //     slidesPerView : 1,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-1',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 1
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 1
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    // var carouselSlider = new Swiper('.branding-preview-slider', {
+    //     slidesPerView : 1,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-1',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 1
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 1
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    // var carouselSlider = new Swiper('.three-flexible__container', {
+    //     slidesPerView : 3,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 0,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-1',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 3
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 2
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    //
+    // var carouselSlider = new Swiper('.auto--center-flexible__container', {
+    //     slidesPerView: 'auto',
+    //     centeredSlides: true,
+    //     freeMode: false,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-1',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 3
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 2
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    //
+    // var carouselSlider = new Swiper('.auto--per-flexible__container', {
+    //     slidesPerView: 'auto',
+    //     centeredSlides: false,
+    //     freeMode: true,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-1',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 3
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 2
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    //
+    // var carouselSlider = new Swiper('.app-landing--center_slider', {
+    //     slidesPerView : 5,
+    //     slidesPerGroup: 1,
+    //     centeredSlides: true,
+    //     freeMode: false,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination-2',
+    //         type: 'bullets',
+    //         clickable: true
+    //     },
+    //     breakpoints: {
+    //         1499:{
+    //             slidesPerView : 3
+    //         },
+    //
+    //         991:{
+    //             slidesPerView : 2
+    //         },
+    //
+    //         767:{
+    //             slidesPerView : 2
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 2
+    //         }
+    //     }
+    // });
+    //
+    //
+    // var carouselSlider = new Swiper('.app-landing-testimonial-slider', {
+    //     slidesPerView : 1,
+    //     slidesPerGroup: 1,
+    //     loop: true,
+    //     speed: 1000,
+    //     spaceBetween : 30,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     breakpoints: {
+    //
+    //         767:{
+    //             slidesPerView : 1
+    //
+    //         },
+    //
+    //         575:{
+    //             slidesPerView : 1
+    //         }
+    //     }
+    // });
+    //
+    // var mySwiper = new Swiper('.auto--per-flexible__container__aegency', {
+    //     spaceBetween : 30,
+    //     loop: true,
+    //     freeMode: true,
+    //     slidesPerView: 'auto',
+    //     autoplay: {
+    //         delay: 0,
+    //         disableOnInteraction: false,
+    //     },
+    //     speed: 7000
+    // });
 
     /*=====  End of swiper slider activation  ======*/
     });
@@ -976,12 +974,11 @@
     =            circle progress active            =
     =============================================*/
 
-    $('.chart-progress , .chart-progress__box').appear(function () {
-		$('.chart-progress, .chart-progress__box').circleProgress({
-			startAngle: -Math.PI / 4 * 2,
-		});
-
-	});
+    // $('.chart-progress , .chart-progress__box').appear(function () {
+		//   $('.chart-progress, .chart-progress__box').circleProgress({
+		// 	  startAngle: -Math.PI / 4 * 2,
+		//   });
+	  // });
 
     /*======================================
     =       Countdown Activation          =
@@ -1039,10 +1036,10 @@
     =            counter up active            =
     =============================================*/
 
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1000
-    });
+    // $('.counter').counterUp({
+    //     delay: 10,
+    //     time: 1000
+    // });
 
     // Counter To Up JS
     $('.odometer').each(function () {
@@ -1061,56 +1058,56 @@
     =          Countdown Time Circles     =
     =======================================*/
 
-    $('#DateCountdown').TimeCircles({
-        "animation": "smooth",
-        "bg_width": 0.60,
-        "fg_width": 0.025,
-        "circle_bg_color": "#eeeeee",
-        "time": {
-            "Days": {
-                "text": "Days",
-                "color": "#5945e6",
-                "show": true
-            },
-            "Hours": {
-                "text": "Hours",
-                "color": "#5945e6",
-                "show": true
-            },
-            "Minutes": {
-                "text": "Minutes",
-                "color": "#5945e6",
-                "show": true
-            },
-            "Seconds": {
-                "text": "Seconds",
-                "color": "#5945e6",
-                "show": true
-            }
-        }
-    });
+    // $('#DateCountdown').TimeCircles({
+    //     "animation": "smooth",
+    //     "bg_width": 0.60,
+    //     "fg_width": 0.025,
+    //     "circle_bg_color": "#eeeeee",
+    //     "time": {
+    //         "Days": {
+    //             "text": "Days",
+    //             "color": "#5945e6",
+    //             "show": true
+    //         },
+    //         "Hours": {
+    //             "text": "Hours",
+    //             "color": "#5945e6",
+    //             "show": true
+    //         },
+    //         "Minutes": {
+    //             "text": "Minutes",
+    //             "color": "#5945e6",
+    //             "show": true
+    //         },
+    //         "Seconds": {
+    //             "text": "Seconds",
+    //             "color": "#5945e6",
+    //             "show": true
+    //         }
+    //     }
+    // });
 
     /*=================================-
     =        Scroll Up COlor Change    =
     ==================================-*/
 
-    $('.slide-scroll-bg').height('.slide-scroll-bg').scrollie({
-        scrollOffset: 0,
-        scrollingInView: function (elem) {
-            console.log(elem);
-            var bgColor = elem.data('background');
-            $('.bg-body-color').css('background-color', bgColor);
-
-        }
-    });
+    // $('.slide-scroll-bg').height('.slide-scroll-bg').scrollie({
+    //     scrollOffset: 0,
+    //     scrollingInView: function (elem) {
+    //         console.log(elem);
+    //         var bgColor = elem.data('background');
+    //         $('.bg-body-color').css('background-color', bgColor);
+    //
+    //     }
+    // });
 
     /*=============================================
     =            light gallery active            =
     =============================================*/
 
-    $('.popup-images').lightGallery();
+    // $('.popup-images').lightGallery();
 
-    $('.video-popup').lightGallery();
+    // $('.video-popup').lightGallery();
 
     /*=============================================
         showcoupon toggle function

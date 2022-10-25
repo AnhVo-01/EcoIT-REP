@@ -64,7 +64,7 @@ Back to Top
       $('#header-wrapper').removeClass('affix');
     }
   });
-  $('#sliderNoiBat .carousel-item').each(function() {
+  $('#sliderNoiBat .item').each(function() {
     var boxCation = $('#cap'+this.id);
     if($(this).hasClass('active')){
       if(boxCation.css('display') == 'none'){
@@ -75,7 +75,7 @@ Back to Top
     }
   });
   $("#sliderNoiBat").on('slid.bs.carousel', function () {
-    $('#sliderNoiBat .carousel-item').each(function() {
+    $('#sliderNoiBat .item').each(function() {
       var boxCation = $('#cap'+this.id);
       if($(this).hasClass('active')){
         if(boxCation.css('display') == 'none'){
@@ -196,17 +196,14 @@ Isotope Filter
   });
 
 
-
-  /*
-Shortcode Counter
-*/
+  // Shortcode Counter
   $('.counter-number').waypoint({
     offset		: '100%',
     triggerOnce	: true,
     handler		: function(){
       var el			= $(this);
       var duration	= Math.floor((Math.random()*1000)+1000);
-      var to			= el.attr('data-to');
+      var to			= el.attr('id');
 
       $({property:0}).animate({property:to}, {
         duration	: duration,

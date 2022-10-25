@@ -19,7 +19,7 @@ export class RecruitDetailsComponent implements OnInit {
               private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    let element = document.getElementById("myDIV");
+    let element = document.getElementById("header");
     // @ts-ignore
     element.classList.add("bg-dark");
 

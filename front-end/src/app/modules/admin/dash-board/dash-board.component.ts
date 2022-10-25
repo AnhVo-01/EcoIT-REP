@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
+import {NumberService} from "../../../services/number-typical/number.service";
 
 @Component({
   selector: 'app-dash-board',
