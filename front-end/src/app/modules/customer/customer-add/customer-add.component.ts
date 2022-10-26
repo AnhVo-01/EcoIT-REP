@@ -39,6 +39,7 @@ export class CustomerAddComponent implements OnInit {
   getCustomById(id: number) {
     this.cusService.getCusById(id).subscribe(data => {
       this.customer = data;
+      this.image = this.customer.thumb.url;
       this.getProductUpdate(this.customer);
     });
   }
@@ -47,10 +48,11 @@ export class CustomerAddComponent implements OnInit {
     this.productService.getProductList().subscribe(data => {
       this.products = data;
       if(customer.products != null){
-        for (let i=0; i<data.length; i++){
-          if(i < customer.products.length && this.products[i].id == customer.products[i].id){
-            this.products[i].selected = true;
-          }
+        const sid = customer.products.map(item => item.id);
+        for (let i=0; i<sid.length; i++){
+          this.products.find( e => {
+            if(e.id === sid[i]) e.selected = true;
+          })
         }
       }
     })
@@ -83,13 +85,20 @@ export class CustomerAddComponent implements OnInit {
   }
 
   addCustomer(){
-    const customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
+    let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
     this.cusService.newCustomer(customerFormData).subscribe(data =>{
       this.submitFail = false;
       this.goToCustomerList();
     },err =>{
       this.submitFail = true;
       this.errorMessage = err.error.message;
+    })
+  }
+  updateCustomer(id: number){
+    let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
+    this.cusService.updateCustomer(id, customerFormData).subscribe(data =>{
+      this.submitFail = false;
+      this.goToCustomerList();
     })
   }
 
@@ -99,9 +108,7 @@ export class CustomerAddComponent implements OnInit {
 
   onSubmit(){
     if(this.id){
-      this.cusService.updateCustomer(this.id, this.customer).subscribe(data=>{
-        this.goToCustomerList();
-      })
+      this.updateCustomer(this.id);
     }else{
       this.addCustomer();
     }

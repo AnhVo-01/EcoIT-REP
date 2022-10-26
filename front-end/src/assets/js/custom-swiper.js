@@ -50,4 +50,10 @@ $(document).ready(function($) {
     var hrefImg = this.src;
     $(this).wrap('<a href="' + hrefImg + '" data-fancybox="images"></a>');
   });
+
+  $('.multiple-items').slick({
+    infinite: false,
+    slidesToShow: 3,
+    slidesToScroll: 3
+  });
 });

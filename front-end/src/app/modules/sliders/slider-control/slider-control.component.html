@@ -87,27 +87,22 @@
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-container team-slider__container">
-                    <div class=" swiper-wrapper ">
-                      <div class="swiper-slide" *ngFor="let slide of sliders">
-                        <div class="grid-item wow move-up">
-                          <!-- ht-team-member Start -->
-                          <div class="ht-team-member text-center">
-                            <div class="ht-team-member--inner">
-                              <!-- team-image Start -->
-                              <div class="team-image" (click)="choose($event)">
-                                <img class="img-fluid" src="{{slide.pathUrl}}" id="{{slide.id}}" alt="image">
-                              </div>
-                              <!-- team-image End -->
+                  <div class="multiple-items">
+                    <div class="swiper-slide">
+                      <div class="grid-item" *ngFor="let slide of sliders">
+                        <!-- ht-team-member Start -->
+                        <div class="ht-team-member text-center">
+                          <div class="ht-team-member--inner">
+                            <!-- team-image Start -->
+                            <div class="team-image" (click)="choose($event)">
+                              <img class="img-fluid" src="{{slide.pathUrl}}" id="{{slide.id}}" alt="image">
                             </div>
+                            <!-- team-image End -->
                           </div>
-                          <!-- ht-team-member End -->
                         </div>
+                        <!-- ht-team-member End -->
                       </div>
                     </div>
-                    <!-- Add Arrows -->
-                    <div class="swiper-nav-button swiper-button-next"><i class="nav-button-icon"></i></div>
-                    <div class="swiper-nav-button swiper-button-prev"><i class="nav-button-icon"></i></div>
                   </div>
                 </div>
               </div>

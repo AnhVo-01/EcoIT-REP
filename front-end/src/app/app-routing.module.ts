@@ -27,6 +27,10 @@ import {AdminComponent} from "./modules/admin/admin/admin.component";
 import {GalleryControlComponent} from "./modules/typical/gallery/gallery-control/gallery-control.component";
 import {ProductDetailsComponent} from "./modules/product/product-details/product-details.component";
 import {NumberAddComponent} from "./modules/typical/number/number-add/number-add.component";
+import {CustomerDetailsComponent} from "./modules/customer/customer-details/customer-details.component";
+import {BlogControlComponent} from "./modules/blog/blog-control/blog-control.component";
+import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
+import {BlogAddComponent} from "./modules/blog/blog-add/blog-add.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
@@ -36,6 +40,8 @@ const routes: Routes = [
   {path: 'tin-tuc/:url', component: PostDetailsComponent},
   {path: 'san-pham/:url', component: ProductDetailsComponent},
   {path: 've-chung-toi', component: AboutDetailsComponent},
+  {path: 'khach-hang/:url', component: CustomerDetailsComponent},
+  {path: 'blog', component: BlogListComponent},
 
   {path: 'd', redirectTo: 'd/dashboard', pathMatch: 'full'},
   {path: 'd', title: 'Admin - EcoIT', component: AdminComponent,
@@ -46,6 +52,7 @@ const routes: Routes = [
 
       {path: 'post', title: 'Admin - Tin tức', component: PostControlComponent},
       {path: 'recruit', title: 'Admin - Tuyển dụng', component: RecruitControlComponent},
+      {path: 'blog', title: 'Admin - Blog', component: BlogControlComponent},
 
       {path: 'customer', title: 'Admin - Khách hàng', component: CustomerControlComponent},
 
@@ -70,6 +77,8 @@ const routes: Routes = [
   {path: 'd/post/update/:id', title: 'Admin - Tin tức', component: PostAddComponent},
   {path: 'd/recruit/new', title: 'Admin - Tuyển dụng', component: RecruitAddComponent},
   {path: 'd/recruit/update/:id', title: 'Admin - Tuyển dụng', component: RecruitAddComponent},
+  {path: 'd/blog/new', title: 'Admin - Blog', component: BlogAddComponent},
+  {path: 'd/blog/update/:id', title: 'Admin - Blog', component: BlogAddComponent},
 
   {path: 'd/customer/add-new-customer', title: 'Admin - Khách hàng', component: CustomerAddComponent},
   {path: 'd/customer/update-cus/:id', title: 'Admin - Khách hàng', component: CustomerAddComponent},

@@ -20,10 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static com.example.backend.service.StringUtils.getSearchableString;
 
@@ -61,18 +58,16 @@ public class CustomerController {
         return customerRepository.listAllDisable();
     }
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("/customer/d/{id}")
     public EntityModel<Customer> one(@PathVariable Long id) {
         Customer customer = customerRepository.findById(id)
                 .orElseThrow(() -> new CusNotFoundException(id));
         return EntityModel.of(customer);
     }
 
-    @GetMapping("/customer/update/{id}")
-    public EntityModel<Customer> getCustomerUpdate(@PathVariable Long id) {
-        Customer customer = customerRepository.getCustomerUpdate(id)
-                .orElseThrow(() -> new CusNotFoundException(id));
-        return EntityModel.of(customer);
+    @GetMapping("/customer/{url}")
+    public EntityModel<Customer> getByUrl(@PathVariable("url") String url){
+        return EntityModel.of(customerRepository.getCustomerByUrl(url));
     }
 
     @PostMapping(value = "/customer", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -80,10 +75,11 @@ public class CustomerController {
                                          @RequestPart(value = "products", required = false) Product[] products,
                                          @RequestPart(value = "thumb", required = false) MultipartFile file) throws IOException {
 
-        if(customerRepository.getCustomerByName(customer.getName()) != null){
+        String url = getSearchableString(customer.getName());
+        if( customerRepository.getCustomerByUrl(url) != null ){
             return ResponseEntity.badRequest().body(new MessageResponse("Khách hàng đã tồn tại"));
         }else{
-            customer.setUrl(getSearchableString(customer.getName()));
+            customer.setUrl(url);
             customer.setActive(true);
             Image images;
             if(file != null){
@@ -93,7 +89,7 @@ public class CustomerController {
                 imageRepository.save(images);
             }
 
-            Set<Product> productSet = new HashSet<>();
+            Set<Product> productSet = new LinkedHashSet<>();
             for (Product p : products){
                 productSet.add(p);
             }
@@ -104,18 +100,35 @@ public class CustomerController {
         }
     }
 
-    @PostMapping("/customer/{id}")
-    public Customer updateCus(@PathVariable Long id, @RequestBody Customer customer){
-        List<Product> productList = new ArrayList<>();
-        Product product = new Product();
+    @PostMapping(value = "/customer/{id}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public Customer updateCus(@PathVariable Long id, @RequestPart("customer") Customer customer,
+                              @RequestPart(value = "products", required = false) Product[] products,
+                              @RequestPart(value = "thumb", required = false) MultipartFile file) throws IOException {
 
+        if(file != null) {
+            if(customer.getThumb().getName() != null){
+                fileService.deleteFile(customer.getThumb());
+            }
+            Image image = fileService.uploadOneImage(file);
+            imageRepository.saveById(
+                    image.getName(),
+                    image.getUrl(),
+                    image.getPathFile(),
+                    image.getType(),
+                    customer.getThumb().getId()
+            );
+        }
+        Set<Product> productSet = new LinkedHashSet<>();
+        for (Product p : products){
+            productSet.add(p);
+        }
         return customerRepository.findById(id)
                 .map(newCustomer-> {
                     newCustomer.setIcon(customer.getIcon());
                     newCustomer.setBgIColor(customer.getBgIColor());
                     newCustomer.setName(customer.getName());
                     newCustomer.setDescription(customer.getDescription());
-//                    newCustomer.setProducts(productList);
+                    newCustomer.setProducts(productSet);
                     return customerRepository.save(newCustomer);
                 })
                 .orElseGet(() -> {

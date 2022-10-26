@@ -85,6 +85,7 @@ public class ProductController {
 
         Product nProduct = repository.findById(id).get();
         nProduct.setName(product.getName());
+        nProduct.setContent(product.getContent());
         nProduct.setDescription(product.getDescription());
         if(file != null){
             if(product.getThumb().getName() != null){

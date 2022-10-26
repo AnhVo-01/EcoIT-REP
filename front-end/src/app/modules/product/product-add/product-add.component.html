@@ -17,7 +17,7 @@
             </div>
 
             <div class="contact-inner">
-              <span><strong>Tiêu đề</strong></span>
+              <span><strong>Tên</strong></span>
               <input type="text" name="name" [(ngModel)]="product.name">
             </div>
 
@@ -35,7 +35,7 @@
           <div class="col-lg-8">
             <div class="contact-inner" id="sample">
               <span><strong>Nội dung</strong></span>
-              <ckeditor [(ngModel)]="product.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" [data]="product.content"></ckeditor>
+              <ckeditor name="content" [(ngModel)]="product.content" [config]="ckeConfig" [data]="product.content"></ckeditor>
             </div>
           </div>
         </div>

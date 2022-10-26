@@ -2,7 +2,7 @@
 
 <!-- breadcrumb-area start -->
 <div class="breadcrumb-box section-space--pt_100">
-  <img src="assets/images/banners/banner-tin-tức.png" class="img-fluid">
+  <img src="{{cover}}" class="img-fluid" appHideMissing>
 </div>
 <!-- breadcrumb-area end -->
 
@@ -14,35 +14,34 @@
       <div class="py-4 mb-4">
         <div class="align-items-center">
           <div class="text-center">
-            <h3 class="chuyenmuc" style="color: #50B848;">KHỐI TIN TỨC MỚI NHẤT</h3>
+            <h3 class="chuyenmuc">KHỐI {{customer.name}}</h3>
             <hr class="hrtag">
           </div>
         </div>
       </div>
-      <div class="row">
 
-        <div *ngFor="let p of products" class="col-lg-4 col-md-6 mb-30 wow move-up">
-          <div class="single-blog-item blog-grid">
-            <!-- Post Feature Start -->
-            <div class="post-feature blog-thumbnail">
-              <a routerLink="/tin-tuc/{{p}}" routerLinkActive="active">
-                <img class="img-fluid" src="{{p.thumb}}" alt="Blog Images" appHideMissing>
+      <div class="row">
+        <div class="col-2dot4 col-md-6 wow move-up" style="padding: 10px" *ngFor="let product of customer.products">
+          <!-- Service Grid Start -->
+          <div class="service-grid m-0">
+            <div class="ht-service-box--two text-center style-03">
+              <a routerLink="/san-pham/{{product.url}}" routerLinkActive="active" style="padding: 20px">
+                <div class="image">
+                  <img src="{{product.thumb.url}}" class="img-fluid" alt="aeroland-startup-box-icon-01" appHideMissing>
+                </div>
+                <div class="content">
+                  <h6 class="heading" style="font-size: 16px">{{product.name}}</h6>
+                  <div class="service_text" data-toggle="tooltip" title="{{product.description}}">{{product.description}}</div>
+                </div>
               </a>
             </div>
-            <!-- Post Feature End -->
-
-            <!-- Post info Start -->
-            <div class="post-info lg-blog-post-info">
-              <h5 class="font-weight--bold mb-2" style="font-size: 20px">
-                <a routerLink="/tin-tuc/{{p}}" routerLinkActive="active">{{p.name}}</a>
-              </h5>
-              <div class="text-desc">
-                {{p.description}}
-              </div>
-            </div>
-            <!-- Post info End -->
           </div>
+          <!-- Service Grid End -->
         </div>
+      </div>
+
+      <div class="service-link text-center mt-15">
+        <a routerlink="/ve-chung-toi" routerLinkActive="active">ĐĂNG KÝ TƯ VẤN</a>
       </div>
     </div>
   </div>

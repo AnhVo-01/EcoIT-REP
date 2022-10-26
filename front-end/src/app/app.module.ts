@@ -49,51 +49,60 @@ import {GalleryControlComponent} from "./modules/typical/gallery/gallery-control
 import {GalleryHomeComponent} from "./modules/typical/gallery/gallery-home/gallery-home.component";
 import { NumberControlComponent } from './modules/typical/number/number-control/number-control.component';
 import { NumberAddComponent } from './modules/typical/number/number-add/number-add.component';
+import { BlogListComponent } from './modules/blog/blog-list/blog-list.component';
+import { BlogControlComponent } from './modules/blog/blog-control/blog-control.component';
+import { BlogAddComponent } from './modules/blog/blog-add/blog-add.component';
+import { ModalComponent } from './modules/modal/modal.component';
+import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CustomerListComponent,
-    HideMissingDirective,
-    CustomerControlComponent,
-    CustomerAddComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-    DashBoardComponent,
-    HeaderComponent,
-    AsideComponent,
-    SliderControlComponent,
-    SliderListComponent,
-    SliderAddComponent,
-    PostAddComponent,
-    PostControlComponent,
-    NavListComponent,
-    ProductAddComponent,
-    ProductListComponent,
-    ProductControlComponent,
-    ProductDetailsComponent,
-    NavControlComponent,
-    RecruitPostComponent,
-    AboutHomeComponent,
     AboutControlComponent,
     AboutDetailsComponent,
-    PostListComponent,
-    PostDetailsComponent,
-    RecruitControlComponent,
-    RecruitAddComponent,
-    RecruitListComponent,
-    RecruitDetailsComponent,
-    NavAddComponent,
-    FooterComponent,
+    AboutHomeComponent,
     AdminComponent,
+    AppComponent,
+    AsideComponent,
+    BlogAddComponent,
+    BlogControlComponent,
+    BlogListComponent,
+    CustomerAddComponent,
+    CustomerControlComponent,
     CustomerDetailsComponent,
-    NumberHomeComponent,
+    CustomerListComponent,
+    DashBoardComponent,
+    FooterComponent,
     GalleryControlComponent,
     GalleryHomeComponent,
+    HeaderComponent,
+    HideMissingDirective,
+    HomeComponent,
+    LoginComponent,
+    NavAddComponent,
+    NavControlComponent,
+    NavListComponent,
+    NumberAddComponent,
     NumberControlComponent,
-    NumberAddComponent
+    NumberHomeComponent,
+    PageNotFoundComponent,
+    PostAddComponent,
+    PostControlComponent,
+    PostDetailsComponent,
+    PostListComponent,
+    ProductAddComponent,
+    ProductControlComponent,
+    ProductDetailsComponent,
+    ProductListComponent,
+    RecruitAddComponent,
+    RecruitControlComponent,
+    RecruitDetailsComponent,
+    RecruitListComponent,
+    RecruitPostComponent,
+    RegisterComponent,
+    SliderAddComponent,
+    SliderControlComponent,
+    SliderListComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -103,9 +112,11 @@ import { NumberAddComponent } from './modules/typical/number/number-add/number-a
     FormsModule,
     NgxPaginationModule,
     CKEditorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+  // entryComponents: [ModalComponent]
 })
 export class AppModule { }

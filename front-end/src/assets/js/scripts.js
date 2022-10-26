@@ -76,6 +76,8 @@ Back to Top
     }
   });
 
+  $('#sliderNoiBat .carousel-item').first().addClass('active');
+
   $("#sliderNoiBat").on('slid.bs.carousel', function () {
     $('#sliderNoiBat .carousel-item').each(function() {
       var boxCation = $('#cap'+this.id);

@@ -117,8 +117,4 @@ export class PostAddComponent implements OnInit {
     }
   }
 
-  log(){
-    console.log(this.news.content);
-  }
-
 }

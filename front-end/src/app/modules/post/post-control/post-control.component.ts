@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {HttpParams} from "@angular/common/http";
 import {FileService} from "../../../services/file/file.service";
 import {DomSanitizer} from "@angular/platform-browser";
+import * as fileSaver from "file-saver";
 
 @Component({
   selector: 'app-post-control',
@@ -94,8 +95,9 @@ export class PostControlComponent implements OnInit {
   }
 
   downloadImg(e: any){
-    this.fileService.downloadFile(e).subscribe( data =>{
-      this.getBySearch();
+    this.fileService.downloadFile(e).subscribe( (data:any) =>{
+      let blob = new Blob([data.body], {type: data.body.type})
+      fileSaver.saveAs(blob, e.name);
     })
   }
 

@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {HttpParams} from "@angular/common/http";
 import {Navigator} from "../navigator";
 import {Router} from "@angular/router";
 import {NavigationService} from "../../../services/navigation/navigation.service";
+import {ModalComponent} from "../../modal/modal.component";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
+import {NavAddComponent} from "../nav-add/nav-add.component";
 
 @Component({
   selector: 'app-nav-control',
@@ -29,7 +32,7 @@ export class NavControlComponent implements OnInit {
 
   constructor(private navService: NavigationService,
               private router: Router,
-              private tokenStorageService: TokenStorageService) { }
+              private modalService: NgbModal  ) { }
 
   ngOnInit(): void {
     this.getAllNav();
@@ -88,9 +91,21 @@ export class NavControlComponent implements OnInit {
     }
   }
 
-  openModal(e: any){
-    window.sessionStorage.setItem("navGroup", e.target.id)
-    return this.router.navigate(['d/navigation/modal'])
+  // openModal(e: any){
+  //   window.sessionStorage.setItem("navGroup", e.target.id)
+  //   return this.router.navigate(['d/navigation/modal'])
+  // }
+
+  modalRef?: NgbModalRef;
+
+  openModal(){
+    this.modalRef = this.modalService.open(NavAddComponent, {
+      size: "md",
+      centered: false,
+      backdrop: false,
+      animation: true,
+      backdropClass: "modal-backdrop"
+    });
   }
 
 }

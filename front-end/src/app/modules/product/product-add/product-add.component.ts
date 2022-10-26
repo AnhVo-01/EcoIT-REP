@@ -30,7 +30,7 @@ export class ProductAddComponent implements OnInit {
 
     this.ckeConfig = {
       // config.extraPlugins = 'embed';
-      extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font, dialogadvtab, embed',
+      extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font, dialogadvtab',
       uploadUrl: 'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
       height: 470,
       filebrowserUploadUrl:'https://ckeditor.com/apps/ckfinder/3.4.5/core/connector/php/connector.php?command=QuickUpload&type=Files',

@@ -66,7 +66,7 @@ export class CustomerControlComponent implements OnInit {
   }
 
   deleteCustomer(id: number){
-    let option = confirm("Are you sure to delete");
+    let option = confirm("Bạn có chắc chắn xóa khách hàng này?");
 
     if(option){
       this.cusService.deleteCustomer(id).subscribe(data =>{
