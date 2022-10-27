@@ -115,10 +115,8 @@ a.btn-link{
   white-space: normal;
   font-size: 18px;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 600;
   background: #fff;
-}
-a.btn-link:hover{
   text-decoration: none;
 }
 a.btn-link span {

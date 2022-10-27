@@ -3,6 +3,7 @@ import {Constant} from "../../core/config/constant";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {File} from "./file";
+import {Params} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class FileService {
 
   showImage(file: File): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/image/update`, file);
+  }
+
+  pageableList(param: Params): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/image`, {params: param});
   }
 }

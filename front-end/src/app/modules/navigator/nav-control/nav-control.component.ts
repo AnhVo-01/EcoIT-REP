@@ -3,7 +3,6 @@ import {HttpParams} from "@angular/common/http";
 import {Navigator} from "../navigator";
 import {Router} from "@angular/router";
 import {NavigationService} from "../../../services/navigation/navigation.service";
-import {ModalComponent} from "../../modal/modal.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
 import {NavAddComponent} from "../nav-add/nav-add.component";
@@ -17,7 +16,7 @@ export class NavControlComponent implements OnInit {
 
   id: any;
   nav: Navigator = new Navigator();
-  navParent: Navigator[] = [];
+  navList: Navigator[] = [];
   navChild: Navigator[] = [];
 
   totalPages: any;
@@ -35,7 +34,15 @@ export class NavControlComponent implements OnInit {
               private modalService: NgbModal  ) { }
 
   ngOnInit(): void {
-    this.getAllNav();
+    window.sessionStorage.removeItem("navGroup");
+    window.sessionStorage.removeItem("navId");
+    this.getAllNavGroup();
+  }
+
+  getAllNavGroup(){
+    this.navService.getNavList().subscribe(data => {
+      this.navList = data;
+    })
   }
 
   getAllNav(){
@@ -44,7 +51,7 @@ export class NavControlComponent implements OnInit {
       .set('pageSize', this.searchField.pageSize)
       .set('keyword', this.searchField.keyword);
     this.navService.searchNavList(params).subscribe(data => {
-      this.navParent = data.content;
+      this.navList = data.content;
       this.searchField.totalElements = data.totalElements;
       this.totalPages = data.totalPages;
     });
@@ -73,7 +80,7 @@ export class NavControlComponent implements OnInit {
   }
 
   deleteControl(){
-    if(this.navParent.length-1 < 1){
+    if(this.navList.length-1 < 1){
       if(this.searchField.pageIndex !== 1){
         this.searchField.pageIndex = this.searchField.pageIndex - 1;
       }
@@ -91,14 +98,9 @@ export class NavControlComponent implements OnInit {
     }
   }
 
-  // openModal(e: any){
-  //   window.sessionStorage.setItem("navGroup", e.target.id)
-  //   return this.router.navigate(['d/navigation/modal'])
-  // }
-
   modalRef?: NgbModalRef;
 
-  openModal(){
+  openModal(e: any){
     this.modalRef = this.modalService.open(NavAddComponent, {
       size: "md",
       centered: false,
@@ -106,6 +108,19 @@ export class NavControlComponent implements OnInit {
       animation: true,
       backdropClass: "modal-backdrop"
     });
+
+    window.sessionStorage.setItem("navGroup", e.target.id)
   }
 
+  updateModal(id: any){
+    this.modalRef = this.modalService.open(NavAddComponent, {
+      size: "md",
+      centered: false,
+      backdrop: false,
+      animation: true,
+      backdropClass: "modal-backdrop"
+    });
+
+    window.sessionStorage.setItem("navId", id)
+  }
 }

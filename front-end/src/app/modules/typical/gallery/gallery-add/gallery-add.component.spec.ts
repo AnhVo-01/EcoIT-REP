@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalComponent } from './modal.component';
+import { GalleryAddComponent } from './gallery-add.component';
 
-describe('ModalComponent', () => {
-  let component: ModalComponent;
-  let fixture: ComponentFixture<ModalComponent>;
+describe('GalleryAddComponent', () => {
+  let component: GalleryAddComponent;
+  let fixture: ComponentFixture<GalleryAddComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      declarations: [ GalleryAddComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModalComponent);
+    fixture = TestBed.createComponent(GalleryAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

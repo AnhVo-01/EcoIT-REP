@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FileService} from "../../../../services/file/file.service";
 import {File} from "../../../../services/file/file";
 import * as fileSaver from "file-saver";
+import {HttpParams} from "@angular/common/http";
+import {GalleryService} from "../../../../services/gallery/gallery.service";
+import {Gallery} from "../gallery";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-gallery-control',
@@ -10,52 +13,72 @@ import * as fileSaver from "file-saver";
 })
 export class GalleryControlComponent implements OnInit {
 
-  images: File[] = [];
-  image: File = new File();
+  galleries: Gallery[] = [];
+
   target = {
     url: '',
     id: 1,
     name: '',
-    target: '',
-    action: ''
+    active: '',
+    caption: '',
+    description: ''
   };
 
-  constructor(private imageService: FileService) { }
+  searchField = {
+    pageIndex: 1,
+    pageSize: 20,
+    totalElements: 0
+  }
+  totalPages: any;
+  pageSizes = [20, 32, 44];
+
+  constructor(private galleryService: GalleryService, private router: Router) { }
 
   ngOnInit(): void {
-    this.listAllImages();
+    this.getBySearch();
   }
 
-  listAllImages(){
-    this.imageService.getAllImage().subscribe(data =>{
-      this.images = data;
-      this.target.url = this.images[0].url;
-      this.target.name = this.images[0].name;
-      this.target.target = this.images[0].target;
-    })
+  getBySearch(){
+    const params = new HttpParams()
+      .set('pageNo', this.searchField.pageIndex)
+      .set('pageSize', this.searchField.pageSize)
+    this.galleryService.pageableList(params).subscribe(data => {
+      this.galleries = data.content;
+      this.searchField.totalElements = data.totalElements;
+      this.totalPages = data.totalPages;
+
+      this.target.url = this.galleries[0].image.url;
+      this.target.name = this.galleries[0].image.name;
+      this.target.caption = this.galleries[0].caption;
+      this.target.active = this.galleries[0].active;
+      this.target.description = this.galleries[0].description;
+    });
+  }
+
+  pageChanged(event: any){
+    this.searchField.pageIndex = event;
+    this.getBySearch();
+  }
+
+  changePageSize(psize: any) {
+    this.searchField.pageSize = psize.target.value;
+    this.searchField.pageIndex = 1;
+    this.getBySearch();
   }
 
   choose(e: any){
-    this.target.url = e.target.src;
-    this.target.id = e.target.id;
-    this.target.name = e.target.alt;
+    this.target.url = e.image.url;
+    this.target.name = e.image.name;
+    this.target.id = e.id;
+    this.target.active = e.active;
+    this.target.description = e.description;
   }
 
-  downloadImg(e: any){
-    this.imageService.getFileById(e).subscribe(data1 =>{
-      this.imageService.downloadFile(data1).subscribe( (data:any) =>{
-        let blob = new Blob([data.body], {type: data.body.type})
-        fileSaver.saveAs(blob, data1.name);
-      })
-    })
+  hideImage(id: number){
+    this.galleryService.hide(id).subscribe(() => this.getBySearch())
   }
 
-  deleteImg(e: any){
-    var option = window.confirm("Bạn có chắc chắc sẽ xóa file này?")
-    if(option === true){
-      this.imageService.deleteFile(e).subscribe( data =>{
-        // this.getProduct();
-      });
-    }
+  show(id: number){
+    this.galleryService.show(id).subscribe(() => this.getBySearch())
   }
 }

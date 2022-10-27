@@ -27,9 +27,8 @@
           <ckeditor [(ngModel)]="news.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" [data]="news.content"></ckeditor>
         </div>
 
-        <button type="submit" class="btn bg-success">Save</button>
-        <a routerLink="/d/post" routerLinkActive="active" class="btn mx-3" style="background: #d6d8d9">Cancel</a>
-<!--        <a class="btn mx-3" style="background: #d6d8d9" (click)="log()">Cancel</a>-->
+        <button type="submit" class="btn bg-success">Lưu</button>
+        <a routerLink="/d/post" routerLinkActive="active" class="btn mx-3" style="background: #d6d8d9">Hủy</a>
       </div>
     </div>
   </div>

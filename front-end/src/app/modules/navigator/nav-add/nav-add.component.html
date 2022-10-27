@@ -1,5 +1,5 @@
 <div class="custom-modal" id="myModal">
-  <form (submit)="onSubmit()">
+  <form >
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -24,7 +24,12 @@
               </label>
             </div>
             <div class="modal-button">
-              <button type="submit" class="ht-btn-custom bg-primary">Lưu</button>
+              <div *ngIf="group; else elseButton">
+                <button type="submit" class="ht-btn-custom bg-primary" (click)="addChild()">Lưu</button>
+              </div>
+              <ng-template #elseButton>
+                <button type="submit" class="ht-btn-custom bg-primary" (click)="onSubmit()">Lưu</button>
+              </ng-template>
               <button type="button" class="ht-btn-custom bg-secondary" (click)="closeModal()">Hủy</button>
             </div>
           </div>

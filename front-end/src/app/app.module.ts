@@ -52,8 +52,9 @@ import { NumberAddComponent } from './modules/typical/number/number-add/number-a
 import { BlogListComponent } from './modules/blog/blog-list/blog-list.component';
 import { BlogControlComponent } from './modules/blog/blog-control/blog-control.component';
 import { BlogAddComponent } from './modules/blog/blog-add/blog-add.component';
-import { ModalComponent } from './modules/modal/modal.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { GalleryAddComponent } from './modules/typical/gallery/gallery-add/gallery-add.component';
+import { GalleryListComponent } from './modules/typical/gallery/gallery-list/gallery-list.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
     SliderAddComponent,
     SliderControlComponent,
     SliderListComponent,
-    ModalComponent
+    GalleryAddComponent,
+    GalleryListComponent
   ],
   imports: [
     BrowserModule,
@@ -117,6 +119,6 @@ import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
   ],
   providers: [],
   bootstrap: [AppComponent]
-  // entryComponents: [ModalComponent]
+  // entryComponents: [NavAddComponent]
 })
 export class AppModule { }

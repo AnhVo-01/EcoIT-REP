@@ -11,11 +11,13 @@ public class TypicalImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String caption;
 
     private String description;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id")
     private Image image;
+
+    private boolean active;
 }

@@ -85,11 +85,35 @@
   border-bottom: 1px dotted #000;
 }
 
+.success-mess, .error-mess{
+  position: absolute;
+  left: 50%;
+  top: 3px;
+  color: #28a445;
+  z-index: 101;
+  background-color: #d4edda;
+  padding: 5px 15px;
+  border-radius: 4px;
+  width: fit-content;
+  margin: 0 auto;
+  animation-name: topDown;
+  animation-duration: 0.3s;
+  box-shadow: 0 4px 32px rgb(51 51 51 / 7%);
+}
+.error-mess{
+  color: #f00;
+  background-color: #f8d7da;
+}
+@keyframes topDown {
+  from {top: -40px;}
+  to {top: 3px;}
+}
+
 .action-box{
   display: flex;
   align-items: center;
   gap: 15px;
-  margin: 10px 0;
+  margin-bottom: 10px;
 }
 .action-box .btn{
   width: 100%;

@@ -1,6 +1,8 @@
 package com.example.backend.repository;
 
 import com.example.backend.model.Image;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -23,4 +25,7 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
     List<Image> getImg(@Param("id") Long id);
 
     List<Image> getImageByNameIsNotNull();
+
+    @Override
+    Page<Image> findAll(Pageable pageable);
 }

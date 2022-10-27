@@ -93,7 +93,7 @@
         <div class="faq-wrapper">
           <div id="accordion">
             <ul>
-              <li *ngFor="let nav1 of navParent">
+              <li *ngFor="let nav1 of navList">
                 <div class="d-flex justify-content-between align-items-center">
                   <a class="collapsed" (click)="getAllNavChild(nav1.id)" data-toggle="collapse" href="#collapse{{nav1.id}}">
                     <i class="far fa-chevron-circle-right"></i>
@@ -101,7 +101,7 @@
                   </a>
                   <a href="">{{nav1.url}}</a>
                   <div>
-                    <a routerLink="update/{{nav1.id}}" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--left mr-3" aria-label="Chỉnh sửa">
+                    <a (click)="updateModal(nav1.id)" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--left mr-3" aria-label="Chỉnh sửa">
                       <i class="far fa-pen-square fa-lg"></i>
                     </a>
                     <button type="button" (click)="deleteNav(nav1.id)" style="color: #f00" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--right" aria-label="Xóa bỏ">
@@ -122,7 +122,7 @@
                       </button>
                     </li>
                     <li>
-                      <a type="button" class="ht-btn-custom" (click)="openModal()">
+                      <a type="button" class="ht-btn-custom" (click)="openModal($event)">
                         <i class="far fa-plus-circle mr-1"></i>
                         <span id="{{nav1.id}}">Thêm...</span>
                       </a>

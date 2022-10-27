@@ -3,11 +3,16 @@ package com.example.backend.controller;
 import com.example.backend.exceptionhandler.CusNotFoundException;
 import com.example.backend.model.Customer;
 import com.example.backend.model.Image;
+import com.example.backend.model.TypicalImage;
 import com.example.backend.payload.MessageResponse;
 import com.example.backend.repository.ImageRepository;
 import com.example.backend.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -47,6 +52,15 @@ public class FileController {
         }catch (IOException e){
             return  ResponseEntity.internalServerError().build();
         }
+    }
+
+    @GetMapping("/image")
+    public Page<Image> search(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+                                     @RequestParam(name = "pageSize", defaultValue = "20") int pageSize){
+        String sortDirection = "desc";
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by("id").ascending() : Sort.by("id").descending();
+        Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
+        return imageRepository.findAll(pageable);
     }
 
     @GetMapping("/{id}")

@@ -40,7 +40,7 @@
                         <div class="col-md-12">
                           <span><strong>ĐỊA CHỈ</strong></span>
                           <div class="contact-inner" *ngFor="let list of fullAddress">
-                            <input type="text" [(ngModel)]="about.address" [ngModelOptions]="{standalone: true}" value="{{list}}">
+                            <input type="text" value="{{list}}">
                           </div>
                           <div id="address">
                             <button class="btn" data-toggle="modal" data-target="#createAddr">

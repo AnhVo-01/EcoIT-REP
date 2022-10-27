@@ -129,9 +129,7 @@ Back to Top
   }
 
 
-  /*
-Menu Nav
-*/
+  // Menu Nav
   $('ul#primary-menu li, ul#sticky-menu li').on({
     mouseenter: function() {
       $(this).children('ul').stop(true, true).fadeIn(300);
@@ -205,9 +203,9 @@ Isotope Filter
     offset		: '100%',
     triggerOnce	: true,
     handler		: function(){
-      var el			= $(this);
-      var duration	= Math.floor((Math.random()*1000)+1000);
-      var to			= el.attr('id');
+      let el			= $(this);
+      let duration	= Math.floor((Math.random()*1000)+1000);
+      let to			= el.attr('id');
 
       $({property:0}).animate({property:to}, {
         duration	: duration,

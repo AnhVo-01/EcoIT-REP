@@ -9,7 +9,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   background: #000;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-button{

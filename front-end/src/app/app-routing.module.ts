@@ -31,6 +31,8 @@ import {CustomerDetailsComponent} from "./modules/customer/customer-details/cust
 import {BlogControlComponent} from "./modules/blog/blog-control/blog-control.component";
 import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
 import {BlogAddComponent} from "./modules/blog/blog-add/blog-add.component";
+import {GalleryListComponent} from "./modules/typical/gallery/gallery-list/gallery-list.component";
+import {GalleryAddComponent} from "./modules/typical/gallery/gallery-add/gallery-add.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
@@ -62,14 +64,10 @@ const routes: Routes = [
       {path: 'sliders/add-new', component: SliderAddComponent},
       {path: 'sliders/update/:id', component: SliderAddComponent},
 
-      {path: 'gallery', title: 'Admin - Kho ảnh', component: GalleryControlComponent},
+      {path: 'gallery', title: 'Admin - Kho ảnh', component: GalleryListComponent},
+      {path: 'typical', title: 'Admin - Ảnh nổi bật', component: GalleryControlComponent},
 
-      {path: 'navigation', title: 'Admin - Điều hướng', component: NavControlComponent,
-        children: [
-          {path: 'modal', component: NavAddComponent},
-          {path: 'add-new', component: NavAddComponent},
-          {path: 'update/:id', component: NavAddComponent},
-        ]},
+      {path: 'navigation', title: 'Admin - Điều hướng', component: NavControlComponent}
     ]},
 
 
@@ -85,6 +83,9 @@ const routes: Routes = [
 
   {path: 'd/product/new', component: ProductAddComponent},
   {path: 'd/product/update/:id', component: ProductAddComponent},
+
+  {path: 'd/typical/new', component: GalleryAddComponent},
+  {path: 'd/typical/update/:id', component: GalleryAddComponent},
 
   {path: 'd/typical-number/new', component: NumberAddComponent},
   {path: 'd/typical-number/update/:id', component: NumberAddComponent},
