@@ -63,13 +63,9 @@
         <div class="col-lg-3 col-md-6 footer-widget">
           <h6 class="footer-widget__title mb-20">LIÊN HỆ CHÚNG TÔI</h6>
           <ul class="footer-widget__list">
-            <li>
+            <li *ngFor="let addr of fullAddress">
               <i class="far fa-location-arrow mr-2"></i>
-              <span>Trụ sở chính: Tầng 3, Khu A-B Khu văn phòng, Imperia Garden, 203 Nguyễn Huy Tưởng, Thanh Xuân, TP Hà Nội</span>
-            </li>
-            <li>
-              <i class="far fa-location-arrow mr-2"></i>
-              <span>VP2: A10 – Ngõ 217 Đê La Thành – Đống Đa - Hà Nội</span>
+              <span>{{addr}}</span>
             </li>
             <li>
               <i class="far fa-phone-office mr-2"></i>

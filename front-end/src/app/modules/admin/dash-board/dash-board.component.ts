@@ -17,20 +17,20 @@ export class DashBoardComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.isLogIn = !!this.tokenStorageService.getToken();
-
-    if(this.isLogIn){
-      const user = this.tokenStorageService.getUser();
-      this.username = user.username;
-      this.roles = user.roles;
-
-      if(this.roles.includes("ROLE_USER")){
-        this.router.navigate(['/login']);
-      }
-
-    }else {
-      this.router.navigate(['/login']);
-    }
+    // this.isLogIn = !!this.tokenStorageService.getToken();
+    //
+    // if(this.isLogIn){
+    //   const user = this.tokenStorageService.getUser();
+    //   this.username = user.username;
+    //   this.roles = user.roles;
+    //
+    //   if(this.roles.includes("ROLE_USER")){
+    //     this.router.navigate(['/login']);
+    //   }
+    //
+    // }else {
+    //   this.router.navigate(['/login']);
+    // }
   }
 
   // newsList(): void{

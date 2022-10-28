@@ -16,9 +16,19 @@ public class AddressController {
     @Autowired
     private AddressRepository addressRepository;
 
+    @GetMapping("/address")
+    public ResponseEntity<List<Address>> getAllActive(){
+        return ResponseEntity.ok(addressRepository.getAllByActiveIsTrue());
+    }
+
     @GetMapping("/address/all")
     public ResponseEntity<List<Address>> getAll(){
         return ResponseEntity.ok(addressRepository.findAll());
+    }
+
+    @GetMapping("/address/{id}")
+    public ResponseEntity<Address> one(@PathVariable Long id){
+        return ResponseEntity.ok(addressRepository.findById(id).get());
     }
 
     @PostMapping("/address")
@@ -29,5 +39,12 @@ public class AddressController {
         }else{
             return ResponseEntity.badRequest().body(new MessageResponse("Địa chỉ rỗng !!!"));
         }
+    }
+
+    @GetMapping("/address/delete/{id}")
+    public ResponseEntity<Address> delete(@PathVariable Long id){
+        Address address = addressRepository.findById(id).get();
+        address.setActive(false);
+        return ResponseEntity.ok(addressRepository.save(address));
     }
 }

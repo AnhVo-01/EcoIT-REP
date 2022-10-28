@@ -4,8 +4,10 @@ import {AboutService} from "../../../services/about/about.service";
 import {AddressService} from "../../../services/address/address.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Address} from "../../address/address";
-import {Post} from "../../post/post";
-import {HttpParams} from "@angular/common/http";
+import {NavAddComponent} from "../../navigator/nav-add/nav-add.component";
+import {AboutAddressComponent} from "../about-address/about-address.component";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
 
 @Component({
   selector: 'app-about-control',
@@ -19,26 +21,19 @@ export class AboutControlComponent implements OnInit {
   addList: Address[] = [];
 
   provinces: any;
-  districts: any;
   wards: any;
   fullAddress: String[] =[];
 
   ckeConfig: any;
-  submitFail = false;
   updateSuccess = false;
   errorMessage = "";
 
-  constructor(private aboutService: AboutService, private addressService: AddressService, private sanitizer: DomSanitizer) { }
+  constructor(private aboutService: AboutService, private addressService: AddressService,
+              private modalService: NgbModal, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
     this.goToInfo();
-
-    this.addressService.getProvinces().subscribe(data =>{
-      this.provinces = data;
-    })
-
-    this.defaultAddrCode();
 
     this.ckeConfig = {
       extraPlugins: 'uploadimage, justify, colorbutton, colordialog, iframe, font',
@@ -50,54 +45,56 @@ export class AboutControlComponent implements OnInit {
     };
   }
 
-  defaultAddrCode(){
-    this.address.province = 0;
-    this.address.district = 0;
-    this.address.wards = 0;
-  }
-
   goToInfo(){
     this.aboutService.getInfo().subscribe(data =>{
       if(data != null){
         this.about = data;
+        this.getListAddress(this.about.address)
       }
     })
-    this.getListAddress();
+
   }
 
-  getListAddress(){
-    this.addressService.getListAddr().subscribe(data =>{
-      for (let i=0; i<data.length; i++){
-        if(data[i].address != null){
-          this.fullAddress[i] = data[i].address;
-        }
-        if (data[i].wards != null){
-          this.fullAddress[i] = this.fullAddress[i] + ", " + data[i].wards;
-        }
-        if (data[i].district != null){
-          this.fullAddress[i] = this.fullAddress[i] + ", " + data[i].district;
-        }
-        if (data[i].province != null){
-          this.fullAddress[i] = this.fullAddress[i] + ", " + data[i].province;
-        }
+  getListAddress(address: Address[]){
+    for (let i=0; i<address.length; i++){
+      if(address[i].prefix != null){
+        this.fullAddress[i] = address[i].prefix + ": ";
+      }if(address[i].address != null){
+        this.fullAddress[i] = this.fullAddress[i] + address[i].address;
       }
-    })
+      if (address[i].wards != null){
+        this.fullAddress[i] = this.fullAddress[i] + ", " + address[i].wards;
+      }
+      if (address[i].district != null){
+        this.addressService.getDistrictsByCode(address[i].district).subscribe(district => {
+          this.fullAddress[i] = this.fullAddress[i] + ", " + district.name;
+        })
+      }
+      if (address[i].province != null){
+        this.addressService.getProvincesByCode(address[i].province).subscribe( province =>{
+          this.fullAddress[i] = this.fullAddress[i] + ", " + province.name;
+        })
+      }
+    }
   }
 
-  getDistricts(codeProvice: any){
-    this.addressService.getDistricts().subscribe(data =>{
-      this.districts = data.filter((item: any) => item.province_code == codeProvice.target.value);
-    })
-  }
+  prepareFormData(about: About, addresses: Address[]): FormData {
+    const  formData = new FormData();
+    formData.append(
+      'about',
+      new Blob([JSON.stringify(about)], {type: 'application/json'})
+    );
+    formData.append(
+      'address',
+      new Blob([JSON.stringify(addresses)], {type: 'application/json'})
+    )
 
-  getWards(codeDist: any){
-    this.addressService.getWards().subscribe(data =>{
-      this.wards = data.filter((item: any) => item.district_code == codeDist.target.value);
-    })
+    return formData;
   }
 
   onSubmit(){
-    this.aboutService.saveInfo(this.about).subscribe(data =>{
+    let aboutFormData = this.prepareFormData(this.about, this.addList);
+    this.aboutService.saveInfo(aboutFormData).subscribe(data =>{
       this.updateSuccess = true;
       this.errorMessage = "Cập nhật thành công !";
       this.goToInfo();
@@ -107,42 +104,23 @@ export class AboutControlComponent implements OnInit {
     })
   }
 
-  prepareFormData() {
-    const params = new HttpParams();
-    params.append(
-      'about',
-      // @ts-ignore
-      this.about
-    )
-    for (let i=0; i<this.addList.length; i++){
-      params.append(
-        'address',
-        // @ts-ignore
-        this.about.address[i] = this.addList[i]
-      )
-    };
 
-    return params;
-  }
+  // add address modal ----------------------------------------------------------------------
+  modalRef?: NgbModalRef;
 
-  save(e: any){
-    this.addressService.getProvincesByCode(this.address.province).subscribe(data =>{
-      this.address.province = data.name;
+  openModal(){
+    this.modalRef = this.modalService.open(AboutAddressComponent, {
+      size: "lg",
+      centered: false,
+      backdrop: false,
+      animation: true,
+      backdropClass: "modal-backdrop"
+    });
+    this.modalRef.result.then(item => {
+      // if(item){
+      //   this.onSubmit();
+      // }
+      console.log(item);
     })
-    this.addressService.getDistrictsByCode(this.address.district).subscribe(data =>{
-      this.address.district = data.name;
-    })
-
-    this.addressService.createAddr(this.address).subscribe( data =>{
-      this.submitFail = false;
-      this.goToInfo();
-    },err => {
-      this.errorMessage = err.error.message;
-      this.submitFail = true;
-    })
-
-    if (this.submitFail){
-      e.target.setAttribute("data-dismiss", "modal");
-    }
   }
 }

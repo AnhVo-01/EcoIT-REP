@@ -102,4 +102,40 @@ public class SlidersController {
         sliders.setActive(0);
         return slidersRepository.save(sliders);
     }
+
+
+//    ========================================================================================================
+
+    @GetMapping("/tCustomer")
+    public List<Sliders> listAllCus(){
+        return slidersRepository.getAll();
+    }
+
+    @PostMapping(value = "/tCustomer", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<?> addTypicalCus(@RequestPart(value = "image") MultipartFile file) throws IOException {
+        if(file != null){
+            Image image = fileService.uploadOneImage(file);
+
+            Sliders sliders = new Sliders();
+
+            sliders.setName(image.getName());
+            sliders.setType(image.getType());
+            sliders.setPathUrl(image.getUrl());
+            sliders.setPathFile(image.getPathFile());
+            sliders.setActive(5);
+
+            return ResponseEntity.ok(slidersRepository.save(sliders));
+        }else{
+            return ResponseEntity.badRequest()
+                    .body(new MessageResponse("Vui lòng chèn vào ảnh"));
+        }
+    }
+
+    @GetMapping("/tCustomer/delete/{id}")
+    public Sliders deleteCus(@PathVariable Long id){
+        Sliders sliders = slidersRepository.findById(id).get();
+        sliders.setActive(0);
+        return slidersRepository.save(sliders);
+    }
+
 }

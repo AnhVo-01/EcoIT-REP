@@ -108,7 +108,11 @@ export class NavControlComponent implements OnInit {
       animation: true,
       backdropClass: "modal-backdrop"
     });
-
+    this.modalRef.result.then(item => {
+      if(item){
+        this.getAllNavGroup();
+      }
+    })
     window.sessionStorage.setItem("navGroup", e.target.id)
   }
 

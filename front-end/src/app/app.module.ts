@@ -55,6 +55,8 @@ import { BlogAddComponent } from './modules/blog/blog-add/blog-add.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { GalleryAddComponent } from './modules/typical/gallery/gallery-add/gallery-add.component';
 import { GalleryListComponent } from './modules/typical/gallery/gallery-list/gallery-list.component';
+import {Authenticate} from "./authentication/authenticate.service";
+import { AboutAddressComponent } from './modules/about/about-address/about-address.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +106,8 @@ import { GalleryListComponent } from './modules/typical/gallery/gallery-list/gal
     SliderControlComponent,
     SliderListComponent,
     GalleryAddComponent,
-    GalleryListComponent
+    GalleryListComponent,
+    AboutAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +120,7 @@ import { GalleryListComponent } from './modules/typical/gallery/gallery-list/gal
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [Authenticate],
   bootstrap: [AppComponent]
   // entryComponents: [NavAddComponent]
 })

@@ -69,20 +69,21 @@ export class NavAddComponent implements OnInit {
   }
 
   addChild(){
-    // this.navService.addNewNav(this.nav).subscribe(data =>{
-    //   this.getAllNavChild(this.group);
-    // })
-    console.log(this.group);
+    this.navService.addNewNav(this.nav).subscribe(data =>{
+      this.modalService.close(true)
+    })
   }
 
   onSubmit(){
-    if(this.id){
-      this.navService.updateNav(this.id, this.nav).subscribe(data =>{
-        this.goToNavList();
-      })
-    }else{
-      this.addNavigation();
-    }
+    // if(this.id){
+    //   this.navService.updateNav(this.id, this.nav).subscribe(data =>{
+    //     this.goToNavList();
+    //     this.modalService.close(true)
+    //   })
+    // }else{
+    //   this.addNavigation();
+    // }
+    this.modalService.close(true)
   }
 
 

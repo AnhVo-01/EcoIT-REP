@@ -40,4 +40,8 @@ export class AddressService {
   getListAddr(): Observable<Address[]>{
     return this.httpClient.get<Address[]>(`${this.baseURL}/all`);
   }
+
+  getAllActive(): Observable<Address[]>{
+    return this.httpClient.get<Address[]>(`${this.baseURL}`);
+  }
 }

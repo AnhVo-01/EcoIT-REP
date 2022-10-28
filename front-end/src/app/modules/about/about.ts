@@ -1,3 +1,5 @@
+import {Address} from "../address/address";
+
 export class About {
   id: any;
   content: any;

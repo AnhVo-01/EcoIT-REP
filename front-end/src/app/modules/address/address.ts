@@ -5,4 +5,5 @@ export class Address {
   province: any;
   district: any;
   wards: any;
+  uploaded = false;
 }

@@ -17,7 +17,6 @@ import {NavControlComponent} from "./modules/navigator/nav-control/nav-control.c
 import {RecruitControlComponent} from "./modules/recruit/recruit-control/recruit-control.component";
 import {RecruitAddComponent} from "./modules/recruit/recruit-add/recruit-add.component";
 import {RecruitListComponent} from "./modules/recruit/recruit-list/recruit-list.component";
-import {NavAddComponent} from "./modules/navigator/nav-add/nav-add.component";
 import {PostListComponent} from "./modules/post/post-list/post-list.component";
 import {PostDetailsComponent} from "./modules/post/post-details/post-details.component";
 import {AboutControlComponent} from "./modules/about/about-control/about-control.component";
@@ -33,6 +32,7 @@ import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
 import {BlogAddComponent} from "./modules/blog/blog-add/blog-add.component";
 import {GalleryListComponent} from "./modules/typical/gallery/gallery-list/gallery-list.component";
 import {GalleryAddComponent} from "./modules/typical/gallery/gallery-add/gallery-add.component";
+import {Authenticate} from "./authentication/authenticate.service";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
@@ -45,31 +45,9 @@ const routes: Routes = [
   {path: 'khach-hang/:url', component: CustomerDetailsComponent},
   {path: 'blog', component: BlogListComponent},
 
-  {path: 'd', redirectTo: 'd/dashboard', pathMatch: 'full'},
-  {path: 'd', title: 'Admin - EcoIT', component: AdminComponent,
-    children:[
-      {path: 'dashboard', component: DashBoardComponent},
-
-      {path: 'about', title: 'Admin - Về chúng tôi', component: AboutControlComponent},
-
-      {path: 'post', title: 'Admin - Tin tức', component: PostControlComponent},
-      {path: 'recruit', title: 'Admin - Tuyển dụng', component: RecruitControlComponent},
-      {path: 'blog', title: 'Admin - Blog', component: BlogControlComponent},
-
-      {path: 'customer', title: 'Admin - Khách hàng', component: CustomerControlComponent},
-
-      {path: 'product', title: 'Admin - Sản phẩm', component: ProductControlComponent},
-
-      {path: 'sliders', title: 'Admin - Trình chiếu', component: SliderControlComponent},
-      {path: 'sliders/add-new', component: SliderAddComponent},
-      {path: 'sliders/update/:id', component: SliderAddComponent},
-
-      {path: 'gallery', title: 'Admin - Kho ảnh', component: GalleryListComponent},
-      {path: 'typical', title: 'Admin - Ảnh nổi bật', component: GalleryControlComponent},
-
-      {path: 'navigation', title: 'Admin - Điều hướng', component: NavControlComponent}
-    ]},
-
+  {path: 'admin', redirectTo: 'admin/dashboard', pathMatch: 'full'},
+  {path: 'admin', canActivate: [Authenticate],
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)},
 
   {path: 'd/post/new', title: 'Admin - Tin tức', component: PostAddComponent},
   {path: 'd/post/update/:id', title: 'Admin - Tin tức', component: PostAddComponent},
