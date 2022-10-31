@@ -57,6 +57,7 @@ import { GalleryAddComponent } from './modules/typical/gallery/gallery-add/galle
 import { GalleryListComponent } from './modules/typical/gallery/gallery-list/gallery-list.component';
 import {Authenticate} from "./authentication/authenticate.service";
 import { AboutAddressComponent } from './modules/about/about-address/about-address.component';
+import { ContactFromComponent } from './modules/about/contacts/contact-from/contact-from.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,8 @@ import { AboutAddressComponent } from './modules/about/about-address/about-addre
     SliderListComponent,
     GalleryAddComponent,
     GalleryListComponent,
-    AboutAddressComponent
+    AboutAddressComponent,
+    ContactFromComponent
   ],
   imports: [
     BrowserModule,

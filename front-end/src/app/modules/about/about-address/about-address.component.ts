@@ -46,14 +46,13 @@ export class AboutAddressComponent implements OnInit {
   }
 
   save(){
-    // this.addressService.createAddr(this.address).subscribe( data =>{
-    //   this.submitFail = false;
-    //   this.modalService.close(this.address);
-    // },err => {
-    //   this.errorMessage = err.error.message;
-    //   this.submitFail = true;
-    // })
-    this.modalService.close(this.address);
+    this.addressService.createAddr(this.address).subscribe( data =>{
+      this.submitFail = false;
+      this.modalService.close(data)
+    },err => {
+      this.errorMessage = err.error.message;
+      this.submitFail = true;
+    })
   }
 
   closeModal(){

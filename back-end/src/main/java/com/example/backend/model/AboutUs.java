@@ -30,7 +30,7 @@ public class AboutUs {
 
     private boolean active;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinTable(name = "about_address",
             joinColumns = @JoinColumn(name = "about_id"),
             inverseJoinColumns = @JoinColumn(name = "address_id")

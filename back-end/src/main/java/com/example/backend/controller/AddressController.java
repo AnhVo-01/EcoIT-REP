@@ -33,7 +33,7 @@ public class AddressController {
 
     @PostMapping("/address")
     public ResponseEntity<?> create(@RequestBody Address address){
-        if(address.getAddress() != null){
+        if(address != null){
             address.setActive(true);
             return ResponseEntity.ok(addressRepository.save(address));
         }else{

@@ -17,7 +17,15 @@ export class AboutService {
     return this.httpClient.get<About>(`${this.baseURL}`);
   }
 
-  saveInfo(formData: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, formData);
+  saveInfo(about: About): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`, about);
+  }
+
+  addAddress(id: number, formData: FormData): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/address/${id}`, formData);
+  }
+
+  unlinkAdd(id: number): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/address/d/${id}`);
   }
 }

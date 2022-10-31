@@ -4,7 +4,6 @@ import {AboutService} from "../../../services/about/about.service";
 import {AddressService} from "../../../services/address/address.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Address} from "../../address/address";
-import {NavAddComponent} from "../../navigator/nav-add/nav-add.component";
 import {AboutAddressComponent} from "../about-address/about-address.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
@@ -18,9 +17,7 @@ export class AboutControlComponent implements OnInit {
 
   about: About = new About();
   address: Address = new Address();
-  addList: Address[] = [];
 
-  provinces: any;
   wards: any;
   fullAddress: String[] =[];
 
@@ -78,23 +75,8 @@ export class AboutControlComponent implements OnInit {
     }
   }
 
-  prepareFormData(about: About, addresses: Address[]): FormData {
-    const  formData = new FormData();
-    formData.append(
-      'about',
-      new Blob([JSON.stringify(about)], {type: 'application/json'})
-    );
-    formData.append(
-      'address',
-      new Blob([JSON.stringify(addresses)], {type: 'application/json'})
-    )
-
-    return formData;
-  }
-
   onSubmit(){
-    let aboutFormData = this.prepareFormData(this.about, this.addList);
-    this.aboutService.saveInfo(aboutFormData).subscribe(data =>{
+    this.aboutService.saveInfo(this.about).subscribe(data =>{
       this.updateSuccess = true;
       this.errorMessage = "Cập nhật thành công !";
       this.goToInfo();
@@ -104,6 +86,29 @@ export class AboutControlComponent implements OnInit {
     })
   }
 
+  prepareFormData(addresses: Address): FormData {
+    const  formData = new FormData();
+    formData.append(
+      'address',
+      new Blob([JSON.stringify(addresses)], {type: 'application/json'})
+    )
+
+    return formData;
+  }
+
+  addAddress(id: number, address: Address){
+    const formData = this.prepareFormData(address);
+    this.aboutService.addAddress(id, formData).subscribe(data => {
+      this.updateSuccess = true;
+      this.errorMessage = "Cập nhật thành công !";
+      console.log(data)
+      // this.goToInfo();
+    })
+  }
+
+  removeAddress(id: number){
+    this.aboutService.unlinkAdd(id).subscribe(() => this.goToInfo());
+  }
 
   // add address modal ----------------------------------------------------------------------
   modalRef?: NgbModalRef;
@@ -116,11 +121,8 @@ export class AboutControlComponent implements OnInit {
       animation: true,
       backdropClass: "modal-backdrop"
     });
-    this.modalRef.result.then(item => {
-      // if(item){
-      //   this.onSubmit();
-      // }
-      console.log(item);
+    this.modalRef.result.then(data => {
+      this.addAddress(1, data);
     })
   }
 }

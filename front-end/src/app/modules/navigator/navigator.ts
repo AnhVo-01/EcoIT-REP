@@ -4,4 +4,5 @@ export class Navigator {
   url: any;
   parentId: any;
   active: any;
+  navChild: any;
 }

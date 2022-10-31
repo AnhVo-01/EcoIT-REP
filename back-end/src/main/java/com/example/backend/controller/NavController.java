@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Navigation;
+import com.example.backend.payload.NavParent;
 import com.example.backend.repository.NavRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -21,7 +23,13 @@ public class NavController {
 
     @GetMapping("/nav/home")
     public ResponseEntity<List<?>> all(){
-        return ResponseEntity.ok(navRepository.getAll());
+        List<NavParent> navParents = new ArrayList<>();
+        List<Navigation> navParentLis = navRepository.getAll();
+        for (Navigation nav : navParentLis){
+            navParents.add(new NavParent(nav.getId(), nav.getName(), nav.getUrl(),
+                    navRepository.getChild(nav.getId()), nav.isActive()));
+        }
+        return ResponseEntity.ok(navParents);
     }
 
     @GetMapping("/nav/group")
@@ -37,11 +45,6 @@ public class NavController {
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by("id").ascending() : Sort.by("id").descending();
         Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
         return navRepository.search(pageable, keyword);
-    }
-
-    @GetMapping("/nav/all/{pid}")
-    public ResponseEntity<List<Navigation>> getChild(@PathVariable("pid") Long id){
-        return ResponseEntity.ok(navRepository.listAllChild(id));
     }
 
     @GetMapping("/nav/{id}")

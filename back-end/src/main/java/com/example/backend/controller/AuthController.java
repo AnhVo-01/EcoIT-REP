@@ -136,4 +136,9 @@ public class AuthController {
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
+
+    @GetMapping
+    public ResponseEntity<List<User>> listAll(){
+        return ResponseEntity.ok(userRepository.findAll());
+    }
 }

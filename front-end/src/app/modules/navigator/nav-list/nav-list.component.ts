@@ -19,7 +19,6 @@ export class NavListComponent implements OnInit {
   username: any;
 
   navParent: Navigator[] = [];
-  navChild: Navigator[] = [];
 
   about: About = new About();
 
@@ -58,13 +57,8 @@ export class NavListComponent implements OnInit {
   getAllNav(){
     this.navService.getNavList().subscribe(data => {
       this.navParent = data;
+      console.log(data)
     });
-  }
-
-  getAllNavChild(id: number){
-    this.navService.getNavChild(id).subscribe(data => {
-      this.navChild = data;
-    })
   }
 
   getAbout(){

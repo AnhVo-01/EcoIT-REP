@@ -40,56 +40,27 @@
                     </span>
                     </div>
                     <div class="header-right-info ">
-                      <a class="btn header-button" href="https://ecoit.asia/lien-he/">
+                      <a class="btn header-button" href="/lien-he">
                         <span >LIÊN HỆ TƯ VẤN</span>
                       </a>
                     </div>
                   </div>
 
                   <div class="header-bottom">
-                    <nav id="primary-nav">
-                      <div class="menu-menu-primary-container">
-                        <ul id="primary-menu" class="primary-menu list-inline">
-                          <li class="nav-item menu-item active">
-                            <a title="Trang chủ" href="/trang-chu" class="nav-link">Trang chủ</a>
-                          </li>
-                          <li *ngFor="let nav of navParent" class="nav-item menu-item has-children dropdown">
-                            <a routerLink="{{nav.url}}" title="{{nav.name}}" data-toggle="dropdown" class="dropdown-toggle nav-link">{{nav.name}}</a>
-                            <ul class="dropdown-menu">
-                              <li class="menu-item nav-item">
-                                <a title="KHỐI KHÁCH HÀNG CHÍNH PHỦ" href="https://ecoit.asia/khach-hang-chinh-phu/" class="dropdown-item">KHỐI KHÁCH HÀNG CHÍNH PHỦ</a>
-                              </li>
-                              <li class="menu-item nav-item">
-                                <a title="KHỐI KHÁCH HÀNG TÀI CHÍNH – NGÂN HÀNG" href="https://ecoit.asia/khach-hang-tai-chinh-ngan-hang/" class="dropdown-item">KHỐI KHÁCH HÀNG TÀI CHÍNH – NGÂN HÀNG</a>
-                              </li>
-                              <li class="menu-item nav-item">
-                                <a title="KHỐI KHÁCH HÀNG DOANH NGHIỆP" href="https://ecoit.asia/khach-hang-doanh-nghiep/" class="dropdown-item">KHỐI KHÁCH HÀNG DOANH NGHIỆP</a>
-                              </li>
-                              <li class="menu-item nav-item">
-                                <a title="KHỐI KHÁCH HÀNG AN NINH – QUỐC PHÒNG" href="https://ecoit.asia/khach-hang-an-ninh-quoc-phong/" class="dropdown-item">KHỐI KHÁCH HÀNG AN NINH – QUỐC PHÒNG</a>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </div>
+                    <nav class="navigation-menu">
+                      <ul class="menu-primary text-uppercase">
+                        <li class="menu-item active"><a href="/trang-chu">TRANG CHỦ</a></li>
+                        <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
+                          <a routerLink="{{nav.url}}">{{nav.name}}</a>
+                          <ul *ngIf="nav.navChild" class="submenu p-2">
+                            <li *ngFor="let nav1 of nav.navChild">
+                              <a routerLink="{{nav1.url}}" routerLinkActive="active" class="px-3 py-2">{{nav1.name}}</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
                     </nav>
                   </div>
-
-<!--                  <div class="header-bottom">-->
-<!--                    <nav class="navigation-menu navigation-menu&#45;&#45;onepage navigation-menu&#45;&#45;text_white">-->
-<!--                      <ul class="text-uppercase">-->
-<!--                        <li><a href="/trang-chu"><span>TRANG CHỦ</span></a></li>-->
-<!--                        <li *ngFor="let nav of navParent" class="has-children has-children&#45;&#45;multilevel-submenu" id="child-li">-->
-<!--                          <a routerLink="{{nav.url}}" (mouseenter)="getAllNavChild(nav.id)"><span>{{nav.name}}</span></a>-->
-<!--                          <ul *ngIf="!nav.url.includes('/')" class="submenu p-2">-->
-<!--                            <li *ngFor="let nav1 of navChild">-->
-<!--                              <a routerLink="{{nav1.url}}" routerLinkActive="active" class="px-3 py-1"><span>{{nav1.name}}</span></a>-->
-<!--                            </li>-->
-<!--                          </ul>-->
-<!--                        </li>-->
-<!--                      </ul>-->
-<!--                    </nav>-->
-<!--                  </div>-->
                 </div>
               </div>
             </div>

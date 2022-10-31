@@ -1,8 +1,8 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.AboutAddress;
 import com.example.backend.model.AboutUs;
 import com.example.backend.model.Address;
+import com.example.backend.payload.AboutAddress;
 import com.example.backend.repository.AboutUsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +24,15 @@ public class AboutController {
     }
 
     @PostMapping("/about-us")
-    public ResponseEntity<AboutUs> create(@RequestPart("about") AboutUs aboutUs,
-                                          @RequestPart(value = "address", required = false) Address[] address){
+    public ResponseEntity<AboutUs> create(@RequestBody AboutUs aboutUs){
+        aboutUs.setActive(true);
+        return ResponseEntity.ok(repository.save(aboutUs));
+    }
+
+    @PostMapping("/about-us/address/{id}")
+    public ResponseEntity<AboutUs> addAddress(@PathVariable Long id,
+                                              @RequestPart(value = "address", required = false) Address[] address){
+        AboutUs aboutUs = repository.findById(id).get();
         if (address != null){
             Collection<Address> addresses = new ArrayList<>();
             for(Address address1 : address){
@@ -33,7 +40,6 @@ public class AboutController {
             }
             aboutUs.setAddress(addresses);
         }
-        aboutUs.setActive(true);
 
         return ResponseEntity.ok(repository.save(aboutUs));
     }
@@ -63,5 +69,10 @@ public class AboutController {
         aboutUs.setActive(false);
 
         return ResponseEntity.ok(repository.save(aboutUs));
+    }
+
+    @GetMapping("/about-us/address/d/{id}")
+    public ResponseEntity<AboutAddress> unlinkAdd(@PathVariable Long id){
+        return ResponseEntity.ok(repository.unlinkAddress(id));
     }
 }
