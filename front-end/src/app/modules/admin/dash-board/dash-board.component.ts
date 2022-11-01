@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
-import {NumberService} from "../../../services/number-typical/number.service";
 
 @Component({
   selector: 'app-dash-board',
@@ -10,36 +9,12 @@ import {NumberService} from "../../../services/number-typical/number.service";
 })
 export class DashBoardComponent implements OnInit {
 
-  private roles: any;
-  isLogIn = false;
   username: any;
 
-  constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    // this.isLogIn = !!this.tokenStorageService.getToken();
-    //
-    // if(this.isLogIn){
-    //   const user = this.tokenStorageService.getUser();
-    //   this.username = user.username;
-    //   this.roles = user.roles;
-    //
-    //   if(this.roles.includes("ROLE_USER")){
-    //     this.router.navigate(['/login']);
-    //   }
-    //
-    // }else {
-    //   this.router.navigate(['/login']);
-    // }
+
   }
-
-  // newsList(): void{
-  //   this.router.navigate(['/d/news']);
-  // }
-  //
-  // listCustomer(){
-  //   this.router.navigate(['/d/customer']);
-  // }
-
 
 }

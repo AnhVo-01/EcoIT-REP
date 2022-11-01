@@ -23,7 +23,6 @@ import java.util.List;
 import static com.example.backend.service.StringUtils.getSearchableString;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class ProductController {
 
@@ -47,7 +46,7 @@ public class ProductController {
         return repository.listAll(pageable, keyword);
     }
 
-    @GetMapping("/product/home")
+    @GetMapping("/home/product")
     public List<Product> listAll(){
         return repository.getAll();
     }

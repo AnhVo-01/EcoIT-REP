@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
-  <div class="container section-space--ptb_30">
+  <div class="container">
     <div class="row">
       <div class="col-lg-4">
         <div class="update_box">
@@ -14,6 +14,9 @@
           <span><strong>Mô tả</strong></span>
           <input type="text" [(ngModel)]="recruit.description" name="description">
         </div>
+
+        <button type="submit" class="btn bg-success">Lưu</button>
+        <a routerLink="/admin/recruit" routerLinkActive="active" class="btn mx-3" style="background: #d6d8d9">Hủy</a>
       </div>
 
       <div class="col-lg-8">
@@ -26,9 +29,6 @@
           <span><strong>Nội dung</strong></span>
           <ckeditor [(ngModel)]="recruit.content" [ngModelOptions]="{standalone: true}" [config]="ckeConfig" [data]="recruit.content"></ckeditor>
         </div>
-
-        <button type="submit" class="btn bg-success">Save</button>
-        <a routerLink="/d/recruit" routerLinkActive="active" class="btn mx-3" style="background: #d6d8d9">Cancel</a>
       </div>
     </div>
   </div>

@@ -58,7 +58,7 @@ export class BlogControlComponent implements OnInit {
   }
 
   updateBlog(id: number){
-    return this.router.navigate(['d/blog/update', id]);
+    return this.router.navigate(['admin/blog/update', id]);
   }
 
   deleteBlog(id: number){

@@ -4,7 +4,7 @@
     <div class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
       <!--begin::Title-->
       <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">
-        <a routerLink="../gallery" routerLinkActive="active">
+        <a routerLink="/admin/gallery" routerLinkActive="active">
           <small class="text-muted fs-7 fw-semibold my-1 ms-1">Kho ảnh</small>
         </a>
         <span class="h-20px border-gray-200 border-start ms-3 mx-2">/</span>
@@ -36,7 +36,7 @@
         <!--begin::Actions-->
         <div class="menu-item">
           <div class="menu-link">
-            <a class="ht-btn-custom" routerLink="../gallery" routerLinkActive="active" class="p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Nhập từ kho ảnh">
+            <a class="ht-btn-custom" routerLink="/admin/gallery" routerLinkActive="active" class="p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Nhập từ kho ảnh">
               <i class="fas fa-file-import fa-lg"></i>
             </a>
           </div>
@@ -117,7 +117,7 @@
                       <ng-template #elseButton>
                         <button class="btn bg-warning" (click)="show(target.id)">Hiện</button>
                       </ng-template>
-                      <a class="btn" routerLink="/d/typical/update/{{target.id}}">Sửa</a>
+                      <a class="btn" routerLink="../image/update/{{target.id}}">Sửa</a>
                       <button class="btn bg-danger">Xóa</button>
                     </div>
                   </div>

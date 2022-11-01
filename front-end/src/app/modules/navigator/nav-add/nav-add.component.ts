@@ -27,7 +27,7 @@ export class NavAddComponent implements OnInit {
     this.id = window.sessionStorage.getItem("navId");
     if(this.id){
       this.getNavById(this.id);
-      this.getAllNavChild(this.id);
+      // this.getAllNavChild(this.id);
     }else{
       this.group = window.sessionStorage.getItem("navGroup");
 
@@ -50,11 +50,11 @@ export class NavAddComponent implements OnInit {
     });
   }
 
-  getAllNavChild(id: number){
-    this.navService.getNavChild(id).subscribe(data => {
-      this.navChild = data;
-    })
-  }
+  // getAllNavChild(id: number){
+  //   this.navService.getNavChild(id).subscribe(data => {
+  //     this.navChild = data;
+  //   })
+  // }
 
   getAllNavGroup(){
     this.navService.getNavGroup().subscribe(data => {

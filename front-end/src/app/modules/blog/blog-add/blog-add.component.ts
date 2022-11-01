@@ -75,7 +75,7 @@ export class BlogAddComponent implements OnInit {
   }
 
   goToBlogList(){
-    this.router.navigate(['/d/blog']);
+    this.router.navigate(['/admin/blog']);
   }
 
   onSubmit(){

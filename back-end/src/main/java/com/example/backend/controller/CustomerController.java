@@ -16,6 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +26,6 @@ import java.util.*;
 import static com.example.backend.service.StringUtils.getSearchableString;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class CustomerController {
 
@@ -48,9 +48,14 @@ public class CustomerController {
         return customerRepository.search(pageable, keyword);
     }
 
-    @GetMapping("/customer/home")
+    @GetMapping("/home/customer")
     public List<Customer> listAll(){
         return customerRepository.listAllActive();
+    }
+
+    @GetMapping("/home/customer/{url}")
+    public EntityModel<Customer> getByUrl(@PathVariable("url") String url){
+        return EntityModel.of(customerRepository.getCustomerByUrl(url));
     }
 
     @GetMapping("/customer/recycle-bin")
@@ -63,11 +68,6 @@ public class CustomerController {
         Customer customer = customerRepository.findById(id)
                 .orElseThrow(() -> new CusNotFoundException(id));
         return EntityModel.of(customer);
-    }
-
-    @GetMapping("/customer/{url}")
-    public EntityModel<Customer> getByUrl(@PathVariable("url") String url){
-        return EntityModel.of(customerRepository.getCustomerByUrl(url));
     }
 
     @PostMapping(value = "/customer", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
@@ -88,18 +88,20 @@ public class CustomerController {
                 images = new Image(null, null, null, null);
                 imageRepository.save(images);
             }
-
-            Set<Product> productSet = new LinkedHashSet<>();
-            for (Product p : products){
-                productSet.add(p);
+            if (products != null){
+                Set<Product> productSet = new LinkedHashSet<>();
+                for (Product p : products){
+                    productSet.add(p);
+                }
+                customer.setProducts(productSet);
             }
 
-            customer.setProducts(productSet);
             customer.setThumb(images);
             return ResponseEntity.ok(customerRepository.save(customer));
         }
     }
 
+    @Transactional
     @PostMapping(value = "/customer/{id}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public Customer updateCus(@PathVariable Long id, @RequestPart("customer") Customer customer,
                               @RequestPart(value = "products", required = false) Product[] products,
@@ -118,23 +120,25 @@ public class CustomerController {
                     customer.getThumb().getId()
             );
         }
-        Set<Product> productSet = new LinkedHashSet<>();
-        for (Product p : products){
-            productSet.add(p);
+
+        Customer newCustomer = customerRepository.findById(id).get();
+        newCustomer.setIcon(customer.getIcon());
+        newCustomer.setBgIColor(customer.getBgIColor());
+        newCustomer.setName(customer.getName());
+        newCustomer.setDescription(customer.getDescription());
+
+        if(products != null){
+            if (customerRepository.findLinkByCustomerId(id)) {
+                customerRepository.unLink(id);
+            }
+            Set<Product> productSet = new LinkedHashSet<>();
+            for (Product p : products){
+                productSet.add(p);
+            }
+            newCustomer.setProducts(productSet);
         }
-        return customerRepository.findById(id)
-                .map(newCustomer-> {
-                    newCustomer.setIcon(customer.getIcon());
-                    newCustomer.setBgIColor(customer.getBgIColor());
-                    newCustomer.setName(customer.getName());
-                    newCustomer.setDescription(customer.getDescription());
-                    newCustomer.setProducts(productSet);
-                    return customerRepository.save(newCustomer);
-                })
-                .orElseGet(() -> {
-                    customer.setId(id);
-                    return customerRepository.save(customer);
-                });
+
+        return customerRepository.save(newCustomer);
     }
 
     @GetMapping("/customer/delete/{id}")

@@ -19,7 +19,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class SlidersController {
     @Autowired
@@ -32,7 +31,7 @@ public class SlidersController {
     private FileService fileService;
 
 
-    @GetMapping("/sliders")
+    @GetMapping("/home/sliders")
     public List<Sliders> listAll(){
         return slidersRepository.getAll();
     }

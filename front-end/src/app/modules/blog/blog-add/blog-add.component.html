@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" novalidate>
-  <div class="container section-space--ptb_30">
+  <div class="container">
     <div class="row">
       <div class="col-lg-4">
         <div class="update_box">
@@ -14,6 +14,10 @@
           <span><strong>Mô tả</strong></span>
           <input type="text" [(ngModel)]="blog.description" name="description">
         </div>
+
+        <div style="color: #f00; margin: 10px 0" *ngIf="submitFail">{{errMessage}}</div>
+        <button type="submit" class="btn bg-success">Lưu</button>
+        <a routerLink="/admin/blog" routerLinkActive="active" class="btn mx-3" style="background: #d6d8d9">Hủy</a>
       </div>
 
       <div class="col-lg-8">
@@ -27,9 +31,6 @@
           <ckeditor name="content" [(ngModel)]="blog.content" [config]="ckeConfig" [data]="blog.content"></ckeditor>
         </div>
 
-        <div style="color: #f00; margin: 10px 0" *ngIf="submitFail">{{errMessage}}</div>
-        <button type="submit" class="btn bg-success">Save</button>
-        <a routerLink="/d/blog" routerLinkActive="active" class="btn mx-3" style="background: #d6d8d9">Cancel</a>
       </div>
     </div>
   </div>

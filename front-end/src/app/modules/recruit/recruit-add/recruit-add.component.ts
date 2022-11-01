@@ -81,7 +81,7 @@ export class RecruitAddComponent implements OnInit {
   }
 
   goToRecruitList(){
-    this.router.navigate(['/d/recruit']);
+    this.router.navigate(['/admin/recruit']);
   }
 
   onSubmit(){

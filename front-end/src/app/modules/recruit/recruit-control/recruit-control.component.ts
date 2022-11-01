@@ -72,7 +72,7 @@ export class RecruitControlComponent implements OnInit {
   }
 
   updateNews(id: number){
-    return this.router.navigate(['d/recruit/update', id]);
+    return this.router.navigate(['admin/recruit/update', id]);
   }
 
   deleteControl(){

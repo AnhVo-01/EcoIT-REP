@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   month: any;
   year: any;
 
-  constructor() { }
+  constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.calendarHome();
@@ -26,6 +27,11 @@ export class HeaderComponent implements OnInit {
     this.day = d.getDate();
     this.month = d.getMonth()+1;
     this.year = d.getFullYear();
+  }
+
+  logout(): void {
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 
 }

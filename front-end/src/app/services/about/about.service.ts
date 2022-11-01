@@ -3,29 +3,31 @@ import {Constant} from "../../core/config/constant";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {About} from "../../modules/about/about";
+import {Domain} from "../../core/domain/domain";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AboutService {
 
-  private baseURL = `${Constant.BASE_URL}/s/about-us`;
+  private baseURL = `${Constant.BASE_URL}`;
+  private domain = `${Domain.ABOUT}`;
 
   constructor(private httpClient: HttpClient) { }
 
   getInfo(): Observable<About>{
-    return this.httpClient.get<About>(`${this.baseURL}`);
+    return this.httpClient.get<About>(`${this.baseURL}/home/${this.domain}`);
   }
 
   saveInfo(about: About): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, about);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}`, about);
   }
 
   addAddress(id: number, formData: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}/address/${id}`, formData);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}/address/${id}`, formData);
   }
 
   unlinkAdd(id: number): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/address/d/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/address/d/${id}`);
   }
 }

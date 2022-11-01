@@ -12,13 +12,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class AboutController {
     @Autowired
     private AboutUsRepository repository;
 
-    @GetMapping("/about-us")
+    @GetMapping("/home/about-us")
     public ResponseEntity<AboutUs> home(){
         return ResponseEntity.ok(repository.getAll());
     }

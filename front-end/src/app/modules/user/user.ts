@@ -5,7 +5,8 @@ export class User {
   password: any;
   firstName: any;
   lastName: any;
-  role: any;
-  token: any;
+  status: any;
+  roles: any;
   remember: any;
+  accessToken: any;
 }

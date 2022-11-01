@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class TypicalImageController {
     @Autowired
@@ -42,7 +41,7 @@ public class TypicalImageController {
         return typicalImageRepo.findAll(pageable);
     }
 
-    @GetMapping("/tImage/home")
+    @GetMapping("/home/tImage")
     public ResponseEntity<List<TypicalImage>> getAll(){
         return ResponseEntity.ok(typicalImageRepo.getAllByActiveIsTrue());
     }

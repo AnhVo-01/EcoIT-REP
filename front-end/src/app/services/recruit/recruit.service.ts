@@ -3,41 +3,43 @@ import {Constant} from "../../core/config/constant";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Recruit} from "../../modules/recruit/recruit";
+import {Domain} from "../../core/domain/domain";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecruitService {
 
-  private baseURL = `${Constant.BASE_URL}/s/recruit`;
+  private baseURL = `${Constant.BASE_URL}`;
+  private domain = `${Domain.RECRUIT}`;
 
   constructor(private httpClient: HttpClient) { }
 
   getBySearch(param: HttpParams): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}`, {params: param});
+    return this.httpClient.get(`${this.baseURL}/${this.domain}`, {params: param});
   }
 
   getRecruitList(): Observable<Recruit[]>{
-    return this.httpClient.get<Recruit[]>(`${this.baseURL}/home`);
+    return this.httpClient.get<Recruit[]>(`${this.baseURL}/home/${this.domain}`);
   }
 
   getById(id: number): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/d/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/d/${id}`);
   }
 
   getDetails(url: string): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/${url}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/${url}`);
   }
 
   addRecruit(recruit: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, recruit);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}`, recruit);
   }
 
   updateRecruit(id: number, recruit: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}/${id}`, recruit);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}/${id}`, recruit);
   }
 
   deleteRecruit(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/delete/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/delete/${id}`);
   }
 }

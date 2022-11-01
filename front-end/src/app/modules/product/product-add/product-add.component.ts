@@ -82,7 +82,7 @@ export class ProductAddComponent implements OnInit {
     if (redirect){
       this.router.navigate([redirect]);
     } else {
-      this.router.navigate(['/d/product']);
+      this.router.navigate(['/admin/product']);
     }
   }
 

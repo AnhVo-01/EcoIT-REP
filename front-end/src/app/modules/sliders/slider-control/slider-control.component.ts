@@ -38,7 +38,7 @@ export class SliderControlComponent implements OnInit {
   }
 
   updateSlider(id: number){
-    return this.router.navigate(['d/sliders/update', id]);
+    return this.router.navigate(['admin/sliders/update', id]);
   }
 
 

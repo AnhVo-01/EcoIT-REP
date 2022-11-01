@@ -28,7 +28,6 @@ import java.util.List;
 import static com.example.backend.service.StringUtils.getSearchableString;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class BlogController {
 
@@ -51,7 +50,7 @@ public class BlogController {
         return blogRepository.search(pageable, keyword);
     }
 
-    @GetMapping("/blogs/home")
+    @GetMapping("/home/blogs")
     public List<Blog> listAll(){
         return blogRepository.getBlogsByActiveIsTrueOrderByIdDesc();
     }

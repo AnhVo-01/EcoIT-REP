@@ -3,45 +3,47 @@ import {Constant} from "../../core/config/constant";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Post} from "../../modules/post/post";
+import {Domain} from "../../core/domain/domain";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  private baseURL = `${Constant.BASE_URL}/s/news`;
+  private baseURL = `${Constant.BASE_URL}`;
+  private domain = `${Domain.POST}`;
 
   constructor(private httpClient: HttpClient) { }
 
   getNewsList(): Observable<Post[]>{
-    return this.httpClient.get<Post[]>(`${this.baseURL}/home`)
+    return this.httpClient.get<Post[]>(`${this.baseURL}/home/${this.domain}`)
   }
 
   createNews(news: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, news);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}`, news);
   }
 
   getNewsById(id: number): Observable<Post>{
-    return this.httpClient.get<Post>(`${this.baseURL}/d/${id}`);
+    return this.httpClient.get<Post>(`${this.baseURL}/${this.domain}/d/${id}`);
   }
 
   getNewsByUrl(url: string): Observable<Post>{
-    return this.httpClient.get<Post>(`${this.baseURL}/${url}`);
+    return this.httpClient.get<Post>(`${this.baseURL}/${this.domain}/${url}`);
   }
 
   updateNews(id: number, post: FormData):Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}/${id}`,post);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}/${id}`,post);
   }
 
   deleteNews(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/delete/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/delete/${id}`);
   }
 
   removeNews(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/remove/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/remove/${id}`);
   }
 
   newsSearchList(param: HttpParams): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}`,{params: param})
+    return this.httpClient.get(`${this.baseURL}/${this.domain}`,{params: param})
   }
 }

@@ -64,7 +64,7 @@ export class ProductControlComponent implements OnInit {
   }
 
   updateProduct(id: number){
-    return this.router.navigate(['/d/product/update', id]);
+    return this.router.navigate(['/admin/product/update', id]);
   }
 
   deleteProduct(id: number){

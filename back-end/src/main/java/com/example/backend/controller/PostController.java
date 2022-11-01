@@ -29,7 +29,6 @@ import java.util.Set;
 import static com.example.backend.service.StringUtils.getSearchableString;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class PostController {
 
@@ -52,7 +51,7 @@ public class PostController {
         return postRepository.search(pageable, keyword);
     }
 
-    @GetMapping("/news/home")
+    @GetMapping("/home/news")
     public List<Post> listAll(){
         return postRepository.listAllById();
     }

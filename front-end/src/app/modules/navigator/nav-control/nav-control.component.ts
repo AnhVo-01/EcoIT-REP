@@ -6,6 +6,8 @@ import {NavigationService} from "../../../services/navigation/navigation.service
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
 import {NavAddComponent} from "../nav-add/nav-add.component";
+import {ToastService} from "../../toast/toast.service";
+import {ToastContainerComponent} from "../../toast/toast-container/toast-container.component";
 
 @Component({
   selector: 'app-nav-control',
@@ -20,18 +22,17 @@ export class NavControlComponent implements OnInit {
   navChild: Navigator[] = [];
 
   totalPages: any;
-  pageSizes = [4, 8, 12];
+  pageSizes = [20, 30, 40];
 
   searchField = {
     pageIndex: 1,
-    pageSize: 4,
+    pageSize: 20,
     totalElements: 0,
     keyword: ''
   }
 
-  constructor(private navService: NavigationService,
-              private router: Router,
-              private modalService: NgbModal  ) { }
+  constructor(private navService: NavigationService, private router: Router,
+              private modalService: NgbModal, private toast: ToastService) { }
 
   ngOnInit(): void {
     window.sessionStorage.removeItem("navGroup");
@@ -80,10 +81,8 @@ export class NavControlComponent implements OnInit {
   }
 
   deleteControl(){
-    if(this.navList.length-1 < 1){
-      if(this.searchField.pageIndex !== 1){
-        this.searchField.pageIndex = this.searchField.pageIndex - 1;
-      }
+    if(this.navList.length-1 < 1 && this.searchField.pageIndex !== 1){
+      this.searchField.pageIndex = this.searchField.pageIndex - 1;
     }
     this.getAllNav()
   }
@@ -93,7 +92,8 @@ export class NavControlComponent implements OnInit {
 
     if(option){
       this.navService.deleteNav(id).subscribe(data =>{
-        this.deleteControl();
+        this.toast.show("Xóa thành công!", { classname: 'bg-success text-light', delay: 10000 })
+        // this.deleteControl();
       })
     }
   }

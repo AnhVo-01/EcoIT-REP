@@ -94,6 +94,7 @@ export class CustomerAddComponent implements OnInit {
       this.errorMessage = err.error.message;
     })
   }
+
   updateCustomer(id: number){
     let customerFormData = this.prepareFormData(this.customer, this.products.filter(item => item.selected));
     this.cusService.updateCustomer(id, customerFormData).subscribe(data =>{
@@ -103,7 +104,7 @@ export class CustomerAddComponent implements OnInit {
   }
 
   goToCustomerList(){
-    this.router.navigate(['/d/customer']);
+    this.router.navigate(['/admin/customer']);
   }
 
   onSubmit(){
@@ -139,8 +140,8 @@ export class CustomerAddComponent implements OnInit {
   }
 
   addMoreProduct(){
-    window.sessionStorage.setItem("redirect", "/d/customer/add-new-customer");
-    this.router.navigate(['/d/product/new']);
+    window.sessionStorage.setItem("redirect", "/admin/customer/add-new-customer");
+    this.router.navigate(['/admin/product/new']);
   }
 
 }

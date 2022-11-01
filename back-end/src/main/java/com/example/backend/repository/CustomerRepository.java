@@ -4,6 +4,7 @@ import com.example.backend.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -20,5 +21,13 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     List<Customer> listAllDisable();
 
     Customer getCustomerByUrl(String url);
+
+    @Modifying
+    @Query(value = "DELETE FROM customer_product cp WHERE cp.customer_id=:id", nativeQuery = true)
+    void unLink(@Param("id") Long id);
+
+    @Query(value = "SELECT CASE WHEN COUNT(cp) > 0  THEN true ELSE false END " +
+            "FROM customer_product cp WHERE cp.customer_id=:id", nativeQuery = true)
+    boolean findLinkByCustomerId(@Param("id") Long id);
 
 }

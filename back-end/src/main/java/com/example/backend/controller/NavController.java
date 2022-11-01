@@ -15,13 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class NavController {
     @Autowired
     private NavRepository navRepository;
 
-    @GetMapping("/nav/home")
+    @GetMapping("/home/nav")
     public ResponseEntity<List<?>> all(){
         List<NavParent> navParents = new ArrayList<>();
         List<Navigation> navParentLis = navRepository.getAll();
@@ -39,7 +38,7 @@ public class NavController {
 
     @GetMapping("/nav/all")
     public Page<Navigation> search(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
-                                @RequestParam(name = "pageSize", defaultValue = "4") int pageSize,
+                                @RequestParam(name = "pageSize", defaultValue = "20") int pageSize,
                                 @RequestParam(name = "keyword") String keyword){
         String sortDirection = "desc";
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by("id").ascending() : Sort.by("id").descending();
@@ -51,6 +50,10 @@ public class NavController {
     public ResponseEntity<Navigation> one(@PathVariable("id") Long id){
         return ResponseEntity.ok(navRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Could not found the navigation " + id)));
+    }
+    @GetMapping("/nav/child/{id}")
+    public ResponseEntity<List<Navigation>> getChild(@PathVariable("id") Long id){
+        return ResponseEntity.ok(navRepository.getChild(id));
     }
 
     @PostMapping("/nav")

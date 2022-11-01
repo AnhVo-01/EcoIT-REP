@@ -72,7 +72,7 @@ export class SliderAddComponent implements OnInit {
   }
 
   goToSliderList(){
-    this.router.navigate(['/d/sliders']);
+    this.router.navigate(['/admin/sliders']);
   }
 
   onSubmit(){

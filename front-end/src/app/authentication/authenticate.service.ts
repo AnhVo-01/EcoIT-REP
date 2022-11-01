@@ -1,9 +1,12 @@
+import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from "@angular/router";
 import {TokenStorageService} from "../services/token-storage/token-storage.service";
-import {Injectable} from "@angular/core";
 
-@Injectable()
-export class Authenticate implements CanActivate{
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthenticateService implements CanActivate {
+
   constructor(private tokenStorageService: TokenStorageService,
               private router: Router) {
   }
@@ -24,5 +27,4 @@ export class Authenticate implements CanActivate{
       this.router.navigate(['/login']);
     }
   }
-
 }

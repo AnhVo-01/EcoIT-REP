@@ -33,8 +33,13 @@
           </a>
           <!--end:Menu link-->
         </div>
-        <!--end:Menu item-->
-        <!--begin:Menu item-->
+
+        <div class="menu-item py-2 hint--black hint--rounded hint--right" aria-label="Blog">
+          <a routerLink="blog" routerLinkActive="active" class="menu-link menu-center">
+            <span class="menu-icon"><i class="far fa-rss-square"></i></span>
+          </a>
+        </div>
+
         <div class="menu-item py-2 hint--black hint--rounded hint--right" aria-label="Khách hàng" id="active-c">
           <!--begin:Menu link-->
           <a routerLink="customer" routerLinkActive="active" class="menu-link menu-center">
@@ -68,18 +73,10 @@
         <!--end:Menu item-->
 
         <!--begin:Menu item-->
-        <div class="menu-item py-2 hint--black hint--rounded hint--right" aria-label="Blog">
-          <a routerLink="blog" routerLinkActive="active" class="menu-link menu-center">
-            <span class="menu-icon"><i class="far fa-blog"></i></span>
+        <div class="menu-item py-2 hint--black hint--rounded hint--right" aria-label="Tài khoản">
+          <a routerLink="user" routerLinkActive="active" class="menu-link menu-center">
+            <span class="menu-icon"><i class="far fa-users"></i></span>
           </a>
-        </div>
-        <!--end:Menu item-->
-
-        <!--begin:Menu item-->
-        <div class="menu-item py-2 hint--black hint--rounded hint--right" aria-label="Đăng xuất" (click)="logout()">
-          <div class="menu-link menu-center">
-            <span class="menu-icon"><i class="far fa-sign-out-alt"></i></span>
-          </div>
         </div>
         <!--end:Menu item-->
       </div>

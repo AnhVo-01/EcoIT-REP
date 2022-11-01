@@ -1,29 +1,34 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Constant} from "../../core/config/constant";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseURL = "http://localhost:8080/auth";
+  private baseURL = `${Constant.BASE_URL}/user`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
+
+  getSearchList(param: HttpParams): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}`,{params: param})
+  }
 
   getPublicContent(): Observable<Object>{
-    return this.http.get(`${this.baseURL}/all`, {responseType: 'text'});
+    return this.httpClient.get(`${this.baseURL}/all`, {responseType: 'text'});
   }
 
   getUserBoard(): Observable<any> {
-    return this.http.get(`${this.baseURL}/user`, {responseType: 'text'});
+    return this.httpClient.get(`${this.baseURL}/user`, {responseType: 'text'});
   }
 
   getModeratorBoard(): Observable<any>{
-    return this.http.get(`${this.baseURL}/mod`, {responseType: 'text'});
+    return this.httpClient.get(`${this.baseURL}/mod`, {responseType: 'text'});
   }
 
   getAdminBoard(): Observable<any>{
-    return this.http.get(`${this.baseURL}/admin`, {responseType: 'text'});
+    return this.httpClient.get(`${this.baseURL}/admin`, {responseType: 'text'});
   }
 }

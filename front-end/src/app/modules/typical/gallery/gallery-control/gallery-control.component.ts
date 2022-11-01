@@ -47,11 +47,8 @@ export class GalleryControlComponent implements OnInit {
       this.searchField.totalElements = data.totalElements;
       this.totalPages = data.totalPages;
 
-      this.target.url = this.galleries[0].image.url;
-      this.target.name = this.galleries[0].image.name;
-      this.target.caption = this.galleries[0].caption;
-      this.target.active = this.galleries[0].active;
-      this.target.description = this.galleries[0].description;
+      this.choose(this.galleries[0]);
+
     });
   }
 

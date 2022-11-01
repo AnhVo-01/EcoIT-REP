@@ -3,52 +3,54 @@ import {Constant} from "../../core/config/constant";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "../../modules/customer/customer";
+import {Domain} from "../../core/domain/domain";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  private baseURL = `${Constant.BASE_URL}/s/customer`;
+  private baseURL = `${Constant.BASE_URL}`;
+  private domain = `${Domain.CUSTOMER}`;
 
   constructor(private httpClient: HttpClient) { }
 
   getBySearch(param: HttpParams): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}`, {params: param});
+    return this.httpClient.get(`${this.baseURL}/${this.domain}`, {params: param});
   }
   getCustomerList(): Observable<Customer[]>{
-    return this.httpClient.get<Customer[]>(`${this.baseURL}/home`);
-  }
-
-  getCusById(id: number): Observable<Customer>{
-    return this.httpClient.get<Customer>(`${this.baseURL}/d/${id}`);
+    return this.httpClient.get<Customer[]>(`${this.baseURL}/home/${this.domain}`);
   }
 
   getCusByUrl(url: string): Observable<Customer>{
-    return this.httpClient.get<Customer>(`${this.baseURL}/${url}`);
+    return this.httpClient.get<Customer>(`${this.baseURL}/home/${this.domain}/${url}`);
+  }
+
+  getCusById(id: number): Observable<Customer>{
+    return this.httpClient.get<Customer>(`${this.baseURL}/${this.domain}/d/${id}`);
   }
 
   newCustomer(formData: FormData): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, formData);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}`, formData);
   }
 
   updateCustomer(id: number, formData: FormData):Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}/${id}`,formData);
+    return this.httpClient.post(`${this.baseURL}/${this.domain}/${id}`,formData);
   }
 
   deleteCustomer(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/delete/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/delete/${id}`);
   }
 
   removeCustomer(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/remove/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/remove/${id}`);
   }
 
   getTrashList(): Observable<Customer[]>{
-    return this.httpClient.get<Customer[]>(`${this.baseURL}/recycle-bin`);
+    return this.httpClient.get<Customer[]>(`${this.baseURL}/${this.domain}/recycle-bin`);
   }
 
   restoreItem(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/restore/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/restore/${id}`);
   }
 }

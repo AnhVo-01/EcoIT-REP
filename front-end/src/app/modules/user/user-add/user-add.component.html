@@ -1,0 +1,56 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="Popup" id="myEdit">
+    <div class="modal-dialog">
+      <div class="modal-content default-bg">
+        <div class="modal-header">
+          <span class="close-btn" (click)="closeModal()">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <div class="Set-pop">
+            <div class="options">
+              <h6>ID</h6>
+              <input type="text" name="id">
+            </div>
+            <div class="options">
+              <h6>Tên đăng nhập</h6>
+              <input type="text">
+            </div>
+            <div class="options">
+              <h6>Mật khẩu</h6>
+              <input type="text">
+            </div>
+            <div class="options">
+              <h6>Họ</h6>
+              <input type="text">
+            </div>
+            <div class="options">
+              <h6>Tên</h6>
+              <input type="text">
+            </div>
+            <div class="options">
+              <h6>Email</h6>
+              <input type="email">
+            </div>
+            <div class="options">
+              <h6>Vai trò</h6>
+              <label>
+                <input type="radio" name="eMod" value="true"> Người dùng
+              </label>
+              <label>
+                <input type="radio" name="eAdmin" value="true"> Mod
+              </label>
+              <label>
+                <input type="radio" name="eAdmin" value="true"> Admin
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="save-btn" type="submit" name="created"><i class="fas fa-save"></i> Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

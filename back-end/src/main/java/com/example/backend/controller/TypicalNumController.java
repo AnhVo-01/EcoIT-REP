@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class TypicalNumController {
     @Autowired
     private TypicalNumRepository numRepository;
 
-    @GetMapping("/number")
+    @GetMapping("/home/number")
     public ResponseEntity<List<TypicalNumber>> listAll(){
         return ResponseEntity.ok(numRepository.listAll());
     }

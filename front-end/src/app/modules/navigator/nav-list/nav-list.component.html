@@ -52,7 +52,7 @@
                         <li class="menu-item active"><a href="/trang-chu">TRANG CHỦ</a></li>
                         <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
                           <a routerLink="{{nav.url}}">{{nav.name}}</a>
-                          <ul *ngIf="nav.navChild" class="submenu p-2">
+                          <ul *ngIf="nav.navChild.length > 0" class="submenu p-2">
                             <li *ngFor="let nav1 of nav.navChild">
                               <a routerLink="{{nav1.url}}" routerLinkActive="active" class="px-3 py-2">{{nav1.name}}</a>
                             </li>

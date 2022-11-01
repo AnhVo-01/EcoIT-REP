@@ -23,7 +23,6 @@ import java.util.List;
 import static com.example.backend.service.StringUtils.getSearchableString;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/s")
 @RestController
 public class RecruitController {
     @Autowired
@@ -49,7 +48,7 @@ public class RecruitController {
         return repository.search(pageable, keyword);
     }
 
-    @GetMapping("/recruit/home")
+    @GetMapping("/home/recruit")
     public ResponseEntity<List<Recruit>> listAll(){
         return ResponseEntity.ok(repository.listAllRecruit());
     }

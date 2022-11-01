@@ -28,7 +28,7 @@ export class GalleryAddComponent implements OnInit {
   }
 
   goToTypicalList(){
-    this.router.navigate(['/d/typical']);
+    this.router.navigate(['admin/typical/image']);
   }
 
   prepareFormData(gallery: Gallery): FormData {

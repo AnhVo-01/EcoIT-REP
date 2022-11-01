@@ -17,9 +17,4 @@ export class AsideComponent implements OnInit {
     // @ts-ignore
     // document.getElementById(navAct).classList.add("here");
   }
-
-  logout(): void {
-    this.tokenStorageService.signOut();
-    window.location.reload();
-  }
 }

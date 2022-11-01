@@ -5,7 +5,6 @@ import {PostService} from "../../../services/post/post.service";
 import {Router} from "@angular/router";
 import {HttpParams} from "@angular/common/http";
 import {FileService} from "../../../services/file/file.service";
-import {DomSanitizer} from "@angular/platform-browser";
 import * as fileSaver from "file-saver";
 
 @Component({
@@ -73,7 +72,7 @@ export class PostControlComponent implements OnInit {
   }
 
   updateNews(id: number){
-    return this.router.navigate(['d/post/update', id]);
+    return this.router.navigate(['admin/post/update', id]);
   }
 
   deleteNews(id: number){

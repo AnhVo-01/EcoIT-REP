@@ -55,9 +55,12 @@ import { BlogAddComponent } from './modules/blog/blog-add/blog-add.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { GalleryAddComponent } from './modules/typical/gallery/gallery-add/gallery-add.component';
 import { GalleryListComponent } from './modules/typical/gallery/gallery-list/gallery-list.component';
-import {Authenticate} from "./authentication/authenticate.service";
 import { AboutAddressComponent } from './modules/about/about-address/about-address.component';
-import { ContactFromComponent } from './modules/about/contacts/contact-from/contact-from.component';
+import { ContactFromComponent } from './modules/contacts/contact-from/contact-from.component';
+import {authInterceptorProviders} from "./authentication/helper/auth.interceptor";
+import { ToastContainerComponent } from './modules/toast/toast-container/toast-container.component';
+import { UserControlComponent } from './modules/user/user-control/user-control.component';
+import { UserAddComponent } from './modules/user/user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +112,10 @@ import { ContactFromComponent } from './modules/about/contacts/contact-from/cont
     GalleryAddComponent,
     GalleryListComponent,
     AboutAddressComponent,
-    ContactFromComponent
+    ContactFromComponent,
+    ToastContainerComponent,
+    UserControlComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
@@ -122,8 +128,7 @@ import { ContactFromComponent } from './modules/about/contacts/contact-from/cont
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [Authenticate],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
-  // entryComponents: [NavAddComponent]
 })
 export class AppModule { }
