@@ -2,8 +2,15 @@
   <!--begin::Container-->
   <div class="container-fluid d-flex align-items-center">
     <div class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <div class="menu-item m-0">
+        <div class="menu-link">
+          <a routerLink="../user" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-right" aria-label="Trở lại trang người dùng">
+            <i class="fas fa-arrow-left fa-lg"></i>
+          </a>
+        </div>
+      </div>
       <!--begin::Title-->
-      <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Tài khoản</h6>
+      <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Lịch sử sửa đổi</h6>
       <!--end::Title-->
     </div>
     <!--begin::Page title-->
@@ -44,18 +51,14 @@
         </div>
         <!--end::Daterangepicker-->
         <!--begin::Actions-->
-        <div class="menu-item m-0">
-          <div class="menu-link">
-            <a (click)="addNew()" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Thêm mới">
-              <i class="fas fa-file-plus fa-lg"></i>
-            </a>
-          </div>
-        </div>
+        <div class="menu-item del-area" *ngIf="selects">
+          <span class="pl-2 mx-2">Đã chọn:</span>
 
-        <div class="menu-item m-0">
-          <div class="menu-link">
-            <a routerLink="../history" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Lịch sử sửa đổi">
-              <i class="fas fa-history fa-lg"></i>
+          <div class="number">{{selects}}</div>
+
+          <div class="menu-link" (click)="clearLog()">
+            <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Xóa">
+              <i class="far fa-trash-alt fa-lg"></i>
             </a>
           </div>
         </div>
@@ -73,59 +76,34 @@
   <div class="site-wrapper-reveal">
     <!--====================  Blog Area Start ====================-->
     <div class="blog-pages-wrapper section-space--ptb_90">
-      <div class="container">
+      <div class="container-fluid">
         <div class="faq-wrapper">
 
           <!-- order details list -->
           <div class="details">
             <div class="card recent-orders">
-              <div class="card-header">
-                <span class="status status_user">User</span>
-                <span class="status status_mod">Mod</span>
-                <span class="status status_admin">Admin</span>
-              </div>
-              <hr>
-
-              <table id="myTable">
+              <table class="table">
                 <thead>
-                  <tr>
-                    <td>ID</td>
-                    <td>Tên đăng nhập</td>
-                    <td>Họ</td>
-                    <td>Tên</td>
-                    <td>Email</td>
-                    <td>Status</td>
-                    <td></td>
-                  </tr>
+                <tr>
+                  <td></td>
+                  <td>Thời gian</td>
+                  <td>Phương thức</td>
+                  <td>Trang</td>
+                  <td>Người thực hiện</td>
+                  <td>Tham số</td>
+                </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let user of users">
-                    <td>{{user.id}}</td>
-                    <td>{{user.username}}</td>
-                    <td>{{user.firstName}}</td>
-                    <td>{{user.lastName}}</td>
-                    <td>{{user.email}}</td>
-                    <td>
-                      <span style="color: #31A24C">
-                          <i class="fas fa-circle fa-xs"></i>
-                        </span>
-                      <span class="ml-1">Hoạt động</span>
-                    </td>
-                    <td *ngFor="let role of user.roles">
-                      <container-element [ngSwitch]="role.roleId">
-                        <span *ngSwitchCase="1" class="status status_admin" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></span>
-                        <span *ngSwitchCase="2" class="status status_mod" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></span>
-                        <span *ngSwitchCase="3" class="status status_user" (click)="updateUser(user.id)"><i class="fas fa-pen"></i></span>
-                      </container-element>
-
-                      <span class="status bg-primary">
-                        <a style="color: #fff;" href="#" ><i class="fas fa-trash-alt remove"></i></a>
-                      </span>
-                      <span class="status">
-                        <a style="color: #000;" (click)="activeDetails()"><i class="fas fa-info-square fa-xl"></i></a>
-                      </span>
-                    </td>
-                  </tr>
+                <tr *ngFor="let h of histories">
+                  <td>
+                    <input type="checkbox" [value]="h.selected" (change)="onCheckChange($event, h)">
+                  </td>
+                  <td>{{h.date}}</td>
+                  <td>{{h.method}}</td>
+                  <td>{{h.page}}</td>
+                  <td>{{h.executor}}</td>
+                  <td>{{h.queryString}}</td>
+                </tr>
                 </tbody>
               </table>
             </div>

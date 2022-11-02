@@ -6,6 +6,7 @@ import {NavAddComponent} from "../../navigator/nav-add/nav-add.component";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserAddComponent} from "../user-add/user-add.component";
+import {UserActivityComponent} from "../user-activity/user-activity.component";
 
 @Component({
   selector: 'app-user-control',
@@ -16,7 +17,7 @@ export class UserControlComponent implements OnInit {
 
   users: User[] = [];
   totalPages: any;
-  pageSizes = [3, 6, 9];
+  pageSizes = [10, 20, 30];
 
   searchField = {
     pageIndex: 1,
@@ -24,6 +25,8 @@ export class UserControlComponent implements OnInit {
     totalElements: 0,
     keyword: ''
   }
+
+  modalRef?: NgbModalRef;
 
   constructor(private userService: UserService, private modalService: NgbModal) { }
 
@@ -59,18 +62,16 @@ export class UserControlComponent implements OnInit {
     this.getBySearch();
   }
 
-  modalRef?: NgbModalRef;
   addNew(){
     this.modalRef = this.modalService.open(UserAddComponent, {
-      size: "md",
-      centered: false,
+      centered: true,
       backdrop: false,
       animation: true
     });
   }
 
-  openModal(e: any){
-    this.modalRef = this.modalService.open(NavAddComponent, {
+  updateUser(e: any){
+    this.modalRef = this.modalService.open(UserAddComponent, {
       centered: true,
       backdrop: false,
       animation: true
@@ -80,7 +81,15 @@ export class UserControlComponent implements OnInit {
     //     this.getAllNavGroup();
     //   }
     // })
-    window.sessionStorage.setItem("navGroup", e.target.id)
+    window.sessionStorage.setItem("UID", e)
+  }
+
+  activeDetails(){
+    this.modalRef = this.modalService.open(UserActivityComponent, {
+      centered: true,
+      backdrop: false,
+      animation: true
+    });
   }
 
 }

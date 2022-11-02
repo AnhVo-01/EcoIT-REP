@@ -61,6 +61,8 @@ import {authInterceptorProviders} from "./authentication/helper/auth.interceptor
 import { ToastContainerComponent } from './modules/toast/toast-container/toast-container.component';
 import { UserControlComponent } from './modules/user/user-control/user-control.component';
 import { UserAddComponent } from './modules/user/user-add/user-add.component';
+import { HistoryListComponent } from './modules/admin/history/history-list/history-list.component';
+import { UserActivityComponent } from './modules/user/user-activity/user-activity.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +117,9 @@ import { UserAddComponent } from './modules/user/user-add/user-add.component';
     ContactFromComponent,
     ToastContainerComponent,
     UserControlComponent,
-    UserAddComponent
+    UserAddComponent,
+    HistoryListComponent,
+    UserActivityComponent
   ],
   imports: [
     BrowserModule,

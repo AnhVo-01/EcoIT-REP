@@ -1,7 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.jwt.JwtTokenProvider;
-import com.example.backend.model.ERole;
+import com.example.backend.constant.ERole;
 import com.example.backend.model.Role;
 import com.example.backend.model.User;
 import com.example.backend.payload.AuthResponse;
@@ -87,13 +87,13 @@ public class AuthController {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Username is already taken!"));
+                    .body(new MessageResponse("Username is already taken!"));
         }
 
         if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Email is already in use!"));
+                    .body(new MessageResponse("Email is already in use!"));
         }
 
         // Create new user's account
@@ -135,10 +135,5 @@ public class AuthController {
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
-    }
-
-    @GetMapping
-    public ResponseEntity<List<User>> listAll(){
-        return ResponseEntity.ok(userRepository.findAll());
     }
 }

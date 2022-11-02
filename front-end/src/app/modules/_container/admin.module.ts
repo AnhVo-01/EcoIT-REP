@@ -6,6 +6,7 @@ import {DashBoardComponent} from "../admin/dash-board/dash-board.component";
 import {AboutControlComponent} from "../about/about-control/about-control.component";
 import {GalleryListComponent} from "../typical/gallery/gallery-list/gallery-list.component";
 import {UserControlComponent} from "../user/user-control/user-control.component";
+import {HistoryListComponent} from "../admin/history/history-list/history-list.component";
 
 const routes: Routes = [
   {path: '', title: 'Admin - EcoIT', component: AdminComponent,
@@ -47,6 +48,9 @@ const routes: Routes = [
         loadChildren: () => import('../navigator/navigation.module').then(m => m.NavigationModule)},
 
       {path: 'user', title: 'Admin - Tài khoản', component: UserControlComponent},
+
+      {path: 'history', title: 'Admin - Lịch sử sửa đổi', component: HistoryListComponent},
+
     ]},
 ]
 

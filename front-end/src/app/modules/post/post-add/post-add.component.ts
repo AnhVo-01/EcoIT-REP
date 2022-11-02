@@ -76,7 +76,7 @@ export class PostAddComponent implements OnInit {
   }
 
   goToNewsList(){
-    this.router.navigate(['/d/post']);
+    this.router.navigate(['/admin/post']);
   }
 
   onSubmit(){

@@ -26,7 +26,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Query(value = "DELETE FROM customer_product cp WHERE cp.customer_id=:id", nativeQuery = true)
     void unLink(@Param("id") Long id);
 
-    @Query(value = "SELECT CASE WHEN COUNT(cp) > 0  THEN true ELSE false END " +
+    @Query(value = "SELECT CASE WHEN COUNT(cp) > 0 THEN true ELSE false END " +
             "FROM customer_product cp WHERE cp.customer_id=:id", nativeQuery = true)
     boolean findLinkByCustomerId(@Param("id") Long id);
 

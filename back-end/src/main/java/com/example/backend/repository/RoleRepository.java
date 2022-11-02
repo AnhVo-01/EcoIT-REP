@@ -1,6 +1,6 @@
 package com.example.backend.repository;
 
-import com.example.backend.model.ERole;
+import com.example.backend.constant.ERole;
 import com.example.backend.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 

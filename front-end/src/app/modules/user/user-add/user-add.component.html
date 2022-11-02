@@ -1,48 +1,71 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" ngNativeValidate>
   <div class="Popup" id="myEdit">
     <div class="modal-dialog">
       <div class="modal-content default-bg">
         <div class="modal-header">
+          <div class="text-center">
+            <img src="assets/images/avatars/logoEcoit.jpg" style="width: 125px;" alt="logo">
+          </div>
           <span class="close-btn" (click)="closeModal()">&times;</span>
         </div>
 
         <div class="modal-body">
           <div class="Set-pop">
-            <div class="options">
-              <h6>ID</h6>
-              <input type="text" name="id">
-            </div>
-            <div class="options">
-              <h6>Tên đăng nhập</h6>
-              <input type="text">
-            </div>
-            <div class="options">
-              <h6>Mật khẩu</h6>
-              <input type="text">
-            </div>
-            <div class="options">
-              <h6>Họ</h6>
-              <input type="text">
-            </div>
-            <div class="options">
-              <h6>Tên</h6>
-              <input type="text">
-            </div>
-            <div class="options">
-              <h6>Email</h6>
-              <input type="email">
-            </div>
-            <div class="options">
-              <h6>Vai trò</h6>
-              <label>
-                <input type="radio" name="eMod" value="true"> Người dùng
-              </label>
-              <label>
-                <input type="radio" name="eAdmin" value="true"> Mod
-              </label>
-              <label>
-                <input type="radio" name="eAdmin" value="true"> Admin
-              </label>
+            <div class="card-body px-5 mx-md-4">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div *ngIf="isSignUpFailed" class="error-mess mb-4">{{errorMessage}}</div>
+              <div *ngIf="isSuccessful" class="alert-success mb-4">{{errorMessage}}</div>
+              <div class="options" *ngIf="id">
+                <div class="title">ID</div>
+                <input type="text" class="form-control" value="{{id}}" disabled>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="options">
+                    <div class="title">Họ</div>
+                    <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" placeholder="Họ">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="options">
+                    <div class="title">Tên</div>
+                    <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName" placeholder="Tên">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Username input -->
+              <div class="options">
+                <div class="title">Tài khoản</div>
+                <input type="text" name="username" [(ngModel)]="user.username" class="form-control" placeholder="Tài khoản" required>
+              </div>
+
+              <!-- Email input -->
+              <div class="options">
+                <div class="title">Email</div>
+                <input type="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email" required>
+              </div>
+
+              <!-- Password input -->
+              <div class="options">
+                <div class="title">Mật khẩu</div>
+                <input type="password" name="password" [(ngModel)]="user.password" class="form-control" placeholder="Mật khẩu" required>
+              </div>
+
+              <div class="options">
+                <div class="title">Vai trò</div>
+                <div class="roles-box">
+                  <label>
+                    <input type="radio" name="roles" [(ngModel)]="user.roles" value="admin"> Quản trị viên
+                  </label>
+                  <label>
+                    <input type="radio" name="roles" [(ngModel)]="user.roles" value="mod"> Điều hành
+                  </label>
+                  <label>
+                    <input type="radio" name="roles" [(ngModel)]="user.roles"> Người dùng
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>

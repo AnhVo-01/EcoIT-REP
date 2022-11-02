@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Constant} from "../../core/config/constant";
+import {User} from "../../modules/user/user";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,10 @@ export class UserService {
 
   getSearchList(param: HttpParams): Observable<any>{
     return this.httpClient.get(`${this.baseURL}`,{params: param})
+  }
+
+  getUserById(id: number): Observable<User>{
+    return this.httpClient.get<User>(`${this.baseURL}/${id}`);
   }
 
   getPublicContent(): Observable<Object>{

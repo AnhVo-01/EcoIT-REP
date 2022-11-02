@@ -25,7 +25,7 @@ export class NumberAddComponent implements OnInit {
   }
 
   goToTypicalList(){
-    this.router.navigate(['/d/dashboard']);
+    this.router.navigate(['/admin/dashboard']);
   }
 
   onSubmit(){

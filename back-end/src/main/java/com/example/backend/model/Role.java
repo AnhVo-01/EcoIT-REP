@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.example.backend.constant.ERole;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
