@@ -34,7 +34,14 @@ public class HistoryLogger implements HandlerInterceptor {
         history.setQueryString(queryString);
         history.setDate(fm.format(date));
 
-        if (requestMethod.equals("POST")){
+        if (page.contains("/delete")){
+            history.setType("DELETE");
+            historyService.saveVisitorInfo(history);
+        } else if (requestMethod.equals("POST") && Character.isDigit(page.charAt(page.length() - 1))) {
+            history.setType("UPDATE");
+            historyService.saveVisitorInfo(history);
+        } else if (requestMethod.equals("POST")) {
+            history.setType("CREATE");
             historyService.saveVisitorInfo(history);
         }
 

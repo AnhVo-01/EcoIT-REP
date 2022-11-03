@@ -63,6 +63,10 @@ import { UserControlComponent } from './modules/user/user-control/user-control.c
 import { UserAddComponent } from './modules/user/user-add/user-add.component';
 import { HistoryListComponent } from './modules/admin/history/history-list/history-list.component';
 import { UserActivityComponent } from './modules/user/user-activity/user-activity.component';
+import { CusTypicalListComponent } from './modules/typical/customer/cus-typical-list/cus-typical-list.component';
+import { CusTypicalAddComponent } from './modules/typical/customer/cus-typical-add/cus-typical-add.component';
+import { CusTypicalControlComponent } from './modules/typical/customer/cus-typical-control/cus-typical-control.component';
+import { CusTypicalHomeComponent } from './modules/typical/customer/cus-typical-home/cus-typical-home.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +123,11 @@ import { UserActivityComponent } from './modules/user/user-activity/user-activit
     UserControlComponent,
     UserAddComponent,
     HistoryListComponent,
-    UserActivityComponent
+    UserActivityComponent,
+    CusTypicalListComponent,
+    CusTypicalAddComponent,
+    CusTypicalControlComponent,
+    CusTypicalHomeComponent
   ],
   imports: [
     BrowserModule,

@@ -56,6 +56,11 @@ public class PostController {
         return postRepository.listAllById();
     }
 
+    @GetMapping("/home/news/{url}")
+    public Post viewPost(@PathVariable String url) {
+        return postRepository.findByTitle(url);
+    }
+
     Date date = new Date();
     SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -109,11 +114,6 @@ public class PostController {
 
         return postRepository.findById(id)
                 .orElseThrow(() -> new PostNotFoundException(id));
-    }
-
-    @GetMapping("/news/{url}")
-    public Post viewPost(@PathVariable String url) {
-        return postRepository.findByTitle(url);
     }
 
     @GetMapping("/news/delete/{id}")

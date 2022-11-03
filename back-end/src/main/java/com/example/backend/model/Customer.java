@@ -28,8 +28,8 @@ public class Customer {
     private boolean active;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "image_id")
-    private Image thumb;
+    @JoinColumn(name = "banner_id")
+    private Banner thumb;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinTable(name = "customer_product",

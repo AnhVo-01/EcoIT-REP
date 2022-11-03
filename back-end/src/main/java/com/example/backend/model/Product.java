@@ -28,4 +28,8 @@ public class Product {
     @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "image_id")
     private Image thumb;
+
+    @OneToOne()
+    @JoinColumn(name = "banner_id")
+    private Banner banner;
 }

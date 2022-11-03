@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {HttpParams} from "@angular/common/http";
 import {HistoryService} from "../../../../services/history/history.service";
 import {History} from "../history";
-import {Customer} from "../../../customer/customer";
-import {Product} from "../../../product/product";
 
 @Component({
   selector: 'app-history-list',
@@ -21,15 +19,16 @@ export class HistoryListComponent implements OnInit {
 
   searchField = {
     pageIndex: 1,
-    pageSize: 20,
-    totalElements: 0,
-    keyword: ''
+    pageSize: 10,
+    sortField: '',
+    sortDir: '',
+    totalElements: 0
   }
 
   constructor(private historyService: HistoryService) { }
 
   ngOnInit(): void {
-    this.listAll();
+    this.getBySearch();
   }
 
   listAll(){
@@ -42,7 +41,8 @@ export class HistoryListComponent implements OnInit {
     const params = new HttpParams()
       .set('pageNo', this.searchField.pageIndex)
       .set('pageSize', this.searchField.pageSize)
-      .set('keyword', this.searchField.keyword);
+      .set('sortField', this.searchField.sortField)
+      .set('sortDir', this.searchField.sortDir)
     this.historyService.getSearchList(params).subscribe(data => {
       this.histories = data.content;
       this.searchField.totalElements = data.totalElements;
@@ -52,6 +52,11 @@ export class HistoryListComponent implements OnInit {
 
   search(){
     this.searchField.pageIndex = 1;
+    this.getBySearch();
+  }
+
+  searchDirection(e: any){
+    this.searchField.sortDir = e;
     this.getBySearch();
   }
 
@@ -88,6 +93,15 @@ export class HistoryListComponent implements OnInit {
       console.log("delete successfully!")
       this.listAll();
     })
+  }
+
+  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef> | undefined;
+  uncheckAll() {
+    // @ts-ignore
+    this.checkboxes.forEach((element) => {
+      element.nativeElement.checked = false;
+    });
+    this.selects = null;
   }
 
 }

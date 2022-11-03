@@ -8,13 +8,14 @@ import {TokenStorageService} from "../../../services/token-storage/token-storage
 })
 export class AsideComponent implements OnInit {
 
+  role: any;
+  username: any;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    const navAct = window.sessionStorage.getItem("ad-nav-active");
-
-    // @ts-ignore
-    // document.getElementById(navAct).classList.add("here");
+    const user = this.tokenStorageService.getUser();
+    this.username = user.username;
+    this.role = user.roles;
   }
 }

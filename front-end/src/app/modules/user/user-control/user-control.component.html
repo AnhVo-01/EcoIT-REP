@@ -89,7 +89,6 @@
               <table id="myTable">
                 <thead>
                   <tr>
-                    <td>ID</td>
                     <td>Tên đăng nhập</td>
                     <td>Họ</td>
                     <td>Tên</td>
@@ -100,7 +99,6 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let user of users">
-                    <td>{{user.id}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.firstName}}</td>
                     <td>{{user.lastName}}</td>
@@ -122,7 +120,7 @@
                         <a style="color: #fff;" href="#" ><i class="fas fa-trash-alt remove"></i></a>
                       </span>
                       <span class="status">
-                        <a style="color: #000;" (click)="activeDetails()"><i class="fas fa-info-square fa-xl"></i></a>
+                        <a style="color: #000;" (click)="activeDetails(user.username)"><i class="fas fa-info-square fa-xl"></i></a>
                       </span>
                     </td>
                   </tr>

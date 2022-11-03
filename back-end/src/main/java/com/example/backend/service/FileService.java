@@ -1,6 +1,8 @@
 package com.example.backend.service;
 
+import com.example.backend.model.Banner;
 import com.example.backend.model.Image;
+import com.example.backend.repository.BannerRepository;
 import com.example.backend.repository.ImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,9 @@ public class FileService {
 
     @Autowired
     private ImageRepository imageRepository;
+
+    @Autowired
+    private BannerRepository bannerRepository;
 
     private static final Path CURRENT_FOLDER = Paths.get(System.getProperty("user.dir"));
 
@@ -58,6 +63,91 @@ public class FileService {
                 }
             }
         });
+    }
+
+    public Image uploadOneImage(MultipartFile file) throws IOException {
+        //create folder following year/month
+        Path folderPath = Paths.get(calendar.get(Calendar.YEAR) + "_" + (calendar.get(Calendar.MONTH) + 1));
+
+        if (!Files.exists(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath).resolve(folderPath))) {
+            Files.createDirectories(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath).resolve(folderPath));
+        }
+
+        String filename = instant.toEpochMilli() + "_" + file.getOriginalFilename();
+
+        //Tạo 1 đường dẫn mới để lưu file ở local
+        Path file1 = CURRENT_FOLDER.resolve(staticPath).resolve(imagePath)
+                .resolve(folderPath).resolve(filename);
+        Files.copy(file.getInputStream(), file1, StandardCopyOption.REPLACE_EXISTING);
+
+        try (OutputStream os = Files.newOutputStream(file1)) {
+            os.write(file.getBytes());
+        }
+
+        return new Image(
+                filename,
+                ServletUriComponentsBuilder.fromCurrentContextPath()
+                        .path("/images/")
+                        .path(folderPath.toString())
+                        .path("/").path(filename).toUriString(),
+                staticPath.resolve(imagePath).resolve(folderPath).toString(),
+                file.getContentType()
+        );
+    }
+
+
+
+    public void deleteBanner(Banner banner) throws IOException {
+        bannerRepository.findById(banner.getId()).map(
+                image1 -> {
+                    image1.setPathFile(null);
+                    image1.setUrl(null);
+                    image1.setType(null);
+                    image1.setName(null);
+                    return bannerRepository.save(image1);
+                }
+        );
+
+        Path dirPath = Paths.get(banner.getPathFile());
+        Files.list(dirPath).forEach(file->{
+            if(file.getFileName().toString().startsWith(banner.getName())){
+                try{
+                    Files.delete(file.toAbsolutePath());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public Banner uploadBanner(MultipartFile file) throws IOException {
+        //create folder following year/month
+        Path folderPath = Paths.get(calendar.get(Calendar.YEAR) + "_" + (calendar.get(Calendar.MONTH) + 1));
+
+        if (!Files.exists(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath).resolve(folderPath))) {
+            Files.createDirectories(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath).resolve(folderPath));
+        }
+
+        String filename = instant.toEpochMilli() + "_" + file.getOriginalFilename();
+
+        //Tạo 1 đường dẫn mới để lưu file ở local
+        Path file1 = CURRENT_FOLDER.resolve(staticPath).resolve(imagePath)
+                .resolve(folderPath).resolve(filename);
+        Files.copy(file.getInputStream(), file1, StandardCopyOption.REPLACE_EXISTING);
+
+        try (OutputStream os = Files.newOutputStream(file1)) {
+            os.write(file.getBytes());
+        }
+
+        return new Banner(
+                filename,
+                ServletUriComponentsBuilder.fromCurrentContextPath()
+                        .path("/images/")
+                        .path(folderPath.toString())
+                        .path("/").path(filename).toUriString(),
+                staticPath.resolve(imagePath).resolve(folderPath).toString(),
+                file.getContentType(), true
+        );
     }
 
     public Set<Image> uploadImage(MultipartFile[] multipartFiles) throws IOException{
@@ -98,35 +188,5 @@ public class FileService {
             images.add(image);
         }
         return images;
-    }
-
-    public Image uploadOneImage(MultipartFile file) throws IOException {
-        //create folder following year/month
-        Path folderPath = Paths.get(calendar.get(Calendar.YEAR) + "_" + (calendar.get(Calendar.MONTH) + 1));
-
-        if (!Files.exists(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath).resolve(folderPath))) {
-            Files.createDirectories(CURRENT_FOLDER.resolve(staticPath).resolve(imagePath).resolve(folderPath));
-        }
-
-        String filename = instant.toEpochMilli() + "_" + file.getOriginalFilename();
-
-        //Tạo 1 đường dẫn mới để lưu file ở local
-        Path file1 = CURRENT_FOLDER.resolve(staticPath).resolve(imagePath)
-                .resolve(folderPath).resolve(filename);
-        Files.copy(file.getInputStream(), file1, StandardCopyOption.REPLACE_EXISTING);
-
-        try (OutputStream os = Files.newOutputStream(file1)) {
-            os.write(file.getBytes());
-        }
-
-        return new Image(
-                filename,
-                ServletUriComponentsBuilder.fromCurrentContextPath()
-                        .path("/images/")
-                        .path(folderPath.toString())
-                        .path("/").path(filename).toUriString(),
-                staticPath.resolve(imagePath).resolve(folderPath).toString(),
-                file.getContentType()
-        );
     }
 }

@@ -2,36 +2,46 @@
   <!--begin::Container-->
   <div class="container-fluid d-flex align-items-center">
     <div class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-      <div class="menu-item m-0">
-        <div class="menu-link">
-          <a routerLink="../user" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-right" aria-label="Trở lại trang người dùng">
-            <i class="fas fa-arrow-left fa-lg"></i>
-          </a>
-        </div>
-      </div>
       <!--begin::Title-->
       <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Lịch sử sửa đổi</h6>
       <!--end::Title-->
     </div>
     <!--begin::Page title-->
-    <div class="flex-grow-1 flex-shrink-0 me-5">
-      <!--begin::Search-->
-      <div class="d-flex align-items-center">
-        <div class="d-flex align-items-center ml-lg-3">
-          <!--begin::Search-->
-          <form (ngSubmit)="search()">
-            <div class="input-group" style="padding: 0.65rem 1rem;">
-              <input type="text" class="form-control" name="keyword" [(ngModel)]="searchField.keyword"
-                     placeholder="Viết gì đó ...">
-              <div class="input-group-append">
-                <button type="submit" class="input-group-text"><i class="fa fa-search"></i></button>
-              </div>
+    <div class="flex-grow-1 ml-5">
+      <div class="d-flex align-items-center flex-wrap">
+        <div class="d-flex align-items-center">
+          <div class="menu-item here">
+            <div class="d-flex align-items-center menu-link">
+              <span class="fw-semibold mr-1">Sắp xếp theo:</span>
+              <form (change)="search()">
+                <select class="custom-select" style="width: 120px" [(ngModel)]="searchField.sortField" [ngModelOptions]="{standalone: true}">
+                  <option value="date">Thời gian</option>
+                  <option value="method">Phương thức</option>
+                  <option value="page">Trang</option>
+                  <option value="user">Người thực hiện</option>
+<!--                  <option value="price-desc">Tham số</option>-->
+                  <option value="type">Hoạt động</option>
+                </select>
+              </form>
             </div>
-          </form>
-          <!--end::Search-->
+          </div>
+
+          <div class="menu-item" (click)="searchDirection('asc')">
+            <div class="menu-link">
+              <a class="ht-btn-custom">
+                <i class="far fa-sort-alpha-down fa-lg"></i>
+              </a>
+            </div>
+          </div>
+          <div class="menu-item" (click)="searchDirection('desc')">
+            <div class="menu-link">
+              <a class="ht-btn-custom">
+                <i class="far fa-sort-alpha-up fa-lg"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <!--end::Search-->
     </div>
     <!--end::Page title-->
     <!--begin::Action group-->
@@ -59,6 +69,11 @@
           <div class="menu-link" (click)="clearLog()">
             <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Xóa">
               <i class="far fa-trash-alt fa-lg"></i>
+            </a>
+          </div>
+          <div class="menu-link" (click)="uncheckAll()">
+            <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Hủy">
+              <i class="far fa-times fa-lg"></i>
             </a>
           </div>
         </div>
@@ -91,18 +106,20 @@
                   <td>Trang</td>
                   <td>Người thực hiện</td>
                   <td>Tham số</td>
+                  <td>Hoạt động</td>
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let h of histories">
+                <tr *ngFor="let h of histories | paginate: {  totalItems: searchField.totalElements, itemsPerPage: searchField.pageSize, currentPage: searchField.pageIndex }">
                   <td>
-                    <input type="checkbox" [value]="h.selected" (change)="onCheckChange($event, h)">
+                    <input #checkboxes type="checkbox" [value]="h.selected" (change)="onCheckChange($event, h)">
                   </td>
                   <td>{{h.date}}</td>
                   <td>{{h.method}}</td>
                   <td>{{h.page}}</td>
                   <td>{{h.executor}}</td>
                   <td>{{h.queryString}}</td>
+                  <td>{{h.type}}</td>
                 </tr>
                 </tbody>
               </table>

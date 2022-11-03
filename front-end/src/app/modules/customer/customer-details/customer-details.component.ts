@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../../product/product";
 import {Customer} from "../customer";
 import {CustomerService} from "../../../services/customer/customer.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -24,7 +23,7 @@ export class CustomerDetailsComponent implements OnInit {
     if(this.url){
       this.customerService.getCusByUrl(this.url).subscribe(data => {
         this.customer = data;
-        this.cover = this.customer.thumb.url;
+        this.cover = this.customer.thumb.pathUrl;
         document.title = "KHỐI " + this.customer.name.toUpperCase();
       })
 

@@ -73,7 +73,7 @@
         <!--end:Menu item-->
 
         <!--begin:Menu item-->
-        <div class="menu-item py-2 hint--black hint--rounded hint--right" aria-label="Tài khoản">
+        <div *ngIf="role.includes('ROLE_ADMIN')" class="menu-item py-2 hint--black hint--rounded hint--right" aria-label="Tài khoản">
           <a routerLink="user" routerLinkActive="active" class="menu-link menu-center">
             <span class="menu-icon"><i class="far fa-users"></i></span>
           </a>

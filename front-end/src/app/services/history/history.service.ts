@@ -14,11 +14,15 @@ export class HistoryService {
   constructor(private httpClient: HttpClient) { }
 
   getSearchList(param: HttpParams): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}`,{params: param})
+    return this.httpClient.get(`${this.baseURL}/search`,{params: param})
   }
 
   getAllHistory(): Observable<History[]>{
     return this.httpClient.get<History[]>(`${this.baseURL}`);
+  }
+
+  getHistoryByUser(url: any): Observable<History[]>{
+    return this.httpClient.get<History[]>(`${this.baseURL}/${url}`);
   }
 
   deleteHistory(formData: FormData): Observable<Object>{

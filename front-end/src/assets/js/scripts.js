@@ -198,27 +198,27 @@ Isotope Filter
   });
 
 
-  // Shortcode Counter
-  $('.counter-number').waypoint({
-    offset		: '100%',
-    triggerOnce	: true,
-    handler		: function(){
-      let el			= $(this);
-      let duration	= Math.floor((Math.random()*1000)+1000);
-      let to			= el.attr('id');
-
-      $({property:0}).animate({property:to}, {
-        duration	: duration,
-        easing		:'linear',
-        step		: function() {
-          el.text(Math.floor(this.property));
-        },
-        complete	: function() {
-          el.text("+"+this.property);
-        }
-      });
-    }
-  });
+  // // Shortcode Counter
+  // $('.counter-number').waypoint({
+  //   offset		: '100%',
+  //   triggerOnce	: true,
+  //   handler		: function(){
+  //     let el			= $(this);
+  //     let duration	= Math.floor((Math.random()*1000)+1000);
+  //     let to			= el.attr('id');
+  //
+  //     $({property:0}).animate({property:to}, {
+  //       duration	: duration,
+  //       easing		:'linear',
+  //       step		: function() {
+  //         el.text(Math.floor(this.property));
+  //       },
+  //       complete	: function() {
+  //         el.text("+"+this.property);
+  //       }
+  //     });
+  //   }
+  // });
 
 
   /*

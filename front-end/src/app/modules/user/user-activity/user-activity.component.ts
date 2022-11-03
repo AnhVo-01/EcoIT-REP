@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {HistoryService} from "../../../services/history/history.service";
+import {History} from "../../admin/history/history";
 
 @Component({
   selector: 'app-user-activity',
@@ -8,13 +10,19 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class UserActivityComponent implements OnInit {
 
-  constructor(private modalService: NgbActiveModal) { }
+  histories: History[] = [];
+
+  constructor(private modalService: NgbActiveModal, private historyService: HistoryService) { }
 
   ngOnInit(): void {
+    const username = window.sessionStorage.getItem("username");
+    this.historyService.getHistoryByUser(username).subscribe(data => {
+      this.histories = data;
+    })
   }
 
   closeModal(){
-    window.sessionStorage.removeItem("UID");
+    window.sessionStorage.removeItem("username");
     this.modalService.close();
   }
 }

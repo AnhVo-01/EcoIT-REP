@@ -17,6 +17,8 @@ public class History {
 
     private String method;
 
+    private String type;
+
     private String page;
 
     private String queryString;

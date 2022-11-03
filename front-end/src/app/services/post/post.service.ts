@@ -19,16 +19,16 @@ export class PostService {
     return this.httpClient.get<Post[]>(`${this.baseURL}/home/${this.domain}`)
   }
 
+  getNewsByUrl(url: string): Observable<Post>{
+    return this.httpClient.get<Post>(`${this.baseURL}/home/${this.domain}/${url}`);
+  }
+
   createNews(news: FormData): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/${this.domain}`, news);
   }
 
   getNewsById(id: number): Observable<Post>{
     return this.httpClient.get<Post>(`${this.baseURL}/${this.domain}/d/${id}`);
-  }
-
-  getNewsByUrl(url: string): Observable<Post>{
-    return this.httpClient.get<Post>(`${this.baseURL}/${this.domain}/${url}`);
   }
 
   updateNews(id: number, post: FormData):Observable<Object>{

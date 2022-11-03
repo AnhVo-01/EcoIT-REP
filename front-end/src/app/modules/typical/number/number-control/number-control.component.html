@@ -65,11 +65,13 @@
             <div class="col-lg-3" *ngFor="let num of numbers">
               <div class="faq-wrapper">
                 <div class="card">
-                  <div class="edit">
-                    <button class="ht-btn-custom" (click)="updateTypicalNum(num.id)"><i class="far fa-pen"></i></button>
-                  </div>
-                  <div class="close-btn">
-                    <button class="ht-btn-custom" (click)="deleteElement(num.id)"><i class="far fa-times"></i></button>
+                  <div class="action-box">
+                    <div style="background: #50B848">
+                      <button class="ht-btn-custom" (click)="updateTypicalNum(num.id)"><i class="far fa-pen"></i></button>
+                    </div>
+                    <div style="background: #f00">
+                      <button *ngIf="role.includes('ROLE_ADMIN')" class="ht-btn-custom" (click)="deleteElement(num.id)"><i class="far fa-times"></i></button>
+                    </div>
                   </div>
                   <div class="vc_column-inner">
                     <div class="wpb_wrapper">

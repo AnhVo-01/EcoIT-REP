@@ -9,7 +9,7 @@ import {Address} from "../../modules/address/address";
 })
 export class AddressService {
 
-  private baseURL = `${Constant.BASE_URL}/s/address`;
+  private baseURL = `${Constant.BASE_URL}/address`;
 
   constructor(private httpClient: HttpClient) { }
 

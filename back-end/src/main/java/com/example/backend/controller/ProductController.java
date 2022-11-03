@@ -51,15 +51,15 @@ public class ProductController {
         return repository.getAll();
     }
 
+    @GetMapping("/home/product/{url}")
+    public ResponseEntity<Product> oneByUrl(@PathVariable("url") String url){
+        return ResponseEntity.ok(repository.getProductByUrl(url));
+    }
+
     @GetMapping("/product/d/{id}")
     public Product one(@PathVariable Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException(id));
-    }
-
-    @GetMapping("/product/{url}")
-    public ResponseEntity<Product> oneByUrl(@PathVariable("url") String url){
-        return ResponseEntity.ok(repository.getProductByUrl(url));
     }
 
     @PostMapping(value = "/product", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})

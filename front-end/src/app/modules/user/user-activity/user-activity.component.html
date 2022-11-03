@@ -11,9 +11,24 @@
 
       <div class="modal-body">
         <div class="Set-pop">
-          <div class="card-body p-md-5 mx-md-4">
-
-          </div>
+          <table class="table">
+            <thead>
+              <th>Thời gian</th>
+              <th>Phương thức</th>
+              <th>Trang</th>
+              <th>Tham số</th>
+              <th>Hoạt động</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let h of histories">
+              <td>{{h.date}}</td>
+              <td>{{h.method}}</td>
+              <td>{{h.page}}</td>
+              <td>{{h.queryString}}</td>
+              <td>{{h.type}}</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

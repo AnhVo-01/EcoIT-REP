@@ -21,6 +21,10 @@ export class UserService {
     return this.httpClient.get<User>(`${this.baseURL}/${id}`);
   }
 
+  resetPassword(id: number): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/reset/${id}`);
+  }
+
   getPublicContent(): Observable<Object>{
     return this.httpClient.get(`${this.baseURL}/all`, {responseType: 'text'});
   }

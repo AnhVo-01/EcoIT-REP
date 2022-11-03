@@ -48,4 +48,13 @@ export class UserAddComponent implements OnInit {
     this.modalService.close();
   }
 
+  resetPassword(id: any){
+    const option = confirm("Thao tác này sẽ đưa mật khẩu về giá trị mặc đinh. Bạn có muốn tiếp tục?")
+    if (option){
+      this.userService.resetPassword(id).subscribe(data => {
+        this.modalService.close(data);
+      })
+    }
+  }
+
 }

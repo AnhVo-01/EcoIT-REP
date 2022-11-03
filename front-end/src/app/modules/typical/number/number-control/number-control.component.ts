@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NumberService} from "../../../../services/number-typical/number.service";
 import {Router} from "@angular/router";
 import {Number} from "../number";
+import {TokenStorageService} from "../../../../services/token-storage/token-storage.service";
 
 @Component({
   selector: 'app-number-control',
@@ -11,10 +12,13 @@ import {Number} from "../number";
 export class NumberControlComponent implements OnInit {
 
   numbers: Number[] = [];
+  role: any
 
-  constructor(private numberService: NumberService, private router: Router) { }
+  constructor(private numberService: NumberService, private router: Router, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
+    const user = this.tokenStorageService.getUser();
+    this.role = user.roles;
     this.ListNumber();
   }
 

@@ -1,10 +1,12 @@
 package com.example.backend.controller;
 
 import com.example.backend.exceptionhandler.CusNotFoundException;
+import com.example.backend.model.Banner;
 import com.example.backend.model.Customer;
 import com.example.backend.model.Image;
 import com.example.backend.model.Product;
 import com.example.backend.payload.MessageResponse;
+import com.example.backend.repository.BannerRepository;
 import com.example.backend.repository.CustomerRepository;
 import com.example.backend.repository.ImageRepository;
 import com.example.backend.service.FileService;
@@ -34,6 +36,9 @@ public class CustomerController {
 
     @Autowired
     private ImageRepository imageRepository;
+
+    @Autowired
+    private BannerRepository bannerRepository;
 
     @Autowired
     private FileService fileService;
@@ -81,12 +86,12 @@ public class CustomerController {
         }else{
             customer.setUrl(url);
             customer.setActive(true);
-            Image images;
+            Banner banner;
             if(file != null){
-                images = imageRepository.save(fileService.uploadOneImage(file));
+                banner = bannerRepository.save(fileService.uploadBanner(file));
             }else{
-                images = new Image(null, null, null, null);
-                imageRepository.save(images);
+                banner = new Banner(null, null, null, null, false);
+                bannerRepository.save(banner);
             }
             if (products != null){
                 Set<Product> productSet = new LinkedHashSet<>();
@@ -96,7 +101,7 @@ public class CustomerController {
                 customer.setProducts(productSet);
             }
 
-            customer.setThumb(images);
+            customer.setThumb(banner);
             return ResponseEntity.ok(customerRepository.save(customer));
         }
     }
@@ -109,14 +114,14 @@ public class CustomerController {
 
         if(file != null) {
             if(customer.getThumb().getName() != null){
-                fileService.deleteFile(customer.getThumb());
+                fileService.deleteBanner(customer.getThumb());
             }
-            Image image = fileService.uploadOneImage(file);
-            imageRepository.saveById(
-                    image.getName(),
-                    image.getUrl(),
-                    image.getPathFile(),
-                    image.getType(),
+            Banner banner = fileService.uploadBanner(file);
+            bannerRepository.saveById(
+                    banner.getName(),
+                    banner.getUrl(),
+                    banner.getPathFile(),
+                    banner.getType(),
                     customer.getThumb().getId()
             );
         }

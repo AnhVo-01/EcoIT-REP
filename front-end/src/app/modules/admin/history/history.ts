@@ -5,5 +5,6 @@ export class History {
   page: any;
   queryString: any;
   date: any;
+  type: any;
   selected = false;
 }

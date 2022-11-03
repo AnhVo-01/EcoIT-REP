@@ -84,12 +84,13 @@ export class UserControlComponent implements OnInit {
     window.sessionStorage.setItem("UID", e)
   }
 
-  activeDetails(){
+  activeDetails(e: any){
     this.modalRef = this.modalService.open(UserActivityComponent, {
       centered: true,
       backdrop: false,
       animation: true
     });
+    window.sessionStorage.setItem("username", e)
   }
 
 }

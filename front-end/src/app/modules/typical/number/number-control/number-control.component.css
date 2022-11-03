@@ -60,23 +60,15 @@
   font-weight: 700;
   margin-bottom: 20px;
 }
-.edit{
+.action-box{
   position: absolute;
-  top: 0;
-  right: 40px;
-  color: #fff;
-  z-index: 1000;
-  background: #50B848;
-}
-.close-btn{
-  position: absolute;
+  display: flex;
   top: 0;
   right: 0;
   color: #fff;
   z-index: 1000;
-  background: #f00;
 }
-.close-btn button, .edit button{
+.action-box button{
   border: 0;
   width: 40px;
   height: 40px;
