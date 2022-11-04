@@ -18,9 +18,10 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Post findByTitle(@Param("title") String title);
 
     @Query("SELECT n FROM Post n WHERE n.active = true ORDER BY n.id DESC")
-    List<Post> listAllById();
+    Page<Post> listAllById(Pageable pageable);
+
+    List<Post> getAllByActiveIsTrueOrderByIdDesc();
 
     @Query(value = "DELETE FROM post_image WHERE image_id=:id", nativeQuery = true)
     void deleteReferImage(@Param("id") Long id);
-
 }

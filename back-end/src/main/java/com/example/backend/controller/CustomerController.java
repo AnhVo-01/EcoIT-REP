@@ -1,14 +1,12 @@
 package com.example.backend.controller;
 
 import com.example.backend.exceptionhandler.CusNotFoundException;
-import com.example.backend.model.Banner;
-import com.example.backend.model.Customer;
-import com.example.backend.model.Image;
-import com.example.backend.model.Product;
+import com.example.backend.model.*;
 import com.example.backend.payload.MessageResponse;
 import com.example.backend.repository.BannerRepository;
 import com.example.backend.repository.CustomerRepository;
 import com.example.backend.repository.ImageRepository;
+import com.example.backend.repository.TypicalCusRepository;
 import com.example.backend.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,6 +37,9 @@ public class CustomerController {
 
     @Autowired
     private BannerRepository bannerRepository;
+
+    @Autowired
+    private TypicalCusRepository typicalCusRepository;
 
     @Autowired
     private FileService fileService;
@@ -164,4 +165,49 @@ public class CustomerController {
         cus.setActive(true);
         return customerRepository.save(cus);
     }
+
+
+
+
+    // TYPICAL CUSTOMER =====================================================================================
+    @GetMapping("/customer/typical")
+    public Page<TypicalCustomer> searchTypical(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+                                        @RequestParam(name = "pageSize", defaultValue = "10") int pageSize){
+        String sortDirection = "desc";
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by("id").ascending() : Sort.by("id").descending();
+        Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
+        return typicalCusRepository.getAllByActiveIsTrue(pageable);
+    }
+
+    @GetMapping("/home/customer/typical")
+    public List<TypicalCustomer> listAllTypical(){
+        return typicalCusRepository.getAllByActiveIsTrue();
+    }
+
+    @GetMapping("/home/customer/typical/{url}")
+    public EntityModel<TypicalCustomer> getTypicalByUrl(@PathVariable("url") String url){
+        return EntityModel.of(typicalCusRepository.getTypicalCustomerByUrl(url));
+    }
+
+    @PostMapping(value = "/customer/typical", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<?> createTypical(@RequestPart("customer") TypicalCustomer typicalCustomer,
+                                           @RequestPart("image") MultipartFile file) throws IOException {
+
+        String url = getSearchableString(typicalCustomer.getName());
+        if( customerRepository.getCustomerByUrl(url) != null ){
+            return ResponseEntity.badRequest().body(new MessageResponse("Khách hàng đã tồn tại"));
+        }else{
+            typicalCustomer.setUrl(url);
+            typicalCustomer.setActive(true);
+            if (file != null){
+                Image image = imageRepository.save(fileService.uploadOneImage(file));
+                typicalCustomer.setImage(image);
+            }else {
+                return ResponseEntity.badRequest().body(new MessageResponse("Vui lòng không để trống ảnh"));
+            }
+
+            return ResponseEntity.ok(typicalCusRepository.save(typicalCustomer));
+        }
+    }
+
 }

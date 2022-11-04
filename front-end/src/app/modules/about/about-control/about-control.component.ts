@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {About} from "../about";
 import {AboutService} from "../../../services/about/about.service";
 import {AddressService} from "../../../services/address/address.service";
-import {DomSanitizer} from "@angular/platform-browser";
 import {Address} from "../../address/address";
 import {AboutAddressComponent} from "../about-address/about-address.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
@@ -16,17 +15,18 @@ import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
 export class AboutControlComponent implements OnInit {
 
   about: About = new About();
-  address: Address = new Address();
+  address: Address[] = [];
 
   wards: any;
   fullAddress: String[] =[];
+  draftAddr: String[] =[];
 
   ckeConfig: any;
   updateSuccess = false;
   errorMessage = "";
 
   constructor(private aboutService: AboutService, private addressService: AddressService,
-              private modalService: NgbModal, private sanitizer: DomSanitizer) { }
+              private modalService: NgbModal) { }
 
   ngOnInit(): void {
 
@@ -76,7 +76,8 @@ export class AboutControlComponent implements OnInit {
   }
 
   onSubmit(){
-    this.aboutService.saveInfo(this.about).subscribe(data =>{
+    const about = this.prepareFormData(this.about);
+    this.aboutService.saveInfo(about).subscribe(() =>{
       this.updateSuccess = true;
       this.errorMessage = "Cập nhật thành công !";
       this.goToInfo();
@@ -86,24 +87,21 @@ export class AboutControlComponent implements OnInit {
     })
   }
 
-  prepareFormData(addresses: Address): FormData {
+  prepareFormData(about: About): FormData {
     const  formData = new FormData();
     formData.append(
-      'address',
-      new Blob([JSON.stringify(addresses)], {type: 'application/json'})
-    )
+      'about',
+      new Blob([JSON.stringify(about)], {type: 'application/json'})
+    );
+
+    for (let i = 0; i < this.address.length; i++){
+      formData.append(
+        'address',
+        new Blob([JSON.stringify(this.address[i])], {type: 'application/json'})
+      )
+    }
 
     return formData;
-  }
-
-  addAddress(id: number, address: Address){
-    const formData = this.prepareFormData(address);
-    this.aboutService.addAddress(id, formData).subscribe(data => {
-      this.updateSuccess = true;
-      this.errorMessage = "Cập nhật thành công !";
-      console.log(data)
-      // this.goToInfo();
-    })
   }
 
   removeAddress(id: number){
@@ -111,6 +109,28 @@ export class AboutControlComponent implements OnInit {
   }
 
   // add address modal ----------------------------------------------------------------------
+  draftAddress(address: Address[]){
+    for (let i=0; i<address.length; i++){
+      if(address[i].prefix != null){
+        this.draftAddr[i] = address[i].prefix + ": ";
+      }if(address[i].address != null){
+        this.draftAddr[i] = this.draftAddr[i] + address[i].address;
+      }
+      if (address[i].wards != null){
+        this.draftAddr[i] = this.draftAddr[i] + ", " + address[i].wards;
+      }
+      if (address[i].district != null){
+        this.addressService.getDistrictsByCode(address[i].district).subscribe(district => {
+          this.draftAddr[i] = this.draftAddr[i] + ", " + district.name;
+        })
+      }
+      if (address[i].province != null){
+        this.addressService.getProvincesByCode(address[i].province).subscribe( province =>{
+          this.draftAddr[i] = this.draftAddr[i] + ", " + province.name;
+        })
+      }
+    }
+  }
   modalRef?: NgbModalRef;
 
   openModal(){
@@ -122,7 +142,12 @@ export class AboutControlComponent implements OnInit {
       backdropClass: "modal-backdrop"
     });
     this.modalRef.result.then(data => {
-      this.addAddress(1, data);
+      this.address.push(data);
+      this.draftAddress(this.address);
+
+      console.log(data)
+      console.log("address: " + this.address);
+      console.log("draft: " + this.draftAddr);
     })
   }
 }

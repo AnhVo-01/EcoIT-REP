@@ -53,7 +53,13 @@ public class PostController {
 
     @GetMapping("/home/news")
     public List<Post> listAll(){
-        return postRepository.listAllById();
+        return postRepository.getAllByActiveIsTrueOrderByIdDesc();
+    }
+
+    @GetMapping("/home/news/page")
+    public Page<Post> listAll(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo){
+        Pageable pageable = PageRequest.of(pageNo-1, 9);
+        return postRepository.listAllById(pageable);
     }
 
     @GetMapping("/home/news/{url}")

@@ -4,6 +4,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Customer} from "../../modules/customer/customer";
 import {Domain} from "../../core/domain/domain";
+import {TypicalCustomer} from "../../modules/typical/customer/typical-customer";
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +53,19 @@ export class CustomerService {
 
   restoreItem(id: number): Observable<Object>{
     return this.httpClient.get(`${this.baseURL}/${this.domain}/restore/${id}`);
+  }
+
+
+  // TYPICAL CUSTOMER ======================================================================================
+  getTypicalSearch(param: HttpParams): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/typical`, {params: param});
+  }
+
+  getTypicalList(): Observable<TypicalCustomer[]>{
+    return this.httpClient.get<TypicalCustomer[]>(`${this.baseURL}/home/${this.domain}/typical`);
+  }
+
+  newTypical(formData: FormData): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/${this.domain}/typical`, formData);
   }
 }

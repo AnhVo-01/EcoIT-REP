@@ -64,6 +64,10 @@
   margin: 0;
   background: inherit;
 }
+
+.custom-select{
+  width: 80px;
+}
 /*-------------------------------------------------------------*/
 
 .image-list{
@@ -99,10 +103,6 @@
   color: #ababab;
   letter-spacing: 2px;
   border-radius: 5px;
-}
-
-.custom-select{
-  width: 80px;
 }
 
 /*================================= Main Content=====================================*/

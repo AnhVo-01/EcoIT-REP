@@ -1,6 +1,6 @@
 <!-- begin::Create-->
 <div class="custom-modal" >
-  <form>
+  <form (ngSubmit)="save()" ngNativeValidate>
     <div class="error-mess mb-4" *ngIf="submitFail">{{errorMessage}}</div>
     <div class="modal-dialog">
       <div class="modal-content">
@@ -44,13 +44,13 @@
                   <div class="col-lg-8">
                     <div class="contact-inner">
                       <span><strong>Địa chỉ</strong></span>
-                      <input name="address" type="text" [(ngModel)]="address.address">
+                      <input name="address" type="text" [(ngModel)]="address.address" required>
                     </div>
                   </div>
                 </div>
               </div>
               <div id="btn-box ml-3">
-                <button (click)="save()" class="ht-btn ht-btn-md mr-2">
+                <button type="submit" class="ht-btn ht-btn-md mr-2">
                   <i class="fa fa-save"></i>
                   <span class="ml-2">Lưu</span>
                 </button>

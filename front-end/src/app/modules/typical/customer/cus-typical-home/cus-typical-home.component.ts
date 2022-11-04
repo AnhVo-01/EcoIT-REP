@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TypicalCustomer} from "../typical-customer";
+import {CustomerService} from "../../../../services/customer/customer.service";
 
 @Component({
   selector: 'app-cus-typical-home',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CusTypicalHomeComponent implements OnInit {
 
-  constructor() { }
+  customers: TypicalCustomer[] = [];
+  first: any;
+  slideConfig: any
+
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.customerService.getTypicalList().subscribe(data => {
+      this.customers = data;
+      this.first = this.customers[0].image.url;
+    })
+
+    this.slideConfig = {
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      prevArrow: false,
+      nextArrow: false
+    };
   }
 
 }

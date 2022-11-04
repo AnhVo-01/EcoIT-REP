@@ -67,6 +67,8 @@ import { CusTypicalListComponent } from './modules/typical/customer/cus-typical-
 import { CusTypicalAddComponent } from './modules/typical/customer/cus-typical-add/cus-typical-add.component';
 import { CusTypicalControlComponent } from './modules/typical/customer/cus-typical-control/cus-typical-control.component';
 import { CusTypicalHomeComponent } from './modules/typical/customer/cus-typical-home/cus-typical-home.component';
+import {SlickCarouselModule} from "ngx-slick-carousel";
+import {AnimatedDigitComponent} from "../animated/animated-digit.component";
 
 @NgModule({
   declarations: [
@@ -127,7 +129,8 @@ import { CusTypicalHomeComponent } from './modules/typical/customer/cus-typical-
     CusTypicalListComponent,
     CusTypicalAddComponent,
     CusTypicalControlComponent,
-    CusTypicalHomeComponent
+    CusTypicalHomeComponent,
+    AnimatedDigitComponent
   ],
   imports: [
     BrowserModule,
@@ -138,7 +141,8 @@ import { CusTypicalHomeComponent } from './modules/typical/customer/cus-typical-
     NgxPaginationModule,
     CKEditorModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    SlickCarouselModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -17,7 +17,8 @@
               <div class="wdc-counter style-icon icon-top">
                 <h5 class="box-icon"><i class="{{tNum.icon}}"></i></h5>
                 <div class="box-inner">
-                  <div class="counter-number" id="{{tNum.num}}"></div>
+                  <animated-digit [digit]="tNum.num"></animated-digit>
+<!--                  <div class="counter-number" [id]="tNum.num"></div>-->
                   <h6 style="font-size: 20px; font-weight: 600">{{tNum.description}}</h6>
                 </div>
               </div>

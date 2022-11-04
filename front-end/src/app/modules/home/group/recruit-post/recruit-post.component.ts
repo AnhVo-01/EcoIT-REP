@@ -13,11 +13,23 @@ export class RecruitPostComponent implements OnInit {
   news: any;
   recruit: Recruit[] = [];
 
+  slideConfig: any;
+
   constructor(private newsService: PostService, private recruitService: RecruitService) { }
 
   ngOnInit(): void {
     this.getNews();
     this.getRecruit();
+
+    this.slideConfig = {
+      infinite: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      prevArrow: false,
+      nextArrow: false
+    };
   }
 
   private getNews(){

@@ -15,6 +15,10 @@ export class PostService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getNewsHome(param: HttpParams): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/home/${this.domain}/page`, {params: param})
+  }
+
   getNewsList(): Observable<Post[]>{
     return this.httpClient.get<Post[]>(`${this.baseURL}/home/${this.domain}`)
   }

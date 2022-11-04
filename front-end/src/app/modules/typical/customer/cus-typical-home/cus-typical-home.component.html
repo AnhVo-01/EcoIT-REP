@@ -1,1 +1,15 @@
-<p>cus-typical-home works!</p>
+<!--====================  brand logo slider area ====================-->
+<div class="brand-logo-slider-area section-space--pb_60 section-space--pt_60">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ngx-slick-carousel class="carousel"  #slickModal="slick-carousel" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let slide of customers" class="slide">
+            <img width="250" height="200" src="{{slide.image.url}}" class="img-fluid wp-post-image" alt="">
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+<!--====================  End of brand logo slider area  ====================-->

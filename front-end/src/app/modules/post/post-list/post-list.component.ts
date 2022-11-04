@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from "../../../services/post/post.service";
+import {HttpParams} from "@angular/common/http";
 
 @Component({
   selector: 'app-post-list',
@@ -17,6 +18,13 @@ export class PostListComponent implements OnInit {
   }
   url: any;
 
+  totalPages: any;
+  searchField = {
+    pageIndex: 1,
+    pageSize: 9,
+    totalElements: 0
+  }
+
   constructor(private newsService: PostService) { }
 
   ngOnInit(): void {
@@ -28,17 +36,26 @@ export class PostListComponent implements OnInit {
   }
 
   private getNews(){
-    this.newsService.getNewsList().subscribe(data => {
-      this.news = data;
+    const params = new HttpParams().set('pageNo', this.searchField.pageIndex)
+    this.newsService.getNewsHome(params).subscribe(data => {
+      this.news = data.content;
+      this.searchField.totalElements = data.totalElements;
+      this.totalPages = data.totalPages;
+
       this.firstItem.url = this.news[0].url;
       this.firstItem.title = this.news[0].title;
       this.firstItem.image = this.news[0].postImage.url;
       this.firstItem.description = this.news[0].description;
-    })
+    });
 
     // @ts-ignore
     document.getElementById("header").classList.add("bg-dark");
     document.title = "TIN MỚI NHẤT - Công ty cổ phần EcoIT";
+  }
+
+  pageChanged(event: any){
+    this.searchField.pageIndex = event;
+    this.getNews();
   }
 
 }

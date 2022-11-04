@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Constant} from "../../core/config/constant";
 import {Address} from "../../modules/address/address";
@@ -10,6 +10,13 @@ import {Address} from "../../modules/address/address";
 export class AddressService {
 
   private baseURL = `${Constant.BASE_URL}/address`;
+
+  private headers = new HttpHeaders()
+    .append('Access-Control-Allow-Origin', '*')
+    .append('Access-Control-Allow-Methods', 'DELETE, POST, GET, OPTIONS')
+    .append('Access-Control-Allow-Credentials', 'true')
+    .append('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+
 
   constructor(private httpClient: HttpClient) { }
 

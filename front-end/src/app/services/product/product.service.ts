@@ -27,7 +27,7 @@ export class ProductService {
   }
 
   getProductByUrl(url: string): Observable<Product>{
-    return this.httpClient.get<Product>(`${this.baseURL}/${this.domain}/${url}`);
+    return this.httpClient.get<Product>(`${this.baseURL}/home/${this.domain}/${url}`);
   }
 
   addNewProduct(newProduct: FormData): Observable<Object>{
