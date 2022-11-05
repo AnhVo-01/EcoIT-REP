@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../../post/post";
+import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {AboutService} from "../../../services/about/about.service";
-import {About} from "../../about/about";
+import {About} from "../../../core/model/about/about";
 import {AddressService} from "../../../services/address/address.service";
 
 @Component({

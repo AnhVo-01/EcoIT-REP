@@ -45,7 +45,7 @@ public class FileService {
         imageRepository.findById(image.getId()).map(
                 image1 -> {
                     image1.setPathFile(null);
-                    image1.setUrl(null);
+                    image1.setPathUrl(null);
                     image1.setType(null);
                     image1.setName(null);
                     return imageRepository.save(image1);
@@ -101,7 +101,7 @@ public class FileService {
         bannerRepository.findById(banner.getId()).map(
                 image1 -> {
                     image1.setPathFile(null);
-                    image1.setUrl(null);
+                    image1.setPathUrl(null);
                     image1.setType(null);
                     image1.setName(null);
                     return bannerRepository.save(image1);

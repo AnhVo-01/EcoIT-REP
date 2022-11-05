@@ -10,12 +10,16 @@
   <div class="container-fluid d-flex align-items-center">
     <div class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
       <!--begin::Title-->
-      <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Kho ảnh
+      <h6 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">
+        <a routerLink="../" routerLinkActive="active">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <span>Kho ảnh</span>
         <!--begin::Separator-->
         <span class="h-20px border-gray-200 border-start ms-3 mx-2">/</span>
         <!--end::Separator-->
         <!--begin::Description-->
-        <a routerLink="../typical/image" routerLinkActive="active">
+        <a routerLink="/admin/typical/image" routerLinkActive="active">
           <small class="text-muted fs-7 fw-semibold my-1 ms-1">Ảnh hoạt động</small>
         </a>
         <!--end::Description-->
@@ -63,7 +67,7 @@
                 <div class="faq-wrapper" *ngFor="let img of images">
                   <div class="card">
                     <div class="product-thumb-image" (click)="choose($event)">
-                      <img class="img-fluid" src="{{img.url}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing>
+                      <img class="img-fluid" src="{{img.pathUrl}}" alt="{{img.name}}" id="{{img.id}}" appHideMissing>
                     </div>
                   </div>
                 </div>

@@ -120,7 +120,7 @@ public class CustomerController {
             Banner banner = fileService.uploadBanner(file);
             bannerRepository.saveById(
                     banner.getName(),
-                    banner.getUrl(),
+                    banner.getPathUrl(),
                     banner.getPathFile(),
                     banner.getType(),
                     customer.getThumb().getId()

@@ -23,6 +23,5 @@ public class Sliders {
 
     private String type;
 
-    @Column(length = 1)
-    private int active;
+    private boolean active;
 }

@@ -64,7 +64,7 @@ export class GalleryControlComponent implements OnInit {
   }
 
   choose(e: any){
-    this.target.url = e.image.url;
+    this.target.url = e.image.pathUrl;
     this.target.name = e.image.name;
     this.target.id = e.id;
     this.target.active = e.active;

@@ -31,7 +31,7 @@
 
                 <ng-container *ngFor="let blog of blogs; let i = index">
                   <div *ngIf="i > 0 && i < 3" class="carousel-item" id="{{blog.id}}">
-                    <img src="{{blog.thumb.url}}" alt="">
+                    <img src="{{blog.thumb.pathUrl}}" alt="">
                   </div>
                 </ng-container>
               </div>
@@ -72,7 +72,7 @@
             <!-- Post Feature Start -->
             <div class="post-feature blog-thumbnail">
               <a routerLink="/tin-tuc/{{blog.link}}" routerLinkActive="active">
-                <img class="img-fluid" src="{{blog.thumb.url}}" alt="Blog Images" appHideMissing>
+                <img class="img-fluid" src="{{blog.thumb.pathUrl}}" alt="Blog Images" appHideMissing>
               </a>
             </div>
             <!-- Post Feature End -->

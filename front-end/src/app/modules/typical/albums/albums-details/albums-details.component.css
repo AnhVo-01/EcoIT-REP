@@ -54,7 +54,7 @@
 .product-thumb-image img{
   height: 100%;
   padding: 5px 0;
-  object-fit: fill;
+  object-fit: contain;
 }
 
 /*---------------------------------------------------------------*/

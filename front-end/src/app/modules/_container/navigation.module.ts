@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {NavControlComponent} from "./nav-control/nav-control.component";
+import {NavControlComponent} from "../navigator/nav-control/nav-control.component";
 
 const routes: Routes = [
   {path: '', title: 'Admin - Điều hướng', component: NavControlComponent}

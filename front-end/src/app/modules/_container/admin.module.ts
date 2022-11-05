@@ -4,9 +4,10 @@ import {RouterModule, Routes} from "@angular/router";
 import {AdminComponent} from "../admin/admin/admin.component";
 import {DashBoardComponent} from "../admin/dash-board/dash-board.component";
 import {AboutControlComponent} from "../about/about-control/about-control.component";
-import {GalleryListComponent} from "../typical/gallery/gallery-list/gallery-list.component";
 import {UserControlComponent} from "../user/user-control/user-control.component";
 import {HistoryListComponent} from "../admin/history/history-list/history-list.component";
+import {AlbumsComponent} from "../typical/albums/albums/albums.component";
+import {BannerControlComponent} from "../banner/banner-control/banner-control.component";
 
 const routes: Routes = [
   {path: '', title: 'Admin - EcoIT', component: AdminComponent,
@@ -38,14 +39,18 @@ const routes: Routes = [
         loadChildren: () => import('./slider.module').then(m => m.SliderModule)
       },
 
+      {path: 'banner', component: BannerControlComponent},
+
       {path: 'typical',
         loadChildren: () => import('./typical.module').then(m => m.TypicalModule)
       },
 
-      {path: 'gallery', title: 'Admin - Kho ảnh', component: GalleryListComponent},
+      {path: 'albums', title: 'Admin - Kho ảnh',
+        loadChildren: () => import('./albums.module').then(m => m.AlbumsModule)
+      },
 
       {path: 'navigation', title: 'Admin - Điều hướng',
-        loadChildren: () => import('../navigator/navigation.module').then(m => m.NavigationModule)},
+        loadChildren: () => import('./navigation.module').then(m => m.NavigationModule)},
 
       {path: 'user', title: 'Admin - Tài khoản', component: UserControlComponent},
 

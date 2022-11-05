@@ -93,7 +93,7 @@ public class ProductController {
             Image image = fileService.uploadOneImage(file);
             imageRepository.saveById(
                     image.getName(),
-                    image.getUrl(),
+                    image.getPathUrl(),
                     image.getPathFile(),
                     image.getType(),
                     product.getThumb().getId()

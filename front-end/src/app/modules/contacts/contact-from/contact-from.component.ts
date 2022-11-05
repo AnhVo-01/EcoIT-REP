@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {About} from "../../about/about";
+import {About} from "../../../core/model/about/about";
 import {AboutService} from "../../../services/about/about.service";
 import {AddressService} from "../../../services/address/address.service";
-import {Address} from "../../address/address";
+import {Address} from "../../../core/model/address/address";
 
 @Component({
   selector: 'app-contact-from',

@@ -15,6 +15,7 @@ import {CustomerDetailsComponent} from "./modules/customer/customer-details/cust
 import {BlogListComponent} from "./modules/blog/blog-list/blog-list.component";
 import {ContactFromComponent} from "./modules/contacts/contact-from/contact-from.component";
 import {AuthenticateService} from "./authentication/authenticate.service";
+import {CusTypicalListComponent} from "./modules/typical/customer/cus-typical-list/cus-typical-list.component";
 
 const routes: Routes = [
   {path: 'trang-chu', component: HomeComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'san-pham/:url', component: ProductDetailsComponent},
   {path: 've-chung-toi', component: AboutDetailsComponent},
   {path: 'khach-hang/:url', component: CustomerDetailsComponent},
+  {path: 'khach-hang-tieu-bieu', component: CusTypicalListComponent},
   {path: 'blog', component: BlogListComponent},
   {path: 'lien-he', component: ContactFromComponent},
 

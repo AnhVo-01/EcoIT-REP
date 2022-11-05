@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Recruit} from "../recruit";
+import {Recruit} from "../../../core/model/recruit/recruit";
 import {RecruitService} from "../../../services/recruit/recruit.service";
 import {ActivatedRoute} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";

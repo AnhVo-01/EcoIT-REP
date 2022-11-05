@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Recruit} from "../recruit";
+import {Recruit} from "../../../core/model/recruit/recruit";
 import {RecruitService} from "../../../services/recruit/recruit.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -45,7 +45,7 @@ export class RecruitAddComponent implements OnInit {
   getRecruitById(id: any) {
     this.recruitService.getById(id).subscribe(data => {
       this.recruit = data;
-      this.url = this.recruit.thumb.url;
+      this.url = this.recruit.thumb.pathUrl;
     });
   }
 

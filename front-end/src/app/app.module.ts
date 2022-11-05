@@ -54,7 +54,6 @@ import { BlogControlComponent } from './modules/blog/blog-control/blog-control.c
 import { BlogAddComponent } from './modules/blog/blog-add/blog-add.component';
 import { NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { GalleryAddComponent } from './modules/typical/gallery/gallery-add/gallery-add.component';
-import { GalleryListComponent } from './modules/typical/gallery/gallery-list/gallery-list.component';
 import { AboutAddressComponent } from './modules/about/about-address/about-address.component';
 import { ContactFromComponent } from './modules/contacts/contact-from/contact-from.component';
 import {authInterceptorProviders} from "./authentication/helper/auth.interceptor";
@@ -69,6 +68,10 @@ import { CusTypicalControlComponent } from './modules/typical/customer/cus-typic
 import { CusTypicalHomeComponent } from './modules/typical/customer/cus-typical-home/cus-typical-home.component';
 import {SlickCarouselModule} from "ngx-slick-carousel";
 import {AnimatedDigitComponent} from "../animated/animated-digit.component";
+import { AlbumsComponent } from './modules/typical/albums/albums/albums.component';
+import { AlbumsDetailsComponent } from './modules/typical/albums/albums-details/albums-details.component';
+import { BannerControlComponent } from './modules/banner/banner-control/banner-control.component';
+import { BannerAddComponent } from './modules/banner/banner-add/banner-add.component';
 
 @NgModule({
   declarations: [
@@ -118,7 +121,6 @@ import {AnimatedDigitComponent} from "../animated/animated-digit.component";
     SliderControlComponent,
     SliderListComponent,
     GalleryAddComponent,
-    GalleryListComponent,
     AboutAddressComponent,
     ContactFromComponent,
     ToastContainerComponent,
@@ -130,7 +132,11 @@ import {AnimatedDigitComponent} from "../animated/animated-digit.component";
     CusTypicalAddComponent,
     CusTypicalControlComponent,
     CusTypicalHomeComponent,
-    AnimatedDigitComponent
+    AnimatedDigitComponent,
+    AlbumsComponent,
+    AlbumsDetailsComponent,
+    BannerControlComponent,
+    BannerAddComponent
   ],
   imports: [
     BrowserModule,

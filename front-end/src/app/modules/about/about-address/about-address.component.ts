@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AddressService} from "../../../services/address/address.service";
-import {Address} from "../../address/address";
+import {Address} from "../../../core/model/address/address";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
@@ -50,7 +50,7 @@ export class AboutAddressComponent implements OnInit {
   }
 
   closeModal(){
-    this.modalService.dismiss();
+    this.modalService.close();
   }
 
 }

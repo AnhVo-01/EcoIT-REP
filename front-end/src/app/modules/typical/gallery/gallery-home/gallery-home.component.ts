@@ -21,7 +21,7 @@ export class GalleryHomeComponent implements OnInit {
   ngOnInit(): void {
     this.galleryService.getAll().subscribe(data => {
       this.galleries = data;
-      this.firstImage.url = this.galleries[0].image.url;
+      this.firstImage.url = this.galleries[0].image.pathUrl;
     })
   }
 

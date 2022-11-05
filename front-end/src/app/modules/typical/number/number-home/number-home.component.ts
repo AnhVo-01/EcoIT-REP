@@ -16,7 +16,6 @@ export class NumberHomeComponent implements OnInit {
   ngOnInit(): void {
     this.numberService.getAllNumber().subscribe( data => {
       this.numbers = data;
-      console.log(data)
     })
   }
 }

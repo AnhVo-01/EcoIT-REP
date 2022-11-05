@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Navigator} from "../navigator";
+import {Navigator} from "../../../core/model/navigator/navigator";
 import {NavigationService} from "../../../services/navigation/navigation.service";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
@@ -15,9 +15,7 @@ export class NavAddComponent implements OnInit {
   group: any;
   isChild = false;
   nav: Navigator = new Navigator();
-  navList: Navigator[] = [];
   navGroup: Navigator[] = [];
-  navChild: Navigator[] = [];
 
   constructor(private navService: NavigationService,
               private route: ActivatedRoute,
@@ -27,7 +25,6 @@ export class NavAddComponent implements OnInit {
     this.id = window.sessionStorage.getItem("navId");
     if(this.id){
       this.getNavById(this.id);
-      // this.getAllNavChild(this.id);
     }else{
       this.group = window.sessionStorage.getItem("navGroup");
 
@@ -50,12 +47,6 @@ export class NavAddComponent implements OnInit {
     });
   }
 
-  // getAllNavChild(id: number){
-  //   this.navService.getNavChild(id).subscribe(data => {
-  //     this.navChild = data;
-  //   })
-  // }
-
   getAllNavGroup(){
     this.navService.getNavGroup().subscribe(data => {
       this.navGroup = data;
@@ -64,7 +55,7 @@ export class NavAddComponent implements OnInit {
 
   addNavigation(){
     this.navService.addNewNav(this.nav).subscribe(data =>{
-      this.goToNavList();
+      this.modalService.close(true)
     })
   }
 
@@ -75,23 +66,13 @@ export class NavAddComponent implements OnInit {
   }
 
   onSubmit(){
-    // if(this.id){
-    //   this.navService.updateNav(this.id, this.nav).subscribe(data =>{
-    //     this.goToNavList();
-    //     this.modalService.close(true)
-    //   })
-    // }else{
-    //   this.addNavigation();
-    // }
-    this.modalService.close(true)
-  }
-
-
-  goToNavList(){
-    this.navService.getNavList().subscribe(data => {
-      this.navList = data;
-    })
-    this.modalService.dismiss();
+    if(this.id){
+      this.navService.updateNav(this.id, this.nav).subscribe(data =>{
+        this.modalService.close(true)
+      })
+    }else{
+      this.addNavigation();
+    }
   }
 
   closeModal(){

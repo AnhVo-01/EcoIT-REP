@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Customer} from "../customer";
+import {Customer} from "../../../core/model/customer/customer";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CustomerService} from "../../../services/customer/customer.service";
-import {Product} from "../../product/product";
+import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
 
 @Component({
@@ -39,7 +39,7 @@ export class CustomerAddComponent implements OnInit {
   getCustomById(id: number) {
     this.cusService.getCusById(id).subscribe(data => {
       this.customer = data;
-      this.image = this.customer.thumb.url;
+      this.image = this.customer.thumb.pathUrl;
       this.getProductUpdate(this.customer);
     });
   }

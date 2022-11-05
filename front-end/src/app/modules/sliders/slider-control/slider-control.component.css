@@ -38,43 +38,11 @@
   border-top: 1px solid #eff2f5;
 }
 
-.image-list{
-  width: 170px;
-  height: 100px;
-}
-.image-list img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .btn-box .ht-btn-custom{
   height: 100px;
   width: 50px;
   color: #fff;
   background: #0C9DBF;
-}
-
-.faq-wrapper .card-header h5 button{
-  border-radius: 0;
-}
-
-.page-dis{
-  font-weight: 500;
-  padding: 0 10px;
-  display: block;
-  text-align: center;
-  line-height: 41px;
-  min-width: 41px;
-  height: 41px;
-  text-transform: uppercase;
-  color: #ababab;
-  letter-spacing: 2px;
-  border-radius: 5px;
-}
-
-.custom-select{
-  width: 80px;
 }
 
 /*================================= Main Content=====================================*/
@@ -87,15 +55,44 @@
   height: 100%;
   object-fit: fill;
 }
-.ht-team-member--inner{
-  width: 160px;
-  max-height: 90px;
-  height: auto;
-  padding: 5px;
+.team-image{
   cursor: pointer;
+  background: #fff;
+  border-radius: 3px;
+  margin: 0 5px;
 }
-.ht-team-member--inner img{
+.team-image img{
+  padding: 3px;
+}
+
+
+.select-content-box{
+  padding: 20px;
+}
+.select-content-item{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px dotted #000;
+}
+.select-content-item span:first-child{
+  width: 80px;
+  white-space: nowrap;
+}
+
+.action-box{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+.action-box .btn{
   width: 100%;
-  height: 100%;
-  object-fit: fill;
+}
+
+.image-url{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 4px;
 }

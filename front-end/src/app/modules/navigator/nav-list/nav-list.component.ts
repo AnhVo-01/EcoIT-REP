@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Navigator} from "../navigator";
-import {About} from "../../about/about";
+import {Navigator} from "../../../core/model/navigator/navigator";
+import {About} from "../../../core/model/about/about";
 import {AboutService} from "../../../services/about/about.service";
 import {NavigationService} from "../../../services/navigation/navigation.service";
 

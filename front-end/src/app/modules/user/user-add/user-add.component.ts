@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../services/user/user.service";
-import {User} from "../user";
+import {User} from "../../../core/model/user/user";
 import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({

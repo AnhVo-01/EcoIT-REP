@@ -44,7 +44,7 @@ export class PostListComponent implements OnInit {
 
       this.firstItem.url = this.news[0].url;
       this.firstItem.title = this.news[0].title;
-      this.firstItem.image = this.news[0].postImage.url;
+      this.firstItem.image = this.news[0].postImage.pathUrl;
       this.firstItem.description = this.news[0].description;
     });
 

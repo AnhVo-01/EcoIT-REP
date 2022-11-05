@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {About} from "../about";
+import {About} from "../../../core/model/about/about";
 import {AboutService} from "../../../services/about/about.service";
 import {DomSanitizer} from "@angular/platform-browser";
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpParams} from "@angular/common/http";
-import {Navigator} from "../navigator";
+import {Navigator} from "../../../core/model/navigator/navigator";
 import {Router} from "@angular/router";
 import {NavigationService} from "../../../services/navigation/navigation.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
@@ -124,7 +124,11 @@ export class NavControlComponent implements OnInit {
       animation: true,
       backdropClass: "modal-backdrop"
     });
-
+    this.modalRef.result.then(item => {
+      if(item){
+        this.getAllNavGroup();
+      }
+    })
     window.sessionStorage.setItem("navId", id)
   }
 }

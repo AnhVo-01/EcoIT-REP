@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -25,15 +26,17 @@ public class SlidersController {
     private SlidersRepository slidersRepository;
 
     @Autowired
-    private ImageRepository imageRepository;
-
-    @Autowired
     private FileService fileService;
 
 
     @GetMapping("/home/sliders")
+    public List<Sliders> home(){
+        return slidersRepository.getAllByActiveIsTrue();
+    }
+
+    @GetMapping("/sliders")
     public List<Sliders> listAll(){
-        return slidersRepository.getAll();
+        return slidersRepository.findAll();
     }
 
     @GetMapping("/sliders/{id}")
@@ -51,9 +54,9 @@ public class SlidersController {
 
             sliders.setName(image.getName());
             sliders.setType(image.getType());
-            sliders.setPathUrl(image.getUrl());
+            sliders.setPathUrl(image.getPathUrl());
             sliders.setPathFile(image.getPathFile());
-            sliders.setActive(1);
+            sliders.setActive(true);
 
             return ResponseEntity.ok(slidersRepository.save(sliders));
         }else{
@@ -63,13 +66,22 @@ public class SlidersController {
     }
 
     @PostMapping(value = "/sliders/{id}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<?> edit(@PathVariable("id") Long id, @RequestPart("sliders") Sliders sliders,
+    public ResponseEntity<?> edit(@PathVariable("id") Long id,
                                   @RequestPart(value = "cover", required = false) MultipartFile file) throws IOException {
 
-        Sliders sliders1 = slidersRepository.findById(id).get();
-        sliders1.setActive(sliders.getActive());
+        Sliders sliders = slidersRepository.findById(id).get();
 
         if(file != null){
+            slidersRepository.findById(id).map(
+                    sliders1 -> {
+                        sliders1.setPathFile(null);
+                        sliders1.setPathUrl(null);
+                        sliders1.setType(null);
+                        sliders1.setName(null);
+                        return slidersRepository.save(sliders1);
+                    }
+            );
+
             Files.list(Paths.get(sliders.getPathFile())).forEach(file1->{
                 if(file1.getFileName().toString().startsWith(sliders.getName())){
                     try{
@@ -82,46 +94,13 @@ public class SlidersController {
 
             Image image = fileService.uploadOneImage(file);
 
-            sliders1.setName(image.getName());
-            sliders1.setType(image.getType());
-            sliders1.setPathUrl(image.getUrl());
-            sliders1.setPathFile(image.getPathFile());
-        }else{
-            sliders1.setName(sliders.getName());
-            sliders1.setType(sliders.getType());
-            sliders1.setPathUrl(sliders.getUrl());
-            sliders1.setPathFile(sliders.getPathFile());
-        }
-        return ResponseEntity.ok(slidersRepository.save(sliders1));
-    }
+            Sliders newSliders = new Sliders();
 
-    @GetMapping("/sliders/delete/{id}")
-    public Sliders delete(@PathVariable Long id){
-        Sliders sliders = slidersRepository.findById(id).get();
-        sliders.setActive(0);
-        return slidersRepository.save(sliders);
-    }
-
-
-//    ========================================================================================================
-
-    @GetMapping("/tCustomer")
-    public List<Sliders> listAllCus(){
-        return slidersRepository.getAll();
-    }
-
-    @PostMapping(value = "/tCustomer", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseEntity<?> addTypicalCus(@RequestPart(value = "image") MultipartFile file) throws IOException {
-        if(file != null){
-            Image image = fileService.uploadOneImage(file);
-
-            Sliders sliders = new Sliders();
-
-            sliders.setName(image.getName());
-            sliders.setType(image.getType());
-            sliders.setPathUrl(image.getUrl());
-            sliders.setPathFile(image.getPathFile());
-            sliders.setActive(5);
+            newSliders.setName(image.getName());
+            newSliders.setType(image.getType());
+            newSliders.setPathUrl(image.getPathUrl());
+            newSliders.setPathFile(image.getPathFile());
+            newSliders.setActive(true);
 
             return ResponseEntity.ok(slidersRepository.save(sliders));
         }else{
@@ -130,10 +109,17 @@ public class SlidersController {
         }
     }
 
-    @GetMapping("/tCustomer/delete/{id}")
-    public Sliders deleteCus(@PathVariable Long id){
+    @GetMapping("/sliders/hide/{id}")
+    public Sliders hide(@PathVariable Long id){
         Sliders sliders = slidersRepository.findById(id).get();
-        sliders.setActive(0);
+        sliders.setActive(false);
+        return slidersRepository.save(sliders);
+    }
+
+    @GetMapping("/sliders/show/{id}")
+    public Sliders show(@PathVariable Long id){
+        Sliders sliders = slidersRepository.findById(id).get();
+        sliders.setActive(true);
         return slidersRepository.save(sliders);
     }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from "../../../../services/post/post.service";
 import {RecruitService} from "../../../../services/recruit/recruit.service";
-import {Recruit} from "../../../recruit/recruit";
+import {Recruit} from "../../../../core/model/recruit/recruit";
 
 @Component({
   selector: 'app-recruit-post',

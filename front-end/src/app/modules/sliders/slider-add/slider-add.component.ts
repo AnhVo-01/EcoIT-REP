@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Sliders} from "../sliders";
+import {Sliders} from "../../../core/model/sliders/sliders";
 import {SliderService} from "../../../services/slider/slider.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -11,10 +11,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class SliderAddComponent implements OnInit {
 
   id: any;
-  sliders: Sliders = new Sliders();
+  slider: Sliders = new Sliders();
   url: any;
   isUpdate= false;
   fileToUpload:string [] = [];
+  action = "";
 
   constructor(private sliderService: SliderService,
               private router: Router,
@@ -25,13 +26,16 @@ export class SliderAddComponent implements OnInit {
     if(this.id){
       this.isUpdate = true;
       this.getById(this.id);
+      this.action = "Chỉnh sửa";
+    }else{
+      this.action = "Thêm mới";
     }
   }
 
   getById(id: any) {
     this.sliderService.getById(id).subscribe(data => {
-      this.sliders = data;
-      this.url = this.sliders.pathUrl;
+      this.slider = data;
+      this.url = this.slider.pathUrl;
     });
   }
 
@@ -47,7 +51,7 @@ export class SliderAddComponent implements OnInit {
   }
 
   updateSlider(id: any){
-    const productFormData = this.prepareFormData(this.sliders);
+    const productFormData = this.prepareFormData(this.slider);
     this.sliderService.update(id, productFormData).subscribe(data =>{
       this.goToSliderList();
     });

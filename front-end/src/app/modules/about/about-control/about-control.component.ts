@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {About} from "../about";
+import {About} from "../../../core/model/about/about";
 import {AboutService} from "../../../services/about/about.service";
 import {AddressService} from "../../../services/address/address.service";
-import {Address} from "../../address/address";
+import {Address} from "../../../core/model/address/address";
 import {AboutAddressComponent} from "../about-address/about-address.component";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
@@ -142,12 +142,10 @@ export class AboutControlComponent implements OnInit {
       backdropClass: "modal-backdrop"
     });
     this.modalRef.result.then(data => {
-      this.address.push(data);
-      this.draftAddress(this.address);
-
-      console.log(data)
-      console.log("address: " + this.address);
-      console.log("draft: " + this.draftAddr);
+      if (data){
+        this.address.push(data);
+        this.draftAddress(this.address);
+      }
     })
   }
 }

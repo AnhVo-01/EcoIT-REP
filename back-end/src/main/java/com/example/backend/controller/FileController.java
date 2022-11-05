@@ -37,7 +37,7 @@ public class FileController {
 
     @PostMapping("/downloadFile")
     public ResponseEntity<?> downloadFile(@RequestBody Image image) throws IOException {
-        InputStreamResource in = new InputStreamResource(new URL(image.getUrl()).openStream());
+        InputStreamResource in = new InputStreamResource(new URL(image.getPathUrl()).openStream());
         String contentType = image.getType();
         String headerValue = "attachment;file=\"" + in.getFilename() +"\"";
         return ResponseEntity.ok().contentType( MediaType.parseMediaType(contentType)).header(HttpHeaders.CONTENT_DISPOSITION,headerValue).body(in);
@@ -45,7 +45,7 @@ public class FileController {
 
 
     @PostMapping("/deleteFile")
-    public ResponseEntity<?>deleteFile(@RequestBody Image image) throws IOException{
+    public ResponseEntity<?>deleteFile(@RequestBody Image image){
         try{
             this.fileService.deleteFile(image);
             return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse("Deleted the file successfully: "+image.getName()));

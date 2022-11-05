@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Constant} from "../../core/config/constant";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Blog} from "../../modules/blog/blog";
+import {Blog} from "../../core/model/blog/blog";
 import {Domain} from "../../core/domain/domain";
 
 @Injectable({

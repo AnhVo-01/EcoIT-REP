@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpParams} from "@angular/common/http";
 import {File} from "../../../../services/file/file";
 import {FileService} from "../../../../services/file/file.service";
-import * as fileSaver from "file-saver";
-import {HttpParams} from "@angular/common/http";
 import {GalleryService} from "../../../../services/gallery/gallery.service";
+import * as fileSaver from "file-saver";
+import {ActivatedRoute} from "@angular/router";
+import {SliderService} from "../../../../services/slider/slider.service";
 
 @Component({
-  selector: 'app-gallery-list',
-  templateUrl: './gallery-list.component.html',
-  styleUrls: ['./gallery-list.component.css']
+  selector: 'app-albums-details',
+  templateUrl: './albums-details.component.html',
+  styleUrls: ['./albums-details.component.css']
 })
-export class GalleryListComponent implements OnInit {
+export class AlbumsDetailsComponent implements OnInit {
 
+  url: any;
   images: File[] = [];
   target = {
     url: '',
@@ -32,10 +35,21 @@ export class GalleryListComponent implements OnInit {
   addSuccess = false;
   Message = null;
 
-  constructor(private imageService: FileService ,private galleryService: GalleryService) { }
+  constructor(private imageService: FileService ,private galleryService: GalleryService,
+              private sliderService: SliderService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.listAllImages();
+    if (this.images.length > 0){
+      this.images = [];
+    }
+
+    this.url = this.route.snapshot.params['url'];
+    switch (this.url){
+      case 'image': this.listAllImages(); break;
+      case 'slider':
+        this.listAllSlider();
+        break;
+    }
   }
 
   getBySearch(){
@@ -63,10 +77,19 @@ export class GalleryListComponent implements OnInit {
   listAllImages(){
     this.imageService.getAllImage().subscribe(data =>{
       this.images = data;
-      this.target.url = this.images[0].url;
+      this.target.url = this.images[0].pathUrl;
       this.target.name = this.images[0].name;
       this.target.target = this.images[0].target;
     })
+  }
+
+  listAllSlider(){
+    this.sliderService.getListAll().subscribe(data => {
+      this.images = data;
+      this.target.url = this.images[0].pathUrl;
+      this.target.name = this.images[0].name;
+      this.target.target = this.images[0].target;
+    });
   }
 
   choose(e: any){

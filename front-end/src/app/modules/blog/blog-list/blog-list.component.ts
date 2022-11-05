@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Blog} from "../blog";
+import {Blog} from "../../../core/model/blog/blog";
 import {BlogService} from "../../../services/blog/blog.service";
 
 @Component({
@@ -33,7 +33,7 @@ export class BlogListComponent implements OnInit {
       this.blogs = data;
       this.firstItem.url = this.blogs[0].link;
       this.firstItem.title = this.blogs[0].title;
-      this.firstItem.image = this.blogs[0].thumb.url;
+      this.firstItem.image = this.blogs[0].thumb.pathUrl;
       this.firstItem.description = this.blogs[0].description;
     })
 

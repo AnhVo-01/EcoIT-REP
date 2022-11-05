@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Constant} from "../../core/config/constant";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Customer} from "../../modules/customer/customer";
+import {Customer} from "../../core/model/customer/customer";
 import {Domain} from "../../core/domain/domain";
 import {TypicalCustomer} from "../../modules/typical/customer/typical-customer";
 

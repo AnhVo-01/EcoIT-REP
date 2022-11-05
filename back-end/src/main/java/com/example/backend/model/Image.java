@@ -20,13 +20,13 @@ public class Image {
     private String pathFile;
 
     @Column(name = "path_url")
-    private String url;
+    private String pathUrl;
 
     private String type;
 
     public Image(String name, String url, String pathFile, String type) {
         this.name = name;
-        this.url = url;
+        this.pathUrl = url;
         this.pathFile = pathFile;
         this.type = type;
     }

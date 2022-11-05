@@ -104,7 +104,7 @@ public class BlogController {
             Image image = fileService.uploadOneImage(file);
             imageRepository.saveById(
                     image.getName(),
-                    image.getUrl(),
+                    image.getPathUrl(),
                     image.getPathFile(),
                     image.getType(),
                     blog.getThumb().getId()

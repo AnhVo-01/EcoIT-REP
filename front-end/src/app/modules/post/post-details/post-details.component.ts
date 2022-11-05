@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../post";
+import {Post} from "../../../core/model/post/post";
 import {ActivatedRoute} from "@angular/router";
 import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 import {PostService} from "../../../services/post/post.service";

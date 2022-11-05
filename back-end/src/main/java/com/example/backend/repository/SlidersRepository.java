@@ -8,9 +8,5 @@ import java.util.List;
 
 public interface SlidersRepository extends JpaRepository<Sliders, Long> {
 
-    @Query("SELECT s FROM Sliders s WHERE s.active = 1")
-    List<Sliders> getAll();
-
-    @Query("SELECT s FROM Sliders s WHERE s.active = 5")
-    List<Sliders> getAllTypicalCus();
+    List<Sliders> getAllByActiveIsTrue();
 }

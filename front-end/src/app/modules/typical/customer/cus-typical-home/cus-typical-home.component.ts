@@ -10,7 +10,6 @@ import {CustomerService} from "../../../../services/customer/customer.service";
 export class CusTypicalHomeComponent implements OnInit {
 
   customers: TypicalCustomer[] = [];
-  first: any;
   slideConfig: any
 
   constructor(private customerService: CustomerService) { }
@@ -18,7 +17,6 @@ export class CusTypicalHomeComponent implements OnInit {
   ngOnInit(): void {
     this.customerService.getTypicalList().subscribe(data => {
       this.customers = data;
-      this.first = this.customers[0].image.url;
     })
 
     this.slideConfig = {

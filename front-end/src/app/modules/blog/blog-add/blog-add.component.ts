@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Blog} from "../blog";
+import {Blog} from "../../../core/model/blog/blog";
 import {BlogService} from "../../../services/blog/blog.service";
 
 @Component({
@@ -26,7 +26,7 @@ export class BlogAddComponent implements OnInit {
     if(this.id){
       this.blogService.getBlogById(this.id).subscribe(data =>{
         this.blog = data;
-        this.url = this.blog.thumb.url;
+        this.url = this.blog.thumb.pathUrl;
       });
     }
 

@@ -19,6 +19,6 @@ public interface NavRepository extends JpaRepository<Navigation, Long> {
     @Query("SELECT n FROM Navigation n WHERE n.active = true AND n.parentId IS NULL ORDER BY n.id ASC")
     List<Navigation> getAll();
 
-    @Query("SELECT nav FROM Navigation nav WHERE nav.active = true AND nav.parentId=:id")
+    @Query("SELECT nav FROM Navigation nav WHERE nav.active = true AND nav.parentId=:id ORDER BY nav.id ASC")
     List<Navigation> getChild(@Param("id") Long id);
 }

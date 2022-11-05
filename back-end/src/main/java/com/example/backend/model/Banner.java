@@ -14,8 +14,6 @@ public class Banner {
     @Column(name = "banner_id")
     private Long id;
 
-    private String url;
-
     private String name;
 
     private String pathFile;
@@ -25,11 +23,13 @@ public class Banner {
 
     private String type;
 
+    private String target;
+
     private boolean active;
 
     public Banner(String name, String url, String pathFile, String type, boolean active) {
         this.name = name;
-        this.url = url;
+        this.pathUrl = url;
         this.pathFile = pathFile;
         this.type = type;
         this.active = active;

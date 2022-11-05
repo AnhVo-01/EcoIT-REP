@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpParams} from "@angular/common/http";
 import {UserService} from "../../../services/user/user.service";
-import {User} from "../user";
+import {User} from "../../../core/model/user/user";
 import {NavAddComponent} from "../../navigator/nav-add/nav-add.component";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap/modal/modal-ref";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";

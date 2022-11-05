@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Post} from "../post";
+import {Post} from "../../../core/model/post/post";
 import {PostService} from "../../../services/post/post.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -24,7 +24,7 @@ export class PostAddComponent implements OnInit {
     if(this.id){
       this.newsService.getNewsById(this.id).subscribe(data =>{
         this.news = data;
-        this.url = this.news.postImage.url;
+        this.url = this.news.postImage.pathUrl;
       });
     }
 

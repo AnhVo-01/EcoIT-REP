@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from "../product";
+import {Product} from "../../../core/model/product/product";
 import {ProductService} from "../../../services/product/product.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -42,7 +42,7 @@ export class ProductAddComponent implements OnInit {
   getProductById(id: any) {
     this.productService.getProductById(id).subscribe(data => {
       this.product = data;
-      this.url = this.product.thumb.url;
+      this.url = this.product.thumb.pathUrl;
     });
   }
 

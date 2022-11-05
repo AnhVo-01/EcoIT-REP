@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Constant} from "../../core/config/constant";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Sliders} from "../../modules/sliders/sliders";
+import {Sliders} from "../../core/model/sliders/sliders";
 import {Domain} from "../../core/domain/domain";
 
 @Injectable({
@@ -14,8 +14,12 @@ export class SliderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getListAll(): Observable<Sliders[]>{
-    return this.httpClient.get<Sliders[]>(`${this.baseURL}/home/${this.domain}`);
+  getListAll(): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/home/${this.domain}`);
+  }
+
+  getSliders(): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/${this.domain}`);
   }
 
   addNew(slider: FormData): Observable<Object>{
@@ -31,7 +35,11 @@ export class SliderService {
   }
 
   hideSlider(id: number): Observable<Object>{
-    return this.httpClient.get(`${this.baseURL}/${this.domain}/delete/${id}`);
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/hide/${id}`);
+  }
+
+  showSlider(id: number): Observable<Object>{
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/show/${id}`);
   }
 
   removeCustomer(id: number): Observable<Object>{
