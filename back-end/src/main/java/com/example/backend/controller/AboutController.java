@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -37,6 +38,16 @@ public class AboutController {
                 addressRepository.save(address1);
                 addresses.add(address1);
             }
+
+            List<Address> addressList = new ArrayList<>();
+            for (Long id : repository.getAllAddrId()){
+                addressList.add(addressRepository.findById(id).get());
+            }
+
+            for (Address address2 : addressList){
+                addresses.add(address2);
+            }
+
             aboutUs.setAddress(addresses);
         }
         return ResponseEntity.ok(repository.save(aboutUs));

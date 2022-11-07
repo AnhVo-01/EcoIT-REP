@@ -76,10 +76,11 @@ export class AboutControlComponent implements OnInit {
   }
 
   onSubmit(){
-    const about = this.prepareFormData(this.about);
+    const about = this.prepareFormData(this.about, this.address);
     this.aboutService.saveInfo(about).subscribe(() =>{
       this.updateSuccess = true;
       this.errorMessage = "Cập nhật thành công !";
+      this.address = [];
       this.goToInfo();
     }, err => {
       this.errorMessage = err.error.message;
@@ -87,19 +88,17 @@ export class AboutControlComponent implements OnInit {
     })
   }
 
-  prepareFormData(about: About): FormData {
+  prepareFormData(about: About, address: Address[]): FormData {
     const  formData = new FormData();
     formData.append(
       'about',
       new Blob([JSON.stringify(about)], {type: 'application/json'})
     );
 
-    for (let i = 0; i < this.address.length; i++){
-      formData.append(
-        'address',
-        new Blob([JSON.stringify(this.address[i])], {type: 'application/json'})
-      )
-    }
+    formData.append(
+      'address',
+      new Blob([JSON.stringify(address)], {type: 'application/json'})
+    )
 
     return formData;
   }
@@ -139,7 +138,6 @@ export class AboutControlComponent implements OnInit {
       centered: false,
       backdrop: false,
       animation: true,
-      backdropClass: "modal-backdrop"
     });
     this.modalRef.result.then(data => {
       if (data){

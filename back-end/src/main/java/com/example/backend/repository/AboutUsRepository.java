@@ -15,4 +15,7 @@ public interface AboutUsRepository extends JpaRepository<AboutUs, Long> {
 
     @Query(value = "DELETE FROM about_address aa WHERE aa.address_id=:id", nativeQuery = true)
     AboutAddress unlinkAddress(@Param("id") Long id);
+
+    @Query(value = "select aa.address_id from about_us au INNER JOIN about_address aa on au.about_id = aa.about_id", nativeQuery = true)
+    Long[] getAllAddrId();
 }

@@ -41,16 +41,12 @@
                           <span><strong>ĐỊA CHỈ</strong></span>
                           <div class="contact-inner" *ngFor="let list of fullAddress">
                             <div class="address">
-                              <input type="text" name="address" value="{{list}}">
-<!--                              <a style="color: #f00" (click)="removeAddress(list.id)"-->
-<!--                                 class="ht-btn-custom p-action-btn hint&#45;&#45;rounded hint&#45;&#45;bounce hint&#45;&#45;right" aria-label="Xóa">-->
-<!--                                <i class="far fa-minus-circle"></i>-->
-<!--                              </a>-->
+                              <input type="text" value="{{list}}">
                             </div>
                           </div>
 
                           <!-- Draft address -->
-                          <ng-container *ngIf="address">
+                          <ng-container *ngIf="address.length > 0">
                             <div class="contact-inner" *ngFor="let ad of draftAddr">
                               <div class="address">
                                 <input type="text" [value]="ad">

@@ -19,7 +19,7 @@ export class AboutService {
     return this.httpClient.get<About>(`${this.baseURL}/home/${this.domain}`);
   }
 
-  saveInfo(about: FormData): Observable<Object>{
+  saveInfo(about: FormData): Observable<any>{
     return this.httpClient.post(`${this.baseURL}/${this.domain}`, about);
   }
 

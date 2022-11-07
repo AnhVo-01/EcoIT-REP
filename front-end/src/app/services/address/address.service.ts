@@ -9,7 +9,7 @@ import {Address} from "../../core/model/address/address";
 })
 export class AddressService {
 
-  private baseURL = `${Constant.BASE_URL}/address`;
+  private baseURL = `${Constant.BASE_URL}`;
 
   private headers = new HttpHeaders()
     .append('Access-Control-Allow-Origin', '*')
@@ -21,34 +21,22 @@ export class AddressService {
   constructor(private httpClient: HttpClient) { }
 
   getProvinces(): Observable<any>{
-    return this.httpClient.get(`https://provinces.open-api.vn/api/p/`);
+    return this.httpClient.get(`${this.baseURL}/open/api/p/`);
   }
 
   getProvincesByCode(code: number): Observable<any>{
-    return this.httpClient.get(`https://provinces.open-api.vn/api/p/${code}`);
+    return this.httpClient.get(`${this.baseURL}/open/api/p/${code}`);
   }
 
   getDistricts(): Observable<any>{
-    return this.httpClient.get(`https://provinces.open-api.vn/api/d/`);
+    return this.httpClient.get(`${this.baseURL}/open/api/d/`);
   }
 
   getDistrictsByCode(code: number): Observable<any>{
-    return this.httpClient.get(`https://provinces.open-api.vn/api/d/${code}`);
+    return this.httpClient.get(`${this.baseURL}/open/api/d/${code}`);
   }
 
   getWards(): Observable<any>{
-    return this.httpClient.get(`https://provinces.open-api.vn/api/w/`);
-  }
-
-  createAddr(address: Address): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, address);
-  }
-
-  getListAddr(): Observable<Address[]>{
-    return this.httpClient.get<Address[]>(`${this.baseURL}/all`);
-  }
-
-  getAllActive(): Observable<Address[]>{
-    return this.httpClient.get<Address[]>(`${this.baseURL}`);
+    return this.httpClient.get(`${this.baseURL}/open/api/w/`);
   }
 }

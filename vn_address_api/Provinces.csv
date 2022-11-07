@@ -1,0 +1,64 @@
+﻿name,code,division_type,codename,phone_code
+Hà Nội,1,thành phố trung ương,thanh_pho_ha_noi,24
+Hà Giang,2,tỉnh,tinh_ha_giang,219
+Cao Bằng,3,tỉnh,tinh_cao_bang,206
+Bắc Kạn,4,tỉnh,tinh_bac_kan,209
+Tuyên Quang,5,tỉnh,tinh_tuyen_quang,207
+Lào Cai,6,tỉnh,tinh_lao_cai,214
+Điện Biên,7,tỉnh,tinh_dien_bien,215
+Lai Châu,8,tỉnh,tinh_lai_chau,213
+Sơn La,9,tỉnh,tinh_son_la,212
+Yên Bái,10,tỉnh,tinh_yen_bai,216
+Hoà Bình,11,tỉnh,tinh_hoa_binh,218
+Thái Nguyên,12,tỉnh,tinh_thai_nguyen,208
+Lạng Sơn,13,tỉnh,tinh_lang_son,205
+Quảng Ninh,14,tỉnh,tinh_quang_ninh,203
+Bắc Giang,15,tỉnh,tinh_bac_giang,204
+Phú Thọ,16,tỉnh,tinh_phu_tho,210
+Vĩnh Phúc,17,tỉnh,tinh_vinh_phuc,211
+Bắc Ninh,18,tỉnh,tinh_bac_ninh,222
+Hải Dương,19,tỉnh,tinh_hai_duong,220
+Hải Phòng,20,thành phố trung ương,thanh_pho_hai_phong,225
+Hưng Yên,21,tỉnh,tinh_hung_yen,221
+Thái Bình,22,tỉnh,tinh_thai_binh,227
+Hà Nam,23,tỉnh,tinh_ha_nam,226
+Nam Định,24,tỉnh,tinh_nam_dinh,228
+Ninh Bình,25,tỉnh,tinh_ninh_binh,229
+Thanh Hóa,26,tỉnh,tinh_thanh_hoa,237
+Nghệ An,27,tỉnh,tinh_nghe_an,238
+Hà Tĩnh,28,tỉnh,tinh_ha_tinh,239
+Quảng Bình,29,tỉnh,tinh_quang_binh,232
+Quảng Trị,30,tỉnh,tinh_quang_tri,233
+Thừa Thiên Huế,31,tỉnh,tinh_thua_thien_hue,234
+TP. Đà Nẵng,32,thành phố trung ương,thanh_pho_da_nang,236
+Quảng Nam,33,tỉnh,tinh_quang_nam,235
+Quảng Ngãi,51,tỉnh,tinh_quang_ngai,255
+Bình Định,52,tỉnh,tinh_binh_dinh,256
+Phú Yên,54,tỉnh,tinh_phu_yen,257
+Khánh Hòa,56,tỉnh,tinh_khanh_hoa,258
+Ninh Thuận,58,tỉnh,tinh_ninh_thuan,259
+Bình Thuận,60,tỉnh,tinh_binh_thuan,252
+Kon Tum,62,tỉnh,tinh_kon_tum,260
+Gia Lai,64,tỉnh,tinh_gia_lai,269
+Đắk Lắk,66,tỉnh,tinh_dak_lak,262
+Đắk Nông,67,tỉnh,tinh_dak_nong,261
+Lâm Đồng,68,tỉnh,tinh_lam_dong,263
+Bình Phước,70,tỉnh,tinh_binh_phuoc,271
+Tây Ninh,72,tỉnh,tinh_tay_ninh,276
+Bình Dương,74,tỉnh,tinh_binh_duong,274
+Đồng Nai,75,tỉnh,tinh_dong_nai,251
+Bà Rịa - Vũng Tàu,77,tỉnh,tinh_ba_ria_vung_tau,254
+Hồ Chí Minh,79,thành phố trung ương,thanh_pho_ho_chi_minh,28
+Long An,80,tỉnh,tinh_long_an,272
+Tiền Giang,82,tỉnh,tinh_tien_giang,273
+Bến Tre,83,tỉnh,tinh_ben_tre,275
+Trà Vinh,84,tỉnh,tinh_tra_vinh,294
+Vĩnh Long,86,tỉnh,tinh_vinh_long,270
+Đồng Tháp,87,tỉnh,tinh_dong_thap,277
+An Giang,89,tỉnh,tinh_an_giang,296
+Kiên Giang,91,tỉnh,tinh_kien_giang,297
+Cần Thơ,92,thành phố trung ương,thanh_pho_can_tho,292
+Hậu Giang,93,tỉnh,tinh_hau_giang,293
+Sóc Trăng,94,tỉnh,tinh_soc_trang,299
+Bạc Liêu,95,tỉnh,tinh_bac_lieu,291
+Cà Mau,96,tỉnh,tinh_ca_mau,290

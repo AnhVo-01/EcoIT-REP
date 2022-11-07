@@ -14,7 +14,7 @@
                   <div class="col-lg-4">
                     <div class="contact-inner">
                       <select name="province" (change)="getDistricts($event)" [(ngModel)]="address.province">
-                        <option [value]="null" [selected]="true">Tỉnh thành</option>
+                        <option [value]="null" [selected]="true">Tỉnh / Thành phố</option>
                         <option *ngFor="let p of provinces" [value]="p.code">{{p.name}}</option>
                       </select>
                     </div>
@@ -22,7 +22,7 @@
                   <div class="col-lg-4">
                     <div class="contact-inner">
                       <select name="district" (change)="getWards($event)" [(ngModel)]="address.district">
-                        <option [value]="null" [selected]="true">Huyện</option>
+                        <option [value]="null" [selected]="true">Quận / Huyện / Thị xã</option>
                         <option *ngFor="let d of districts" [value]="d.code">{{d.name}}</option>
                       </select>
                     </div>
@@ -30,7 +30,7 @@
                   <div class="col-lg-4">
                     <div class="contact-inner">
                       <select name="wards" [(ngModel)]="address.wards">
-                        <option [value]="null" [selected]="true">Xã</option>
+                        <option [value]="null" [selected]="true">Xã / Phường / Thị trấn</option>
                         <option *ngFor="let w of wards">{{w.name}}</option>
                       </select>
                     </div>

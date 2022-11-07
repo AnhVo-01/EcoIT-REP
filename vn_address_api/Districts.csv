@@ -1,0 +1,706 @@
+﻿name,code,division_type,codename,province_code
+Ba Đình,1,quận,quan_ba_dinh,1
+Hoàn Kiếm,2,quận,quan_hoan_kiem,1
+Tây Hồ,3,quận,quan_tay_ho,1
+Long Biên,4,quận,quan_long_bien,1
+Cầu Giấy,5,quận,quan_cau_giay,1
+Đống Đa,6,quận,quan_dong_da,1
+Hai Bà Trưng,7,quận,quan_hai_ba_trung,1
+Hoàng Mai,8,quận,quan_hoang_mai,1
+Thanh Xuân,9,quận,quan_thanh_xuan,1
+Sóc Sơn,16,huyện,huyen_soc_son,1
+Đông Anh,17,huyện,huyen_dong_anh,1
+Gia Lâm,18,huyện,huyen_gia_lam,1
+Nam Từ Liêm,19,quận,quan_nam_tu_liem,1
+Thanh Trì,20,huyện,huyen_thanh_tri,1
+Bắc Từ Liêm,21,quận,quan_bac_tu_liem,1
+Mê Linh,250,huyện,huyen_me_linh,1
+Hà Đông,268,quận,quan_ha_dong,1
+Sơn Tây,269,thị xã,thi_xa_son_tay,1
+Ba Vì,271,huyện,huyen_ba_vi,1
+Phúc Thọ,272,huyện,huyen_phuc_tho,1
+Đan Phượng,273,huyện,huyen_dan_phuong,1
+Hoài Đức,274,huyện,huyen_hoai_duc,1
+Quốc Oai,275,huyện,huyen_quoc_oai,1
+Thạch Thất,276,huyện,huyen_thach_that,1
+Chương Mỹ,277,huyện,huyen_chuong_my,1
+Thanh Oai,278,huyện,huyen_thanh_oai,1
+Thường Tín,279,huyện,huyen_thuong_tin,1
+Phú Xuyên,280,huyện,huyen_phu_xuyen,1
+Ứng Hòa,281,huyện,huyen_ung_hoa,1
+Mỹ Đức,282,huyện,huyen_my_duc,1
+TP. Hà Giang,24,thành phố,thanh_pho_ha_giang,2
+Đồng Văn,26,huyện,huyen_dong_van,2
+Mèo Vạc,27,huyện,huyen_meo_vac,2
+Yên Minh,28,huyện,huyen_yen_minh,2
+Quản Bạ,29,huyện,huyen_quan_ba,2
+Vị Xuyên,30,huyện,huyen_vi_xuyen,2
+Bắc Mê,31,huyện,huyen_bac_me,2
+Hoàng Su Phì,32,huyện,huyen_hoang_su_phi,2
+Xín Mần,33,huyện,huyen_xin_man,2
+Bắc Quang,34,huyện,huyen_bac_quang,2
+Quang Bình,35,huyện,huyen_quang_binh,2
+TP. Cao Bằng,40,thành phố,thanh_pho_cao_bang,3
+Bảo Lâm,42,huyện,huyen_bao_lam,3
+Bảo Lạc,43,huyện,huyen_bao_lac,3
+Hà Quảng,45,huyện,huyen_ha_quang,3
+Trùng Khánh,47,huyện,huyen_trung_khanh,3
+Hạ Lang,48,huyện,huyen_ha_lang,3
+Quảng Hòa,49,huyện,huyen_quang_hoa,3
+Hoà An,51,huyện,huyen_hoa_an,3
+Nguyên Bình,52,huyện,huyen_nguyen_binh,3
+Thạch An,53,huyện,huyen_thach_an,3
+TP. Bắc Kạn,58,thành phố,thanh_pho_bac_kan,4
+Pác Nặm,60,huyện,huyen_pac_nam,4
+Ba Bể,61,huyện,huyen_ba_be,4
+Ngân Sơn,62,huyện,huyen_ngan_son,4
+Bạch Thông,63,huyện,huyen_bach_thong,4
+Chợ Đồn,64,huyện,huyen_cho_don,4
+Chợ Mới,65,huyện,huyen_cho_moi,4
+Na Rì,66,huyện,huyen_na_ri,4
+TP. Tuyên Quang,70,thành phố,thanh_pho_tuyen_quang,5
+Lâm Bình,71,huyện,huyen_lam_binh,5
+Na Hang,72,huyện,huyen_na_hang,5
+Chiêm Hóa,73,huyện,huyen_chiem_hoa,5
+Hàm Yên,74,huyện,huyen_ham_yen,5
+Yên Sơn,75,huyện,huyen_yen_son,5
+Sơn Dương,76,huyện,huyen_son_duong,5
+TP. Lào Cai,80,thành phố,thanh_pho_lao_cai,6
+Bát Xát,82,huyện,huyen_bat_xat,6
+Mường Khương,83,huyện,huyen_muong_khuong,6
+Si Ma Cai,84,huyện,huyen_si_ma_cai,6
+Bắc Hà,85,huyện,huyen_bac_ha,6
+Bảo Thắng,86,huyện,huyen_bao_thang,6
+Bảo Yên,87,huyện,huyen_bao_yen,6
+TX. Sa Pa,88,thị xã,thi_xa_sa_pa,6
+Văn Bàn,89,huyện,huyen_van_ban,6
+Điện Biên Phủ,94,thành phố,thanh_pho_dien_bien_phu,7
+Mường Lay,95,thị xã,thi_xa_muong_lay,7
+Mường Nhé,96,huyện,huyen_muong_nhe,7
+Mường Chà,97,huyện,huyen_muong_cha,7
+Tủa Chùa,98,huyện,huyen_tua_chua,7
+Tuần Giáo,99,huyện,huyen_tuan_giao,7
+H. Điện Biên,100,huyện,huyen_dien_bien,7
+Điện Biên Đông,101,huyện,huyen_dien_bien_dong,7
+Mường Ảng,102,huyện,huyen_muong_ang,7
+Nậm Pồ,103,huyện,huyen_nam_po,7
+TP. Lai Châu,105,thành phố,thanh_pho_lai_chau,8
+Tam Đường,106,huyện,huyen_tam_duong,8
+Mường Tè,107,huyện,huyen_muong_te,8
+Sìn Hồ,108,huyện,huyen_sin_ho,8
+Phong Thổ,109,huyện,huyen_phong_tho,8
+Than Uyên,110,huyện,huyen_than_uyen,8
+Tân Uyên,111,huyện,huyen_tan_uyen,8
+Nậm Nhùn,112,huyện,huyen_nam_nhun,8
+TP. Sơn La,116,thành phố,thanh_pho_son_la,9
+Quỳnh Nhai,118,huyện,huyen_quynh_nhai,9
+Thuận Châu,119,huyện,huyen_thuan_chau,9
+Mường La,120,huyện,huyen_muong_la,9
+Bắc Yên,121,huyện,huyen_bac_yen,9
+Phù Yên,122,huyện,huyen_phu_yen,9
+Mộc Châu,123,huyện,huyen_moc_chau,9
+Yên Châu,124,huyện,huyen_yen_chau,9
+Mai Sơn,125,huyện,huyen_mai_son,9
+Sông Mã,126,huyện,huyen_song_ma,9
+Sốp Cộp,127,huyện,huyen_sop_cop,9
+Vân Hồ,128,huyện,huyen_van_ho,9
+TP. Yên Bái,132,thành phố,thanh_pho_yen_bai,10
+TX. Nghĩa Lộ,133,thị xã,thi_xa_nghia_lo,10
+Lục Yên,135,huyện,huyen_luc_yen,10
+Văn Yên,136,huyện,huyen_van_yen,10
+Mù Căng Chải,137,huyện,huyen_mu_cang_chai,10
+Trấn Yên,138,huyện,huyen_tran_yen,10
+Trạm Tấu,139,huyện,huyen_tram_tau,10
+Văn Chấn,140,huyện,huyen_van_chan,10
+Yên Bình,141,huyện,huyen_yen_binh,10
+TP. Hòa Bình,148,thành phố,thanh_pho_hoa_binh,11
+Đà Bắc,150,huyện,huyen_da_bac,11
+Lương Sơn,152,huyện,huyen_luong_son,11
+Kim Bôi,153,huyện,huyen_kim_boi,11
+Cao Phong,154,huyện,huyen_cao_phong,11
+Tân Lạc,155,huyện,huyen_tan_lac,11
+Mai Châu,156,huyện,huyen_mai_chau,11
+Lạc Sơn,157,huyện,huyen_lac_son,11
+Yên Thủy,158,huyện,huyen_yen_thuy,11
+Lạc Thủy,159,huyện,huyen_lac_thuy,11
+TP. Thái Nguyên,164,thành phố,thanh_pho_thai_nguyen,12
+TP. Sông Công,165,thành phố,thanh_pho_song_cong,12
+Định Hóa,167,huyện,huyen_dinh_hoa,12
+Phú Lương,168,huyện,huyen_phu_luong,12
+Đồng Hỷ,169,huyện,huyen_dong_hy,12
+Võ Nhai,170,huyện,huyen_vo_nhai,12
+Đại Từ,171,huyện,huyen_dai_tu,12
+TX. Phổ Yên,172,thị xã,thi_xa_pho_yen,12
+Phú Bình,173,huyện,huyen_phu_binh,12
+TP. Lạng Sơn,178,thành phố,thanh_pho_lang_son,13
+Tràng Định,180,huyện,huyen_trang_dinh,13
+Bình Gia,181,huyện,huyen_binh_gia,13
+Văn Lãng,182,huyện,huyen_van_lang,13
+Cao Lộc,183,huyện,huyen_cao_loc,13
+Văn Quan,184,huyện,huyen_van_quan,13
+Bắc Sơn,185,huyện,huyen_bac_son,13
+Hữu Lũng,186,huyện,huyen_huu_lung,13
+Chi Lăng,187,huyện,huyen_chi_lang,13
+Lộc Bình,188,huyện,huyen_loc_binh,13
+Đình Lập,189,huyện,huyen_dinh_lap,13
+Hạ Long,193,thành phố,thanh_pho_ha_long,14
+Móng Cái,194,thành phố,thanh_pho_mong_cai,14
+Cẩm Phả,195,thành phố,thanh_pho_cam_pha,14
+Uông Bí,196,thành phố,thanh_pho_uong_bi,14
+Bình Liêu,198,huyện,huyen_binh_lieu,14
+Tiên Yên,199,huyện,huyen_tien_yen,14
+Đầm Hà,200,huyện,huyen_dam_ha,14
+Hải Hà,201,huyện,huyen_hai_ha,14
+Ba Chẽ,202,huyện,huyen_ba_che,14
+Vân Đồn,203,huyện,huyen_van_don,14
+Đông Triều,205,thị xã,thi_xa_dong_trieu,14
+Quảng Yên,206,thị xã,thi_xa_quang_yen,14
+Cô Tô,207,huyện,huyen_co_to,14
+TP. Bắc Giang,213,thành phố,thanh_pho_bac_giang,15
+Yên Thế,215,huyện,huyen_yen_the,15
+Tân Yên,216,huyện,huyen_tan_yen,15
+Lạng Giang,217,huyện,huyen_lang_giang,15
+Lục Nam,218,huyện,huyen_luc_nam,15
+Lục Ngạn,219,huyện,huyen_luc_ngan,15
+Sơn Động,220,huyện,huyen_son_dong,15
+Yên Dũng,221,huyện,huyen_yen_dung,15
+Việt Yên,222,huyện,huyen_viet_yen,15
+Hiệp Hòa,223,huyện,huyen_hiep_hoa,15
+Việt Trì,227,thành phố,thanh_pho_viet_tri,16
+TX. Phú Thọ,228,thị xã,thi_xa_phu_tho,16
+Đoan Hùng,230,huyện,huyen_doan_hung,16
+Hạ Hoà,231,huyện,huyen_ha_hoa,16
+Thanh Ba,232,huyện,huyen_thanh_ba,16
+Phù Ninh,233,huyện,huyen_phu_ninh,16
+Yên Lập,234,huyện,huyen_yen_lap,16
+Cẩm Khê,235,huyện,huyen_cam_khe,16
+Tam Nông,236,huyện,huyen_tam_nong,16
+Lâm Thao,237,huyện,huyen_lam_thao,16
+Thanh Sơn,238,huyện,huyen_thanh_son,16
+Thanh Thuỷ,239,huyện,huyen_thanh_thuy,16
+Tân Sơn,240,huyện,huyen_tan_son,16
+Vĩnh Yên,243,thành phố,thanh_pho_vinh_yen,17
+Phúc Yên,244,thành phố,thanh_pho_phuc_yen,17
+Lập Thạch,246,huyện,huyen_lap_thach,17
+Tam Dương,247,huyện,huyen_tam_duong,17
+Tam Đảo,248,huyện,huyen_tam_dao,17
+Bình Xuyên,249,huyện,huyen_binh_xuyen,17
+Yên Lạc,251,huyện,huyen_yen_lac,17
+Vĩnh Tường,252,huyện,huyen_vinh_tuong,17
+Sông Lô,253,huyện,huyen_song_lo,17
+TP. Bắc Ninh,256,thành phố,thanh_pho_bac_ninh,18
+Yên Phong,258,huyện,huyen_yen_phong,18
+Quế Võ,259,huyện,huyen_que_vo,18
+Tiên Du,260,huyện,huyen_tien_du,18
+Từ Sơn,261,thị xã,thi_xa_tu_son,18
+Thuận Thành,262,huyện,huyen_thuan_thanh,18
+Gia Bình,263,huyện,huyen_gia_binh,18
+Lương Tài,264,huyện,huyen_luong_tai,18
+TP. Hải Dương,288,thành phố,thanh_pho_hai_duong,19
+TP. Chí Linh,290,thành phố,thanh_pho_chi_linh,19
+Nam Sách,291,huyện,huyen_nam_sach,19
+Kinh Môn,292,thị xã,thi_xa_kinh_mon,19
+Kim Thành,293,huyện,huyen_kim_thanh,19
+Thanh Hà,294,huyện,huyen_thanh_ha,19
+Cẩm Giàng,295,huyện,huyen_cam_giang,19
+Bình Giang,296,huyện,huyen_binh_giang,19
+Gia Lộc,297,huyện,huyen_gia_loc,19
+Tứ Kỳ,298,huyện,huyen_tu_ky,19
+Ninh Giang,299,huyện,huyen_ninh_giang,19
+Thanh Miện,300,huyện,huyen_thanh_mien,19
+Hồng Bàng,303,quận,quan_hong_bang,20
+Ngô Quyền,304,quận,quan_ngo_quyen,20
+Lê Chân,305,quận,quan_le_chan,20
+Hải An,306,quận,quan_hai_an,20
+Kiến An,307,quận,quan_kien_an,20
+Đồ Sơn,308,quận,quan_do_son,20
+Dương Kinh,309,quận,quan_duong_kinh,20
+Thuỷ Nguyên,311,huyện,huyen_thuy_nguyen,20
+An Dương,312,huyện,huyen_an_duong,20
+An Lão,313,huyện,huyen_an_lao,20
+Kiến Thuỵ,314,huyện,huyen_kien_thuy,20
+Tiên Lãng,315,huyện,huyen_tien_lang,20
+Vĩnh Bảo,316,huyện,huyen_vinh_bao,20
+Cát Hải,317,huyện,huyen_cat_hai,20
+Bạch Long Vĩ,318,huyện,huyen_bach_long_vi,20
+TP. Hưng Yên,323,thành phố,thanh_pho_hung_yen,21
+Văn Lâm,325,huyện,huyen_van_lam,21
+Văn Giang,326,huyện,huyen_van_giang,21
+Yên Mỹ,327,huyện,huyen_yen_my,21
+Mỹ Hào,328,thị xã,thi_xa_my_hao,21
+Ân Thi,329,huyện,huyen_an_thi,21
+Khoái Châu,330,huyện,huyen_khoai_chau,21
+Kim Động,331,huyện,huyen_kim_dong,21
+Tiên Lữ,332,huyện,huyen_tien_lu,21
+Phù Cừ,333,huyện,huyen_phu_cu,21
+TP. Thái Bình,336,thành phố,thanh_pho_thai_binh,22
+Quỳnh Phụ,338,huyện,huyen_quynh_phu,22
+Hưng Hà,339,huyện,huyen_hung_ha,22
+Đông Hưng,340,huyện,huyen_dong_hung,22
+Thái Thụy,341,huyện,huyen_thai_thuy,22
+Tiền Hải,342,huyện,huyen_tien_hai,22
+Kiến Xương,343,huyện,huyen_kien_xuong,22
+Vũ Thư,344,huyện,huyen_vu_thu,22
+Phủ Lý,347,thành phố,thanh_pho_phu_ly,23
+Duy Tiên,349,thị xã,thi_xa_duy_tien,23
+Kim Bảng,350,huyện,huyen_kim_bang,23
+Thanh Liêm,351,huyện,huyen_thanh_liem,23
+Bình Lục,352,huyện,huyen_binh_luc,23
+Lý Nhân,353,huyện,huyen_ly_nhan,23
+TP. Nam Định,356,thành phố,thanh_pho_nam_dinh,24
+Mỹ Lộc,358,huyện,huyen_my_loc,24
+Vụ Bản,359,huyện,huyen_vu_ban,24
+Ý Yên,360,huyện,huyen_y_yen,24
+Nghĩa Hưng,361,huyện,huyen_nghia_hung,24
+Nam Trực,362,huyện,huyen_nam_truc,24
+Trực Ninh,363,huyện,huyen_truc_ninh,24
+Xuân Trường,364,huyện,huyen_xuan_truong,24
+Giao Thủy,365,huyện,huyen_giao_thuy,24
+Hải Hậu,366,huyện,huyen_hai_hau,24
+TP. Ninh Bình,369,thành phố,thanh_pho_ninh_binh,25
+Tam Điệp,370,thành phố,thanh_pho_tam_diep,25
+Nho Quan,372,huyện,huyen_nho_quan,25
+Gia Viễn,373,huyện,huyen_gia_vien,25
+Hoa Lư,374,huyện,huyen_hoa_lu,25
+Yên Khánh,375,huyện,huyen_yen_khanh,25
+Kim Sơn,376,huyện,huyen_kim_son,25
+Yên Mô,377,huyện,huyen_yen_mo,25
+TP. Thanh Hóa,380,thành phố,thanh_pho_thanh_hoa,26
+Bỉm Sơn,381,thị xã,thi_xa_bim_son,26
+Sầm Sơn,382,thành phố,thanh_pho_sam_son,26
+Mường Lát,384,huyện,huyen_muong_lat,26
+Quan Hóa,385,huyện,huyen_quan_hoa,26
+Bá Thước,386,huyện,huyen_ba_thuoc,26
+Quan Sơn,387,huyện,huyen_quan_son,26
+Lang Chánh,388,huyện,huyen_lang_chanh,26
+Ngọc Lặc,389,huyện,huyen_ngoc_lac,26
+Cẩm Thủy,390,huyện,huyen_cam_thuy,26
+Thạch Thành,391,huyện,huyen_thach_thanh,26
+Hà Trung,392,huyện,huyen_ha_trung,26
+Vĩnh Lộc,393,huyện,huyen_vinh_loc,26
+Yên Định,394,huyện,huyen_yen_dinh,26
+Thọ Xuân,395,huyện,huyen_tho_xuan,26
+Thường Xuân,396,huyện,huyen_thuong_xuan,26
+Triệu Sơn,397,huyện,huyen_trieu_son,26
+Thiệu Hóa,398,huyện,huyen_thieu_hoa,26
+Hoằng Hóa,399,huyện,huyen_hoang_hoa,26
+Hậu Lộc,400,huyện,huyen_hau_loc,26
+Nga Sơn,401,huyện,huyen_nga_son,26
+Như Xuân,402,huyện,huyen_nhu_xuan,26
+Như Thanh,403,huyện,huyen_nhu_thanh,26
+Nông Cống,404,huyện,huyen_nong_cong,26
+Đông Sơn,405,huyện,huyen_dong_son,26
+Quảng Xương,406,huyện,huyen_quang_xuong,26
+Nghi Sơn,407,thị xã,thi_xa_nghi_son,26
+Thành phố Vinh,412,thành phố,thanh_pho_vinh,27
+Cửa Lò,413,thị xã,thi_xa_cua_lo,27
+Thái Hoà,414,thị xã,thi_xa_thai_hoa,27
+Quế Phong,415,huyện,huyen_que_phong,27
+Quỳ Châu,416,huyện,huyen_quy_chau,27
+Kỳ Sơn,417,huyện,huyen_ky_son,27
+Tương Dương,418,huyện,huyen_tuong_duong,27
+Nghĩa Đàn,419,huyện,huyen_nghia_dan,27
+Quỳ Hợp,420,huyện,huyen_quy_hop,27
+Quỳnh Lưu,421,huyện,huyen_quynh_luu,27
+Con Cuông,422,huyện,huyen_con_cuong,27
+Tân Kỳ,423,huyện,huyen_tan_ky,27
+Anh Sơn,424,huyện,huyen_anh_son,27
+Diễn Châu,425,huyện,huyen_dien_chau,27
+Yên Thành,426,huyện,huyen_yen_thanh,27
+Đô Lương,427,huyện,huyen_do_luong,27
+Thanh Chương,428,huyện,huyen_thanh_chuong,27
+Nghi Lộc,429,huyện,huyen_nghi_loc,27
+Nam Đàn,430,huyện,huyen_nam_dan,27
+Hưng Nguyên,431,huyện,huyen_hung_nguyen,27
+Hoàng Mai,432,thị xã,thi_xa_hoang_mai,27
+TP. Hà Tĩnh,436,thành phố,thanh_pho_ha_tinh,28
+Hồng Lĩnh,437,thị xã,thi_xa_hong_linh,28
+Hương Sơn,439,huyện,huyen_huong_son,28
+Đức Thọ,440,huyện,huyen_duc_tho,28
+Vũ Quang,441,huyện,huyen_vu_quang,28
+Nghi Xuân,442,huyện,huyen_nghi_xuan,28
+Can Lộc,443,huyện,huyen_can_loc,28
+Hương Khê,444,huyện,huyen_huong_khe,28
+Thạch Hà,445,huyện,huyen_thach_ha,28
+Cẩm Xuyên,446,huyện,huyen_cam_xuyen,28
+Kỳ Anh,447,huyện,huyen_ky_anh,28
+Lộc Hà,448,huyện,huyen_loc_ha,28
+Kỳ Anh,449,thị xã,thi_xa_ky_anh,28
+Đồng Hới,450,thành phố,thanh_pho_dong_hoi,29
+Minh Hóa,452,huyện,huyen_minh_hoa,29
+Tuyên Hóa,453,huyện,huyen_tuyen_hoa,29
+Quảng Trạch,454,huyện,huyen_quang_trach,29
+Bố Trạch,455,huyện,huyen_bo_trach,29
+H. Quảng Ninh,456,huyện,huyen_quang_ninh,29
+Lệ Thủy,457,huyện,huyen_le_thuy,29
+Ba Đồn,458,thị xã,thi_xa_ba_don,29
+Đông Hà,461,thành phố,thanh_pho_dong_ha,30
+TX. Quảng Trị,462,thị xã,thi_xa_quang_tri,30
+Vĩnh Linh,464,huyện,huyen_vinh_linh,30
+Hướng Hóa,465,huyện,huyen_huong_hoa,30
+Gio Linh,466,huyện,huyen_gio_linh,30
+Đa Krông,467,huyện,huyen_da_krong,30
+Cam Lộ,468,huyện,huyen_cam_lo,30
+Triệu Phong,469,huyện,huyen_trieu_phong,30
+Hải Lăng,470,huyện,huyen_hai_lang,30
+Cồn Cỏ,471,huyện,huyen_con_co,30
+Thành phố Huế,474,thành phố,thanh_pho_hue,31
+Phong Điền,476,huyện,huyen_phong_dien,31
+Quảng Điền,477,huyện,huyen_quang_dien,31
+Phú Vang,478,huyện,huyen_phu_vang,31
+Hương Thủy,479,thị xã,thi_xa_huong_thuy,31
+Hương Trà,480,thị xã,thi_xa_huong_tra,31
+A Lưới,481,huyện,huyen_a_luoi,31
+Phú Lộc,482,huyện,huyen_phu_loc,31
+Nam Đông,483,huyện,huyen_nam_dong,31
+Q. Liên Chiểu,490,quận,quan_lien_chieu,32
+Q. Thanh Khê,491,quận,quan_thanh_khe,32
+Q. Hải Châu,492,quận,quan_hai_chau,32
+Q. Sơn Trà,493,quận,quan_son_tra,32
+Q. Ngũ Hành Sơn,494,quận,quan_ngu_hanh_son,32
+Q. Cẩm Lệ,495,quận,quan_cam_le,32
+Hòa Vang,497,huyện,huyen_hoa_vang,32
+Hoàng Sa,498,huyện,huyen_hoang_sa,32
+Tam Kỳ,502,thành phố,thanh_pho_tam_ky,33
+TP. Hội An,503,thành phố,thanh_pho_hoi_an,33
+Tây Giang,504,huyện,huyen_tay_giang,33
+Đông Giang,505,huyện,huyen_dong_giang,33
+Đại Lộc,506,huyện,huyen_dai_loc,33
+Điện Bàn,507,thị xã,thi_xa_dien_ban,33
+Duy Xuyên,508,huyện,huyen_duy_xuyen,33
+Quế Sơn,509,huyện,huyen_que_son,33
+Nam Giang,510,huyện,huyen_nam_giang,33
+Phước Sơn,511,huyện,huyen_phuoc_son,33
+Hiệp Đức,512,huyện,huyen_hiep_duc,33
+Thăng Bình,513,huyện,huyen_thang_binh,33
+Tiên Phước,514,huyện,huyen_tien_phuoc,33
+Bắc Trà My,515,huyện,huyen_bac_tra_my,33
+Nam Trà My,516,huyện,huyen_nam_tra_my,33
+Núi Thành,517,huyện,huyen_nui_thanh,33
+Phú Ninh,518,huyện,huyen_phu_ninh,33
+Nông Sơn,519,huyện,huyen_nong_son,33
+Quảng Ngãi,522,thành phố,thanh_pho_quang_ngai,51
+Bình Sơn,524,huyện,huyen_binh_son,51
+Trà Bồng,525,huyện,huyen_tra_bong,51
+Sơn Tịnh,527,huyện,huyen_son_tinh,51
+Tư Nghĩa,528,huyện,huyen_tu_nghia,51
+Sơn Hà,529,huyện,huyen_son_ha,51
+Sơn Tây,530,huyện,huyen_son_tay,51
+Minh Long,531,huyện,huyen_minh_long,51
+Nghĩa Hành,532,huyện,huyen_nghia_hanh,51
+Mộ Đức,533,huyện,huyen_mo_duc,51
+Đức Phổ,534,thị xã,thi_xa_duc_pho,51
+Ba Tơ,535,huyện,huyen_ba_to,51
+Lý Sơn,536,huyện,huyen_ly_son,51
+Quy Nhơn,540,thành phố,thanh_pho_quy_nhon,52
+An Lão,542,huyện,huyen_an_lao,52
+Hoài Nhơn,543,thị xã,thi_xa_hoai_nhon,52
+Hoài Ân,544,huyện,huyen_hoai_an,52
+Phù Mỹ,545,huyện,huyen_phu_my,52
+Vĩnh Thạnh,546,huyện,huyen_vinh_thanh,52
+Tây Sơn,547,huyện,huyen_tay_son,52
+Phù Cát,548,huyện,huyen_phu_cat,52
+An Nhơn,549,thị xã,thi_xa_an_nhon,52
+Tuy Phước,550,huyện,huyen_tuy_phuoc,52
+Vân Canh,551,huyện,huyen_van_canh,52
+Tuy Hoà,555,thành phố,thanh_pho_tuy_hoa,54
+Sông Cầu,557,thị xã,thi_xa_song_cau,54
+Đồng Xuân,558,huyện,huyen_dong_xuan,54
+Tuy An,559,huyện,huyen_tuy_an,54
+Sơn Hòa,560,huyện,huyen_son_hoa,54
+Sông Hinh,561,huyện,huyen_song_hinh,54
+Tây Hoà,562,huyện,huyen_tay_hoa,54
+Phú Hoà,563,huyện,huyen_phu_hoa,54
+Đông Hòa,564,thị xã,thi_xa_dong_hoa,54
+Nha Trang,568,thành phố,thanh_pho_nha_trang,56
+Cam Ranh,569,thành phố,thanh_pho_cam_ranh,56
+Cam Lâm,570,huyện,huyen_cam_lam,56
+Vạn Ninh,571,huyện,huyen_van_ninh,56
+Ninh Hòa,572,thị xã,thi_xa_ninh_hoa,56
+Khánh Vĩnh,573,huyện,huyen_khanh_vinh,56
+Diên Khánh,574,huyện,huyen_dien_khanh,56
+Khánh Sơn,575,huyện,huyen_khanh_son,56
+Trường Sa,576,huyện,huyen_truong_sa,56
+Tháp Chàm,582,thành phố,thanh_pho_phan_rang_thap_cham,58
+Bác Ái,584,huyện,huyen_bac_ai,58
+Ninh Sơn,585,huyện,huyen_ninh_son,58
+Ninh Hải,586,huyện,huyen_ninh_hai,58
+Ninh Phước,587,huyện,huyen_ninh_phuoc,58
+Thuận Bắc,588,huyện,huyen_thuan_bac,58
+Thuận Nam,589,huyện,huyen_thuan_nam,58
+Phan Thiết,593,thành phố,thanh_pho_phan_thiet,60
+La Gi,594,thị xã,thi_xa_la_gi,60
+Tuy Phong,595,huyện,huyen_tuy_phong,60
+Bắc Bình,596,huyện,huyen_bac_binh,60
+Thuận Bắc,597,huyện,huyen_ham_thuan_bac,60
+Thuận Nam,598,huyện,huyen_ham_thuan_nam,60
+Tánh Linh,599,huyện,huyen_tanh_linh,60
+Đức Linh,600,huyện,huyen_duc_linh,60
+Hàm Tân,601,huyện,huyen_ham_tan,60
+Phú Quí,602,huyện,huyen_phu_qui,60
+Kon Tum,608,thành phố,thanh_pho_kon_tum,62
+Đắk Glei,610,huyện,huyen_dak_glei,62
+Ngọc Hồi,611,huyện,huyen_ngoc_hoi,62
+Đắk Tô,612,huyện,huyen_dak_to,62
+Kon Plông,613,huyện,huyen_kon_plong,62
+Kon Rẫy,614,huyện,huyen_kon_ray,62
+Đắk Hà,615,huyện,huyen_dak_ha,62
+Sa Thầy,616,huyện,huyen_sa_thay,62
+Mơ Rông,617,huyện,huyen_tu_mo_rong,62
+H' Drai,618,huyện,huyen_ia_h_drai,62
+Thành phố Pleiku,622,thành phố,thanh_pho_pleiku,64
+An Khê,623,thị xã,thi_xa_an_khe,64
+Ayun Pa,624,thị xã,thi_xa_ayun_pa,64
+Huyện KBang,625,huyện,huyen_kbang,64
+Đăk Đoa,626,huyện,huyen_dak_doa,64
+Chư Păh,627,huyện,huyen_chu_pah,64
+Ia Grai,628,huyện,huyen_ia_grai,64
+Mang Yang,629,huyện,huyen_mang_yang,64
+Kông Chro,630,huyện,huyen_kong_chro,64
+Đức Cơ,631,huyện,huyen_duc_co,64
+Chư Prông,632,huyện,huyen_chu_prong,64
+Chư Sê,633,huyện,huyen_chu_se,64
+Đăk Pơ,634,huyện,huyen_dak_po,64
+Ia Pa,635,huyện,huyen_ia_pa,64
+Krông Pa,637,huyện,huyen_krong_pa,64
+Phú Thiện,638,huyện,huyen_phu_thien,64
+Chư Pưh,639,huyện,huyen_chu_puh,64
+Ma Thuột,643,thành phố,thanh_pho_buon_ma_thuot,66
+Buôn Hồ,644,thị xã,thi_xa_buon_ho,66
+Ea H'leo,645,huyện,huyen_ea_hleo,66
+Ea Súp,646,huyện,huyen_ea_sup,66
+Buôn Đôn,647,huyện,huyen_buon_don,66
+Cư M'gar,648,huyện,huyen_cu_mgar,66
+Krông Búk,649,huyện,huyen_krong_buk,66
+Krông Năng,650,huyện,huyen_krong_nang,66
+Ea Kar,651,huyện,huyen_ea_kar,66
+M'Đrắk,652,huyện,huyen_mdrak,66
+Krông Bông,653,huyện,huyen_krong_bong,66
+Krông Pắc,654,huyện,huyen_krong_pac,66
+A Na,655,huyện,huyen_krong_a_na,66
+Huyện Lắk,656,huyện,huyen_lak,66
+Cư Kuin,657,huyện,huyen_cu_kuin,66
+Gia Nghĩa,660,thành phố,thanh_pho_gia_nghia,67
+Đăk Glong,661,huyện,huyen_dak_glong,67
+Cư Jút,662,huyện,huyen_cu_jut,67
+Đắk Mil,663,huyện,huyen_dak_mil,67
+Krông Nô,664,huyện,huyen_krong_no,67
+Đắk Song,665,huyện,huyen_dak_song,67
+R'Lấp,666,huyện,huyen_dak_rlap,67
+Tuy Đức,667,huyện,huyen_tuy_duc,67
+Đà Lạt,672,thành phố,thanh_pho_da_lat,68
+Bảo Lộc,673,thành phố,thanh_pho_bao_loc,68
+Đam Rông,674,huyện,huyen_dam_rong,68
+Lạc Dương,675,huyện,huyen_lac_duong,68
+Lâm Hà,676,huyện,huyen_lam_ha,68
+Đơn Dương,677,huyện,huyen_don_duong,68
+Đức Trọng,678,huyện,huyen_duc_trong,68
+Di Linh,679,huyện,huyen_di_linh,68
+Bảo Lâm,680,huyện,huyen_bao_lam,68
+Đạ Huoai,681,huyện,huyen_da_huoai,68
+Đạ Tẻh,682,huyện,huyen_da_teh,68
+Cát Tiên,683,huyện,huyen_cat_tien,68
+Phước Long,688,thị xã,thi_xa_phuoc_long,70
+Đồng Xoài,689,thành phố,thanh_pho_dong_xoai,70
+Bình Long,690,thị xã,thi_xa_binh_long,70
+Gia Mập,691,huyện,huyen_bu_gia_map,70
+Lộc Ninh,692,huyện,huyen_loc_ninh,70
+Bù Đốp,693,huyện,huyen_bu_dop,70
+Hớn Quản,694,huyện,huyen_hon_quan,70
+Đồng Phú,695,huyện,huyen_dong_phu,70
+Bù Đăng,696,huyện,huyen_bu_dang,70
+Chơn Thành,697,huyện,huyen_chon_thanh,70
+Phú Riềng,698,huyện,huyen_phu_rieng,70
+Tây Ninh,703,thành phố,thanh_pho_tay_ninh,72
+Tân Biên,705,huyện,huyen_tan_bien,72
+Tân Châu,706,huyện,huyen_tan_chau,72
+Minh Châu,707,huyện,huyen_duong_minh_chau,72
+Châu Thành,708,huyện,huyen_chau_thanh,72
+Hòa Thành,709,thị xã,thi_xa_hoa_thanh,72
+Gò Dầu,710,huyện,huyen_go_dau,72
+Bến Cầu,711,huyện,huyen_ben_cau,72
+Trảng Bàng,712,thị xã,thi_xa_trang_bang,72
+Dầu Một,718,thành phố,thanh_pho_thu_dau_mot,74
+Bàu Bàng,719,huyện,huyen_bau_bang,74
+Dầu Tiếng,720,huyện,huyen_dau_tieng,74
+Bến Cát,721,thị xã,thi_xa_ben_cat,74
+Phú Giáo,722,huyện,huyen_phu_giao,74
+Tân Uyên,723,thị xã,thi_xa_tan_uyen,74
+Dĩ An,724,thành phố,thanh_pho_di_an,74
+Thuận An,725,thành phố,thanh_pho_thuan_an,74
+Tân Uyên,726,huyện,huyen_bac_tan_uyen,74
+Biên Hòa,731,thành phố,thanh_pho_bien_hoa,75
+Long Khánh,732,thành phố,thanh_pho_long_khanh,75
+Tân Phú,734,huyện,huyen_tan_phu,75
+Vĩnh Cửu,735,huyện,huyen_vinh_cuu,75
+Định Quán,736,huyện,huyen_dinh_quan,75
+Trảng Bom,737,huyện,huyen_trang_bom,75
+Thống Nhất,738,huyện,huyen_thong_nhat,75
+Cẩm Mỹ,739,huyện,huyen_cam_my,75
+Long Thành,740,huyện,huyen_long_thanh,75
+Xuân Lộc,741,huyện,huyen_xuan_loc,75
+Nhơn Trạch,742,huyện,huyen_nhon_trach,75
+Vũng Tàu,747,thành phố,thanh_pho_vung_tau,77
+Bà Rịa,748,thành phố,thanh_pho_ba_ria,77
+Châu Đức,750,huyện,huyen_chau_duc,77
+Xuyên Mộc,751,huyện,huyen_xuyen_moc,77
+Long Điền,752,huyện,huyen_long_dien,77
+Đất Đỏ,753,huyện,huyen_dat_do,77
+Phú Mỹ,754,thị xã,thi_xa_phu_my,77
+Côn Đảo,755,huyện,huyen_con_dao,77
+Quận 1,760,quận,quan_1,79
+Quận 12,761,quận,quan_12,79
+Gò Vấp,764,quận,quan_go_vap,79
+Bình Thạnh,765,quận,quan_binh_thanh,79
+Tân Bình,766,quận,quan_tan_binh,79
+Tân Phú,767,quận,quan_tan_phu,79
+Phú Nhuận,768,quận,quan_phu_nhuan,79
+Thủ Đức,769,thành phố,thanh_pho_thu_duc,79
+Quận 3,770,quận,quan_3,79
+Quận 10,771,quận,quan_10,79
+Quận 11,772,quận,quan_11,79
+Quận 4,773,quận,quan_4,79
+Quận 5,774,quận,quan_5,79
+Quận 6,775,quận,quan_6,79
+Quận 8,776,quận,quan_8,79
+Bình Tân,777,quận,quan_binh_tan,79
+Quận 7,778,quận,quan_7,79
+Củ Chi,783,huyện,huyen_cu_chi,79
+Hóc Môn,784,huyện,huyen_hoc_mon,79
+Bình Chánh,785,huyện,huyen_binh_chanh,79
+Nhà Bè,786,huyện,huyen_nha_be,79
+Cần Giờ,787,huyện,huyen_can_gio,79
+Tân An,794,thành phố,thanh_pho_tan_an,80
+Kiến Tường,795,thị xã,thi_xa_kien_tuong,80
+Tân Hưng,796,huyện,huyen_tan_hung,80
+Vĩnh Hưng,797,huyện,huyen_vinh_hung,80
+Mộc Hóa,798,huyện,huyen_moc_hoa,80
+Tân Thạnh,799,huyện,huyen_tan_thanh,80
+Thạnh Hóa,800,huyện,huyen_thanh_hoa,80
+Đức Huệ,801,huyện,huyen_duc_hue,80
+Đức Hòa,802,huyện,huyen_duc_hoa,80
+Bến Lức,803,huyện,huyen_ben_luc,80
+Thủ Thừa,804,huyện,huyen_thu_thua,80
+Tân Trụ,805,huyện,huyen_tan_tru,80
+Cần Đước,806,huyện,huyen_can_duoc,80
+Cần Giuộc,807,huyện,huyen_can_giuoc,80
+Châu Thành,808,huyện,huyen_chau_thanh,80
+Mỹ Tho,815,thành phố,thanh_pho_my_tho,82
+Gò Công,816,thị xã,thi_xa_go_cong,82
+Cai Lậy,817,thị xã,thi_xa_cai_lay,82
+Tân Phước,818,huyện,huyen_tan_phuoc,82
+Cái Bè,819,huyện,huyen_cai_be,82
+Cai Lậy,820,huyện,huyen_cai_lay,82
+Châu Thành,821,huyện,huyen_chau_thanh,82
+Chợ Gạo,822,huyện,huyen_cho_gao,82
+Công Tây,823,huyện,huyen_go_cong_tay,82
+Công Đông,824,huyện,huyen_go_cong_dong,82
+Phú Đông,825,huyện,huyen_tan_phu_dong,82
+Bến Tre,829,thành phố,thanh_pho_ben_tre,83
+Châu Thành,831,huyện,huyen_chau_thanh,83
+Chợ Lách,832,huyện,huyen_cho_lach,83
+Cày Nam,833,huyện,huyen_mo_cay_nam,83
+Giồng Trôm,834,huyện,huyen_giong_trom,83
+Bình Đại,835,huyện,huyen_binh_dai,83
+Ba Tri,836,huyện,huyen_ba_tri,83
+Thạnh Phú,837,huyện,huyen_thanh_phu,83
+Cày Bắc,838,huyện,huyen_mo_cay_bac,83
+Trà Vinh,842,thành phố,thanh_pho_tra_vinh,84
+Càng Long,844,huyện,huyen_cang_long,84
+Cầu Kè,845,huyện,huyen_cau_ke,84
+Tiểu Cần,846,huyện,huyen_tieu_can,84
+Châu Thành,847,huyện,huyen_chau_thanh,84
+Cầu Ngang,848,huyện,huyen_cau_ngang,84
+Trà Cú,849,huyện,huyen_tra_cu,84
+Duyên Hải,850,huyện,huyen_duyen_hai,84
+Duyên Hải,851,thị xã,thi_xa_duyen_hai,84
+Vĩnh Long,855,thành phố,thanh_pho_vinh_long,86
+Long Hồ,857,huyện,huyen_long_ho,86
+Mang Thít,858,huyện,huyen_mang_thit,86
+Vũng Liêm,859,huyện,huyen_vung_liem,86
+Tam Bình,860,huyện,huyen_tam_binh,86
+Bình Minh,861,thị xã,thi_xa_binh_minh,86
+Trà Ôn,862,huyện,huyen_tra_on,86
+Bình Tân,863,huyện,huyen_binh_tan,86
+Cao Lãnh,866,thành phố,thanh_pho_cao_lanh,87
+Sa Đéc,867,thành phố,thanh_pho_sa_dec,87
+Hồng Ngự,868,thành phố,thanh_pho_hong_ngu,87
+Tân Hồng,869,huyện,huyen_tan_hong,87
+Hồng Ngự,870,huyện,huyen_hong_ngu,87
+Tam Nông,871,huyện,huyen_tam_nong,87
+Tháp Mười,872,huyện,huyen_thap_muoi,87
+Cao Lãnh,873,huyện,huyen_cao_lanh,87
+Thanh Bình,874,huyện,huyen_thanh_binh,87
+Lấp Vò,875,huyện,huyen_lap_vo,87
+Lai Vung,876,huyện,huyen_lai_vung,87
+Châu Thành,877,huyện,huyen_chau_thanh,87
+Long Xuyên,883,thành phố,thanh_pho_long_xuyen,89
+Châu Đốc,884,thành phố,thanh_pho_chau_doc,89
+An Phú,886,huyện,huyen_an_phu,89
+Tân Châu,887,thị xã,thi_xa_tan_chau,89
+Phú Tân,888,huyện,huyen_phu_tan,89
+Châu Phú,889,huyện,huyen_chau_phu,89
+Tịnh Biên,890,huyện,huyen_tinh_bien,89
+Tri Tôn,891,huyện,huyen_tri_ton,89
+Châu Thành,892,huyện,huyen_chau_thanh,89
+Chợ Mới,893,huyện,huyen_cho_moi,89
+Thoại Sơn,894,huyện,huyen_thoai_son,89
+Rạch Giá,899,thành phố,thanh_pho_rach_gia,91
+Hà Tiên,900,thành phố,thanh_pho_ha_tien,91
+Kiên Lương,902,huyện,huyen_kien_luong,91
+Hòn Đất,903,huyện,huyen_hon_dat,91
+Tân Hiệp,904,huyện,huyen_tan_hiep,91
+Châu Thành,905,huyện,huyen_chau_thanh,91
+Giồng Riềng,906,huyện,huyen_giong_rieng,91
+Gò Quao,907,huyện,huyen_go_quao,91
+An Biên,908,huyện,huyen_an_bien,91
+An Minh,909,huyện,huyen_an_minh,91
+Vĩnh Thuận,910,huyện,huyen_vinh_thuan,91
+Phú Quốc,911,thành phố,thanh_pho_phu_quoc,91
+Kiên Hải,912,huyện,huyen_kien_hai,91
+Minh Thượng,913,huyện,huyen_u_minh_thuong,91
+Giang Thành,914,huyện,huyen_giang_thanh,91
+Ninh Kiều,916,quận,quan_ninh_kieu,92
+Ô Môn,917,quận,quan_o_mon,92
+Bình Thuỷ,918,quận,quan_binh_thuy,92
+Cái Răng,919,quận,quan_cai_rang,92
+Thốt Nốt,923,quận,quan_thot_not,92
+Vĩnh Thạnh,924,huyện,huyen_vinh_thanh,92
+Cờ Đỏ,925,huyện,huyen_co_do,92
+Phong Điền,926,huyện,huyen_phong_dien,92
+Thới Lai,927,huyện,huyen_thoi_lai,92
+Vị Thanh,930,thành phố,thanh_pho_vi_thanh,93
+Ngã Bảy,931,thành phố,thanh_pho_nga_bay,93
+Thành A,932,huyện,huyen_chau_thanh_a,93
+Châu Thành,933,huyện,huyen_chau_thanh,93
+Phụng Hiệp,934,huyện,huyen_phung_hiep,93
+Vị Thuỷ,935,huyện,huyen_vi_thuy,93
+Long Mỹ,936,huyện,huyen_long_my,93
+Long Mỹ,937,thị xã,thi_xa_long_my,93
+Sóc Trăng,941,thành phố,thanh_pho_soc_trang,94
+Châu Thành,942,huyện,huyen_chau_thanh,94
+Kế Sách,943,huyện,huyen_ke_sach,94
+Mỹ Tú,944,huyện,huyen_my_tu,94
+Lao Dung,945,huyện,huyen_cu_lao_dung,94
+Long Phú,946,huyện,huyen_long_phu,94
+Mỹ Xuyên,947,huyện,huyen_my_xuyen,94
+Ngã Năm,948,thị xã,thi_xa_nga_nam,94
+Thạnh Trị,949,huyện,huyen_thanh_tri,94
+Vĩnh Châu,950,thị xã,thi_xa_vinh_chau,94
+Trần Đề,951,huyện,huyen_tran_de,94
+Bạc Liêu,954,thành phố,thanh_pho_bac_lieu,95
+Hồng Dân,956,huyện,huyen_hong_dan,95
+Phước Long,957,huyện,huyen_phuoc_long,95
+Vĩnh Lợi,958,huyện,huyen_vinh_loi,95
+Giá Rai,959,thị xã,thi_xa_gia_rai,95
+Đông Hải,960,huyện,huyen_dong_hai,95
+Hoà Bình,961,huyện,huyen_hoa_binh,95
+Cà Mau,964,thành phố,thanh_pho_ca_mau,96
+U Minh,966,huyện,huyen_u_minh,96
+Thới Bình,967,huyện,huyen_thoi_binh,96
+Văn Thời,968,huyện,huyen_tran_van_thoi,96
+Cái Nước,969,huyện,huyen_cai_nuoc,96
+Đầm Dơi,970,huyện,huyen_dam_doi,96
+Năm Căn,971,huyện,huyen_nam_can,96
+Phú Tân,972,huyện,huyen_phu_tan,96
+Ngọc Hiển,973,huyện,huyen_ngoc_hien,96
