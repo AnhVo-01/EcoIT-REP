@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Random;
 
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/user")
 @RestController
 public class UserController {
     @Autowired
@@ -24,7 +23,7 @@ public class UserController {
     @Autowired
     BCryptPasswordEncoder encoder;
 
-    @GetMapping
+    @GetMapping("/user")
     public Page<User> search(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
                              @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
                              @RequestParam(name = "keyword") String keyword){
@@ -34,14 +33,14 @@ public class UserController {
         return userRepository.search(pageable, keyword);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<User> one(@PathVariable Long id){
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Can't not found the "+ id));
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping("/reset/{id}")
+    @GetMapping("/user/reset/{id}")
     public ResponseEntity<?> resetPass(@PathVariable Long id){
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Can't not found the userId = "+ id));

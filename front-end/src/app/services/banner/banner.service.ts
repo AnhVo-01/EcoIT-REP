@@ -13,7 +13,7 @@ export class BannerService {
   constructor(private httpClient: HttpClient) { }
 
   filterList(param: HttpParams): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/banner`,{params: param});
+    return this.httpClient.get(`${this.baseURL}/banner`,{params: param})
   }
 
   addBanner(banner: FormData): Observable<any>{

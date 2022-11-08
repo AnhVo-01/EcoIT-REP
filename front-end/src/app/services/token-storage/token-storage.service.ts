@@ -15,17 +15,30 @@ export class TokenStorageService {
   }
 
   public saveToken(token: string): void{
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.setItem(TOKEN_KEY, token);
+    // localStorage.removeItem(TOKEN_KEY);
+    let now = new Date();
+
+    const item = {
+      value: token,
+      expiry: now.getTime() + (1000 * 60 * 60 * 12),
+    }
+    localStorage.setItem(TOKEN_KEY, JSON.stringify(item));
+    // localStorage.setItem(TOKEN_KEY, token);
   }
 
   public getToken(): any{
-    // window.onbeforeunload = function () {
-    //   localStorage.removeItem(TOKEN_KEY);
-    //   localStorage.removeItem(USER_KEY);
-    //   return undefined;
-    // };
-    return localStorage.getItem(TOKEN_KEY);
+    const itemStr = localStorage.getItem(TOKEN_KEY)
+    if (!itemStr) {
+      return null
+    }
+    const item = JSON.parse(itemStr)
+    let now = new Date()
+    // compare the expiry time of the item with the current time
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(TOKEN_KEY)
+      return null
+    }
+    return item.value
   }
 
   public saveUser(user: Object): void{

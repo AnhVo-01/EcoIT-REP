@@ -40,7 +40,7 @@ public class HistoryLogger implements HandlerInterceptor {
         } else if (requestMethod.equals("POST") && Character.isDigit(page.charAt(page.length() - 1))) {
             history.setType("UPDATE");
             historyService.saveVisitorInfo(history);
-        } else if (requestMethod.equals("POST")) {
+        } else if (requestMethod.equals("POST") && !page.contains("/auth/login")) {
             history.setType("CREATE");
             historyService.saveVisitorInfo(history);
         }

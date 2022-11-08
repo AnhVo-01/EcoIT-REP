@@ -11,6 +11,14 @@
       <div class="d-flex align-items-center flex-wrap">
         <div class="d-flex align-items-center">
           <div class="menu-item here">
+            <div class="menu-link">
+              <a class="ht-btn-custom">
+                <i class="far fa-filter fa-lg"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="menu-item here">
             <div class="d-flex align-items-center menu-link">
               <span class="fw-semibold mr-1">Sắp xếp theo:</span>
               <form (change)="search()">
@@ -23,21 +31,16 @@
                   <option value="type">Hoạt động</option>
                 </select>
               </form>
-            </div>
-          </div>
-
-          <div class="menu-item" (click)="searchDirection('asc')">
-            <div class="menu-link">
-              <a class="ht-btn-custom">
-                <i class="far fa-sort-alpha-down fa-lg"></i>
-              </a>
-            </div>
-          </div>
-          <div class="menu-item" (click)="searchDirection('desc')">
-            <div class="menu-link">
-              <a class="ht-btn-custom">
-                <i class="far fa-sort-alpha-up fa-lg"></i>
-              </a>
+              <div class="menu-link" (click)="searchDirection('asc')">
+                <a class="ht-btn-custom">
+                  <i class="far fa-sort-alpha-down fa-lg"></i>
+                </a>
+              </div>
+              <div class="menu-link" (click)="searchDirection('desc')">
+                <a class="ht-btn-custom">
+                  <i class="far fa-sort-alpha-up fa-lg"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>

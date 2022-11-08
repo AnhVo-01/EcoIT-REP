@@ -32,7 +32,7 @@ public class BannerController {
                                @RequestParam(name = "pageSize", defaultValue = "4") int pageSize,
                                @RequestParam(name = "sortField", defaultValue = "id") String sortField,
                                @RequestParam(name = "sortDir", defaultValue = "desc") String sortDirection,
-                               @RequestParam("target") String target){
+                               @RequestParam(value = "target", required = false) String target){
 
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);

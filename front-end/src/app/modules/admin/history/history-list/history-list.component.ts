@@ -90,7 +90,7 @@ export class HistoryListComponent implements OnInit {
     this.removeHistories = this.histories.filter(item => item.selected)
     const formDATA = this.prepareFormData(this.removeHistories.map(id => id.id));
     this.historyService.deleteHistory(formDATA).subscribe(() => {
-      console.log("delete successfully!")
+      this.selects = null;
       this.listAll();
     })
   }

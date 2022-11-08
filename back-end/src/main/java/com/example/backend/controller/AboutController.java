@@ -44,9 +44,7 @@ public class AboutController {
                 addressList.add(addressRepository.findById(id).get());
             }
 
-            for (Address address2 : addressList){
-                addresses.add(address2);
-            }
+            addresses.addAll(addressList);
 
             aboutUs.setAddress(addresses);
         }

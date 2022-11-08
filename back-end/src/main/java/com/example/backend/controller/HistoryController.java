@@ -29,10 +29,10 @@ public class HistoryController {
     }
 
     @GetMapping("/search")
-    public Page<History> search(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
-                             @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
-                             @RequestParam(name = "sortField", defaultValue = "id") String sortField,
-                             @RequestParam(name = "sortDir", defaultValue = "desc") String sortDirection){
+    public Page<History> sort(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+                              @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
+                              @RequestParam(name = "sortField", defaultValue = "id") String sortField,
+                              @RequestParam(name = "sortDir", defaultValue = "desc") String sortDirection){
 
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
