@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Random;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,6 +32,11 @@ public class UserController {
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by("id").ascending() : Sort.by("id").descending();
         Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
         return userRepository.search(pageable, keyword);
+    }
+
+    @GetMapping("/user/all")
+    public ResponseEntity<List<User>> all(){
+        return ResponseEntity.ok(userRepository.findAll());
     }
 
     @GetMapping("/user/{id}")

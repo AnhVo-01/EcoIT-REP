@@ -17,6 +17,10 @@ export class HistoryService {
     return this.httpClient.get(`${this.baseURL}/search`,{params: param})
   }
 
+  getFilterList(param: HttpParams): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/filter`,{params: param})
+  }
+
   getAllHistory(): Observable<History[]>{
     return this.httpClient.get<History[]>(`${this.baseURL}`);
   }

@@ -17,6 +17,10 @@ export class UserService {
     return this.httpClient.get(`${this.baseURL}`,{params: param})
   }
 
+  getUserList(): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/all`)
+  }
+
   getUserById(id: number): Observable<User>{
     return this.httpClient.get<User>(`${this.baseURL}/${id}`);
   }

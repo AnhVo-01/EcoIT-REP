@@ -11,18 +11,53 @@
       <div class="d-flex align-items-center flex-wrap">
         <div class="d-flex align-items-center">
           <div class="menu-item here">
-            <div class="menu-link">
-              <a class="ht-btn-custom">
-                <i class="far fa-filter fa-lg"></i>
-              </a>
-            </div>
+            <form>
+              <div class="d-flex align-items-center menu-link">
+                <div class="mr-1">
+                  <select class="custom-select" style="width: 120px" [(ngModel)]="searchField.method" [ngModelOptions]="{standalone: true}">
+                    <option value="" [selected]="true">Phương thức</option>
+                    <option>POST</option>
+                    <option>GET</option>
+                  </select>
+                </div>
+                <div class="mx-1">
+                  <select class="custom-select" style="width: 120px" [(ngModel)]="searchField.action" [ngModelOptions]="{standalone: true}">
+                    <option value="" [selected]="true">Hoạt động</option>
+                    <option>CREATE</option>
+                    <option>UPDATE</option>
+                    <option>DELETE</option>
+                  </select>
+                </div>
+                <div class="mx-1">
+                  <select class="custom-select" style="width: 120px" [(ngModel)]="searchField.executor" [ngModelOptions]="{standalone: true}">
+                    <option value="" [selected]="true">Người thực hiện</option>
+                    <option *ngFor="let u of user">{{u.username}}</option>
+                  </select>
+                </div>
+                <div class="mx-1">
+                  <select class="custom-select" style="width: 120px" [(ngModel)]="searchField.page" [ngModelOptions]="{standalone: true}">
+                    <option value="" [selected]="true">Trang</option>
+                  </select>
+                </div>
+                <div class="ml-2" (click)="getByFilter()">
+                  <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Lọc">
+                    <i class="far fa-filter fa-lg"></i>
+                  </a>
+                </div>
+                <div class="ml-3" *ngIf="isFilter" (click)="clearFilter()">
+                  <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Đặt lại">
+                    <i class="far fa-undo-alt fa-lg"></i>
+                  </a>
+                </div>
+              </div>
+            </form>
           </div>
 
           <div class="menu-item here">
             <div class="d-flex align-items-center menu-link">
-              <span class="fw-semibold mr-1">Sắp xếp theo:</span>
               <form (change)="search()">
                 <select class="custom-select" style="width: 120px" [(ngModel)]="searchField.sortField" [ngModelOptions]="{standalone: true}">
+                  <option value="" [selected]="true">Sắp xếp theo</option>
                   <option value="date">Thời gian</option>
                   <option value="method">Phương thức</option>
                   <option value="page">Trang</option>

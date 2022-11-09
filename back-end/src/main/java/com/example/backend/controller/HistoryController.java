@@ -39,6 +39,21 @@ public class HistoryController {
         return historyRepository.findAll(pageable);
     }
 
+    @GetMapping("/filter")
+    public Page<History> filter(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+                                @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
+                                @RequestParam(name = "sortField", defaultValue = "id") String sortField,
+                                @RequestParam(name = "sortDir", defaultValue = "desc") String sortDirection,
+                                @RequestParam(value = "method", required = false) String method,
+                                @RequestParam(value = "executor", required = false) String executor,
+                                @RequestParam(value = "action", required = false) String action,
+                                @RequestParam("page") String page){
+
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
+        Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
+        return historyRepository.historyFilter(pageable, method, executor, action, page);
+    }
+
     @GetMapping("/{username}")
     public ResponseEntity<List<History>> listAllByUser(@PathVariable String username){
         return ResponseEntity.ok(historyRepository.getAllByExecutor(username));
