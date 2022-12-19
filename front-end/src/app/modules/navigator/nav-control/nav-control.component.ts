@@ -37,7 +37,7 @@ export class NavControlComponent implements OnInit {
   ngOnInit(): void {
     window.sessionStorage.removeItem("navGroup");
     window.sessionStorage.removeItem("navId");
-    this.getAllNavGroup();
+    this.getAllNav();
   }
 
   getAllNavGroup(){
@@ -47,6 +47,12 @@ export class NavControlComponent implements OnInit {
   }
 
   getAllNav(){
+    this.navService.getNavList().subscribe(data => {
+      this.navList = data;
+    });
+  }
+
+  getSearchNav(){
     const params = new HttpParams()
       .set('pageNo', this.searchField.pageIndex)
       .set('pageSize', this.searchField.pageSize)
@@ -58,26 +64,20 @@ export class NavControlComponent implements OnInit {
     });
   }
 
-  getAllNavChild(id: number){
-    this.navService.getNavChild(id).subscribe(data => {
-      this.navChild = data;
-    })
-  }
-
   search(){
     this.searchField.pageIndex = 1;
-    this.getAllNav();
+    this.getSearchNav();
   }
 
   pageChanged(event: any){
     this.searchField.pageIndex = event;
-    this.getAllNav();
+    this.getSearchNav();
   }
 
   changePageSize(event: any) {
     this.searchField.pageSize = event.target.value;
     this.searchField.pageIndex = 1;
-    this.getAllNav();
+    this.getSearchNav();
   }
 
   deleteControl(){
@@ -100,7 +100,22 @@ export class NavControlComponent implements OnInit {
 
   modalRef?: NgbModalRef;
 
-  openModal(e: any){
+  addNew(){
+    this.modalRef = this.modalService.open(NavAddComponent, {
+      size: "md",
+      centered: false,
+      backdrop: false,
+      animation: true,
+      backdropClass: "modal-backdrop"
+    });
+    this.modalRef.result.then(item => {
+      if(item){
+        this.getAllNavGroup();
+      }
+    })
+  }
+
+  addChild(e: any){
     this.modalRef = this.modalService.open(NavAddComponent, {
       size: "md",
       centered: false,
@@ -126,6 +141,7 @@ export class NavControlComponent implements OnInit {
     });
     this.modalRef.result.then(item => {
       if(item){
+        this.toast.show("Cập nhật thành công!", { classname: 'bg-success text-light', delay: 10000 })
         this.getAllNavGroup();
       }
     })

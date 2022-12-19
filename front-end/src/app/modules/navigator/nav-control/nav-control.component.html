@@ -71,7 +71,7 @@
         <!--begin::Actions-->
         <div class="menu-item">
           <div class="menu-link">
-            <a routerLink="add-new" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Thêm mới">
+            <a (click)="addNew()" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Thêm mới">
               <i class="fas fa-file-plus fa-lg"></i>
             </a>
           </div>
@@ -95,7 +95,7 @@
             <ul>
               <li *ngFor="let nav1 of navList">
                 <div class="d-flex justify-content-between align-items-center">
-                  <a class="collapsed" (click)="getAllNavChild(nav1.id)" data-toggle="collapse" href="#collapse{{nav1.id}}">
+                  <a class="collapsed"  data-toggle="collapse" href="#collapse{{nav1.id}}">
                     <i class="far fa-chevron-circle-right"></i>
                     {{nav1.name}}
                   </a>
@@ -111,7 +111,7 @@
                 </div>
                 <div id="collapse{{nav1.id}}" class="link-child collapse" data-parent="#accordion">
                   <ul>
-                    <li *ngFor="let nav2 of navChild" class="d-flex justify-content-between align-items-center">
+                    <li *ngFor="let nav2 of nav1.navChild" class="d-flex justify-content-between align-items-center">
                       <div style="width: 500px">
                         <input type="checkbox">
                         <span class="ml-2">{{nav2.name}}</span>
@@ -127,7 +127,7 @@
                       </div>
                     </li>
                     <li>
-                      <a type="button" class="ht-btn-custom" (click)="openModal($event)">
+                      <a type="button" class="ht-btn-custom" (click)="addChild($event)">
                         <i class="far fa-plus-circle mr-1"></i>
                         <span id="{{nav1.id}}">Thêm...</span>
                       </a>

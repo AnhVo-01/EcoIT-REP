@@ -147,3 +147,6 @@ a.btn-link[aria-expanded="false"] span i:nth-child(1){
    display: inline;
 }
 /*-------------------------------------------------------------*/
+.btn-box {
+  display: flex;
+}

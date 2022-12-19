@@ -36,7 +36,7 @@ public class NavController {
         return ResponseEntity.ok(navRepository.getAllGroup());
     }
 
-    @GetMapping("/nav/all")
+    @GetMapping("/nav/search")
     public Page<Navigation> search(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
                                 @RequestParam(name = "pageSize", defaultValue = "20") int pageSize,
                                 @RequestParam(name = "keyword") String keyword){
@@ -50,10 +50,6 @@ public class NavController {
     public ResponseEntity<Navigation> one(@PathVariable("id") Long id){
         return ResponseEntity.ok(navRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Could not found the navigation " + id)));
-    }
-    @GetMapping("/nav/child/{id}")
-    public ResponseEntity<List<Navigation>> getChild(@PathVariable("id") Long id){
-        return ResponseEntity.ok(navRepository.getChild(id));
     }
 
     @PostMapping("/nav")

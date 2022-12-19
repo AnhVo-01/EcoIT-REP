@@ -35,9 +35,9 @@ export class NavAddComponent implements OnInit {
         });
       }else{
         this.isChild = false;
-        this.getAllNavGroup();
       }
     }
+    this.getAllNavGroup();
 
   }
 
@@ -59,12 +59,6 @@ export class NavAddComponent implements OnInit {
     })
   }
 
-  addChild(){
-    this.navService.addNewNav(this.nav).subscribe(data =>{
-      this.modalService.close(true)
-    })
-  }
-
   onSubmit(){
     if(this.id){
       this.navService.updateNav(this.id, this.nav).subscribe(data =>{
@@ -76,6 +70,8 @@ export class NavAddComponent implements OnInit {
   }
 
   closeModal(){
+    window.sessionStorage.removeItem("navGroup");
+    window.sessionStorage.removeItem("navId");
     this.modalService.dismiss();
   }
 

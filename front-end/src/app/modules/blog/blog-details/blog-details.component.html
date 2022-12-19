@@ -18,12 +18,12 @@
             <!-- Post info Start -->
             <div class="post-info lg-blog-post-info  wow move-up">
 
-              <h4 class="post-title font-weight--bold m-0">{{news.title}}</h4>
+              <h4 class="post-title font-weight--bold m-0">{{blogs.title}}</h4>
 
               <div class="post-meta mt-20">
                 <div class="post-date">
                   <i class="far fa-calendar meta-icon"></i>
-                  {{news.date}}
+                  {{blogs.cDate}}
                 </div>
               </div>
 
@@ -102,16 +102,24 @@
           <div class="page-sidebar-content-wrapper page-sidebar-right  small-mt__40 tablet-mt__40">
 
             <!-- === Sidebar Widget Start ===-->
-            <div class="sidebar-widget widget-categories  wow move-up">
-              <ul>
-                <li class="cat-item"><a routerLink="/ve-chung-toi" routerLinkActive="ative">Về Chúng Tôi</a>
-                </li>
-                <li class="cat-item"><a href="#">Hồ Sơ Năng Lực</a>
-                </li>
-                <li class="cat-item"><a href="#">Khách Hàng Tiêu Biểu</a>
-                </li>
-              </ul>
-
+            <div class="sidebar-widget widget-categories wow move-up">
+              <div class="vc_column-inner">
+                <div class="wpb_wrapper">
+                  <div class="wdc-heading style-1 text-left">
+                    <ul class="box-info-company">
+                      <li class="text-bold">
+                        <a routerLink="/ve-chung-toi" routerLinkActive="ative">Về Chúng Tôi</a>
+                      </li>
+                      <li class="text-bold">
+                        <a href="https://ecoit.asia/ho-so-nang-luc/">Hồ Sơ Năng Lực</a>
+                      </li>
+                      <li class="text-bold">
+                        <a href="https://ecoit.asia/khach-hang/">Khách Hàng Tiêu Biểu</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- === Sidebar Widget End === -->
 

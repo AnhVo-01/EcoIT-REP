@@ -10,6 +10,8 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // @ts-ignore
+    document.getElementById("header").classList.add("header-area--absolute");
   }
 
 }

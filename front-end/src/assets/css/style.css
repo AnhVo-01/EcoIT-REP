@@ -104,7 +104,7 @@ body.no-overflow {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #2e3280;
+  color: #50B848;
   font-family: Rubik, Helvetica, Arial, sans-serif;
   font-weight: 700;
   margin-top: 0;
@@ -13945,7 +13945,7 @@ ol {
 }
 
 blockquote {
-  margin: 54px 65px 44px 70px !important;
+  /*margin: 54px 65px 44px 70px !important;*/
   padding: 0 0 0 20px;
   font-size: 18px;
   font-style: italic;
@@ -13956,11 +13956,11 @@ blockquote {
   color: #6d70a6;
 }
 
-@media only screen and (max-width: 767px) {
-  blockquote {
-    margin: 54px 65px 44px 30px !important;
-  }
-}
+/*@media only screen and (max-width: 767px) {*/
+/*  blockquote {*/
+/*    margin: 54px 65px 44px 30px !important;*/
+/*  }*/
+/*}*/
 
 .entry-post-tags {
   display: -webkit-box;
@@ -13976,7 +13976,7 @@ blockquote {
 }
 
 .entry-post-tags .tagcloud a:hover {
-  color: #38cb89;
+  color: #50B848;
 }
 
 .entry-post-share-wrap {
@@ -14029,7 +14029,7 @@ blockquote {
 
 .entry-post-share .share-media {
   position: relative;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
 }
 
 .entry-post-share .share-list {

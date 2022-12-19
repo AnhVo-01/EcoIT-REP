@@ -16,7 +16,7 @@ export class RecruitControlComponent implements OnInit {
   pageSizes = [3, 6, 9];
 
   url: any;
-  roles: any;
+  role: any;
 
   searchField = {
     pageIndex: 1,
@@ -31,9 +31,9 @@ export class RecruitControlComponent implements OnInit {
   ngOnInit(): void {
     if(this.tokenStorageService.getToken()) {
       const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
+      this.role = user.roles;
 
-      if(this.roles.includes("ROLE_USER")){
+      if(this.role.includes("ROLE_USER")){
         this.router.navigate(['/home']);
       }
 

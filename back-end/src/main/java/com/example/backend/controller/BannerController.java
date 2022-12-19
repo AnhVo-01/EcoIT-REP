@@ -37,10 +37,11 @@ public class BannerController {
         Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() : Sort.by(sortField).descending();
         Pageable pageable = PageRequest.of(pageNo-1, pageSize, sort);
 
-        if (target != null){
-            return bannerRepository.filter(pageable, target);
-        }
-        return bannerRepository.findAll(pageable);
+//        if (target != null || !target.trim().isEmpty()){
+//            return bannerRepository.filter(pageable, target);
+//        }else{
+//        }
+            return bannerRepository.findAll(pageable);
     }
 
     @GetMapping("/home/banner/{target}")

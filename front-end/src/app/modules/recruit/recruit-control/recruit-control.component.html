@@ -53,7 +53,7 @@
         <!--begin::Actions-->
         <div class="menu-item">
           <div class="menu-link">
-            <a class="ht-btn-custom" routerLink="new" routerLinkActive="active" data-toggle="tooltip" title="Thêm tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
+            <a routerLink="new" routerLinkActive="active" class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Tin mới"><i class="fas fa-file-plus fa-lg"></i></a>
           </div>
         </div>
         <!--end::Actions-->
@@ -100,7 +100,7 @@
                         <button (click)="updateNews(rec.id)" class="ht-btn-custom">
                           <span class="fa fa-pen meta-icon"></span>
                         </button>
-                        <button (click)="deleteNews(rec.id)" class="ht-btn-custom" style="background: #f00">
+                        <button *ngIf="role.includes('ROLE_ADMIN')" (click)="deleteNews(rec.id)" class="ht-btn-custom" style="background: #f00">
                           <span class="far fa-trash meta-icon"></span>
                         </button>
                       </div>
@@ -117,9 +117,7 @@
                   </div>
 
                   <div id="collapse{{rec.id}}" class="collapse" data-parent="#accordion">
-                    <div class="card-body">
-                      <p>{{rec.content}}</p>
-                    </div>
+                    <div class="card-body" [innerHTML]="rec.content"></div>
                   </div>
                 </div>
               </div>

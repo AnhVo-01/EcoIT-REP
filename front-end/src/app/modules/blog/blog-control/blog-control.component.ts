@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {FileService} from "../../../services/file/file.service";
 import {HttpParams} from "@angular/common/http";
 import * as fileSaver from "file-saver";
+import {TokenStorageService} from "../../../services/token-storage/token-storage.service";
 
 @Component({
   selector: 'app-blog-control',
@@ -23,10 +24,21 @@ export class BlogControlComponent implements OnInit {
     keyword: ''
   }
 
-  constructor(private blogService: BlogService, private router: Router, private fileService: FileService) { }
+  role: any;
+
+  constructor(private blogService: BlogService, private router: Router,
+              private fileService: FileService, private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
-    this.getBySearch();
+    if(this.tokenStorageService.getToken()) {
+      const user = this.tokenStorageService.getUser();
+      this.role = user.roles;
+
+      this.getBySearch();
+
+    }else{
+      this.router.navigate(['/login']);
+    }
   }
 
   getBySearch(){

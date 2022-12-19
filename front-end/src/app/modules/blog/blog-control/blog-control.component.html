@@ -92,7 +92,7 @@
                         <button (click)="updateBlog(blog.id)" class="ht-btn-custom">
                           <span class="fa fa-pen meta-icon"></span>
                         </button>
-                        <button (click)="deleteBlog(blog.id)" class="ht-btn-custom" style="background: #f00">
+                        <button *ngIf="role.includes('ROLE_ADMIN')" (click)="deleteBlog(blog.id)" class="ht-btn-custom" style="background: #f00">
                           <span class="far fa-trash meta-icon"></span>
                         </button>
                       </div>

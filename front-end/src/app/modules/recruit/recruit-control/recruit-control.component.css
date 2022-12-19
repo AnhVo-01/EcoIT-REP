@@ -67,6 +67,10 @@
   object-fit: fill;
 }
 
+.btn-box {
+  display: flex;
+}
+
 .btn-box .ht-btn-custom{
   height: 100px;
   width: 50px;

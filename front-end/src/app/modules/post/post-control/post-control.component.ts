@@ -19,7 +19,7 @@ export class PostControlComponent implements OnInit {
   pageSizes = [3, 6, 9];
 
   url: any;
-  roles: any;
+  role: any;
 
   searchField = {
     pageIndex: 1,
@@ -34,7 +34,7 @@ export class PostControlComponent implements OnInit {
   ngOnInit(): void {
     if(this.tokenStorageService.getToken()) {
       const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
+      this.role = user.roles;
 
       this.getBySearch();
 

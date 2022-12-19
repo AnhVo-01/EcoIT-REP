@@ -23,12 +23,8 @@ export class NavigationService {
     return this.httpClient.get<Navigator[]>(`${this.baseURL}/${this.domain}/group`);
   }
 
-  getNavChild(id: number): Observable<Navigator[]>{
-    return this.httpClient.get<Navigator[]>(`${this.baseURL}/${this.domain}/child/${id}`);
-  }
-
   searchNavList(param: HttpParams): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/${this.domain}/all`, {params: param});
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/search`, {params: param});
   }
 
   getById(id:any): Observable<Navigator>{

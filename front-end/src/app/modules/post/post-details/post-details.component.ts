@@ -15,7 +15,6 @@ export class PostDetailsComponent implements OnInit {
   url: any;
   news: Post = new Post();
   content: any;
-
   roles: any;
   constructor(private route: ActivatedRoute, private newsService: PostService,
               private sanitizer: DomSanitizer, private tokenStorageService: TokenStorageService) { }

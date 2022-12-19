@@ -72,6 +72,7 @@ import { AlbumsComponent } from './modules/typical/albums/albums/albums.componen
 import { AlbumsDetailsComponent } from './modules/typical/albums/albums-details/albums-details.component';
 import { BannerControlComponent } from './modules/banner/banner-control/banner-control.component';
 import { BannerAddComponent } from './modules/banner/banner-add/banner-add.component';
+import { BlogDetailsComponent } from './modules/blog/blog-details/blog-details.component';
 
 @NgModule({
   declarations: [
@@ -136,7 +137,8 @@ import { BannerAddComponent } from './modules/banner/banner-add/banner-add.compo
     AlbumsComponent,
     AlbumsDetailsComponent,
     BannerControlComponent,
-    BannerAddComponent
+    BannerAddComponent,
+    BlogDetailsComponent
   ],
   imports: [
     BrowserModule,

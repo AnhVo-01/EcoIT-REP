@@ -46,7 +46,6 @@ export class BannerControlComponent implements OnInit {
       this.bannerList = data.content;
       this.searchField.totalElements = data.totalElements;
       this.totalPages = data.totalPages;
-      console.log(data)
     });
   }
 

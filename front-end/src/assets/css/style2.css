@@ -132,6 +132,9 @@ ul#primary-menu li.active  > a::after{
   padding-left: 0;
   border-bottom: 1px solid #50b848;
 }
+.box-info-company li a{
+  color: #50B848;
+}
 .ma-top-5{
   margin-top: 50px;
 }
@@ -187,13 +190,13 @@ ul#primary-menu li.active  > a::after{
   }
 }
 @media (max-width: 992px){
-  .wdc-iconbox.style-3{
-    padding: 0 !important;
-  }
-}
-@media (max-width: 767px){
   .row{
     margin-right: 0;
+    margin-left: 0;
+  }
+
+  .wdc-iconbox.style-3{
+    padding: 0 !important;
   }
 }
 
