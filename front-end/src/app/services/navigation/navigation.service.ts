@@ -42,4 +42,8 @@ export class NavigationService {
   deleteNav(id: number): Observable<Object>{
     return this.httpClient.get(`${this.baseURL}/${this.domain}/delete/${id}`);
   }
+
+  deleteAllNav(formData: FormData): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/${this.domain}/deleteAll`, formData);
+  }
 }

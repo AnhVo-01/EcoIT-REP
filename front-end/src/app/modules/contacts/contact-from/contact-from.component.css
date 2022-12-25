@@ -34,12 +34,26 @@
 }
 
 .box-lienhe .img-background{
+  display: none;
   position: absolute;
   left: 580px;
   top: 0px;
   bottom: 0px;
   right: 0px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .box-lienhe .form-input {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media screen and (min-width: 992px){
+  .box-lienhe .img-background {
+    display: block;
+  }
+}
+
 .box-lienhe .img-background .img-over{
   height: 100%;
   width: 100%;

@@ -24,3 +24,7 @@
   overflow: hidden;
   display: -webkit-box;
 }
+
+.faq-wrapper .content-box .content a:hover{
+  color: #50b848;
+}

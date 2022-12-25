@@ -55,6 +55,11 @@ public class BlogController {
         return blogRepository.getBlogsByActiveIsTrueOrderByIdDesc();
     }
 
+    @GetMapping("/home/blogs/{url}")
+    public Blog getByURL(@PathVariable String url) {
+        return blogRepository.getBlogByLink(url);
+    }
+
     Date date = new Date();
     SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -118,11 +123,6 @@ public class BlogController {
     public Blog one(@PathVariable Long id) {
         return blogRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Could not found the " + id));
-    }
-
-    @GetMapping("/blogs/{url}")
-    public Blog getByURL(@PathVariable String url) {
-        return blogRepository.getBlogByLink(url);
     }
 
     @GetMapping("/blogs/delete/{id}")

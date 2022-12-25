@@ -8,6 +8,12 @@
 
 .wp-post-image{
   width: 100vw;
-  height: 85vh;
+  height: 35vh;
   object-fit: cover;
+}
+
+@media screen and (min-width: 992px){
+  .wp-post-image{
+    height: 85vh;
+  }
 }

@@ -98,24 +98,6 @@
           </div>
         </div>
         <!--end::Daterangepicker-->
-        <!--begin::Actions-->
-        <div class="menu-item del-area" *ngIf="selects">
-          <span class="pl-2 mx-2">Đã chọn:</span>
-
-          <div class="number">{{selects}}</div>
-
-          <div class="menu-link" (click)="clearLog()">
-            <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Xóa">
-              <i class="far fa-trash-alt fa-lg"></i>
-            </a>
-          </div>
-          <div class="menu-link" (click)="uncheckAll()">
-            <a class="ht-btn-custom p-action-btn hint--rounded hint--bounce hint--bottom-left" aria-label="Hủy">
-              <i class="far fa-times fa-lg"></i>
-            </a>
-          </div>
-        </div>
-        <!--end::Actions-->
       </div>
       <!--end::Wrapper-->
     </div>
@@ -138,7 +120,6 @@
               <table class="table">
                 <thead>
                 <tr>
-                  <td></td>
                   <td>Thời gian</td>
                   <td>Phương thức</td>
                   <td>Trang</td>
@@ -149,9 +130,6 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let h of histories | paginate: {  totalItems: searchField.totalElements, itemsPerPage: searchField.pageSize, currentPage: searchField.pageIndex }">
-                  <td>
-                    <input #checkboxes type="checkbox" [value]="h.selected" (change)="onCheckChange($event, h)">
-                  </td>
                   <td>{{h.date}}</td>
                   <td>{{h.method}}</td>
                   <td>{{h.page}}</td>

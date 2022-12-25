@@ -3,7 +3,7 @@ export class Blog {
   title: any;
   description: any;
   content: any;
-  cDate: any;
+  cdate: any;
   thumb: any;
   link: any;
 }

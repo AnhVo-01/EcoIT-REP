@@ -12,3 +12,9 @@
   height: 1px;
   width: 150px;
 }
+
+.chuyenmuc {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}

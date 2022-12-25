@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -73,5 +74,15 @@ public class NavController {
         Navigation navigation = navRepository.findById(id).get();
         navigation.setActive(false);
         return ResponseEntity.ok(navRepository.save(navigation));
+    }
+
+    @PostMapping("/nav/deleteAll")
+    public void deleteAll(@RequestPart("id") Long[] ids){
+        navRepository.deleteAll(ids);
+    }
+
+    @PostMapping("/nav/removeAll")
+    public void removeAll(@RequestPart("id") Long[] ids){
+        navRepository.deleteAllByIdInBatch(Arrays.asList(ids));
     }
 }

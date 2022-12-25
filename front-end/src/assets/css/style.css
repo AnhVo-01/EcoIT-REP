@@ -256,7 +256,7 @@ a:focus {
 
 a:hover {
   text-decoration: none;
-  color: #5945e6;
+  /*color: #5945e6;*/
 }
 
 button, input[type="submit"] {
@@ -3093,6 +3093,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
         -ms-flex-preferred-size: 30%;
             flex-basis: 30%;
   }
+
+  .header__logo > a img {
+    width: 130px !important;
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -5712,11 +5716,13 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, in
   right: 0;
   width: 0;
   height: 1px;
-  background-color: #5945e6;
+  background-color: #50b848;
+  /*background-color: #5945e6;*/
 }
 
 .hover-style-link:hover {
-  color: #5945e6;
+  /*color: #5945e6;*/
+  color: #50b848;
 }
 
 .hover-style-link:hover:after {
@@ -14617,9 +14623,10 @@ blockquote {
   padding-top: 31px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 991px) {
   .single-portfolio-list-item .post-info.list-item-space {
-    padding-left: 0px;
+    padding-left: 0;
+    padding-top: 0;
   }
 }
 

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpParams} from "@angular/common/http";
 import {HistoryService} from "../../../../services/history/history.service";
 import {History} from "../history";
@@ -13,9 +13,7 @@ import {User} from "../../../../core/model/user/user";
 export class HistoryListComponent implements OnInit {
 
   histories: History[] = [];
-  removeHistories: History[] = [];
   user: User[] = [];
-  selects: any;
   isFilter = false;
 
   totalPages: any;
@@ -107,39 +105,6 @@ export class HistoryListComponent implements OnInit {
     this.searchField.pageSize = psize.target.value;
     this.searchField.pageIndex = 1;
     this.getBySearch();
-  }
-
-  onCheckChange(event: any, history: History){
-    history.selected = event.currentTarget.checked;
-    this.selects = this.histories.filter(item => item.selected).length;
-  }
-
-  prepareFormData(ids: any): FormData {
-    const  formData = new FormData();
-    formData.append(
-      'id',
-      new Blob([JSON.stringify(ids)], {type: 'application/json'})
-    )
-
-    return formData;
-  }
-
-  clearLog(){
-    this.removeHistories = this.histories.filter(item => item.selected)
-    const formDATA = this.prepareFormData(this.removeHistories.map(id => id.id));
-    this.historyService.deleteHistory(formDATA).subscribe(() => {
-      this.selects = null;
-      this.listAll();
-    })
-  }
-
-  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef> | undefined;
-  uncheckAll() {
-    // @ts-ignore
-    this.checkboxes.forEach((element) => {
-      element.nativeElement.checked = false;
-    });
-    this.selects = null;
   }
 
 }

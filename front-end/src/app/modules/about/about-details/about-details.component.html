@@ -1,7 +1,7 @@
 <app-nav-list></app-nav-list>
 
 <!-- breadcrumb-area start -->
-<div class="breadcrumb-box section-space--pt_100">
+<div class="breadcrumb-box">
   <img src="assets/images/banners/banner-gioi-thiệu-v2-.jpg" class="img-fluid">
 </div>
 <!-- breadcrumb-area end -->
@@ -39,16 +39,24 @@
         <div class="page-sidebar-content-wrapper page-sidebar-right  small-mt__40 tablet-mt__40">
 
           <!-- === Sidebar Widget Start ===-->
-          <div class="sidebar-widget widget-categories  wow move-up">
-            <ul>
-              <li class="cat-item"><a routerLink="/ve-chung-toi" routerLinkActive="ative">Về Chúng Tôi</a>
-              </li>
-              <li class="cat-item"><a href="#">Hồ Sơ Năng Lực</a>
-              </li>
-              <li class="cat-item"><a href="#">Khách Hàng Tiêu Biểu</a>
-              </li>
-            </ul>
-
+          <div class="sidebar-widget widget-categories wow move-up">
+            <div class="vc_column-inner">
+              <div class="wpb_wrapper">
+                <div class="wdc-heading style-1 text-left">
+                  <ul class="box-info-company">
+                    <li class="text-bold">
+                      <a routerLink="/ve-chung-toi" routerLinkActive="ative">Về Chúng Tôi</a>
+                    </li>
+                    <li class="text-bold">
+                      <a href="https://ecoit.asia/ho-so-nang-luc/">Hồ Sơ Năng Lực</a>
+                    </li>
+                    <li class="text-bold">
+                      <a href="/khach-hang-tieu-bieu">Khách Hàng Tiêu Biểu</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- === Sidebar Widget End === -->
 

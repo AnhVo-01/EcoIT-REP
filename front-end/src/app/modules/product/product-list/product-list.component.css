@@ -1,6 +1,8 @@
-.col-2dot4{
-  flex: calc(100% / 5);
-  max-width: calc(100% / 5);
+@media screen and (min-width: 992px) {
+  .col-2dot4{
+    flex: calc(100% / 5);
+    max-width: calc(100% / 5);
+  }
 }
 
 .ht-service-box--two .box-icon{

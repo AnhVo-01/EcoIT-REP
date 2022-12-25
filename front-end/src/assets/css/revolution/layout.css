@@ -230,9 +230,9 @@ ul.primary-menu ul li ul,
   position:absolute;
   top:50%;
   color:inherit;
-  right:35px;
-  width:20px;
-  height:15px;
+  right:30px;
+  width:25px;
+  height:20px;
   transform:translateY(-50%);
   -webkit-transform:translateY(-50%);
 }
@@ -245,13 +245,15 @@ ul.primary-menu ul li ul,
   height:3px;
   content:'';
   top:0;
-  border-top:3px solid;
+  border-top:4px solid;
+  border-radius: 2px;
+  color: #50b848;
 }
 #toggle-mobile-menu span::before{
-  top:6px;
+  top:8px;
 }
 #toggle-mobile-menu span::after{
-  top:12px;
+  top:16px;
 }
 #toggle-mobile-menu span{
   position:relative;

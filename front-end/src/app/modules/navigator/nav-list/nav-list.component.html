@@ -11,6 +11,25 @@
                 <img src="assets/images/avatars/logoEcoit.jpg" class="img-fluid" alt="Saas">
               </a>
             </div>
+            <!-- navigation mobile menu -->
+            <div class="d-xl-none">
+              <a id="toggle-mobile-menu" class="toggle-menu d-block"><span></span></a>
+            </div>
+            <div id="mobile-container" class="mt-20">
+              <ul id="mobile-menu" class="mobile-menu">
+                <li class="menu-item">
+                  <a title="Trang chủ" href="/" class="nav-link">Trang chủ</a>
+                </li>
+                <li *ngFor="let nav of navParent" class="menu-item has-children dropdown">
+                  <a routerLink="{{nav.url}}" title="{{nav.name}}" data-toggle="dropdown" class="dropdown-toggle nav-link">{{nav.name}}</a>
+                  <ul *ngIf="nav.navChild.length > 0" class="dropdown-menu">
+                    <li *ngFor="let nav1 of nav.navChild" class="menu-item">
+                      <a routerLink="{{nav1.url}}" title="{{nav1.name}}" class="dropdown-item">{{nav1.name}}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
             <!-- navigation menu -->
             <div class="header__navigation d-none d-xl-block">
               <div class="header__navigation--four">
@@ -41,7 +60,7 @@
                     </div>
                     <div class="header-right-info ">
                       <a class="btn header-button" href="/lien-he">
-                        <span >LIÊN HỆ TƯ VẤN</span>
+                        <span>LIÊN HỆ TƯ VẤN</span>
                       </a>
                     </div>
                   </div>
@@ -50,8 +69,9 @@
                     <nav class="navigation-menu">
                       <ul class="menu-primary text-uppercase">
                         <li class="menu-item"><a href="/">TRANG CHỦ</a></li>
-                        <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu" id="child-li">
-                          <a routerLink="{{nav.url}}" routerLinkActive="f">{{nav.name}}</a>
+                        <li *ngFor="let nav of navParent" class="has-children has-children--multilevel-submenu"
+                            id="child-li">
+                          <a routerLink="{{nav.url}}" routerLinkActive="active">{{nav.name}}</a>
                           <ul *ngIf="nav.navChild.length > 0" class="submenu p-2">
                             <li *ngFor="let nav1 of nav.navChild">
                               <a routerLink="{{nav1.url}}" routerLinkActive="active" class="px-3 py-2">{{nav1.name}}</a>

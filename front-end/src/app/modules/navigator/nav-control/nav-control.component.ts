@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, QueryList, Renderer2, ViewChild, ViewChildren} from '@angular/core';
 import {HttpParams} from "@angular/common/http";
 import {Navigator} from "../../../core/model/navigator/navigator";
 import {Router} from "@angular/router";
@@ -19,8 +19,9 @@ export class NavControlComponent implements OnInit {
   id: any;
   nav: Navigator = new Navigator();
   navList: Navigator[] = [];
-  navChild: Navigator[] = [];
-
+  selectNavList: Navigator[] = [];
+  removeSelectNav: Navigator[] = [];
+  selects: any;
   totalPages: any;
   pageSizes = [20, 30, 40];
 
@@ -31,8 +32,22 @@ export class NavControlComponent implements OnInit {
     keyword: ''
   }
 
-  constructor(private navService: NavigationService, private router: Router,
-              private modalService: NgbModal, private toast: ToastService) { }
+  actionT = false;
+  actionId: any;
+
+  constructor(private navService: NavigationService, private router: Router, private renderer: Renderer2,
+              private modalService: NgbModal, private toast: ToastService) {
+
+    this.renderer.listen('window', 'click',(e:Event)=>{
+
+      // @ts-ignore
+      if (e.target.id !== this.actionId) {
+        this.actionT = false;
+        // @ts-ignore
+        document.getElementById(`${this.actionId}`).classList.toggle('target');
+      }
+    });
+  }
 
   ngOnInit(): void {
     window.sessionStorage.removeItem("navGroup");
@@ -88,15 +103,70 @@ export class NavControlComponent implements OnInit {
   }
 
   deleteNav(id: number){
-    let option = confirm("Bạn có chắc chắn xóa điều hướng này không?");
+    let option = confirm("Bạn có chắc chắn thực hiện điều này không?");
 
     if(option){
       this.navService.deleteNav(id).subscribe(data =>{
-        this.toast.show("Xóa thành công!", { classname: 'bg-success text-light', delay: 10000 })
-        // this.deleteControl();
+        // this.toast.show("Xóa thành công!", { classname: 'bg-success text-light', delay: 10000 })
+        this.deleteControl();
       })
     }
   }
+
+  // ==================================================================================
+  actionTarget(event: any) {
+    let target: any = event.target || event.srcElement || event.currentTarget;
+    let idAttr = target.attributes.id;
+
+    this.actionId = idAttr.nodeValue;
+    this.actionT = true;
+
+    let current = document.getElementsByClassName("target");
+
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" target", "");
+    }
+
+    event.target.classList.toggle('target');
+
+  }
+
+  prepareFormData(ids: any): FormData {
+    const  formData = new FormData();
+    formData.append(
+      'id',
+      new Blob([JSON.stringify(ids)], {type: 'application/json'})
+    )
+
+    return formData;
+  }
+
+  onCheckChange(event: any, navigator: Navigator){
+    this.selectNavList.push(navigator);
+    navigator.selected = event.currentTarget.checked;
+    this.selects = this.selectNavList.filter(item => item.selected).length;
+  }
+
+  clearAll(){
+    this.removeSelectNav = this.selectNavList.filter(item => item.selected);
+    const formDATA = this.prepareFormData(this.removeSelectNav.map(id => id.id));
+    this.navService.deleteAllNav(formDATA).subscribe(() => {
+      this.selects = null;
+      this.selectNavList = [];
+      this.getAllNav();
+    })
+  }
+
+  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef> | undefined;
+  uncheckAll() {
+    // @ts-ignore
+    this.checkboxes.forEach((element) => {
+      element.nativeElement.checked = false;
+    });
+    this.selects = null;
+  }
+
+  // ======== popup ===========================================================
 
   modalRef?: NgbModalRef;
 

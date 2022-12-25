@@ -23,12 +23,12 @@ export class BlogService {
     return this.httpClient.get<Blog[]>(`${this.baseURL}/home/${this.domain}`)
   }
 
-  getBlogById(id: number): Observable<Blog>{
-    return this.httpClient.get<Blog>(`${this.baseURL}/${this.domain}/d/${id}`);
+  getBlogByUrl(url: string): Observable<Blog>{
+    return this.httpClient.get<Blog>(`${this.baseURL}/home/${this.domain}/${url}`);
   }
 
-  getBlogByUrl(url: string): Observable<Blog>{
-    return this.httpClient.get<Blog>(`${this.baseURL}/${this.domain}/${url}`);
+  getBlogById(id: number): Observable<Blog>{
+    return this.httpClient.get<Blog>(`${this.baseURL}/${this.domain}/d/${id}`);
   }
 
   writeBlog(blog: FormData): Observable<Object>{

@@ -74,3 +74,9 @@
   height: 40px;
   padding: 0;
 }
+
+.chuyenmuc {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: capitalize;
+}

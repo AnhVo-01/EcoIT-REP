@@ -112,27 +112,52 @@
   width: 80px;
 }
 
-.aeroland-startup-box-icon{
-  background: #ddd;
-  position: absolute;
-  z-index: 1000;
-  top: 0;
-  width: 190px;
-  height: 150px;
-  display: none;
+.del-area{
+  height: 44px;
+  background-color: #F4F6FA;
+  border-radius: 0.475rem;
+  color: #009ef7;
 }
-.aeroland-startup-box-icon:hover{
-  display: block;
+.del-area .number{
+  height: 25px;
+  width: 30px;
+  color: #495057;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  text-align: center;
 }
-
-.product-name{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 8px;
-}
-
 /* ---------------------------------- main --------------------------------*/
 .link-child ul li{
   border-top: 1px dotted #0d0d0d;
   padding-left: 20px;
+}
+
+.has-child {
+  font-family: "Font Awesome 5 Pro";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-weight: 400;
+  width: 20px;
+}
+
+.has-child.active:before {
+  content: "\f146";
+}
+
+.has-child.active.collapsed:before {
+  content: "\f0fe";
+}
+
+.slacttar {
+  cursor: default;
+}
+
+.slacttar.target {
+  color: #009cf7;
 }

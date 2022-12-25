@@ -23,12 +23,12 @@ export class RecruitService {
     return this.httpClient.get<Recruit[]>(`${this.baseURL}/home/${this.domain}`);
   }
 
-  getById(id: number): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/${this.domain}/d/${id}`);
+  getDetails(url: string): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/home/${this.domain}/${url}`);
   }
 
-  getDetails(url: string): Observable<any>{
-    return this.httpClient.get(`${this.baseURL}/${this.domain}/${url}`);
+  getById(id: number): Observable<any>{
+    return this.httpClient.get(`${this.baseURL}/${this.domain}/d/${id}`);
   }
 
   addRecruit(recruit: FormData): Observable<Object>{

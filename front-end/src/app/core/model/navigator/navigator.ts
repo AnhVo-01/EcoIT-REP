@@ -5,4 +5,5 @@ export class Navigator {
   parentId: any;
   active: any;
   navChild: any;
+  selected = false;
 }

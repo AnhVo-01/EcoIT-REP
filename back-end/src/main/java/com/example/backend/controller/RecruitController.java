@@ -53,14 +53,15 @@ public class RecruitController {
         return ResponseEntity.ok(repository.listAllRecruit());
     }
 
+    @GetMapping("/home/recruit/{url}")
+    public ResponseEntity<Recruit> getDetails(@PathVariable("url") String url) {
+        return ResponseEntity.ok(repository.getRecruitByUrl(url));
+    }
+
     @GetMapping("/recruit/d/{id}")
     public Recruit one(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Could not found the recruit "+id));
-    }
-    @GetMapping("/recruit/{url}")
-    public ResponseEntity<Recruit> getDetails(@PathVariable("url") String url) {
-        return ResponseEntity.ok(repository.getRecruitByUrl(url));
     }
 
     @PostMapping(value = "/recruit", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
